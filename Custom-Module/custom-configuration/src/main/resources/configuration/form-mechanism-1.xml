@@ -1,0 +1,541 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<configuration xmlns="https://cm5.intertrust.ru/config"
+        >
+    <!-- Test 1 - direct references 1:1 -->
+    <domain-object-type name="a1">
+        <fields>
+            <string name="name1" length="128" not-null="true"/>
+            <string name="name2" length="128"/>
+            <reference name="b1" type="b1" not-null="true"/>
+        </fields>
+        <uniqueKey>
+            <field name="name1"/>
+        </uniqueKey>
+    </domain-object-type>
+
+    <domain-object-type name="b1">
+        <fields>
+            <string name="name1" length="128" not-null="true"/>
+            <string name="name2" length="128"/>
+            <reference name="c1" type="c1" not-null="true"/>
+        </fields>
+        <uniqueKey>
+            <field name="name1"/>
+        </uniqueKey>
+    </domain-object-type>
+
+    <domain-object-type name="c1">
+        <fields>
+            <string name="name1" length="128" not-null="true"/>
+            <string name="name2" length="128"/>
+            <reference name="d1" type="d1" not-null="true"/>
+        </fields>
+        <uniqueKey>
+            <field name="name1"/>
+        </uniqueKey>
+    </domain-object-type>
+
+    <domain-object-type name="d1">
+        <fields>
+            <string name="name1" length="128" not-null="true"/>
+            <string name="name2" length="128"/>
+        </fields>
+        <uniqueKey>
+            <field name="name1"/>
+        </uniqueKey>
+    </domain-object-type>
+
+    <domain-object-type name="e1">
+        <fields>
+            <reference name="a1" type="a1"/>
+            <string name="name1" length="128" not-null="true"/>
+            <string name="name2" length="128"/>
+            <string name="string_field" length="128"/>
+            <long name="long_field"/>
+            <decimal name="decimal_field"/>
+            <boolean name="boolean_field"/>
+            <date-time name="date_time_field"/>
+            <dateTimeWithTimeZone name="date_w_tz_field"/>
+            <timelessDate name="timeless_date_field"/>
+            <reference name="a1_2" type="a1"/>
+            <reference name="a_person" type="person"/>
+        </fields>
+        <uniqueKey>
+            <field name="name1"/>
+        </uniqueKey>
+    </domain-object-type>
+
+    <domain-object-type name="f1">
+        <fields>
+            <string name="name1" length="128" not-null="true"/>
+            <string name="name2" length="128"/>
+        </fields>
+        <uniqueKey>
+            <field name="name1"/>
+        </uniqueKey>
+    </domain-object-type>
+
+    <domain-object-type name="g1">
+        <fields>
+            <reference name="a1" type="a1"/>
+            <string name="name1" length="128" not-null="true"/>
+            <string name="name2" length="128"/>
+            <string name="string_field" length="128"/>
+            <long name="long_field"/>
+            <decimal name="decimal_field"/>
+            <boolean name="boolean_field"/>
+            <date-time name="date_time_field"/>
+            <dateTimeWithTimeZone name="date_w_tz_field"/>
+            <timelessDate name="timeless_date_field"/>
+            <reference name="a1_2" type="a1"/>
+            <reference name="a_person" type="person"/>
+        </fields>
+    </domain-object-type>
+
+    <domain-object-type name="a1_f1">
+        <fields>
+            <reference name="a1" type="a1"/>
+            <reference name="f1" type="f1"/>
+        </fields>
+    </domain-object-type>
+
+    <form name="a1_form" domain-object-type="a1" is-default="true">
+        <markup>
+            <header>
+                <table>
+                    <tr>
+                        <td width="100px" h-align="right">
+                            <widget id="a_name1_label"/>
+                        </td>
+                        <td width="100%" h-align="left">
+                            <widget id="a_name1"/>
+                        </td>
+                    </tr>
+                </table>
+            </header>
+            <body display-single-tab="false">
+                <tab name="Главная">
+                    <single-entry-group>
+                        <tab-group>
+                            <table>
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="a_name2_label"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="a_name2"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="b_name1_label"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="b_name1"/>
+                                    </td>
+                                    <td h-align="right">
+                                        <widget id="b_name2_label"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="b_name2"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="c_name1_label"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="c_name1"/>
+                                    </td>
+                                    <td h-align="right">
+                                        <widget id="c_name2_label"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="c_name2"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="d_name1_label"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="d_name1"/>
+                                    </td>
+                                    <td h-align="right">
+                                        <widget id="d_name2_label"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="d_name2"/>
+                                    </td>
+                                </tr>
+                            </table>
+                        </tab-group>
+                    </single-entry-group>
+                </tab>
+                <tab name="Связанные">
+                    <single-entry-group>
+                        <tab-group>
+                            <table>
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="e1_1:N_label"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="e1_1:N"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="f1_N:M_label"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="f1_N:M"/>
+                                    </td>
+                                </tr>
+                            </table>
+                        </tab-group>
+                    </single-entry-group>
+                </tab>
+            </body>
+        </markup>
+        <widget-config>
+            <label id="b_name1_label">
+                <field-path/>
+                <text>B. Name 1:</text>
+            </label>
+            <text-box id="b_name1">
+                <field-path value="b1.name1"/>
+            </text-box>
+            <label id="b_name2_label">
+                <field-path/>
+                <text>B. Name 2:</text>
+            </label>
+            <text-box id="b_name2">
+                <field-path value="b1.name2"/>
+            </text-box>
+
+            <label id="d_name1_label">
+                <field-path/>
+                <text>D. Name 1:</text>
+            </label>
+            <text-box id="d_name1">
+                <field-path value="b1.c1.d1.name1"/>
+            </text-box>
+            <label id="d_name2_label">
+                <field-path/>
+                <text>D. Name 2:</text>
+            </label>
+            <text-box id="d_name2">
+                <field-path value="b1.c1.d1.name2"/>
+            </text-box>
+
+            <label id="a_name1_label">
+                <field-path/>
+                <text>A. Name 1:</text>
+            </label>
+            <text-box id="a_name1">
+                <field-path value="name1"/>
+            </text-box>
+            <label id="a_name2_label">
+                <field-path/>
+                <text>A. Name 2:</text>
+            </label>
+            <text-box id="a_name2">
+                <field-path value="name2"/>
+            </text-box>
+
+            <label id="c_name1_label">
+                <field-path/>
+                <text>C. Name 1:</text>
+            </label>
+            <text-box id="c_name1">
+                <field-path value="b1.c1.name1"/>
+            </text-box>
+            <label id="c_name2_label">
+                <field-path/>
+                <text>C. Name 2:</text>
+            </label>
+            <text-box id="c_name2">
+                <field-path value="b1.c1.name2"/>
+            </text-box>
+
+            <label id="e1_1:N_label"> <!-- show only "active" and set as "inactive" on unlink -->
+                <field-path/>
+                <text>E1 (1:N):</text>
+            </label>
+            <suggest-box id="e1_1:N">
+                <field-path value="e1^a1">
+                    <!--<on-link>
+                        <update>
+                            <field name="string_field" value="active"/>
+                            <field name="long_field" value="777"/>
+                            <field name="decimal_field" value="3.14"/>
+                            <field name="boolean_field" value="true"/>
+                            <field name="date_time_field" value="2014-07-09 17:32:10.000" time-zone-id="Europe/Kiev"/>
+                            <field name="date_w_tz_field" set-current-moment="true"/>
+                            <field name="timeless_date_field" set-current-moment="true"/>
+                            <field name="a1_2" set-base-object="true"/>
+                            <field name="a_person" set-current-user="true"/>
+                        </update>
+                        <create type="g1">
+                            <field name="name1" value="test"/>
+                            <field name="string_field" value="active"/>
+                            <field name="long_field" value="777"/>
+                            <field name="decimal_field" value="3.14"/>
+                            <field name="boolean_field" value="true"/>
+                            <field name="date_time_field" value="2014-07-11 19:32:57.737" time-zone-id="Europe/Kiev"/>
+                            <field name="date_w_tz_field" set-current-moment="true"/>
+                            <field name="timeless_date_field" set-current-moment="true"/>
+                            <field name="a1_2" set-base-object="true"/>
+                            <field name="a_person" set-current-user="true"/>
+                        </create>
+                    </on-link>
+
+                    <on-unlink do-unlink="false">
+                        <update>
+                            <field name="string_field" value="inactive"/>
+                            <field name="long_field" value="111"/>
+                            <field name="decimal_field" value="1.11"/>
+                            <field name="boolean_field" value="false"/>
+                            <field name="date_time_field" value="2014-07-09 17:32:10.000" time-zone-id="Europe/Kiev"/>
+                            <field name="date_w_tz_field" set-current-moment="true"/>
+                            <field name="timeless_date_field" set-current-moment="true"/>
+                            <field name="a1_2" set-base-object="true"/>
+                            <field name="a_person" set-current-user="true"/>
+                        </update>
+                        <create type="g1">
+                            <field name="name1" value="test-delete"/>
+                            <field name="string_field" value="inactive"/>
+                            <field name="long_field" value="111"/>
+                            <field name="decimal_field" value="1.11"/>
+                            <field name="boolean_field" value="false"/>
+                            <field name="date_time_field" value="2014-07-01 19:32:57.737" time-zone-id="Europe/Kiev"/>
+                            <field name="date_w_tz_field" set-current-moment="true"/>
+                            <field name="timeless_date_field" set-current-moment="true"/>
+                            <field name="a1_2" set-base-object="true"/>
+                            <field name="a_person" set-current-user="true"/>
+                        </create>
+                    </on-unlink>-->
+                </field-path>
+
+                <collection-ref name="e1_collection"/>
+
+                <!-- паттерн отображения значений выпадающего списка -->
+                <drop-down-pattern value="{e_name1} {e_name2}"/>
+
+                <!-- паттерн отображения уже выбранных значений -->
+                <selection-pattern value="{e_name1} {e_name2}"/>
+
+                <!-- название фильтра по тексту, введённому пользователем -->
+                <input-text-filter name="byName1"/>
+
+                <!-- количество элементов, показываемых на одной странице выпадающего списка -->
+                <page-size>30</page-size>
+                <selection-style name="inline"/>
+                <clear-all-button text="Очистить"/>
+                <default-sort-criteria column-field="name1" order="asc"/>
+            </suggest-box>
+
+            <label id="f1_N:M_label">
+                <field-path/>
+                <text>F1 (N:M):</text>
+            </label>
+            <linked-domain-objects-table id="f1_N:M" modal-width="500px" modal-height="300px">
+                <field-path value="a1_f1^a1.f1" on-root-delete="unlink"/>
+                <linked-form name="f1_form" inline="true"/>
+                <summary-table>
+                    <summary-table-column header="F1 Name 1" widget-id="f_name1">
+                        <pattern value="{name1}"/>
+                        <!-- пути задаются относительно базового field-path (correspondent) -->
+                        <!--<formatting>
+                            <number-format pattern="###.####">
+                                <field-paths> &lt;!&ndash; описание путей к полям, к которым применяется форматирование &ndash;&gt;
+                                    <field-path value="age"/>
+                                </field-paths>
+                            </number-format>
+                            <date-format pattern="dd-mm-yyyy" style="short">
+                                <field-paths>
+                                    <field-path value="date_of_birth"/>
+                                </field-paths>
+                            </date-format>
+                        </formatting>-->
+                    </summary-table-column>
+                    <summary-table-column header="F1 Name 1" widget-id="f_name2">
+                        <pattern value="{name2}"/>
+                    </summary-table-column>
+                </summary-table>
+                <single-choice value="false"/>
+            </linked-domain-objects-table>
+        </widget-config>
+        <form-objects-remover>
+            <on-delete do-delete="false">
+                <update>
+                    <field name="name1" value="inactive"/>
+                </update>
+                <create type="g1">
+                    <field name="name1" value="test-delete"/>
+                    <field name="string_field" value="active"/>
+                    <field name="long_field" value="777"/>
+                    <field name="decimal_field" value="3.14"/>
+                    <field name="boolean_field" value="true"/>
+                    <field name="date_time_field" value="2014-07-22 15:00:10.000" time-zone-id="Europe/Kiev"/>
+                    <field name="date_w_tz_field" set-current-moment="true"/>
+                    <field name="timeless_date_field" set-current-moment="true"/>
+                    <field name="a1_2" set-base-object="true"/>
+                    <field name="a_person" set-current-user="true"/>
+                </create>
+            </on-delete>
+        </form-objects-remover>
+    </form>
+
+    <form name="f1_form" domain-object-type="f1" is-default="true">
+        <markup>
+            <header>
+                <table>
+                    <tr>
+                        <td width="100px" h-align="right">
+                            <widget id="f_name1_label"/>
+                        </td>
+                        <td width="100%" h-align="left">
+                            <widget id="f_name1"/>
+                        </td>
+                    </tr>
+                </table>
+            </header>
+            <body display-single-tab="false">
+                <tab name="Главная">
+                    <single-entry-group>
+                        <tab-group>
+                            <table>
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="f_name2_label"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="f_name2"/>
+                                    </td>
+                                </tr>
+                            </table>
+                        </tab-group>
+                    </single-entry-group>
+                </tab>
+            </body>
+        </markup>
+        <widget-config>
+            <label id="f_name1_label">
+                <field-path/>
+                <text>F. Name 1:</text>
+            </label>
+            <text-box id="f_name1">
+                <field-path value="name1"/>
+            </text-box>
+
+            <label id="f_name2_label">
+                <field-path/>
+                <text>F. Name 2:</text>
+            </label>
+            <text-box id="f_name2">
+                <field-path value="name2"/>
+            </text-box>
+        </widget-config>
+    </form>
+
+    <collection name="a1_collection" idField="id">
+        <prototype>
+            <![CDATA[
+                select a1.id, a1.name1 a_name1, a1.name2 a_name2, b1.name1 b_name1, b1.name2 b_name2, c1.name1 c_name1, c1.name2 c_name2, d1.name1 d_name1, d1.name2 d_name2
+                from a1
+                left outer join b1 on a1.b1 = b1.id
+                left outer join c1 on b1.c1 = c1.id
+                left outer join d1 on c1.d1 = d1.id
+
+                where
+                    1=1 ::where-clause
+            ]]>
+        </prototype>
+        <!-- если запрос-счётчик отсутствует, то в select подставляется count(*) вместо названий колонок -->
+        <counting-prototype>
+            select count(*) from e1 ::from-clause WHERE 1=1 ::where-clause
+        </counting-prototype>
+    </collection>
+
+    <collection name="e1_collection" idField="id">
+        <prototype>
+            <![CDATA[
+                select e1.id, e1.name1 e_name1, e1.name2 e_name2
+                from e1
+
+                where
+                    1=1 ::where-clause
+            ]]>
+        </prototype>
+        <counting-prototype>
+            select count(*) from e1 ::from-clause WHERE 1=1 ::where-clause
+        </counting-prototype>
+        <filter name="byName1">
+            <criteria placeholder="where-clause">
+                <![CDATA[
+                    e1.name1 like {0}
+                ]]>
+            </criteria>
+        </filter>
+    </collection>
+
+    <collection name="f1_collection" idField="id">
+        <prototype>
+            <![CDATA[
+                select f1.id, f1.name1 f_name1, f1.name2 f_name2
+                from f1
+
+                where
+                    1=1 ::where-clause
+            ]]>
+        </prototype>
+        <!-- если запрос-счётчик отсутствует, то в select подставляется count(*) вместо названий колонок -->
+        <counting-prototype>
+            select count(*) from f1 ::from-clause WHERE 1=1 ::where-clause
+        </counting-prototype>
+    </collection>
+
+    <collection-view name="a1_collection_default_view" collection="a1_collection" is-default="true">
+        <display>
+            <column field="id" name="id" type="integer" sortable="false" max-width="250px" text-break-style="cut"/>
+            <column field="a_name1" name="a_name1" editable="false" type="string" sortable="true" min-width="50px"
+                    text-break-style="cut"/>
+            <column field="a_name2" name="a_name2" editable="false" type="string" sortable="true" min-width="50px"
+                    text-break-style="cut"/>
+            <column field="b_name1" name="b_name1" editable="false" type="string" sortable="true" min-width="50px"
+                    text-break-style="cut"/>
+            <column field="b_name2" name="b_name2" editable="false" type="string" sortable="true" min-width="50px"
+                    text-break-style="cut"/>
+            <column field="c_name1" name="c_name1" editable="false" type="string" sortable="true" min-width="50px"
+                    text-break-style="cut"/>
+            <column field="c_name2" name="c_name2" editable="false" type="string" sortable="true" min-width="50px"
+                    text-break-style="cut"/>
+            <column field="d_name1" name="d_name1" editable="false" type="string" sortable="true" min-width="50px"
+                    text-break-style="cut"/>
+            <column field="d_name2" name="d_name2" editable="false" type="string" sortable="true" min-width="50px"
+                    text-break-style="cut"/>
+        </display>
+    </collection-view>
+
+    <collection-view name="e1_collection_default_view" collection="e1_collection" is-default="true">
+        <display>
+            <column field="id" name="id" type="integer" sortable="false" max-width="250px" text-break-style="cut"/>
+            <column field="e_name1" name="a_name1" editable="false" type="string" sortable="true" min-width="50px"
+                    text-break-style="cut"/>
+            <column field="e_name2" name="a_name2" editable="false" type="string" sortable="true" min-width="50px"
+                    text-break-style="cut"/>
+        </display>
+    </collection-view>
+
+    <collection-view name="f1_collection_default_view" collection="f1_collection" is-default="true">
+        <display>
+            <column field="id" name="id" type="integer" sortable="false" max-width="250px" text-break-style="cut"/>
+            <column field="f_name1" name="a_name1" editable="false" type="string" sortable="true" min-width="50px"
+                    text-break-style="cut"/>
+            <column field="f_name2" name="a_name2" editable="false" type="string" sortable="true" min-width="50px"
+                    text-break-style="cut"/>
+        </display>
+    </collection-view>
+</configuration>

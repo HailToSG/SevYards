@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>custom-web-business-universe</artifactId>
+    <packaging>jar</packaging>
+    <name>custom-web-business-universe</name>
+    <parent>
+        <groupId>ru.intertrust.application-template</groupId>
+        <artifactId>active-frame-template</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+
+    <dependencies>
+        <dependency>
+            <groupId>ru.intertrust.cm-sochi</groupId>
+            <artifactId>web-login-page</artifactId>
+            <version>${af.platform.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>ru.intertrust.application-template</groupId>
+            <artifactId>custom-gui-client</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.jboss.spec.javax.ejb</groupId>
+            <artifactId>jboss-ejb-api_3.1_spec</artifactId>
+            <version>1.0.0.Final</version>
+            <scope>provided</scope>
+        </dependency>
+    </dependencies>
+
+    <build>
+        <resources>
+            <resource>
+                <directory>${basedir}/../</directory>
+                <targetPath>./</targetPath>
+                <filtering>false</filtering>
+                <includes>
+                    <include>gui.properties</include>
+                    <include>log4j.xml</include>
+                </includes>
+            </resource>
+            <resource>
+                <directory>src/main/resources</directory>
+                <targetPath>META-INF/resources</targetPath>
+            </resource>
+        </resources>
+
+        <plugins>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>gwt-maven-plugin</artifactId>
+                <version>${gwt.version}</version>
+                <executions>
+                    <execution>
+                        <configuration>
+                            <modules>
+                                <module>ru.intertrust.custommodule.gui.CustomBusinessUniverse</module>
+                            </modules>
+                        </configuration>
+                        <goals>
+                            <goal>clean</goal>
+                            <goal>compile</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <optimizationLevel>9</optimizationLevel>
+                    <extraJvmArgs>-Xms512m -Xmx1024m</extraJvmArgs>
+                    <!--<logLevel>TRACE</logLevel>-->
+                    <compileSourcesArtifacts>
+                        <artifact>ru.intertrust.cm-sochi:gui-client-api</artifact>
+                        <artifact>ru.intertrust.cm-sochi:gui-client-impl</artifact>
+                        <artifact>ru.intertrust.cm-sochi:gui-rpc</artifact>
+                        <artifact>ru.intertrust.cm-sochi:configuration</artifact>
+                        <artifact>ru.intertrust.cm-sochi:model</artifact>
+                        <artifact>ru.intertrust.cm-sochi:gui-model</artifact>
+                        <artifact>ru.intertrust.application-template:custom-gui-model</artifact>
+                        <artifact>ru.intertrust.application-template:custom-model</artifact>
+                        <artifact>ru.intertrust.application-template:custom-gui-client</artifact>
+                    </compileSourcesArtifacts>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <artifactId>maven-resources-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <id>package-generated-javascript</id>
+                        <phase>prepare-package</phase>
+                        <goals>
+                            <goal>copy-resources</goal>
+                        </goals>
+                        <configuration>
+                            <!-- copy-gwt-compiled packages into JAR -->
+                            <outputDirectory>${project.build.outputDirectory}/META-INF/resources</outputDirectory>
+                            <resources>
+                                <resource>
+                                    <directory>${project.build.directory}/${project.build.finalName}</directory>
+                                    <includes>
+                                        <include>*/**</include>
+                                    </includes>
+                                </resource>
+                            </resources>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
+</project>

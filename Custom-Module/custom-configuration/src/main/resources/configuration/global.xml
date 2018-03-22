@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<configuration xmlns="https://cm5.intertrust.ru/config">
+    <global-settings>
+        <product title="Шаблон проекта на ActiveFrame 5"/>
+        <product-version archive="custom-model.jar"/>
+        <audit-log enable="false"/>
+        <transaction-trace enable="false" minTime="100"/>
+        <search-languages>
+            <language id="ru"/>
+            <language id="en"/>
+        </search-languages>
+        <event-logs>
+            <login enable="true"/>
+            <logout enable="true"/>
+            <download-attachment enable="true"/>
+            <domain-object-access enable="false">
+                <!-- настройка для всех типов ДО включающая логгировае на запись-->
+                <log enable="true" accessType="W" accessWasGranted="*">
+                    <domain-object-type name="*"/>
+                </log>
+                <!-- спец настройки логгирования для определенных типов ДО -->
+                <log enable="true" accessType="*" accessWasGranted="*">
+                    <domain-object-type name="a1"/>
+                    <domain-object-type name="b1"/>
+                </log>
+                <!-- отключение логгирования по типам ДО -->
+                <log enable="false" accessType="*" accessWasGranted="*">
+                    <domain-object-type name="c1"/>
+                    <domain-object-type name="d1"/>
+                </log>
+            </domain-object-access>
+        </event-logs>
+    </global-settings>
+    <business-universe>
+        <login-screen display-product-version="true" display-core-version="true">
+            <product-title style="text"/>
+        </login-screen>
+        <logo image="images/logo.png"/>
+        <settings-popup>
+            <themes>
+                <theme display-name="Основная тема" component-name="default-theme" default-theme="true"
+                       img="resources/common/images/default-theme-preview.png"/>
+                <theme display-name="Тёмная тема" component-name="dark-theme" default-theme="false"
+                       img="resources/common/images/dark-theme-preview.png"/>
+                <theme display-name="Светлая тема" component-name="light-theme" default-theme="false"
+                       img="resources/common/images/light-theme-preview.png"/>
+                <theme display-name="Lucem тема" component-name="lucem-theme" default-theme="false"
+                       img="resources/common/images/lucem-theme-preview.png"/>
+            </themes>
+        </settings-popup>
+        <!-- время в сек. между посылкой запросов на обновление сообщений,
+             если тег отсутствует или значение < 0 таймер не активируется -->
+        <header-notification-refresh time="-12"/>
+        <!-- время сек. между посылкой запросов на обновление счётчиков, если значение < 0 таймер не активируется -->
+        <collection-count-refresh time="-2"/>
+        <!-- время между обновлениями закэшированных значений счётчиков -->
+        <collection-count-cache-refresh time="10"/>
+    </business-universe>
+</configuration>

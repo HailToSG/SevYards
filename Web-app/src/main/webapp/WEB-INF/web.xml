@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xmlns="http://java.sun.com/xml/ns/javaee"
+         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd"
+         id="WebApp_ID" version="3.0">
+    <display-name>ActiveFrame Template Web App</display-name>
+    <session-config>
+        <session-timeout>30</session-timeout>
+        <!-- minutes -->
+    </session-config>
+
+    <context-param>
+        <param-name>parentContextKey</param-name>
+        <param-value>ear.context</param-value>
+    </context-param>
+    <context-param>
+        <param-name>contextConfigLocation</param-name>
+        <param-value>classpath:META-INF/applicationContext.xml</param-value>
+    </context-param>
+    <listener>
+        <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
+    </listener>
+
+    <security-constraint>
+        <web-resource-collection>
+            <web-resource-name>All resources</web-resource-name>
+            <url-pattern>/af-template/*</url-pattern>
+        </web-resource-collection>
+        <auth-constraint>
+            <description>
+                Protected web resources
+            </description>
+        </auth-constraint>
+    </security-constraint>
+
+</web-app>

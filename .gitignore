@@ -1,0 +1,47 @@
+# Main
+*~
+*.lock
+*.swp
+*.DS_Store
+*.log
+*.log.*
+*.tar
+*.zip
+Thumbs.db
+
+# old skool SVN
+.svn/
+
+# Maven
+target/
+*.releaseBackup
+*.tag
+release.properties
+deploy.properties
+pom.xml.next
+
+# Java
+*.class
+*.jar
+*.war
+*.ear
+
+# Eclipse
+.classpath
+.project
+.settings
+.metadata/
+
+.springBeans
+
+# Idea
+*.iml
+.idea
+atlassian-ide-plugin.xml
+
+#MergeTool
+*.orig
+
+
+#Servers
+Servers/
