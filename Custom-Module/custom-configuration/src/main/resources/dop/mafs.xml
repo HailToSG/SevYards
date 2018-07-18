@@ -1,0 +1,371 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<configuration xmlns="https://cm5.intertrust.ru/config">
+    <!--Сущность "МАФ"-->
+    <domain-object-type name="maf">
+        <fields>
+
+            <!--Ссылка на инвентаризацию -->
+            <reference name="inventoryId" type="inventory"/>
+
+            <!--тип объекта МАФ -->
+            <string name="type" length="1024">
+                <constraints>
+                    <simple-constraint value="not-empty"/>
+                </constraints>
+            </string>
+
+            <!--состояние объекта МАФ-->
+            <string name="state" length="1024">
+                <constraints>
+                    <simple-constraint value="not-empty"/>
+                </constraints>
+            </string>
+
+        </fields>
+
+        <attachment-types>
+            <attachment-type name="maf_photo"/>
+        </attachment-types>
+    </domain-object-type>
+
+    <!--Сущность "Накопители ТКО"-->
+    <domain-object-type name="trash_can">
+        <fields>
+
+            <!-- материал, из которого сделан накопитель ТКО -->
+            <string name="material" length="1000">
+                <constraints>
+                    <simple-constraint value="not-empty"/>
+                </constraints>
+            </string>
+
+            <!-- Вместимость, куб.м -->
+            <long name="capacity">
+                <constraints>
+                    <simple-constraint value="not-empty"/>
+                </constraints>
+            </long>
+
+            <!-- состояние покрытия -->
+            <string name="state_coating_trash" length="1000">
+                <constraints>
+                    <simple-constraint value="not-empty"/>
+                </constraints>
+            </string>
+
+            <!--Ссылка на тип-->
+            <reference name="trashType" type="maf">
+                <constraints>
+                    <simple-constraint value="not-empty"/>
+                </constraints>
+            </reference>
+
+            <!--Ссылка на состояние-->
+            <reference name="trashState" type="maf">
+                <constraints>
+                    <simple-constraint value="not-empty"/>
+                </constraints>
+            </reference>
+        </fields>
+    </domain-object-type>
+
+    <!-- Сущность "Детские площадки"-->
+    <domain-object-type name="playground">
+        <fields>
+
+            <!-- материал опор площадки -->
+            <string name="support_material" length="1000">
+                <constraints>
+                    <simple-constraint value="not-empty"/>
+                </constraints>
+            </string>
+
+            <!-- материал сидений -->
+            <string name="seat_material" length="1000">
+                <constraints>
+                    <simple-constraint value="not-empty"/>
+                </constraints>
+            </string>
+
+            <!-- тип подвеса -->
+            <string name="type_suspension" length="1000">
+                <constraints>
+                    <simple-constraint value="not-empty"/>
+                </constraints>
+            </string>
+
+            <!-- состояние покрытия -->
+            <string name="state_coating" length="1000">
+                <constraints>
+                    <simple-constraint value="not-empty"/>
+                </constraints>
+            </string>
+
+            <!--Ссылка на тип-->
+            <reference name="trashType" type="maf">
+                <constraints>
+                    <simple-constraint value="not-empty"/>
+                </constraints>
+            </reference>
+
+            <!--Ссылка на состояние-->
+            <reference name="trashState" type="maf">
+                <constraints>
+                    <simple-constraint value="not-empty"/>
+                </constraints>
+            </reference>
+        </fields>
+    </domain-object-type>
+    
+    <domain-object-type name="benches">
+        <fields>
+
+            <!-- ширина -->
+            <long name="width">
+                <constraints>
+                    <simple-constraint value="not-empty"/>
+                </constraints>
+            </long>
+
+            <!-- материал, из которого сделана скамья -->
+            <string name="material" length="1000">
+                <constraints>
+                    <simple-constraint value="not-empty"/>
+                </constraints>
+            </string>
+
+            <!-- состояние покрытия -->
+            <string name="state_coating" length="1000">
+                <constraints>
+                    <simple-constraint value="not-empty"/>
+                </constraints>
+            </string>
+
+            <!--Ссылка на тип-->
+            <reference name="trashType" type="maf">
+                <constraints>
+                    <simple-constraint value="not-empty"/>
+                </constraints>
+            </reference>
+
+            <!--Ссылка на состояние-->
+            <reference name="trashState" type="maf">
+                <constraints>
+                    <simple-constraint value="not-empty"/>
+                </constraints>
+            </reference>
+        </fields>
+    </domain-object-type>
+
+    <!-- Сущность "Столы"-->
+    <domain-object-type name="tables">
+        <fields>
+
+            <!-- Размер стола -->
+            <long name="size">
+                <constraints>
+                    <simple-constraint value="not-empty"/>
+                </constraints>
+            </long>
+
+            <!-- форма стола -->
+            <string name="shape" length="1000">
+                <constraints>
+                    <simple-constraint value="not-empty"/>
+                </constraints>
+            </string>
+
+            <!-- назначение стола -->
+            <string name="appointment" length="1000">
+                <constraints>
+                    <simple-constraint value="not-empty"/>
+                </constraints>
+            </string>
+
+            <!-- материал, из которого сделан стол  -->
+            <string name="material" length="1000">
+                <constraints>
+                    <simple-constraint value="not-empty"/>
+                </constraints>
+            </string>
+
+            <!-- состояние покрытия -->
+            <string name="state_coating" length="1000">
+                <constraints>
+                    <simple-constraint value="not-empty"/>
+                </constraints>
+            </string>
+
+            <!--Ссылка на тип-->
+            <reference name="trashType" type="maf">
+                <constraints>
+                    <simple-constraint value="not-empty"/>
+                </constraints>
+            </reference>
+
+            <!--Ссылка на состояние-->
+            <reference name="trashState" type="maf">
+                <constraints>
+                    <simple-constraint value="not-empty"/>
+                </constraints>
+            </reference>
+        </fields>
+    </domain-object-type>
+
+    <!-- Сущность "Спортивный инвентарь"-->
+    <domain-object-type name="sport_equipments">
+        <fields>
+            <!--Ссылка на тип-->
+            <reference name="trashType" type="maf">
+                <constraints>
+                    <simple-constraint value="not-empty"/>
+                </constraints>
+            </reference>
+
+            <!--Ссылка на состояние-->
+            <reference name="trashState" type="maf">
+                <constraints>
+                    <simple-constraint value="not-empty"/>
+                </constraints>
+            </reference>
+        </fields>
+    </domain-object-type>
+
+    <!-- Сущность "Беседки" -->
+    <domain-object-type name="pavilions">
+        <fields>
+
+            <!-- Площадь -->
+            <long name="area">
+                <constraints>
+                    <simple-constraint value="not-empty"/>
+                </constraints>
+            </long>
+
+            <!-- материал, из которого сделана беседка -->
+            <string name="material" length="1000">
+                <constraints>
+                    <simple-constraint value="not-empty"/>
+                </constraints>
+            </string>
+            
+            <!--Ссылка на тип-->
+            <reference name="trashType" type="maf">
+                <constraints>
+                    <simple-constraint value="not-empty"/>
+                </constraints>
+            </reference>
+
+            <!--Ссылка на состояние-->
+            <reference name="trashState" type="maf">
+                <constraints>
+                    <simple-constraint value="not-empty"/>
+                </constraints>
+            </reference>
+
+        </fields>
+    </domain-object-type>
+    
+    <!-- Сущность "Терассы"-->
+    <domain-object-type name="terraces">
+        <fields>
+
+            <!-- Площадь -->
+            <long name="area">
+                <constraints>
+                    <simple-constraint value="not-empty"/>
+                </constraints>
+            </long>
+
+            <!-- материал, из которого сделана терасса -->
+            <string name="material" length="1000">
+                <constraints>
+                    <simple-constraint value="not-empty"/>
+                </constraints>
+            </string>
+
+            <!--Ссылка на тип-->
+            <reference name="trashType" type="maf">
+                <constraints>
+                    <simple-constraint value="not-empty"/>
+                </constraints>
+            </reference>
+
+            <!--Ссылка на состояние-->
+            <reference name="trashState" type="maf">
+                <constraints>
+                    <simple-constraint value="not-empty"/>
+                </constraints>
+            </reference>
+        </fields>
+    </domain-object-type>
+    
+    <!-- Сущность "Фонтаны"-->
+    <domain-object-type name="fountains">
+        <fields>
+            
+            <!-- Размер фонтана -->
+            <long name="size">
+                <constraints>
+                    <simple-constraint value="not-empty"/>
+                </constraints>
+            </long>
+            
+            <!-- материал, из которого сделан фонтан -->
+            <string name="material" length="1000">
+                <constraints>
+                    <simple-constraint value="not-empty"/>
+                </constraints>
+            </string>
+
+            <!--Ссылка на тип-->
+            <reference name="trashType" type="maf">
+                <constraints>
+                    <simple-constraint value="not-empty"/>
+                </constraints>
+            </reference>
+
+            <!--Ссылка на состояние-->
+            <reference name="trashState" type="maf">
+                <constraints>
+                    <simple-constraint value="not-empty"/>
+                </constraints>
+            </reference>
+        </fields>
+    </domain-object-type>
+    
+    <!-- Сущность "Фонтаны" -->
+    <domain-object-type name="canopies">
+        <fields>
+
+            <!-- Площадь -->
+            <long name="area">
+                <constraints>
+                    <simple-constraint value="not-empty"/>
+                </constraints>
+            </long>
+
+            <!-- материал, из которого сделан навес -->
+            <string name="material" length="1000">
+                <constraints>
+                    <simple-constraint value="not-empty"/>
+                </constraints>
+            </string>
+
+            <!--Ссылка на тип-->
+            <reference name="trashType" type="maf">
+                <constraints>
+                    <simple-constraint value="not-empty"/>
+                </constraints>
+            </reference>
+
+            <!--Ссылка на состояние-->
+            <reference name="trashState" type="maf">
+                <constraints>
+                    <simple-constraint value="not-empty"/>
+                </constraints>
+            </reference>
+        </fields>
+    </domain-object-type>
+    
+</configuration>
