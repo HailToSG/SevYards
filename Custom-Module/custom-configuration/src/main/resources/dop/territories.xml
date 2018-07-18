@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<configuration xmlns="https://cm5.intertrust.ru/config">
+
+    <!--Доменный объект "Общественная территория"-->
+    <domain-object-type name="ter_public">
+                <fields>
+                    <!--Ссылка на инвентаризацию -->
+                    <reference name="inventoryId" type="inventory">
+                        <constraints>
+                            <simple-constraint value="not-empty"/>
+                        </constraints>
+                    </reference>
+
+                    <!--Вид общественной территории -->
+                    <string name="type" length="1000">
+                        <constraints>
+                            <simple-constraint value="not-empty"/>
+                        </constraints>
+                    </string>
+
+                    <!--Общая площадь -->
+                    <long name="summary_area">
+                        <constraints>
+                            <simple-constraint value="not-empty"/>
+                        </constraints>
+                    </long>
+
+                    <!--Площадь зданий, сооружений, строений -->
+                    <long name="objects_area">
+                        <constraints>
+                            <simple-constraint value="not-empty"/>
+                        </constraints>
+                    </long>
+                </fields>
+    </domain-object-type>
+
+    <!--Доменный объект "Дворовая территория"-->
+    <domain-object-type name="ter_yard">
+        <fields>
+            <!--Ссылка на инвентаризацию -->
+            <reference name="inventoryId" type="inventory">
+                <constraints>
+                    <simple-constraint value="not-empty"/>
+                </constraints>
+            </reference>
+
+            <!--Общая площадь -->
+            <long name="summary_area">
+                <constraints>
+                    <simple-constraint value="not-empty"/>
+                </constraints>
+            </long>
+
+            <!--Площадь зданий, сооружений, строений -->
+            <long name="objects_area">
+                <constraints>
+                    <simple-constraint value="not-empty"/>
+                </constraints>
+            </long>
+        </fields>
+    </domain-object-type>
+
+    <domain-object-type name="ter_yard">
+        <fields>
+            <!--Ссылка на инвентаризацию -->
+            <reference name="inventoryId" type="inventory">
+                <constraints>
+                    <simple-constraint value="not-empty"/>
+                </constraints>
+            </reference>
+
+            <!--Общая площадь -->
+            <long name="summary_area">
+                <constraints>
+                    <simple-constraint value="not-empty"/>
+                </constraints>
+            </long>
+
+            <!--Площадь зданий, сооружений, строений -->
+            <long name="objects_area">
+                <constraints>
+                    <simple-constraint value="not-empty"/>
+                </constraints>
+            </long>
+        </fields>
+    </domain-object-type>
+
+    <domain-object-type name="ter_private_housing">
+        <fields>
+            <!--Ссылка на инвентаризацию -->
+            <reference name="inventoryId" type="inventory">
+                <constraints>
+                    <simple-constraint value="not-empty"/>
+                </constraints>
+            </reference>
+
+            <string name="facadeState" length="200"/>
+            <string name="territoryState" length="200"/>
+            <text name="contractOfImprovement"/>
+
+        </fields>
+    </domain-object-type>
+
+    <domain-object-type name="ter_UL_IP">
+        <fields>
+            <!--Ссылка на инвентаризацию -->
+            <reference name="inventoryId" type="inventory">
+                <constraints>
+                    <simple-constraint value="not-empty"/>
+                </constraints>
+            </reference>
+
+            <string name="facadeState" length="200"/>
+            <string name="territoryState" length="200"/>
+            <text name="contractOfImprovement"/>
+
+        </fields>
+    </domain-object-type>
+
+</configuration>

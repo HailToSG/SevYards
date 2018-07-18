@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<configuration xmlns="https://cm5.intertrust.ru/config">
+
+    <!-- Cущность "Строения" -->
+    <domain-object-type name="build_buildings">
+        <fields>
+            <!--Ссылка на инвентаризацию -->
+            <reference name="inventoryId" type="inventory"/>
+            <!--площадь строения -->
+            <long name="area">
+                <constraints>
+                    <simple-constraint value="not-empty"/>
+                </constraints>
+            </long>
+            <!--тип строения -->
+            <string name="type" length="1024">
+                <constraints>
+                    <simple-constraint value="not-empty"/>
+                </constraints>
+            </string>
+            <!--состояние строения-->
+            <string name="state" length="1024">
+                <constraints>
+                    <simple-constraint value="not-empty"/>
+                </constraints>
+            </string>
+        </fields>
+    </domain-object-type>
+
+    <!-- Cущность "Жилое строение" -->
+    <!-- Наследует поля Площадь, Тип и Состояние от сущности "Строения" -->
+    <domain-object-type name="build_residential" extends="build_buildings">
+        <fields>
+            <!-- ФИАС -->
+            <string name="fias" length="1000">
+                <constraints>
+                    <simple-constraint value="not-empty"/>
+                </constraints>
+            </string>
+            <!-- Адрес при отсутствии ФИАС -->
+            <string name="NoFiasAddress" length="1000">
+                <constraints>
+                    <simple-constraint value="not-empty"/>
+                </constraints>
+            </string>
+        </fields>
+    </domain-object-type>
+
+    <!-- Cущность "Нежилое капитальное строение" -->
+    <!-- Наследует поля Площадь, Тип и Состояние от сущности "Строения" -->
+    <domain-object-type name="build_permanent" extends="build_buildings">
+        <fields>
+            <!-- ФИАС -->
+            <string name="fias" length="1000">
+                <constraints>
+                    <simple-constraint value="not-empty"/>
+                </constraints>
+            </string>
+            <!-- Адрес при отсутствии ФИАС -->
+            <string name="NoFiasAddress" length="1000">
+                <constraints>
+                    <simple-constraint value="not-empty"/>
+                </constraints>
+            </string>
+        </fields>
+    </domain-object-type>
+
+    <!-- Cущность "Нежилое некапитальное строение" -->
+    <!-- Наследует поля Площадь, Тип и Состояние от сущности "Строения" -->
+    <domain-object-type name="build_temporary" extends="build_buildings"/>
+
+</configuration>
