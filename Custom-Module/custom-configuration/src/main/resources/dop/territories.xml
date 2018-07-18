@@ -1,37 +1,52 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <configuration xmlns="https://cm5.intertrust.ru/config">
 
+    <!--Доменный объект "Территория"-->
+    <domain-object-type name="ter_territory">
+        <fields>
+            <string name="name" length="1000"/>
+            <string name="territoryType" length="1000"/>
+        </fields>
+    </domain-object-type>
+
     <!--Доменный объект "Общественная территория"-->
     <domain-object-type name="ter_public">
-                <fields>
-                    <!--Ссылка на инвентаризацию -->
-                    <reference name="inventoryId" type="inventory">
-                        <constraints>
-                            <simple-constraint value="not-empty"/>
-                        </constraints>
-                    </reference>
+        <fields>
+            <!--Ссылка на инвентаризацию -->
+            <reference name="inventoryId" type="inventory">
+                <constraints>
+                    <simple-constraint value="not-empty"/>
+                </constraints>
+            </reference>
 
-                    <!--Вид общественной территории -->
-                    <string name="type" length="1000">
-                        <constraints>
-                            <simple-constraint value="not-empty"/>
-                        </constraints>
-                    </string>
+            <!--Ссылка на тип территории-->
+            <reference name="type" type="ter_territory">
+                <constraints>
+                    <simple-constraint value="not-empty"/>
+                </constraints>
+            </reference>
 
-                    <!--Общая площадь -->
-                    <long name="summary_area">
-                        <constraints>
-                            <simple-constraint value="not-empty"/>
-                        </constraints>
-                    </long>
+            <!--Вид общественной территории -->
+            <string name="kind_of_territory" length="1000">
+                <constraints>
+                    <simple-constraint value="not-empty"/>
+                </constraints>
+            </string>
 
-                    <!--Площадь зданий, сооружений, строений -->
-                    <long name="objects_area">
-                        <constraints>
-                            <simple-constraint value="not-empty"/>
-                        </constraints>
-                    </long>
-                </fields>
+            <!--Общая площадь -->
+            <long name="summary_area">
+                <constraints>
+                    <simple-constraint value="not-empty"/>
+                </constraints>
+            </long>
+
+            <!--Площадь зданий, сооружений, строений -->
+            <long name="objects_area">
+                <constraints>
+                    <simple-constraint value="not-empty"/>
+                </constraints>
+            </long>
+        </fields>
     </domain-object-type>
 
     <!--Доменный объект "Дворовая территория"-->
@@ -39,6 +54,13 @@
         <fields>
             <!--Ссылка на инвентаризацию -->
             <reference name="inventoryId" type="inventory">
+                <constraints>
+                    <simple-constraint value="not-empty"/>
+                </constraints>
+            </reference>
+
+            <!--Ссылка на тип территории-->
+            <reference name="type" type="ter_territory">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
@@ -64,6 +86,13 @@
         <fields>
             <!--Ссылка на инвентаризацию -->
             <reference name="inventoryId" type="inventory">
+                <constraints>
+                    <simple-constraint value="not-empty"/>
+                </constraints>
+            </reference>
+
+            <!--Ссылка на тип территории-->
+            <reference name="type" type="ter_territory">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
@@ -94,8 +123,28 @@
                 </constraints>
             </reference>
 
-            <string name="facadeState" length="200"/>
-            <string name="territoryState" length="200"/>
+            <!--Ссылка на тип территории-->
+            <reference name="type" type="ter_territory">
+                <constraints>
+                    <simple-constraint value="not-empty"/>
+                </constraints>
+            </reference>
+
+            <!--Состояние фасада-->
+            <string name="facadeState" length="1000">
+                <constraints>
+                    <simple-constraint value="not-empty"/>
+                </constraints>
+            </string>
+
+            <!--Состояние придомовой территории-->
+            <string name="territoryState" length="1000">
+                <constraints>
+                    <simple-constraint value="not-empty"/>
+                </constraints>
+            </string>
+
+            <!--Информация по подписании соглашения о благоустройстве-->
             <text name="contractOfImprovement"/>
 
         </fields>
@@ -110,8 +159,21 @@
                 </constraints>
             </reference>
 
-            <string name="facadeState" length="200"/>
-            <string name="territoryState" length="200"/>
+            <!--Состояние фасада-->
+            <string name="facadeState" length="1000">
+                <constraints>
+                    <simple-constraint value="not-empty"/>
+                </constraints>
+            </string>
+
+            <!--Состояние придомовой территории-->
+            <string name="territoryState" length="1000">
+                <constraints>
+                    <simple-constraint value="not-empty"/>
+                </constraints>
+            </string>
+
+            <!--Информация по подписании соглашения о благоустройстве-->
             <text name="contractOfImprovement"/>
 
         </fields>

@@ -6,12 +6,7 @@
         <fields>
             <!--Ссылка на инвентаризацию -->
             <reference name="inventoryId" type="inventory"/>
-            <!--площадь строения -->
-            <long name="area">
-                <constraints>
-                    <simple-constraint value="not-empty"/>
-                </constraints>
-            </long>
+
             <!--тип строения -->
             <string name="type" length="1024">
                 <constraints>
@@ -25,31 +20,63 @@
                 </constraints>
             </string>
         </fields>
+
+        <attachment-types>
+            <attachment-type name="build_photo"/>
+        </attachment-types>
     </domain-object-type>
 
     <!-- Cущность "Жилое строение" -->
-    <!-- Наследует поля Площадь, Тип и Состояние от сущности "Строения" -->
-    <domain-object-type name="build_residential" extends="build_buildings">
+    <domain-object-type name="build_residential">
         <fields>
+
+            <!--площадь строения -->
+            <long name="area">
+                <constraints>
+                    <simple-constraint value="not-empty"/>
+                </constraints>
+            </long>
+
             <!-- ФИАС -->
             <string name="fias" length="1000">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
             </string>
+
             <!-- Адрес при отсутствии ФИАС -->
             <string name="NoFiasAddress" length="1000">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
             </string>
+
+            <!--Ссылка на тип-->
+            <reference name="buildType" type="build_buildings">
+                <constraints>
+                    <simple-constraint value="not-empty"/>
+                </constraints>
+            </reference>
+
+            <!--Ссылка на состояние-->
+            <reference name="buildState" type="build_buildings">
+                <constraints>
+                    <simple-constraint value="not-empty"/>
+                </constraints>
+            </reference>
         </fields>
     </domain-object-type>
 
     <!-- Cущность "Нежилое капитальное строение" -->
-    <!-- Наследует поля Площадь, Тип и Состояние от сущности "Строения" -->
-    <domain-object-type name="build_permanent" extends="build_buildings">
+    <domain-object-type name="build_permanent">
         <fields>
+
+            <!--площадь строения -->
+            <long name="area">
+                <constraints>
+                    <simple-constraint value="not-empty"/>
+                </constraints>
+            </long>
             <!-- ФИАС -->
             <string name="fias" length="1000">
                 <constraints>
@@ -62,11 +89,47 @@
                     <simple-constraint value="not-empty"/>
                 </constraints>
             </string>
+
+            <!--Ссылка на тип-->
+            <reference name="buildType" type="build_buildings">
+                <constraints>
+                    <simple-constraint value="not-empty"/>
+                </constraints>
+            </reference>
+
+            <!--Ссылка на состояние-->
+            <reference name="buildState" type="build_buildings">
+                <constraints>
+                    <simple-constraint value="not-empty"/>
+                </constraints>
+            </reference>
         </fields>
     </domain-object-type>
 
     <!-- Cущность "Нежилое некапитальное строение" -->
-    <!-- Наследует поля Площадь, Тип и Состояние от сущности "Строения" -->
-    <domain-object-type name="build_temporary" extends="build_buildings"/>
+    <domain-object-type name="build_temporary">
+        <fields>
+
+            <!--площадь строения -->
+            <long name="area">
+                <constraints>
+                    <simple-constraint value="not-empty"/>
+                </constraints>
+            </long>
+            <!--Ссылка на тип-->
+            <reference name="buildType" type="build_buildings">
+                <constraints>
+                    <simple-constraint value="not-empty"/>
+                </constraints>
+            </reference>
+
+            <!--Ссылка на состояние-->
+            <reference name="buildState" type="build_buildings">
+                <constraints>
+                    <simple-constraint value="not-empty"/>
+                </constraints>
+            </reference>
+        </fields>
+    </domain-object-type>
 
 </configuration>

@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<configuration xmlns="https://cm5.intertrust.ru/config">
+
+    <!-- Cущность "Элементы озеленения" (ЭО) -->
+    <domain-object-type name="gard_gardening">
+        <fields>
+            <!--Ссылка на инвентаризацию -->
+            <reference name="inventoryId" type="inventory"/>
+
+            <!--Тип элемента озеленения -->
+            <string name="type" length="1024">
+                <constraints>
+                    <simple-constraint value="not-empty"/>
+                </constraints>
+            </string>
+
+            <!--Состояние элемента озеленения-->
+            <string name="state" length="1024">
+                <constraints>
+                    <simple-constraint value="not-empty"/>
+                </constraints>
+            </string>
+        </fields>
+
+        <attachment-types>
+            <attachment-type name="gard_photo"/>
+        </attachment-types>
+    </domain-object-type>
+
+    <!-- Cущность "Дерево" относится к ЭО -->
+    <domain-object-type name="gard_tree">
+        <fields>
+
+            <!--Вид дерева -->
+            <string name="kind" length="1000">
+                <constraints>
+                    <simple-constraint value="not-empty"/>
+                </constraints>
+            </string>
+
+            <!-- Высота дерева -->
+            <long name="height">
+                <constraints>
+                    <simple-constraint value="not-empty"/>
+                </constraints>
+            </long>
+
+            <!-- Ссылка на состояние ЭО-->
+            <reference name="gardState" type="gard_gardening">
+                <constraints>
+                    <simple-constraint value="not-empty"/>
+                </constraints>
+            </reference>
+
+            <!--Ссылка на тип ЭО-->
+            <reference name="gardType" type="gard_gardening">
+                <constraints>
+                    <simple-constraint value="not-empty"/>
+                </constraints>
+            </reference>
+        </fields>
+    </domain-object-type>
+
+    <!-- Cущность "Вертикальное озеленение" относится к ЭО -->
+    <domain-object-type name="gard_vertical">
+        <fields>
+
+            <!--площадь вертикального озеленения -->
+            <long name="area">
+                <constraints>
+                    <simple-constraint value="not-empty"/>
+                </constraints>
+            </long>
+
+            <!--Ссылка на состояние " ЭО-->
+            <reference name="state" type="gard_gardening">
+                <constraints>
+                    <simple-constraint value="not-empty"/>
+                </constraints>
+            </reference>
+        </fields>
+    </domain-object-type>
+
+    <!-- Cущность "Цветник" относится к ЭО -->
+    <domain-object-type name="gard_parterre">
+        <fields>
+            <!--Тип цветника-->
+            <string name="kind" length="1000">
+                <constraints>
+                    <simple-constraint value="not-empty"/>
+                </constraints>
+            </string>
+
+            <!--Размер цветника-->
+            <long name="size">
+                <constraints>
+                    <simple-constraint value="not-empty"/>
+                </constraints>
+            </long>
+
+            <!--Ссылка на тип ЭО-->
+            <reference name="gardType" type="gard_gardening">
+                <constraints>
+                    <simple-constraint value="not-empty"/>
+                </constraints>
+            </reference>
+
+            <!--Ссылка на состояние ЭО-->
+            <reference name="gardState" type="gard_gardening">
+                <constraints>
+                    <simple-constraint value="not-empty"/>
+                </constraints>
+            </reference>
+        </fields>
+    </domain-object-type>
+
+</configuration>

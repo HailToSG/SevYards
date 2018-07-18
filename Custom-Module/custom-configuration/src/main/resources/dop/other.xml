@@ -2,21 +2,23 @@
 <configuration xmlns="https://cm5.intertrust.ru/config">
     <!--Доменный объект "Дворы"-->
     <domain-object-type name="inventory">
-                <fields>
-                    <!--Время начала инвентаризации-->
-                    <date-time name="start_time">
-                        <constraints>
-                            <simple-constraint value="not-empty"/>
-                        </constraints>
-                    </date-time>
+        <fields>
+            <!--Ссылка на ID территории-->
+            <reference name="territoryId" type="ter_territory"/>
+            <!--Время начала инвентаризации-->
+            <date-time name="start_time">
+                <constraints>
+                    <simple-constraint value="not-empty"/>
+                </constraints>
+            </date-time>
 
-                    <!--Время окончания инвентаризации-->
-                    <date-time name="start_time">
-                        <constraints>
-                            <simple-constraint value="not-empty"/>
-                        </constraints>
-                    </date-time>
-                </fields>
+            <!--Время окончания инвентаризации-->
+            <date-time name="end_time">
+                <constraints>
+                    <simple-constraint value="not-empty"/>
+                </constraints>
+            </date-time>
+        </fields>
     </domain-object-type>
 
 </configuration>
