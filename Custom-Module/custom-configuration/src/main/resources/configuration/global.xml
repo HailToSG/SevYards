@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <configuration xmlns="https://cm5.intertrust.ru/config">
     <global-settings>
-        <product title="Шаблон проекта на ActiveFrame 5"/>
+        <product title="Sev Yards"/>
         <product-version archive="custom-model.jar"/>
         <audit-log enable="false"/>
         <transaction-trace enable="false" minTime="100"/>

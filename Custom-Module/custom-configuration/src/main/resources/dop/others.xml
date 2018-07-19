@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<configuration xmlns="https://cm5.intertrust.ru/config">
+
+    <!-- Cущность "Иное" и сущности, относящиеся к классу Иное -->
+
+    <!-- Cущность "Иное" -->
+    <domain-object-type name="other_others">
+        <fields>
+            <!--Ссылка на инвентаризацию -->
+            <reference name="inventory_id" type="inventory"/>
+
+            <!--Ссылка на id территории -->
+            <reference name="territory_id" type="ter_territory"/>
+
+            <!--тип объекта класса Иное -->
+            <string name="type" length="1024">
+                <constraints>
+                    <simple-constraint value="not-empty"/>
+                </constraints>
+            </string>
+
+            <!--состояние объекта класса Иное-->
+            <string name="state" length="1024">
+                <constraints>
+                    <simple-constraint value="not-empty"/>
+                </constraints>
+            </string>
+        </fields>
+
+        <attachment-types>
+            <attachment-type name="others_photo"/>
+        </attachment-types>
+    </domain-object-type>
+
+    <!-- Cущность "Пандус" относится к классу Иное-->
+    <domain-object-type name="other_rampant">
+        <fields>
+            <!--Ширина -->
+            <long name="width">
+                <constraints>
+                    <simple-constraint value="not-empty"/>
+                </constraints>
+            </long>
+
+            <!--Перепад высот -->
+            <long name="height_difference">
+                <constraints>
+                    <simple-constraint value="not-empty"/>
+                </constraints>
+            </long>
+
+            <!-- покрытие -->
+            <string name="coating" length="1000">
+                <constraints>
+                    <simple-constraint value="not-empty"/>
+                </constraints>
+            </string>
+
+            <!--Ссылка на id объекта Иное-->
+            <reference name="others_id" type="other_others">
+                <constraints>
+                    <simple-constraint value="not-empty"/>
+                </constraints>
+            </reference>
+        </fields>
+    </domain-object-type>
+
+    <!-- Cущность "Устройство преграждения пути" относится к классу Иное -->
+    <domain-object-type name="others_barrier">
+        <fields>
+
+            <!--Ширина проезда -->
+            <long name="passage_width">
+                <constraints>
+                    <simple-constraint value="not-empty"/>
+                </constraints>
+            </long>
+
+            <!-- Тип устройства -->
+            <string name="kind_of_barrier" length="1000">
+                <constraints>
+                    <simple-constraint value="not-empty"/>
+                </constraints>
+            </string>
+
+            <!-- Материал-->
+            <string name="material" length="1000">
+                <constraints>
+                    <simple-constraint value="not-empty"/>
+                </constraints>
+            </string>
+
+            <!-- Механизация-->
+            <string name="mechanization" length="1000">
+                <constraints>
+                    <simple-constraint value="not-empty"/>
+                </constraints>
+            </string>
+
+            <!--Ссылка на id объекта Иное-->
+            <reference name="others_id" type="other_others">
+                <constraints>
+                    <simple-constraint value="not-empty"/>
+                </constraints>
+            </reference>
+        </fields>
+    </domain-object-type>
+
+    <!-- Cущность "Светильники" относится к классу "Иное"-->
+    <domain-object-type name="other_lighting_device">
+        <fields>
+            <!-- Тип-->
+            <string name="kind_of_device" length="1000">
+                <constraints>
+                    <simple-constraint value="not-empty"/>
+                </constraints>
+            </string>
+
+            <!--Высота опоры -->
+            <long name="power_pylon_height">
+                <constraints>
+                    <simple-constraint value="not-empty"/>
+                </constraints>
+            </long>
+
+            <!-- Тип опоры-->
+            <string name="power_pylon_type" length="1000">
+                <constraints>
+                    <simple-constraint value="not-empty"/>
+                </constraints>
+            </string>
+
+            <!-- Состояние покрытия-->
+            <string name="coating_state" length="1000">
+                <constraints>
+                    <simple-constraint value="not-empty"/>
+                </constraints>
+            </string>
+
+            <!--Ссылка на id объекта Иное-->
+            <reference name="others_id" type="other_others">
+                <constraints>
+                    <simple-constraint value="not-empty"/>
+                </constraints>
+            </reference>
+        </fields>
+    </domain-object-type>
+
+    <!-- Cущность "Информационные стенды" относится к классу "Иное"-->
+    <domain-object-type name="other_information_stand">
+
+        <fields>
+            <!-- Назначение-->
+            <string name="purpose" length="1000">
+                <constraints>
+                    <simple-constraint value="not-empty"/>
+                </constraints>
+            </string>
+
+            <!--Ссылка на id объекта Иное-->
+            <reference name="others_id" type="other_others">
+                <constraints>
+                    <simple-constraint value="not-empty"/>
+                </constraints>
+            </reference>
+        </fields>
+    </domain-object-type>
+
+    <!-- Cущность "Ограждения" относится к классу "Иное"-->
+    <domain-object-type name="other_fences">
+        <fields>
+            <!--Протяженность -->
+            <long name="length">
+                <constraints>
+                    <simple-constraint value="not-empty"/>
+                </constraints>
+            </long>
+
+            <!-- Материал-->
+            <string name="material" length="1000">
+                <constraints>
+                    <simple-constraint value="not-empty"/>
+                </constraints>
+            </string>
+
+            <!-- Состояние покрытия-->
+            <string name="coating_state" length="1000">
+                <constraints>
+                    <simple-constraint value="not-empty"/>
+                </constraints>
+            </string>
+
+            <!--Ссылка на id объекта Иное-->
+            <reference name="others_id" type="other_others">
+                <constraints>
+                    <simple-constraint value="not-empty"/>
+                </constraints>
+            </reference>
+        </fields>
+    </domain-object-type>
+
+    <!-- Cущность "Водоемы" относится к классу "Иное"-->
+    <domain-object-type name="other_pond">
+
+        <fields>
+            <!--Ссылка на id объекта Иное-->
+            <reference name="others_id" type="other_others">
+                <constraints>
+                    <simple-constraint value="not-empty"/>
+                </constraints>
+            </reference>
+        </fields>
+    </domain-object-type>
+
+    <!-- Cущность "Люки подземных коммуникаций" относится к классу "Иное"-->
+    <domain-object-type name="other_underground_hatch">
+
+        <fields>
+            <!-- Тип люка -->
+            <string name="kind_of_hatch" length="1000">
+                <constraints>
+                    <simple-constraint value="not-empty"/>
+                </constraints>
+            </string>
+
+            <!--Ссылка на id объекта Иное-->
+            <reference name="others_id" type="other_others">
+                <constraints>
+                    <simple-constraint value="not-empty"/>
+                </constraints>
+            </reference>
+        </fields>
+    </domain-object-type>
+
+    <!-- Cущность "Опоры ЛЭП" относится к классу "Иное"-->
+    <domain-object-type name="other_power_pylon">
+        <fields>
+
+            <!--Высота опоры -->
+            <long name="height">
+                <constraints>
+                    <simple-constraint value="not-empty"/>
+                </constraints>
+            </long>
+
+            <!-- Тип опоры-->
+            <string name="type" length="1000">
+                <constraints>
+                    <simple-constraint value="not-empty"/>
+                </constraints>
+            </string>
+
+            <!--Ссылка на id объекта Иное-->
+            <reference name="others_id" type="other_others">
+                <constraints>
+                    <simple-constraint value="not-empty"/>
+                </constraints>
+            </reference>
+        </fields>
+    </domain-object-type>
+
+</configuration>

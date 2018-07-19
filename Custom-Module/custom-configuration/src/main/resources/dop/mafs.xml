@@ -1,11 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <configuration xmlns="https://cm5.intertrust.ru/config">
-    <!--Сущность "МАФ"-->
+
+    <!--Сущность МАФ и сущности, которые относятся к МАФ-->
+
+    <!--Сущность "МАФ"(малая архитектурная форма)-->
     <domain-object-type name="maf">
         <fields>
 
             <!--Ссылка на инвентаризацию -->
-            <reference name="inventoryId" type="inventory"/>
+            <reference name="inventory_id" type="inventory"/>
+
+            <!--Ссылка на id территории -->
+            <reference name="territory_id" type="ter_territory"/>
 
             <!--тип объекта МАФ -->
             <string name="type" length="1024">
@@ -29,7 +35,7 @@
     </domain-object-type>
 
     <!--Сущность "Накопители ТКО"-->
-    <domain-object-type name="trash_can">
+    <domain-object-type name="maf_trash_can">
         <fields>
 
             <!-- материал, из которого сделан накопитель ТКО -->
@@ -53,15 +59,8 @@
                 </constraints>
             </string>
 
-            <!--Ссылка на тип-->
-            <reference name="trashType" type="maf">
-                <constraints>
-                    <simple-constraint value="not-empty"/>
-                </constraints>
-            </reference>
-
-            <!--Ссылка на состояние-->
-            <reference name="trashState" type="maf">
+            <!--Ссылка на id МАФа-->
+            <reference name="maf_id" type="maf">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
@@ -70,7 +69,7 @@
     </domain-object-type>
 
     <!-- Сущность "Детские площадки"-->
-    <domain-object-type name="playground">
+    <domain-object-type name="maf_playground">
         <fields>
 
             <!-- материал опор площадки -->
@@ -101,23 +100,16 @@
                 </constraints>
             </string>
 
-            <!--Ссылка на тип-->
-            <reference name="trashType" type="maf">
-                <constraints>
-                    <simple-constraint value="not-empty"/>
-                </constraints>
-            </reference>
-
-            <!--Ссылка на состояние-->
-            <reference name="trashState" type="maf">
+            <!--Ссылка на id МАФа-->
+            <reference name="maf_id" type="maf">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
             </reference>
         </fields>
     </domain-object-type>
-    
-    <domain-object-type name="benches">
+
+    <domain-object-type name="maf_benches">
         <fields>
 
             <!-- ширина -->
@@ -141,15 +133,8 @@
                 </constraints>
             </string>
 
-            <!--Ссылка на тип-->
-            <reference name="trashType" type="maf">
-                <constraints>
-                    <simple-constraint value="not-empty"/>
-                </constraints>
-            </reference>
-
-            <!--Ссылка на состояние-->
-            <reference name="trashState" type="maf">
+            <!--Ссылка на id МАФа-->
+            <reference name="maf_id" type="maf">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
@@ -158,7 +143,7 @@
     </domain-object-type>
 
     <!-- Сущность "Столы"-->
-    <domain-object-type name="tables">
+    <domain-object-type name="maf_tables">
         <fields>
 
             <!-- Размер стола -->
@@ -196,15 +181,8 @@
                 </constraints>
             </string>
 
-            <!--Ссылка на тип-->
-            <reference name="trashType" type="maf">
-                <constraints>
-                    <simple-constraint value="not-empty"/>
-                </constraints>
-            </reference>
-
-            <!--Ссылка на состояние-->
-            <reference name="trashState" type="maf">
+            <!--Ссылка на id МАФа-->
+            <reference name="maf_id" type="maf">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
@@ -213,17 +191,10 @@
     </domain-object-type>
 
     <!-- Сущность "Спортивный инвентарь"-->
-    <domain-object-type name="sport_equipments">
+    <domain-object-type name="maf_sport_equipments">
         <fields>
-            <!--Ссылка на тип-->
-            <reference name="trashType" type="maf">
-                <constraints>
-                    <simple-constraint value="not-empty"/>
-                </constraints>
-            </reference>
-
-            <!--Ссылка на состояние-->
-            <reference name="trashState" type="maf">
+            <!--Ссылка на id МАФа-->
+            <reference name="maf_id" type="maf">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
@@ -232,7 +203,7 @@
     </domain-object-type>
 
     <!-- Сущность "Беседки" -->
-    <domain-object-type name="pavilions">
+    <domain-object-type name="maf_pavilions">
         <fields>
 
             <!-- Площадь -->
@@ -248,16 +219,9 @@
                     <simple-constraint value="not-empty"/>
                 </constraints>
             </string>
-            
-            <!--Ссылка на тип-->
-            <reference name="trashType" type="maf">
-                <constraints>
-                    <simple-constraint value="not-empty"/>
-                </constraints>
-            </reference>
 
-            <!--Ссылка на состояние-->
-            <reference name="trashState" type="maf">
+            <!--Ссылка на id МАФа-->
+            <reference name="maf_id" type="maf">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
@@ -265,9 +229,9 @@
 
         </fields>
     </domain-object-type>
-    
+
     <!-- Сущность "Терассы"-->
-    <domain-object-type name="terraces">
+    <domain-object-type name="maf_terraces">
         <fields>
 
             <!-- Площадь -->
@@ -284,33 +248,26 @@
                 </constraints>
             </string>
 
-            <!--Ссылка на тип-->
-            <reference name="trashType" type="maf">
-                <constraints>
-                    <simple-constraint value="not-empty"/>
-                </constraints>
-            </reference>
-
-            <!--Ссылка на состояние-->
-            <reference name="trashState" type="maf">
+            <!--Ссылка на id МАФа-->
+            <reference name="maf_id" type="maf">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
             </reference>
         </fields>
     </domain-object-type>
-    
+
     <!-- Сущность "Фонтаны"-->
-    <domain-object-type name="fountains">
+    <domain-object-type name="maf_fountains">
         <fields>
-            
+
             <!-- Размер фонтана -->
             <long name="size">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
             </long>
-            
+
             <!-- материал, из которого сделан фонтан -->
             <string name="material" length="1000">
                 <constraints>
@@ -318,24 +275,18 @@
                 </constraints>
             </string>
 
-            <!--Ссылка на тип-->
-            <reference name="trashType" type="maf">
+            <!--Ссылка на id МАФа-->
+            <reference name="maf_id" type="maf">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
             </reference>
 
-            <!--Ссылка на состояние-->
-            <reference name="trashState" type="maf">
-                <constraints>
-                    <simple-constraint value="not-empty"/>
-                </constraints>
-            </reference>
         </fields>
     </domain-object-type>
-    
+
     <!-- Сущность "Фонтаны" -->
-    <domain-object-type name="canopies">
+    <domain-object-type name="maf_canopies">
         <fields>
 
             <!-- Площадь -->
@@ -352,20 +303,13 @@
                 </constraints>
             </string>
 
-            <!--Ссылка на тип-->
-            <reference name="trashType" type="maf">
-                <constraints>
-                    <simple-constraint value="not-empty"/>
-                </constraints>
-            </reference>
-
-            <!--Ссылка на состояние-->
-            <reference name="trashState" type="maf">
+            <!--Ссылка на id МАФа-->
+            <reference name="maf_id" type="maf">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
             </reference>
         </fields>
     </domain-object-type>
-    
+
 </configuration>

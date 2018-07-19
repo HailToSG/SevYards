@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <configuration xmlns="https://cm5.intertrust.ru/config">
-    <!--Доменный объект "Дворы"-->
+
+    <!--Доменный объект "Инвентаризация"-->
+
     <domain-object-type name="inventory">
         <fields>
             <!--Ссылка на ID территории-->
-            <reference name="territoryId" type="ter_territory"/>
+            <reference name="territory_id" type="ter_territory"/>
             <!--Время начала инвентаризации-->
             <date-time name="start_time">
                 <constraints>

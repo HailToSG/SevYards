@@ -1,11 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <configuration xmlns="https://cm5.intertrust.ru/config">
 
+    <!-- Cущность "Элементы озеленения" (ЭО) и сущности, которые относятся к ЭО -->
+
     <!-- Cущность "Элементы озеленения" (ЭО) -->
     <domain-object-type name="gard_gardening">
         <fields>
             <!--Ссылка на инвентаризацию -->
-            <reference name="inventoryId" type="inventory"/>
+            <reference name="inventory_id" type="inventory"/>
+
+            <!--Ссылка на id территории -->
+            <reference name="territory_id" type="ter_territory"/>
 
             <!--Тип элемента озеленения -->
             <string name="type" length="1024">
@@ -45,15 +50,8 @@
                 </constraints>
             </long>
 
-            <!-- Ссылка на состояние ЭО-->
-            <reference name="gardState" type="gard_gardening">
-                <constraints>
-                    <simple-constraint value="not-empty"/>
-                </constraints>
-            </reference>
-
-            <!--Ссылка на тип ЭО-->
-            <reference name="gardType" type="gard_gardening">
+            <!--Ссылка на id Элемента Озеленения-->
+            <reference name="gard_id" type="gard_gardening">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
@@ -72,8 +70,8 @@
                 </constraints>
             </long>
 
-            <!--Ссылка на состояние " ЭО-->
-            <reference name="state" type="gard_gardening">
+            <!--Ссылка на id Элемента Озеленения-->
+            <reference name="gard_id" type="gard_gardening">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
@@ -98,15 +96,8 @@
                 </constraints>
             </long>
 
-            <!--Ссылка на тип ЭО-->
-            <reference name="gardType" type="gard_gardening">
-                <constraints>
-                    <simple-constraint value="not-empty"/>
-                </constraints>
-            </reference>
-
-            <!--Ссылка на состояние ЭО-->
-            <reference name="gardState" type="gard_gardening">
+            <!--Ссылка на id Элемента Озеленения-->
+            <reference name="gard_id" type="gard_gardening">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>

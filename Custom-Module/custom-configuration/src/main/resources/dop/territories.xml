@@ -1,30 +1,25 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <configuration xmlns="https://cm5.intertrust.ru/config">
 
+    <!--Доменный объект "Территория" и доменные объекты типов территории-->
+
     <!--Доменный объект "Территория"-->
     <domain-object-type name="ter_territory">
         <fields>
+            <!--Ссылка на id Инвентаризации-->
+            <reference name="inventory_id" type="inventory">
+                <constraints>
+                    <simple-constraint value="not-empty"/>
+                </constraints>
+            </reference>
             <string name="name" length="1000"/>
-            <string name="territoryType" length="1000"/>
+            <string name="territory_type" length="1000"/>
         </fields>
     </domain-object-type>
 
     <!--Доменный объект "Общественная территория"-->
     <domain-object-type name="ter_public">
         <fields>
-            <!--Ссылка на инвентаризацию -->
-            <reference name="inventoryId" type="inventory">
-                <constraints>
-                    <simple-constraint value="not-empty"/>
-                </constraints>
-            </reference>
-
-            <!--Ссылка на тип территории-->
-            <reference name="type" type="ter_territory">
-                <constraints>
-                    <simple-constraint value="not-empty"/>
-                </constraints>
-            </reference>
 
             <!--Вид общественной территории -->
             <string name="kind_of_territory" length="1000">
@@ -46,25 +41,19 @@
                     <simple-constraint value="not-empty"/>
                 </constraints>
             </long>
+
+            <!--Ссылка на id Территории-->
+            <reference name="territory_id" type="ter_territory">
+                <constraints>
+                    <simple-constraint value="not-empty"/>
+                </constraints>
+            </reference>
         </fields>
     </domain-object-type>
 
     <!--Доменный объект "Дворовая территория"-->
     <domain-object-type name="ter_yard">
         <fields>
-            <!--Ссылка на инвентаризацию -->
-            <reference name="inventoryId" type="inventory">
-                <constraints>
-                    <simple-constraint value="not-empty"/>
-                </constraints>
-            </reference>
-
-            <!--Ссылка на тип территории-->
-            <reference name="type" type="ter_territory">
-                <constraints>
-                    <simple-constraint value="not-empty"/>
-                </constraints>
-            </reference>
 
             <!--Общая площадь -->
             <long name="summary_area">
@@ -79,24 +68,18 @@
                     <simple-constraint value="not-empty"/>
                 </constraints>
             </long>
+
+            <!--Ссылка на id Территории-->
+            <reference name="territory_id" type="ter_territory">
+                <constraints>
+                    <simple-constraint value="not-empty"/>
+                </constraints>
+            </reference>
         </fields>
     </domain-object-type>
 
     <domain-object-type name="ter_yard">
         <fields>
-            <!--Ссылка на инвентаризацию -->
-            <reference name="inventoryId" type="inventory">
-                <constraints>
-                    <simple-constraint value="not-empty"/>
-                </constraints>
-            </reference>
-
-            <!--Ссылка на тип территории-->
-            <reference name="type" type="ter_territory">
-                <constraints>
-                    <simple-constraint value="not-empty"/>
-                </constraints>
-            </reference>
 
             <!--Общая площадь -->
             <long name="summary_area">
@@ -111,24 +94,18 @@
                     <simple-constraint value="not-empty"/>
                 </constraints>
             </long>
+
+            <!--Ссылка на id Территории-->
+            <reference name="territory_id" type="ter_territory">
+                <constraints>
+                    <simple-constraint value="not-empty"/>
+                </constraints>
+            </reference>
         </fields>
     </domain-object-type>
 
     <domain-object-type name="ter_private_housing">
         <fields>
-            <!--Ссылка на инвентаризацию -->
-            <reference name="inventoryId" type="inventory">
-                <constraints>
-                    <simple-constraint value="not-empty"/>
-                </constraints>
-            </reference>
-
-            <!--Ссылка на тип территории-->
-            <reference name="type" type="ter_territory">
-                <constraints>
-                    <simple-constraint value="not-empty"/>
-                </constraints>
-            </reference>
 
             <!--Состояние фасада-->
             <string name="facadeState" length="1000">
@@ -145,37 +122,44 @@
             </string>
 
             <!--Информация по подписании соглашения о благоустройстве-->
-            <text name="contractOfImprovement"/>
+            <text name="contract_of_improvement"/>
+
+            <!--Ссылка на id Территории-->
+            <reference name="territory_id" type="ter_territory">
+                <constraints>
+                    <simple-constraint value="not-empty"/>
+                </constraints>
+            </reference>
 
         </fields>
     </domain-object-type>
 
-    <domain-object-type name="ter_UL_IP">
+    <domain-object-type name="ter_ULIP">
         <fields>
-            <!--Ссылка на инвентаризацию -->
-            <reference name="inventoryId" type="inventory">
-                <constraints>
-                    <simple-constraint value="not-empty"/>
-                </constraints>
-            </reference>
 
             <!--Состояние фасада-->
-            <string name="facadeState" length="1000">
+            <string name="facade_state" length="1000">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
             </string>
 
             <!--Состояние придомовой территории-->
-            <string name="territoryState" length="1000">
+            <string name="territory_state" length="1000">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
             </string>
 
             <!--Информация по подписании соглашения о благоустройстве-->
-            <text name="contractOfImprovement"/>
+            <text name="contract_of_improvement"/>
 
+            <!--Ссылка на id Территории-->
+            <reference name="territory_id" type="ter_territory">
+                <constraints>
+                    <simple-constraint value="not-empty"/>
+                </constraints>
+            </reference>
         </fields>
     </domain-object-type>
 

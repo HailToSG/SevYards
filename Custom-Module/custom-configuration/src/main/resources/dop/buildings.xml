@@ -1,11 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <configuration xmlns="https://cm5.intertrust.ru/config">
 
+    <!-- Cущность "Строения" и сущности, которые относятся к Строениям-->
+
     <!-- Cущность "Строения" -->
     <domain-object-type name="build_buildings">
         <fields>
-            <!--Ссылка на инвентаризацию -->
-            <reference name="inventoryId" type="inventory"/>
+            <!--Ссылка на id инвентаризации -->
+            <reference name="inventory_id" type="inventory"/>
+
+            <!--Ссылка на id территории -->
+            <reference name="territory_id" type="ter_territory"/>
 
             <!--тип строения -->
             <string name="type" length="1024">
@@ -13,6 +18,7 @@
                     <simple-constraint value="not-empty"/>
                 </constraints>
             </string>
+
             <!--состояние строения-->
             <string name="state" length="1024">
                 <constraints>
@@ -45,25 +51,19 @@
             </string>
 
             <!-- Адрес при отсутствии ФИАС -->
-            <string name="NoFiasAddress" length="1000">
+            <string name="no_fias_address" length="1000">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
             </string>
 
-            <!--Ссылка на тип-->
-            <reference name="buildType" type="build_buildings">
+            <!--Ссылка на id Строения-->
+            <reference name="build_id" type="build_buildings">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
             </reference>
 
-            <!--Ссылка на состояние-->
-            <reference name="buildState" type="build_buildings">
-                <constraints>
-                    <simple-constraint value="not-empty"/>
-                </constraints>
-            </reference>
         </fields>
     </domain-object-type>
 
@@ -84,21 +84,14 @@
                 </constraints>
             </string>
             <!-- Адрес при отсутствии ФИАС -->
-            <string name="NoFiasAddress" length="1000">
+            <string name="no_fias_address" length="1000">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
             </string>
 
-            <!--Ссылка на тип-->
-            <reference name="buildType" type="build_buildings">
-                <constraints>
-                    <simple-constraint value="not-empty"/>
-                </constraints>
-            </reference>
-
-            <!--Ссылка на состояние-->
-            <reference name="buildState" type="build_buildings">
+            <!--Ссылка на id Строения-->
+            <reference name="build_id" type="build_buildings">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
@@ -116,19 +109,14 @@
                     <simple-constraint value="not-empty"/>
                 </constraints>
             </long>
-            <!--Ссылка на тип-->
-            <reference name="buildType" type="build_buildings">
+
+            <!--Ссылка на id Строения-->
+            <reference name="build_id" type="build_buildings">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
             </reference>
 
-            <!--Ссылка на состояние-->
-            <reference name="buildState" type="build_buildings">
-                <constraints>
-                    <simple-constraint value="not-empty"/>
-                </constraints>
-            </reference>
         </fields>
     </domain-object-type>
 
