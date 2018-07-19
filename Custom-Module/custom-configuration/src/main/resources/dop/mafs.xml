@@ -68,8 +68,8 @@
         </fields>
     </domain-object-type>
 
-    <!-- Сущность "Детские площадки"-->
-    <domain-object-type name="maf_playground">
+    <!-- Сущность "Оснащения детских площадок"-->
+    <domain-object-type name="maf_playground_equipment">
         <fields>
 
             <!-- материал опор площадки -->
