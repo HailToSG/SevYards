@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<configuration xmlns="https://cm5.intertrust.ru/config" xmlns:act="https://cm5.intertrust.ru/config/action">
+
+    <collection name="bld_residential_collection" idField="id">
+        <prototype>
+            <![CDATA[
+            SELECT
+              res.id                 AS id,
+              res.fias               AS fias,
+              res.no_fias_address    AS no_fias_address,
+              res.area               AS area,
+              res.kind               AS kind
+
+            FROM build_residential res
+            WHERE
+              1=1 ::where-clause
+            ]]>
+        </prototype>
+    </collection>
+
+    <collection-view name="bld_residential_collection_view" collection="bld_residential_collection" is-default="true">
+        <display>
+            <column field="fias" name="ФИАС" type="string" editable="false" sortable="true"
+                    min-width="50px" text-break-style="cut"/>
+            <column field="no_fias_address" name="Адрес при отсутствии ФИАС" type="string" editable="false"
+                    sortable="true"
+                    min-width="50px" text-break-style="cut"/>
+            <column field="area" name="Занимаемая площадь" type="integer" editable="false" sortable="true" width="50px"
+                    text-break-style="cut"/>
+            <column field="kind" name="Вид строения" type="string" editable="false" sortable="true"
+                    min-width="50px" text-break-style="cut"/>
+        </display>
+    </collection-view>
+
+    <collection name="bld_residential_collection_extended" idField="id">
+        <prototype>
+            <![CDATA[
+            SELECT
+              res.id                 AS id,
+              res.fias               AS fias,
+              res.no_fias_address    AS no_fias_address,
+              res.area               AS area,
+              res.kind               AS kind,
+              buildings.type         AS type,
+              buildings.state        AS state
+
+            FROM build_residential res
+            JOIN build_buildings buildings ON buildings.id = res.build_id
+            WHERE
+              1=1 ::where-clause
+            ]]>
+        </prototype>
+    </collection>
+
+    <collection-view name="bld_residential_collection_extended_view" collection="bld_residential_collection_extended" is-default="true">
+        <display>
+            <column field="fias" name="ФИАС" type="string" editable="false" sortable="true"
+                    min-width="50px" text-break-style="cut"/>
+            <column field="no_fias_address" name="Адрес при отсутствии ФИАС" type="string" editable="false"
+                    sortable="true"
+                    min-width="50px" text-break-style="cut"/>
+            <column field="area" name="Занимаемая площадь" type="integer" editable="false" sortable="true" width="50px"
+                    text-break-style="cut"/>
+            <column field="kind" name="Вид строения" type="string" editable="false" sortable="true"
+                    min-width="50px" text-break-style="cut"/>
+            <column field="type" name="Тип строения" type="string" editable="false" sortable="true"
+                    min-width="50px" text-break-style="cut"/>
+            <column field="state" name="Состояние строения" type="string" editable="false"
+                    sortable="true" min-width="50px" text-break-style="cut"/>
+        </display>
+    </collection-view>
+
+</configuration>

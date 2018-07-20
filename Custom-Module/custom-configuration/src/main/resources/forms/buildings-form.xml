@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<configuration xmlns="https://cm5.intertrust.ru/config" xmlns:act="https://cm5.intertrust.ru/config/action">
+
+    <!-- Форма для доменного объекта "Жилое строение" -->
+    <form name="buildings_form" domain-object-type="build_buildings" is-default="true">
+        <markup>
+            <header>
+                <table>
+                    <tr>
+                        <td h-align="left">
+                            <widget id="headerLabel"/>
+                        </td>
+                    </tr>
+                </table>
+            </header>
+
+            <body display-single-tab="true">
+
+                <tab name="Строение">
+                    <single-entry-group>
+                        <tab-group>
+                            <table>
+
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="buildTypeLabel"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="buildTypeValue"/>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="buildStatusLabel"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="buildStatusValue"/>
+                                    </td>
+                                </tr>
+
+                            </table>
+                        </tab-group>
+                    </single-entry-group>
+                </tab>
+
+                <tab name="Дополнительно">
+                    <single-entry-group>
+                        <tab-group>
+                            <table>
+
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="residentialLabel"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="residentialValue"/>
+                                    </td>
+                                </tr>
+
+                                <!--<tr>-->
+                                    <!--<td h-align="right">-->
+                                        <!--<widget id="permanentLabel"/>-->
+                                    <!--</td>-->
+                                    <!--<td h-align="left">-->
+                                        <!--<widget id="permanentValue"/>-->
+                                    <!--</td>-->
+                                <!--</tr>-->
+
+                                <!--<tr>-->
+                                    <!--<td h-align="right">-->
+                                        <!--<widget id="temporaryLabel"/>-->
+                                    <!--</td>-->
+                                    <!--<td h-align="left">-->
+                                        <!--<widget id="temporaryValue"/>-->
+                                    <!--</td>-->
+                                <!--</tr>-->
+
+                            </table>
+                        </tab-group>
+                    </single-entry-group>
+
+                </tab>
+            </body>
+
+        </markup>
+        <widget-config>
+
+            <label id="headerLabel">
+                <text>Строение</text>
+            </label>
+
+            <!-- Тип-->
+            <label id="buildTypeLabel">
+                <text>Тип</text>
+            </label>
+            <enumeration-box id="buildTypeValue">
+                <field-path value="type"/>
+                <mapping>
+                    <map display-text="Жилое строение" value="1"/>
+                    <map display-text="Нежилое капитальное строение" value="2"/>
+                    <map display-text="Нежилое некапитальное строение" value="3"/>
+                </mapping>
+            </enumeration-box>
+
+            <!-- Состояние постройки -->
+            <label id="buildStatusLabel">
+                <text>Состояние</text>
+            </label>
+            <enumeration-box id="buildStatusValue">
+                <field-path value="state"/>
+                <mapping>
+                    <map display-text="Отличное" value="1"/>
+                    <map display-text="Среднее" value="2"/>
+                    <map display-text="Требует ремонта" value="3"/>
+                </mapping>
+            </enumeration-box>
+
+
+            <label id="residentialLabel">
+                <text>Доп.инфо</text>
+            </label>
+            <linked-domain-objects-table id="residentialValue" delete-linked-objects="true">
+                <field-path value="build_residential^build_id" on-root-delete="unlink"/>
+                <linked-form name="bld_residential_form" inline="true" domain-object-type="build_residential"/>
+                <single-choice value="true"/>
+                <summary-table>
+                    <summary-table-column header="ФИАС" widget-id="residentialFiasValue">
+                        <pattern value="{fias}"/>
+                    </summary-table-column>
+                    <summary-table-column header="Адрес без ФИАС" widget-id="residentialNoFiasAddressValue">
+                        <pattern value="{no_fias_address}"/>
+                    </summary-table-column>
+                    <summary-table-column header="Вид постройки" widget-id="residentialKindValue">
+                        <pattern value="{kind}"/>
+                    </summary-table-column>
+                    <summary-table-column header="Площадь" widget-id="residentialAreaValue">
+                        <pattern value="{area}"/>
+                    </summary-table-column>
+
+                </summary-table>
+            </linked-domain-objects-table>
+
+
+        </widget-config>
+
+    </form>
+</configuration>

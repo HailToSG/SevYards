@@ -19,6 +19,26 @@
         <configuration-path>configuration/navigation-panel.xml</configuration-path>
         <configuration-path>configuration/global.xml</configuration-path>
         <configuration-path>configuration/form-mechanism-1.xml</configuration-path>
+
+        <!-- Доменные объекты -->
+        <configuration-path>dop/buildings.xml</configuration-path>
+        <!--<configuration-path>dop/gardening.xml</configuration-path>-->
+        <configuration-path>dop/inventory.xml</configuration-path>
+        <!--<configuration-path>dop/mafs.xml</configuration-path>-->
+        <!--<configuration-path>dop/others.xml</configuration-path>-->
+        <!--<configuration-path>dop/planar_linear.xml</configuration-path>-->
+        <configuration-path>dop/territories.xml</configuration-path>
+
+        <!-- Коллекции -->
+        <configuration-path>collections/buildings-collection.xml</configuration-path>
+        <configuration-path>collections/bld-residential-collection.xml</configuration-path>
+        <!--<configuration-path>collections/bld-permanent-collection.xml</configuration-path>-->
+        <!--<configuration-path>collections/bld-temporary-collection.xml</configuration-path>-->
+
+        <!-- Формы -->
+        <configuration-path>forms/bld-residential-form.xml</configuration-path>
+        <configuration-path>forms/buildings-form.xml</configuration-path>
+
     </configuration-paths>
     <import-files rewrite="true">
         <import-file>importdata/f1.csv</import-file>

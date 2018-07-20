@@ -57,6 +57,13 @@
                 </constraints>
             </string>
 
+            <!-- Вид жилого строения -->
+            <string name="kind" length="1000">
+                <constraints>
+                    <simple-constraint value="not-empty"/>
+                </constraints>
+            </string>
+
             <!--Ссылка на id Строения-->
             <reference name="build_id" type="build_buildings">
                 <constraints>
@@ -90,6 +97,13 @@
                 </constraints>
             </string>
 
+            <!-- Вид капитального нежилого строения -->
+            <string name="kind" length="1000">
+                <constraints>
+                    <simple-constraint value="not-empty"/>
+                </constraints>
+            </string>
+
             <!--Ссылка на id Строения-->
             <reference name="build_id" type="build_buildings">
                 <constraints>
@@ -109,6 +123,13 @@
                     <simple-constraint value="not-empty"/>
                 </constraints>
             </long>
+
+            <!-- Вид неапитального нежилого строения -->
+            <string name="kind" length="1000">
+                <constraints>
+                    <simple-constraint value="not-empty"/>
+                </constraints>
+            </string>
 
             <!--Ссылка на id Строения-->
             <reference name="build_id" type="build_buildings">

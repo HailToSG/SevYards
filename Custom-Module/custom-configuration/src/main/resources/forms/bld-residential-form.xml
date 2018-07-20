@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<configuration xmlns="https://cm5.intertrust.ru/config" xmlns:act="https://cm5.intertrust.ru/config/action">
+
+    <!-- Форма для доменного объекта "Жилое строение" -->
+    <form name="bld_residential_form" domain-object-type="build_residential" is-default="true">
+        <markup>
+            <header>
+                <table>
+                    <tr>
+                        <td h-align="left">
+                            <widget id="headerLabel"/>
+                        </td>
+                    </tr>
+                </table>
+            </header>
+            <body display-single-tab="true">
+
+                <tab name="Жилое строение">
+                    <single-entry-group>
+                        <tab-group>
+                            <table>
+
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="residentialFiasLabel"/>
+                                    </td>
+
+                                    <td h-align="left">
+                                        <widget id="residentialFiasValue"/>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="residentialNoFiasAddressLabel"/>
+                                    </td>
+
+                                    <td h-align="left">
+                                        <widget id="residentialNoFiasAddressValue"/>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="residentialAreaLabel"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="residentialAreaValue"/>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="residentialKindLabel"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="residentialKindValue"/>
+                                    </td>
+                                </tr>
+
+                            </table>
+                        </tab-group>
+                    </single-entry-group>
+                </tab>
+            </body>
+
+        </markup>
+        <widget-config>
+
+            <label id="headerLabel">
+                <text>Жилое строение</text>
+            </label>
+
+            <label id="residentialFiasLabel">
+                <text>ФИАС</text>
+            </label>
+            <text-box id="residentialFiasValue">
+                <field-path value="fias"/>
+            </text-box>
+
+            <label id="residentialNoFiasAddressLabel">
+                <text>Адрес при отсутствии ФИАС</text>
+            </label>
+            <text-box id="residentialNoFiasAddressValue">
+                <field-path value="no_fias_address"/>
+            </text-box>
+
+            <!-- Занимаемая площадь -->
+            <label id="residentialAreaLabel">
+                <text>Занимаемая площадь</text>
+            </label>
+            <integer-box id="residentialAreaValue">
+                <field-path value="area"/>
+            </integer-box>
+
+            <!-- Вид жилого здания-->
+            <label id="residentialKindLabel">
+                <text>Вид жилого строения</text>
+            </label>
+            <enumeration-box id="residentialKindValue">
+                <field-path value="kind"/>
+                <mapping>
+                    <map display-text="МКД" value="MKD"/>
+                    <map display-text="ИЖС" value="IJS"/>
+                    <map display-text="Блокированный" value="Blocked"/>
+                </mapping>
+            </enumeration-box>
+
+        </widget-config>
+
+    </form>
+</configuration>

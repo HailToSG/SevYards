@@ -2,23 +2,67 @@
 <configuration xmlns="https://cm5.intertrust.ru/config">
     <navigation name="default-panel" is-default="true">
 
-        <link name="Configuration" display-text="Загрузка конфигураций" image="images/cases.png"
-              child-to-open="Configuration_upload">
+        <link name="Buildings" display-text="Строения" image="images/cases.png"
+              child-to-open="Build_buildings">
             <child-links>
-                <link name="Configuration_upload" display-text="Загрузка конфигурации">
+
+                <link name="Build_buildings" display-text="Строения">
                     <plugin>
-                        <custom name="configuration.deployer.plugin"/>
+                        <domain-object-surfer domain-object-type-to-create="build_buildings">
+                            <collection-viewer>
+                                <collection-ref name="buildings_collection"/>
+                                <collection-view-ref name="buildings_collection_view"/>
+                            </collection-viewer>
+                            <form-viewer>
+                                <form-mapping domain-object-type="build_buildings" form="buildings_form"/>
+                            </form-viewer>
+                        </domain-object-surfer>
                     </plugin>
                 </link>
-                <link name="Report_upload" display-text="Загрузка шаблонов отчетов">
+
+                <link name="Residential_buildings" display-text="Жилые строения">
                     <plugin>
-                        <custom name="report.upload.plugin"/>
+                        <domain-object-surfer domain-object-type-to-create="build_residential">
+                            <collection-viewer>
+                                <collection-ref name="bld_residential_collection_extended"/>
+                                <collection-view-ref name="bld_residential_collection_extended_view"/>
+                            </collection-viewer>
+                            <form-viewer>
+                                <form-mapping domain-object-type="build_residential" form="bld_residential_form"/>
+                            </form-viewer>
+                        </domain-object-surfer>
                     </plugin>
                 </link>
+
+                <!--<link name="Permanent_buildings" display-text="Нежилые капитальные">-->
+                    <!--<plugin>-->
+                        <!--<domain-object-surfer domain-object-type-to-create="build_residential">-->
+                            <!--<collection-viewer>-->
+                                <!--<collection-ref name="bld_residential_collection"/>-->
+                                <!--<collection-view-ref name="bld_resident_collection_view"/>-->
+                            <!--</collection-viewer>-->
+                            <!--<form-viewer>-->
+                                <!--<form-mapping domain-object-type="build_residential" form="yards_form"/>-->
+                            <!--</form-viewer>-->
+                        <!--</domain-object-surfer>-->
+                    <!--</plugin>-->
+                <!--</link>-->
+
+                <!--<link name="Temporary_buildings" display-text="Нежилые некапитальные">-->
+                    <!--<plugin>-->
+                        <!--<domain-object-surfer domain-object-type-to-create="build_residential">-->
+                            <!--<collection-viewer>-->
+                                <!--<collection-ref name="bld_residential_collection"/>-->
+                                <!--<collection-view-ref name="bld_resident_collection_view"/>-->
+                            <!--</collection-viewer>-->
+                            <!--<form-viewer>-->
+                                <!--<form-mapping domain-object-type="build_residential" form="yards_form"/>-->
+                            <!--</form-viewer>-->
+                        <!--</domain-object-surfer>-->
+                    <!--</plugin>-->
+                <!--</link>-->
             </child-links>
         </link>
-
-
 
     </navigation>
     <navigation-panel-mappings name="nav-panel-map1">

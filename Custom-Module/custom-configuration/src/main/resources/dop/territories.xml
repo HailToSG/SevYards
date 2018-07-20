@@ -78,32 +78,7 @@
         </fields>
     </domain-object-type>
 
-    <domain-object-type name="ter_yard">
-        <fields>
-
-            <!--Общая площадь -->
-            <long name="summary_area">
-                <constraints>
-                    <simple-constraint value="not-empty"/>
-                </constraints>
-            </long>
-
-            <!--Площадь зданий, сооружений, строений -->
-            <long name="objects_area">
-                <constraints>
-                    <simple-constraint value="not-empty"/>
-                </constraints>
-            </long>
-
-            <!--Ссылка на id Территории-->
-            <reference name="territory_id" type="ter_territory">
-                <constraints>
-                    <simple-constraint value="not-empty"/>
-                </constraints>
-            </reference>
-        </fields>
-    </domain-object-type>
-
+    <!--Доменный объект "Объект индивидуального жилищного строительства"-->
     <domain-object-type name="ter_private_housing">
         <fields>
 
@@ -134,6 +109,7 @@
         </fields>
     </domain-object-type>
 
+    <!--Доменный объект "Объект недвижимого имущества и зем.участков у ЮЛ и ИП"-->
     <domain-object-type name="ter_ULIP">
         <fields>
 
