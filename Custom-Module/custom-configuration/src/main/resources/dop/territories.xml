@@ -6,12 +6,6 @@
     <!--Доменный объект "Территория"-->
     <domain-object-type name="ter_territory">
         <fields>
-            <!--Ссылка на id Инвентаризации-->
-            <reference name="inventory_id" type="inventory">
-                <constraints>
-                    <simple-constraint value="not-empty"/>
-                </constraints>
-            </reference>
             <string name="name" length="1000"/>
             <string name="territory_type" length="1000"/>
         </fields>
