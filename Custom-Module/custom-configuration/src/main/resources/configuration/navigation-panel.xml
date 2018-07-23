@@ -64,6 +64,27 @@
             </child-links>
         </link>
 
+        <link name="Territories" display-text="Территории" image="images/docs" child-to-open="ter_territory">
+            <child-links>
+
+                <link name="ter_territory" display-text="Территории">
+                    <plugin>
+                        <domain-object-surfer domain-object-type-to-create="ter_territory">
+                            <collection-viewer>
+                                <collection-ref name="ter_collection"/>
+                                <collection-view-ref name="ter_collection_view"/>
+                            </collection-viewer>
+                            <form-viewer>
+                                <form-mapping domain-object-type="ter_territory" form="territories_form"/>
+                            </form-viewer>
+                        </domain-object-surfer>
+                    </plugin>
+                </link>
+
+
+            </child-links>
+        </link>
+
     </navigation>
     <navigation-panel-mappings name="nav-panel-map1">
         <navigation-panel-mapping name="default-panel">

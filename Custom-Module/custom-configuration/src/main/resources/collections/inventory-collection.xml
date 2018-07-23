@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<configuration xmlns="https://cm5.intertrust.ru/config" xmlns:act="https://cm5.intertrust.ru/config/action">
+
+    <collection name="inventory_collection" idField="id">
+        <prototype>
+            <![CDATA[
+            SELECT
+              id              AS  id,
+              start_time      AS  time,
+              end_time        AS  name
+
+            FROM inventory
+            WHERE
+              1=1 ::where-clause
+            ]]>
+        </prototype>
+
+    </collection>
+
+    <collection-view name="inventory_collection_view" collection="territories_collection" is-default="true">
+        <display>
+            <column field="type" name="Тип территории" type="string" editable="false" sortable="true"
+                    min-width="50px" text-break-style="cut"/>
+            <column field="name" name="Адрес (название)" type="string" editable="false"
+                    sortable="true" min-width="50px" text-break-style="cut"/>
+        </display>
+    </collection-view>
+
+</configuration>
