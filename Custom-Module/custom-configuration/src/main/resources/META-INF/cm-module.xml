@@ -31,12 +31,14 @@
 
         <!-- Коллекции -->
         <configuration-path>collections/buildings-collection.xml</configuration-path>
+        <configuration-path>collections/territories-collection.xml</configuration-path>
         <configuration-path>collections/bld-residential-collection.xml</configuration-path>
         <!--<configuration-path>collections/bld-permanent-collection.xml</configuration-path>-->
         <!--<configuration-path>collections/bld-temporary-collection.xml</configuration-path>-->
 
         <!-- Формы -->
         <configuration-path>forms/bld-residential-form.xml</configuration-path>
+        <configuration-path>forms/territories-form.xml</configuration-path>
         <configuration-path>forms/buildings-form.xml</configuration-path>
 
     </configuration-paths>

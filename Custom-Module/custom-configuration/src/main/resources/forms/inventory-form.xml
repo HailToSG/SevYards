@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<configuration xmlns="https://cm5.intertrust.ru/config" xmlns:act="https://cm5.intertrust.ru/config/action">
+
+    <!-- Форма для доменного объекта "Жилое строение" -->
+    <form name="inventory_form" domain-object-type="inventory" is-default="true">
+        <markup>
+            <header>
+                <table>
+                    <tr>
+                        <td h-align="left">
+                            <widget id="headerLabel"/>
+                        </td>
+                    </tr>
+                </table>
+            </header>
+
+            <body display-single-tab="true">
+
+                <tab name="Инфо">
+                    <single-entry-group>
+                        <tab-group>
+                            <table>
+
+                            </table>
+                        </tab-group>
+                    </single-entry-group>
+                </tab>
+
+                <tab name="Правообладатели">
+                    <single-entry-group>
+                        <tab-group>
+                            <table>
+
+                            </table>
+                        </tab-group>
+                    </single-entry-group>
+                </tab>
+
+                <tab name="Строения">
+                    <single-entry-group>
+                        <tab-group>
+                            <table>
+
+                            </table>
+                        </tab-group>
+                    </single-entry-group>
+                </tab>
+
+                <tab name="Объекты озеленения">
+                    <single-entry-group>
+                        <tab-group>
+                            <table>
+
+                            </table>
+                        </tab-group>
+                    </single-entry-group>
+                </tab>
+
+                <tab name="МАФы">
+                    <single-entry-group>
+                        <tab-group>
+                            <table>
+
+                            </table>
+                        </tab-group>
+                    </single-entry-group>
+                </tab>
+
+                <tab name="Плоскостные и линейные">
+                    <single-entry-group>
+                        <tab-group>
+                            <table>
+
+                            </table>
+                        </tab-group>
+                    </single-entry-group>
+                </tab>
+
+                <tab name="Иные объекты">
+                    <single-entry-group>
+                        <tab-group>
+                            <table>
+
+                            </table>
+                        </tab-group>
+                    </single-entry-group>
+                </tab>
+
+                <tab name="Галерея">
+                    <single-entry-group>
+                        <tab-group>
+                            <table>
+
+                            </table>
+                        </tab-group>
+                    </single-entry-group>
+                </tab>
+            </body>
+
+        </markup>
+        <widget-config>
+
+            <label id="headerLabel">
+                <text>Инвентаризация</text>
+            </label>
+        </widget-config>
+
+    </form>
+</configuration>
