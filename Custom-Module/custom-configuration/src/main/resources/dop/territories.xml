@@ -77,14 +77,14 @@
         <fields>
 
             <!--Состояние фасада-->
-            <string name="facadeState" length="1000">
+            <string name="facade_state" length="1000">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
             </string>
 
             <!--Состояние придомовой территории-->
-            <string name="territoryState" length="1000">
+            <string name="territory_state" length="1000">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
@@ -104,7 +104,7 @@
     </domain-object-type>
 
     <!--Доменный объект "Объект недвижимого имущества и зем.участков у ЮЛ и ИП"-->
-    <domain-object-type name="ter_ULIP">
+    <domain-object-type name="ter_ulip">
         <fields>
 
             <!--Состояние фасада-->
