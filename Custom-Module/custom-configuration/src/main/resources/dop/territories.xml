@@ -114,7 +114,7 @@
                 </constraints>
             </string>
 
-            <!--Состояние придомовой территории-->
+            <!--Состояние прилегающей территории-->
             <string name="territory_state" length="1000">
                 <constraints>
                     <simple-constraint value="not-empty"/>

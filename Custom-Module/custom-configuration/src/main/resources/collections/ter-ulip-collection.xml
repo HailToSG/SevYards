@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<configuration xmlns="https://cm5.intertrust.ru/config" xmlns:act="https://cm5.intertrust.ru/config/action">
+
+    <collection name="ter_ulip_collection" idField="id">
+        <prototype>
+            <![CDATA[
+            SELECT
+              territory.id                         AS  id,
+              territory.facade_state               AS  facade_state,
+              territory.territory_state            AS  territory_state,
+              territory.contract_of_improvement    AS  contract_of_improvement,
+              territory.territory_id               AS  ter_id
+
+            FROM ter_ulip territory
+            WHERE
+              1=1 ::where-clause
+            ]]>
+        </prototype>
+
+    </collection>
+
+    <collection-view name="ter_ulip_collection_view" collection="ter_ulip_collection" is-default="true">
+        <display>
+            <column field="facade_state" name="Состояние фасада" type="string" editable="false" sortable="true"
+                    min-width="50px" text-break-style="cut"/>
+            <column field="territory_state" name="Состояние прилегающей территории" type="string" editable="false"
+                    sortable="true" min-width="50px" text-break-style="cut"/>
+            <column field="contract_of_improvement" name="Информация по подписании соглашения о благоустройстве" type="text" editable="false"
+                    sortable="true" min-width="50px" text-break-style="cut"/>
+        </display>
+    </collection-view>
+
+</configuration>

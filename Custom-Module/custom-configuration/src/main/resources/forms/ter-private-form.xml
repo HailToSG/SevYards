@@ -2,7 +2,7 @@
 <configuration xmlns="https://cm5.intertrust.ru/config" xmlns:act="https://cm5.intertrust.ru/config/action">
 
     <!-- Форма для доменного объекта "Жилое строение" -->
-    <form name="territories_form" domain-object-type="ter_territory" is-default="true">
+    <form name="ter_private_form" domain-object-type="ter_private_housing" is-default="true">
         <markup>
             <header>
                 <table>
@@ -23,23 +23,34 @@
 
                                 <tr>
                                     <td h-align="right">
-                                        <widget id="territoryAddressLabel"/>
+                                        <widget id="stateFacadeLabel"/>
                                     </td>
 
                                     <td h-align="left">
-                                        <widget id="territoryAddressValue"/>
+                                        <widget id="stateFacadeValue"/>
                                     </td>
                                 </tr>
 
                                 <tr>
                                     <td h-align="right">
-                                        <widget id="territoryTypeLabel"/>
+                                        <widget id="territoryStateLabel"/>
                                     </td>
 
                                     <td h-align="left">
-                                        <widget id="territoryTypeValue"/>
+                                        <widget id="territoryStateValue"/>
                                     </td>
                                 </tr>
+
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="contractInfoLabel"/>
+                                    </td>
+
+                                    <td h-align="left">
+                                        <widget id="contractInfoValue"/>
+                                    </td>
+                                </tr>
+
 
                             </table>
                         </tab-group>
@@ -52,29 +63,29 @@
         <widget-config>
 
             <label id="headerLabel">
-                <text>Территория</text>
+                <text>ИЖС объект</text>
             </label>
 
-            <label id="territoryAddressLabel">
-                <text>Адрес (название)</text>
+            <label id="stateFacadeLabel">
+                <text>Состояние фасада</text>
             </label>
-            <text-box id="territoryAddressValue">
-                <field-path value="name"/>
+            <text-box id="stateFacadeValue">
+                <field-path value="facade_state"/>
             </text-box>
 
-            <label id="territoryTypeLabel">
-                <text>Тип территории</text>
+            <label id="territoryStateLabel">
+                <text>Состояние придомовой территории</text>
             </label>
-            <enumeration-box id="territoryTypeValue">
-                <field-path value="territory_type"/>
-                <mapping>
-                    <map display-text="Общественная" value="public_area"/>
-                    <map display-text="Дворовая" value="yard_area"/>
-                    <map display-text="ИЖС" value="IHC"/>
-                    <map display-text="Объект ЮЛ или ИП" value="ULorIP"/>
-                </mapping>
-            </enumeration-box>
+            <text-box id="territoryStateValue">
+                <field-path value="territory_state"/>
+            </text-box>
 
+            <label id="contractInfoLabel">
+                <text>Информация по подписании соглашения о благоустройстве</text>
+            </label>
+            <text-area id="contractInfoValue">
+                <field-path value="contract"/>
+            </text-area>
 
         </widget-config>
 

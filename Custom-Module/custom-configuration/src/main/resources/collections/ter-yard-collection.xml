@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<configuration xmlns="https://cm5.intertrust.ru/config" xmlns:act="https://cm5.intertrust.ru/config/action">
+
+    <collection name="ter_yard_collection" idField="id">
+        <prototype>
+            <![CDATA[
+            SELECT
+              territory.id               AS id,
+              territory.summary_area     AS sum_area,
+              territory.objects_area     AS obj_area
+
+            FROM ter_yard territory
+            WHERE
+              1=1 ::where-clause
+            ]]>
+        </prototype>
+
+    </collection>
+
+    <collection-view name="ter_yard_collection_view" collection="ter_yard_collection" is-default="true">
+        <display>
+            <column field="sum_area" name="Общая площадь" type="integer" editable="false"
+                    sortable="true" min-width="50px" text-break-style="cut"/>
+            <column field="obj_area" name="Площадь зданий, сооружений, строений" type="integer" editable="false"
+                    sortable="true" min-width="50px" text-break-style="cut"/>
+        </display>
+    </collection-view>
+
+</configuration>

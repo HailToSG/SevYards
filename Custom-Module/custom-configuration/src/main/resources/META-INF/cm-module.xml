@@ -32,6 +32,10 @@
         <!-- Коллекции -->
         <configuration-path>collections/buildings-collection.xml</configuration-path>
         <configuration-path>collections/territories-collection.xml</configuration-path>
+        <configuration-path>collections/ter-private-collection.xml</configuration-path>
+        <configuration-path>collections/ter-public-collection.xml</configuration-path>
+        <configuration-path>collections/ter-ulip-collection.xml</configuration-path>
+        <configuration-path>collections/ter-yard-collection.xml</configuration-path>
         <configuration-path>collections/inventory-collection.xml</configuration-path>
         <configuration-path>collections/bld-residential-collection.xml</configuration-path>
         <!--<configuration-path>collections/bld-permanent-collection.xml</configuration-path>-->
@@ -40,6 +44,10 @@
         <!-- Формы -->
         <configuration-path>forms/bld-residential-form.xml</configuration-path>
         <configuration-path>forms/territories-form.xml</configuration-path>
+        <configuration-path>forms/ter-private-form.xml</configuration-path>
+        <configuration-path>forms/ter-public-form.xml</configuration-path>
+        <configuration-path>forms/ter-ulip-form.xml</configuration-path>
+        <configuration-path>forms/ter-yard-form.xml</configuration-path>
         <configuration-path>forms/inventory-form.xml</configuration-path>
         <configuration-path>forms/buildings-form.xml</configuration-path>
 
