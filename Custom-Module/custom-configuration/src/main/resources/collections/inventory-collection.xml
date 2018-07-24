@@ -6,8 +6,8 @@
             <![CDATA[
             SELECT
               id              AS  id,
-              start_time      AS  time,
-              end_time        AS  name
+              start_time      AS  star_time,
+              end_time        AS  end_time
 
             FROM inventory
             WHERE
@@ -17,11 +17,11 @@
 
     </collection>
 
-    <collection-view name="inventory_collection_view" collection="territories_collection" is-default="true">
+    <collection-view name="inventory_collection_view" collection="inventory_collection" is-default="true">
         <display>
-            <column field="type" name="Тип территории" type="string" editable="false" sortable="true"
+            <column field="star_time" name="Начало инвентаризации" type="string" editable="false" sortable="true"
                     min-width="50px" text-break-style="cut"/>
-            <column field="name" name="Адрес (название)" type="string" editable="false"
+            <column field="end_time" name="Конец инвентаризации" type="string" editable="false"
                     sortable="true" min-width="50px" text-break-style="cut"/>
         </display>
     </collection-view>

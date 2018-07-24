@@ -20,7 +20,11 @@
                     <single-entry-group>
                         <tab-group>
                             <table>
-
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="infoLabel"/>
+                                    </td>
+                                </tr>
                             </table>
                         </tab-group>
                     </single-entry-group>
@@ -30,7 +34,11 @@
                     <single-entry-group>
                         <tab-group>
                             <table>
-
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="holdersLabel"/>
+                                    </td>
+                                </tr>
                             </table>
                         </tab-group>
                     </single-entry-group>
@@ -40,7 +48,11 @@
                     <single-entry-group>
                         <tab-group>
                             <table>
-
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="buildingsLabel"/>
+                                    </td>
+                                </tr>
                             </table>
                         </tab-group>
                     </single-entry-group>
@@ -50,7 +62,11 @@
                     <single-entry-group>
                         <tab-group>
                             <table>
-
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="gardeningLabel"/>
+                                    </td>
+                                </tr>
                             </table>
                         </tab-group>
                     </single-entry-group>
@@ -60,7 +76,11 @@
                     <single-entry-group>
                         <tab-group>
                             <table>
-
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="mafsLabel"/>
+                                    </td>
+                                </tr>
                             </table>
                         </tab-group>
                     </single-entry-group>
@@ -70,7 +90,11 @@
                     <single-entry-group>
                         <tab-group>
                             <table>
-
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="planarLinearLabel"/>
+                                    </td>
+                                </tr>
                             </table>
                         </tab-group>
                     </single-entry-group>
@@ -80,7 +104,11 @@
                     <single-entry-group>
                         <tab-group>
                             <table>
-
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="othersLabel"/>
+                                    </td>
+                                </tr>
                             </table>
                         </tab-group>
                     </single-entry-group>
@@ -90,7 +118,11 @@
                     <single-entry-group>
                         <tab-group>
                             <table>
-
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="galleryLabel"/>
+                                    </td>
+                                </tr>
                             </table>
                         </tab-group>
                     </single-entry-group>
@@ -102,6 +134,38 @@
 
             <label id="headerLabel">
                 <text>Инвентаризация</text>
+            </label>
+
+            <label id="infoLabel">
+                <text>Инфо территории</text>
+            </label>
+
+            <label id="holdersLabel">
+                <text>Правообладатели</text>
+            </label>
+
+            <label id="buildingsLabel">
+                <text>Строения</text>
+            </label>
+
+            <label id="gardeningLabel">
+                <text>Элементы озеленения</text>
+            </label>
+
+            <label id="mafsLabel">
+                <text>МАФы</text>
+            </label>
+
+            <label id="planarLinearLabel">
+                <text>Плоскостные и линейные</text>
+            </label>
+
+            <label id="othersLabel">
+                <text>Иные объекты</text>
+            </label>
+
+            <label id="galleryLabel">
+                <text>Галерея</text>
             </label>
         </widget-config>
 

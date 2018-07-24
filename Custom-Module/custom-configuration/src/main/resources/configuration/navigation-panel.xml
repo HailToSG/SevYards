@@ -85,6 +85,27 @@
             </child-links>
         </link>
 
+        <link name="Inventory" display-text="Инвентаризация" image="images/docs" child-to-open="Invent">
+            <child-links>
+
+                <link name="Invent" display-text="Инвенторизации">
+                    <plugin>
+                        <domain-object-surfer domain-object-type-to-create="inventory">
+                            <collection-viewer>
+                                <collection-ref name="inventory_collection"/>
+                                <collection-view-ref name="inventory_collection_view"/>
+                            </collection-viewer>
+                            <form-viewer>
+                                <form-mapping domain-object-type="inventory" form="inventory_form"/>
+                            </form-viewer>
+                        </domain-object-surfer>
+                    </plugin>
+                </link>
+
+
+            </child-links>
+        </link>
+
     </navigation>
     <navigation-panel-mappings name="nav-panel-map1">
         <navigation-panel-mapping name="default-panel">
