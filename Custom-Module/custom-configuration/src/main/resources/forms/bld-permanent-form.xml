@@ -1,4 +1,112 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <configuration xmlns="https://cm5.intertrust.ru/config" xmlns:act="https://cm5.intertrust.ru/config/action">
 
+    <!-- Форма для доменного объекта "Жилое строение" -->
+    <form name="bld_permanent_form" domain-object-type="build_permanent" is-default="true">
+        <markup>
+            <header>
+                <table>
+                    <tr>
+                        <td h-align="left">
+                            <widget id="headerLabel"/>
+                        </td>
+                    </tr>
+                </table>
+            </header>
+            <body display-single-tab="true">
+
+                <tab name="Нежилое капитальное строение">
+                    <single-entry-group>
+                        <tab-group>
+                            <table>
+
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="permanentFiasLabel"/>
+                                    </td>
+
+                                    <td h-align="left">
+                                        <widget id="permanentFiasValue"/>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="permanentNoFiasAddressLabel"/>
+                                    </td>
+
+                                    <td h-align="left">
+                                        <widget id="permanentNoFiasAddressValue"/>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="permanentAreaLabel"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="permanentAreaValue"/>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="permanentKindLabel"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="permanentKindValue"/>
+                                    </td>
+                                </tr>
+
+                            </table>
+                        </tab-group>
+                    </single-entry-group>
+                </tab>
+            </body>
+
+        </markup>
+        <widget-config>
+
+            <label id="headerLabel">
+                <text>Жилое строение</text>
+            </label>
+
+            <label id="permanentFiasLabel">
+                <text>ФИАС</text>
+            </label>
+            <text-box id="permanentFiasValue">
+                <field-path value="fias"/>
+            </text-box>
+
+            <label id="permanentNoFiasAddressLabel">
+                <text>Адрес при отсутствии ФИАС</text>
+            </label>
+            <text-box id="permanentNoFiasAddressValue">
+                <field-path value="no_fias_address"/>
+            </text-box>
+
+            <!-- Занимаемая площадь -->
+            <label id="permanentAreaLabel">
+                <text>Занимаемая площадь</text>
+            </label>
+            <integer-box id="permanentAreaValue">
+                <field-path value="area"/>
+            </integer-box>
+
+            <!-- Вид жилого здания-->
+            <label id="permanentKindLabel">
+                <text>Вид жилого строения</text>
+            </label>
+            <enumeration-box id="permanentKindValue">
+                <field-path value="kind"/>
+                <mapping>
+                    <map display-text="МКД" value="MKD"/>
+                    <map display-text="ИЖС" value="IJS"/>
+                    <map display-text="Блокированный" value="Blocked"/>
+                </mapping>
+            </enumeration-box>
+
+        </widget-config>
+
+    </form>
 </configuration>

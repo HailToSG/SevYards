@@ -43,13 +43,14 @@
 
         <!-- Формы -->
         <configuration-path>forms/bld-residential-form.xml</configuration-path>
+        <!--<configuration-path>forms/bld-permanent-form.xml</configuration-path>-->
         <configuration-path>forms/territories-form.xml</configuration-path>
         <configuration-path>forms/ter-private-form.xml</configuration-path>
         <configuration-path>forms/ter-public-form.xml</configuration-path>
         <configuration-path>forms/ter-ulip-form.xml</configuration-path>
         <configuration-path>forms/ter-yard-form.xml</configuration-path>
         <configuration-path>forms/inventory-form.xml</configuration-path>
-        <configuration-path>forms/buildings-form.xml</configuration-path>
+        <!--<configuration-path>forms/buildings-form.xml</configuration-path>-->
 
     </configuration-paths>
     <import-files rewrite="true">

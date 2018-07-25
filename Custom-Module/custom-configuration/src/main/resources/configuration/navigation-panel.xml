@@ -1,38 +1,38 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
-<configuration xmlns="https://cm5.intertrust.ru/config">
+<configuration xmlns="https://cm5.intertrust.ru/config" xmlns:act="https://cm5.intertrust.ru/config/action">
     <navigation name="default-panel" is-default="true">
 
-        <link name="Buildings" display-text="Строения" image="images/cases.png"
-              child-to-open="Build_buildings">
-            <child-links>
+        <!--<link name="Buildings" display-text="Строения" image="images/cases.png"-->
+              <!--child-to-open="Build_buildings">-->
+            <!--<child-links>-->
 
-                <link name="Build_buildings" display-text="Строения">
-                    <plugin>
-                        <domain-object-surfer domain-object-type-to-create="build_buildings">
-                            <collection-viewer>
-                                <collection-ref name="buildings_collection"/>
-                                <collection-view-ref name="buildings_collection_view"/>
-                            </collection-viewer>
-                            <form-viewer>
-                                <form-mapping domain-object-type="build_buildings" form="buildings_form"/>
-                            </form-viewer>
-                        </domain-object-surfer>
-                    </plugin>
-                </link>
+                <!--<link name="Build_buildings" display-text="Строения">-->
+                    <!--<plugin>-->
+                        <!--<domain-object-surfer domain-object-type-to-create="build_buildings">-->
+                            <!--<collection-viewer>-->
+                                <!--<collection-ref name="buildings_collection"/>-->
+                                <!--<collection-view-ref name="buildings_collection_view"/>-->
+                            <!--</collection-viewer>-->
+                            <!--<form-viewer>-->
+                                <!--<form-mapping domain-object-type="build_buildings" form="buildings_form"/>-->
+                            <!--</form-viewer>-->
+                        <!--</domain-object-surfer>-->
+                    <!--</plugin>-->
+                <!--</link>-->
 
-                <link name="Residential_buildings" display-text="Жилые строения">
-                    <plugin>
-                        <domain-object-surfer domain-object-type-to-create="build_residential">
-                            <collection-viewer>
-                                <collection-ref name="bld_residential_collection_extended"/>
-                                <collection-view-ref name="bld_residential_collection_extended_view"/>
-                            </collection-viewer>
-                            <form-viewer>
-                                <form-mapping domain-object-type="build_residential" form="bld_residential_form"/>
-                            </form-viewer>
-                        </domain-object-surfer>
-                    </plugin>
-                </link>
+                <!--<link name="Residential_buildings" display-text="Жилые строения">-->
+                    <!--<plugin>-->
+                        <!--<domain-object-surfer domain-object-type-to-create="build_residential">-->
+                            <!--<collection-viewer>-->
+                                <!--<collection-ref name="bld_residential_collection_extended"/>-->
+                                <!--<collection-view-ref name="bld_residential_collection_extended_view"/>-->
+                            <!--</collection-viewer>-->
+                            <!--<form-viewer>-->
+                                <!--<form-mapping domain-object-type="build_residential" form="bld_residential_form"/>-->
+                            <!--</form-viewer>-->
+                        <!--</domain-object-surfer>-->
+                    <!--</plugin>-->
+                <!--</link>-->
 
                 <!--<link name="Permanent_buildings" display-text="Нежилые капитальные">-->
                     <!--<plugin>-->
@@ -61,8 +61,8 @@
                         <!--</domain-object-surfer>-->
                     <!--</plugin>-->
                 <!--</link>-->
-            </child-links>
-        </link>
+            <!--</child-links>-->
+        <!--</link>-->
 
         <link name="Territories" display-text="Территории" image="images/docs" child-to-open="ter_territory">
             <child-links>
@@ -71,6 +71,37 @@
                     <plugin>
                         <domain-object-surfer domain-object-type-to-create="ter_territory">
                             <collection-viewer>
+                                <act:tool-bar useDefault="false">
+                                    <act:action-ref name-ref="aRefresh"  order="10"/>
+                                    <act:action-separator order="20"/>
+                                    <act:action-group name="create.visual.parameters.objects1" text="Создать территорию" merged="true" imageClass="actionBar-create" order="30">
+                                        <act:action-ref name-ref="aCreate" text="Дворовая" >
+                                            <act:action-params>
+                                                <act:action-param name="create.object.type" value="ter_territory" />
+                                                <act:action-param name="create.object.form" value="territories_form" />
+                                            </act:action-params>
+                                        </act:action-ref>
+                                        <act:action-ref name-ref="aCreate" text="Общественная">
+                                            <act:action-params>
+                                                <act:action-param name="create.object.type" value="ter_territory" />
+                                                <act:action-param name="create.object.form" value="territories_yard_form" />
+                                            </act:action-params>
+                                        </act:action-ref>
+                                        <!--<act:action-ref name-ref="aCreate" text="ИЖС">-->
+                                            <!--<act:action-params>-->
+                                                <!--<act:action-param name="create.object.type" value="ter_territory"/>-->
+                                                <!--<act:action-param name="create.object.form" value="territories_form"/>-->
+                                            <!--</act:action-params>-->
+                                        <!--</act:action-ref>-->
+                                        <!--<act:action-ref name-ref="aCreate" text="ЮЛ и ИП">-->
+                                            <!--<act:action-params>-->
+                                                <!--<act:action-param name="create.object.type" value="ter_territory"/>-->
+                                                <!--<act:action-param name="create.object.form" value="territories_form" />-->
+                                            <!--</act:action-params>-->
+                                        <!--</act:action-ref>-->
+                                    </act:action-group>
+                                </act:tool-bar>
+
                                 <collection-ref name="ter_collection"/>
                                 <collection-view-ref name="ter_collection_view"/>
                             </collection-viewer>
