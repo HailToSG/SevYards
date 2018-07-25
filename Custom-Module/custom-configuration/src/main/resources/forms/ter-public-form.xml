@@ -67,9 +67,19 @@
             <label id="kindOfTerritoryLabel">
                 <text>Вид общественной территории</text>
             </label>
-            <text-box id="kindOfTerritoryValue">
+            <enumeration-box id="kindOfTerritoryValue">
                 <field-path value="kind_of_territory"/>
-            </text-box>
+                <mapping>
+                    <map value="Площадь"/>
+                    <map value="Набережная"/>
+                    <map value="Парк"/>
+                    <map value="Набережная"/>
+                    <map value="Сквер"/>
+                    <map value="Пешеходная зона"/>
+                    <map value="Спортивно-игровая площадка"/>
+                    <map value="Иное"/>
+                </mapping>
+            </enumeration-box>
 
             <label id="summaryAreaLabel">
                 <text>Общая площадь</text>
