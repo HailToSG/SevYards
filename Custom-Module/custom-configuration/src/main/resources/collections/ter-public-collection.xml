@@ -6,9 +6,9 @@
             <![CDATA[
             SELECT
               territory.id                   AS id,
-              territory.kind_of_territory    AS kind,
-              territory.summary_area         AS sum_area,
-              territory.objects_area         AS obj_area
+              territory.kind_of_territory    AS kind_of_territory,
+              territory.summary_area         AS summary_area,
+              territory.objects_area         AS objects_area
 
             FROM ter_public territory
             WHERE
@@ -20,11 +20,11 @@
 
     <collection-view name="ter_public_collection_view" collection="ter_public_collection" is-default="true">
         <display>
-            <column field="kind" name="Вид общественной территории" type="string" editable="false" sortable="true"
+            <column field="kind_of_territory" name="Вид общественной территории" type="string" editable="false" sortable="true"
                     min-width="50px" text-break-style="cut"/>
-            <column field="sum_area" name="Общая площадь" type="integer" editable="false"
+            <column field="summary_area" name="Общая площадь" type="integer" editable="false"
                     sortable="true" min-width="50px" text-break-style="cut"/>
-            <column field="obj_area" name="Площадь зданий, сооружений, строений" type="integer" editable="false"
+            <column field="objects_area" name="Площадь зданий, сооружений, строений" type="integer" editable="false"
                     sortable="true" min-width="50px" text-break-style="cut"/>
         </display>
     </collection-view>

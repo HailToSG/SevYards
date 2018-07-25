@@ -68,21 +68,21 @@
                 <text>Вид общественной территории</text>
             </label>
             <text-box id="kindOfTerritoryValue">
-                <field-path value="kind"/>
+                <field-path value="kind_of_territory"/>
             </text-box>
 
             <label id="summaryAreaLabel">
                 <text>Общая площадь</text>
             </label>
             <integer-box id="summaryAreaValue">
-                <field-path value="sum_area"/>
+                <field-path value="summary_area"/>
             </integer-box>
 
             <label id="objectsAreaLabel">
                 <text>Площадь зданий, сооружений, строений</text>
             </label>
             <integer-box id="objectsAreaValue">
-                <field-path value="obj_area"/>
+                <field-path value="objects_area"/>
             </integer-box>
 
 

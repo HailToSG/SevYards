@@ -8,8 +8,8 @@
               territory.id                       AS id,
               territory.facade_state             AS facade_state,
               territory.territory_state          AS territory_state,
-              territory.contract_of_improvement  AS contract,
-              territory.territory_id             AS ter_id
+              territory.contract_of_improvement  AS contract_of_improvement,
+              territory.territory_id             AS territory_id
 
             FROM ter_private_housing territory
             WHERE
@@ -25,7 +25,7 @@
                     min-width="50px" text-break-style="cut"/>
             <column field="territory_state" name="Состояние придомовой территории" type="string" editable="false" sortable="true"
                     min-width="50px" text-break-style="cut"/>
-            <column field="contract" name="Информация по подписании соглашения о благоустройстве" type="text" editable="false" sortable="true"
+            <column field="contract_of_improvement" name="Информация по подписании соглашения о благоустройстве" type="text" editable="false" sortable="true"
                     min-width="50px" text-break-style="cut"/>
         </display>
     </collection-view>

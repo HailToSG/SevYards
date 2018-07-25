@@ -84,7 +84,7 @@
                 <text>Информация по подписании соглашения о благоустройстве</text>
             </label>
             <text-area id="contractInfoValue">
-                <field-path value="contract"/>
+                <field-path value="contract_of_improvement"/>
             </text-area>
 
         </widget-config>

@@ -59,14 +59,14 @@
                 <text>Общая площадь</text>
             </label>
             <integer-box id="sumAreaValue">
-                <field-path value="sum_area"/>
+                <field-path value="summary_area"/>
             </integer-box>
 
             <label id="objAreaLabel">
                 <text>Площадь зданий, сооружений, строений</text>
             </label>
             <integer-box id="objAreaValue">
-                <field-path value="obj_area"/>
+                <field-path value="objects_area"/>
             </integer-box>
 
         </widget-config>
