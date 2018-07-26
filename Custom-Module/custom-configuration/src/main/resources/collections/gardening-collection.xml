@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<configuration xmlns="https://cm5.intertrust.ru/config" xmlns:act="https://cm5.intertrust.ru/config/action">
+
+    <collection name="gardening_collection" idField="id">
+        <prototype>
+            <![CDATA[
+            SELECT
+              id              AS  id,
+              type            AS  type,
+              state           AS  state
+
+            FROM gard_gardening
+            WHERE
+              1=1 ::where-clause
+            ]]>
+        </prototype>
+
+    </collection>
+
+    <collection-view name="gardening_collection_view" collection="gardening_collection" is-default="true">
+        <display>
+            <column field="type" name="Тип" type="string" editable="false" sortable="true"
+                    min-width="50px" text-break-style="cut"/>
+            <column field="state" name="Состояние" type="string" editable="false"
+                    sortable="true" min-width="50px" text-break-style="cut"/>
+        </display>
+    </collection-view>
+
+</configuration>

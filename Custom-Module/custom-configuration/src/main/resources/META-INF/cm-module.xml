@@ -28,6 +28,7 @@
         <configuration-path>dop/others.xml</configuration-path>
         <configuration-path>dop/planar-linear.xml</configuration-path>
         <configuration-path>dop/territories.xml</configuration-path>
+        <configuration-path>dop/rightholder.xml</configuration-path>
 
         <!-- Коллекции -->
         <configuration-path>collections/buildings-collection.xml</configuration-path>
@@ -38,6 +39,11 @@
         <configuration-path>collections/ter-yard-collection.xml</configuration-path>
         <configuration-path>collections/inventory-collection.xml</configuration-path>
         <configuration-path>collections/bld-residential-collection.xml</configuration-path>
+        <configuration-path>collections/gardening-collection.xml</configuration-path>
+        <configuration-path>collections/maf-collection.xml</configuration-path>
+        <configuration-path>collections/others-collection.xml</configuration-path>
+        <configuration-path>collections/planar-linear-collection.xml</configuration-path>
+        <configuration-path>collections/rightholder-collection.xml</configuration-path>
         <!--<configuration-path>collections/bld-permanent-collection.xml</configuration-path>-->
         <!--<configuration-path>collections/bld-temporary-collection.xml</configuration-path>-->
 
@@ -50,6 +56,11 @@
         <configuration-path>forms/ter-ulip-form.xml</configuration-path>
         <configuration-path>forms/ter-yard-form.xml</configuration-path>
         <configuration-path>forms/inventory-form.xml</configuration-path>
+        <configuration-path>forms/gardening-form.xml</configuration-path>
+        <configuration-path>forms/maf-form.xml</configuration-path>
+        <configuration-path>forms/others-form.xml</configuration-path>
+        <configuration-path>forms/planar-linear-form.xml</configuration-path>
+        <configuration-path>forms/rightholder-form.xml</configuration-path>
         <!--<configuration-path>forms/buildings-form.xml</configuration-path>-->
 
     </configuration-paths>
