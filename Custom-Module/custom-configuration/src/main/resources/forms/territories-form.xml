@@ -96,18 +96,6 @@
                                     </td>
                                 </tr>
 
-                            </table>
-                        </tab-group>
-
-
-                    </single-entry-group>
-                </tab>
-
-                <tab name="Тип территории">
-                    <single-entry-group>
-                        <tab-group>
-                            <table >
-
                                 <tr>
                                     <td h-align="right">
                                         <widget id="yardLinkedLabel"/>
@@ -215,18 +203,6 @@
                                     </td>
                                 </tr>
 
-                            </table>
-                        </tab-group>
-
-
-                    </single-entry-group>
-                </tab>
-
-                <tab name="Доп.инфо">
-                    <single-entry-group>
-                        <tab-group>
-                            <table >
-
                                 <tr>
                                     <td h-align="right">
                                         <widget id="publicLinkedLabel"/>
@@ -298,241 +274,227 @@
 
     </form>
 
-    <!--<form name="territories_public_form" domain-object-type="ter_territory" is-default="false">-->
-        <!--<markup>-->
-            <!--<header>-->
-                <!--<table>-->
-                    <!--<tr>-->
-                        <!--<td h-align="left">-->
-                            <!--<widget id="headerLabel"/>-->
-                        <!--</td>-->
-                    <!--</tr>-->
-                <!--</table>-->
-            <!--</header>-->
 
-            <!--<body display-single-tab="true">-->
+    <form name="territories_private_form" domain-object-type="ter_territory" is-default="false">
+        <markup>
+            <header>
+                <table>
+                    <tr>
+                        <td h-align="left">
+                            <widget id="headerLabel"/>
+                        </td>
+                    </tr>
+                </table>
+            </header>
 
-                <!--<tab name="Территория">-->
-                    <!--<single-entry-group>-->
-                        <!--<tab-group>-->
-                            <!--<table>-->
+            <body display-single-tab="true">
 
-                                <!--<tr>-->
-                                    <!--<td h-align="right">-->
-                                        <!--<widget id="territoryNumberLabel"/>-->
-                                    <!--</td>-->
+                <tab name="Территория">
+                    <single-entry-group>
+                        <tab-group>
+                            <table>
 
-                                    <!--<td h-align="left">-->
-                                        <!--<widget id="territoryNumberValue"/>-->
-                                    <!--</td>-->
-                                <!--</tr>-->
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="territoryNumberLabel"/>
+                                    </td>
 
-                                <!--<tr>-->
-                                    <!--<td h-align="right">-->
-                                        <!--<widget id="territoryTypeLabel"/>-->
-                                    <!--</td>-->
+                                    <td h-align="left">
+                                        <widget id="territoryNumberValue"/>
+                                    </td>
+                                </tr>
 
-                                    <!--<td h-align="left">-->
-                                        <!--<widget id="territoryTypeValue"/>-->
-                                    <!--</td>-->
-                                <!--</tr>-->
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="territoryTypeLabel"/>
+                                    </td>
 
-                            <!--</table>-->
-                        <!--</tab-group>-->
+                                    <td h-align="left">
+                                        <widget id="territoryTypeValue"/>
+                                    </td>
+                                </tr>
 
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="privateLinkedLabel"/>
+                                    </td>
 
-                    <!--</single-entry-group>-->
-                <!--</tab>-->
+                                    <td h-align="left">
+                                        <widget id="privateLinkedValue"/>
+                                    </td>
+                                </tr>
 
-                <!--<tab name="Тип территории">-->
-                    <!--<single-entry-group>-->
-                        <!--<tab-group>-->
-                            <!--<table >-->
+                            </table>
+                        </tab-group>
 
-                                <!--<tr>-->
-                                    <!--<td h-align="right">-->
-                                        <!--<widget id="yardLinkedLabel"/>-->
-                                    <!--</td>-->
+                    </single-entry-group>
+                </tab>
 
-                                    <!--<td h-align="left">-->
-                                        <!--<widget id="yardLinkedValue"/>-->
-                                    <!--</td>-->
-                                <!--</tr>-->
+            </body>
 
-                            <!--</table>-->
-                        <!--</tab-group>-->
+        </markup>
+        <widget-config>
 
-                    <!--</single-entry-group>-->
-                <!--</tab>-->
+            <label id="headerLabel">
+                <text>Территория</text>
+            </label>
 
-            <!--</body>-->
+            <label id="territoryNumberLabel">
+                <text>Номер территории</text>
+            </label>
+            <text-box id="territoryNumberValue">
+                <field-path value="name"/>
+            </text-box>
 
-        <!--</markup>-->
-        <!--<widget-config>-->
+            <label id="territoryTypeLabel">
+                <text>Тип территории</text>
+            </label>
 
-            <!--<label id="headerLabel">-->
-                <!--<text>Территория</text>-->
-            <!--</label>-->
+            <enumeration-box id="territoryTypeValue">
+                <field-path value="territory_type"/>
+                <mapping>
+                    <map value="ter_private_housing" null-value="false" display-text="ИЖС-объект"/>
+                </mapping>
+            </enumeration-box>
 
-            <!--<label id="territoryNumberLabel">-->
-                <!--<text>Номер территории</text>-->
-            <!--</label>-->
-            <!--<text-box id="territoryNumberValue">-->
-                <!--<field-path value="name"/>-->
-            <!--</text-box>-->
+            <label id="privateLinkedLabel">
+                <text>ИЖС - объект</text>
+            </label>
 
-            <!--<label id="territoryTypeLabel">-->
-                <!--<text>Тип территории</text>-->
-            <!--</label>-->
+            <linked-domain-objects-table id="privateLinkedValue" delete-linked-objects="true" modal-width="600px" modal-height="400px">
+                <field-path value="ter_private_housing^territory_id" on-root-delete="unlink"/>
 
-            <!--<enumeration-box id="territoryTypeValue">-->
-                <!--<field-path value="territory_type"/>-->
-                <!--<mapping>-->
-                    <!--<map value="ter_yard" null-value="false" display-text="Дворовая территория"/>-->
-                <!--</mapping>-->
-            <!--</enumeration-box>-->
-
-            <!--<label id="yardLinkedLabel">-->
-                <!--<text>Дворовая территория</text>-->
-            <!--</label>-->
-
-            <!--<linked-domain-objects-table id="yardLinkedValue" delete-linked-objects="true" modal-width="600px" modal-height="400px">-->
-                <!--<field-path value="ter_yard^territory_id" on-root-delete="unlink"/>-->
-
-                <!--<linked-form name="ter_yard_form" inline="true"-->
-                             <!--domain-object-type="ter_yard"/>-->
-                <!--<summary-table>-->
-                    <!--<summary-table-column header="Общая площадь" widget-id="sumAreaValue">-->
-                        <!--<pattern value="{summary_area}"/>-->
-                    <!--</summary-table-column>-->
-                    <!--<summary-table-column header="Площадь объектов" widget-id="objAreaValue">-->
-                        <!--<pattern value="{objects_area}"/>-->
-                    <!--</summary-table-column>-->
-                <!--</summary-table>-->
-                <!--<single-choice value="true"/>-->
-            <!--</linked-domain-objects-table>-->
+                <linked-form name="ter_private_form" inline="true"
+                             domain-object-type="ter_private_housing"/>
+                <summary-table>
+                    <summary-table-column header="Состояние фасада" widget-id="stateFacadeValue">
+                        <pattern value="{facade_state}"/>
+                    </summary-table-column>
+                    <summary-table-column header="Состояние придомовой территории" widget-id="territoryStateValue">
+                        <pattern value="{territory_state}"/>
+                    </summary-table-column>
+                    <summary-table-column header="Информация по подписании соглашения о благоустройстве" widget-id="contractInfoValue">
+                        <pattern value="{contract_of_improvement}"/>
+                    </summary-table-column>
+                </summary-table>
+                <single-choice value="true"/>
+            </linked-domain-objects-table>
 
 
-        <!--</widget-config>-->
+        </widget-config>
 
-    <!--</form>-->
-
-    <!--<form name="territories_public_form" domain-object-type="ter_territory" is-default="false">-->
-        <!--<markup>-->
-            <!--<header>-->
-                <!--<table>-->
-                    <!--<tr>-->
-                        <!--<td h-align="left">-->
-                            <!--<widget id="headerLabel"/>-->
-                        <!--</td>-->
-                    <!--</tr>-->
-                <!--</table>-->
-            <!--</header>-->
-
-            <!--<body display-single-tab="true">-->
-
-                <!--<tab name="Территория">-->
-                    <!--<single-entry-group>-->
-                        <!--<tab-group>-->
-                            <!--<table>-->
-
-                                <!--<tr>-->
-                                    <!--<td h-align="right">-->
-                                        <!--<widget id="territoryNumberLabel"/>-->
-                                    <!--</td>-->
-
-                                    <!--<td h-align="left">-->
-                                        <!--<widget id="territoryNumberValue"/>-->
-                                    <!--</td>-->
-                                <!--</tr>-->
-
-                                <!--<tr>-->
-                                    <!--<td h-align="right">-->
-                                        <!--<widget id="territoryTypeLabel"/>-->
-                                    <!--</td>-->
-
-                                    <!--<td h-align="left">-->
-                                        <!--<widget id="territoryTypeValue"/>-->
-                                    <!--</td>-->
-                                <!--</tr>-->
-
-                            <!--</table>-->
-                        <!--</tab-group>-->
+    </form>
 
 
-                    <!--</single-entry-group>-->
-                <!--</tab>-->
+    <form name="territories_ulip_form" domain-object-type="ter_territory" is-default="false">
+        <markup>
+            <header>
+                <table>
+                    <tr>
+                        <td h-align="left">
+                            <widget id="headerLabel"/>
+                        </td>
+                    </tr>
+                </table>
+            </header>
 
-                <!--<tab name="Тип территории">-->
-                    <!--<single-entry-group>-->
-                        <!--<tab-group>-->
-                            <!--<table >-->
+            <body display-single-tab="true">
 
-                                <!--<tr>-->
-                                    <!--<td h-align="right">-->
-                                        <!--<widget id="yardLinkedLabel"/>-->
-                                    <!--</td>-->
+                <tab name="Территория">
+                    <single-entry-group>
+                        <tab-group>
+                            <table>
 
-                                    <!--<td h-align="left">-->
-                                        <!--<widget id="yardLinkedValue"/>-->
-                                    <!--</td>-->
-                                <!--</tr>-->
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="territoryNumberLabel"/>
+                                    </td>
 
-                            <!--</table>-->
-                        <!--</tab-group>-->
+                                    <td h-align="left">
+                                        <widget id="territoryNumberValue"/>
+                                    </td>
+                                </tr>
 
-                    <!--</single-entry-group>-->
-                <!--</tab>-->
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="territoryTypeLabel"/>
+                                    </td>
 
-            <!--</body>-->
+                                    <td h-align="left">
+                                        <widget id="territoryTypeValue"/>
+                                    </td>
+                                </tr>
 
-        <!--</markup>-->
-        <!--<widget-config>-->
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="ulipLinkedLabel"/>
+                                    </td>
 
-            <!--<label id="headerLabel">-->
-                <!--<text>Территория</text>-->
-            <!--</label>-->
+                                    <td h-align="left">
+                                        <widget id="ulipLinkedValue"/>
+                                    </td>
+                                </tr>
 
-            <!--<label id="territoryNumberLabel">-->
-                <!--<text>Номер территории</text>-->
-            <!--</label>-->
-            <!--<text-box id="territoryNumberValue">-->
-                <!--<field-path value="name"/>-->
-            <!--</text-box>-->
+                            </table>
+                        </tab-group>
 
-            <!--<label id="territoryTypeLabel">-->
-                <!--<text>Тип территории</text>-->
-            <!--</label>-->
+                    </single-entry-group>
+                </tab>
 
-            <!--<enumeration-box id="territoryTypeValue">-->
-                <!--<field-path value="territory_type"/>-->
-                <!--<mapping>-->
-                    <!--<map value="ter_yard" null-value="false" display-text="Дворовая территория"/>-->
-                <!--</mapping>-->
-            <!--</enumeration-box>-->
+            </body>
 
-            <!--<label id="yardLinkedLabel">-->
-                <!--<text>Дворовая территория</text>-->
-            <!--</label>-->
+        </markup>
+        <widget-config>
 
-            <!--<linked-domain-objects-table id="yardLinkedValue" delete-linked-objects="true" modal-width="600px" modal-height="400px">-->
-                <!--<field-path value="ter_yard^territory_id" on-root-delete="unlink"/>-->
+            <label id="headerLabel">
+                <text>Территория</text>
+            </label>
 
-                <!--<linked-form name="ter_yard_form" inline="true"-->
-                             <!--domain-object-type="ter_yard"/>-->
-                <!--<summary-table>-->
-                    <!--<summary-table-column header="Общая площадь" widget-id="sumAreaValue">-->
-                        <!--<pattern value="{summary_area}"/>-->
-                    <!--</summary-table-column>-->
-                    <!--<summary-table-column header="Площадь объектов" widget-id="objAreaValue">-->
-                        <!--<pattern value="{objects_area}"/>-->
-                    <!--</summary-table-column>-->
-                <!--</summary-table>-->
-                <!--<single-choice value="true"/>-->
-            <!--</linked-domain-objects-table>-->
+            <label id="territoryNumberLabel">
+                <text>Номер территории</text>
+            </label>
+            <text-box id="territoryNumberValue">
+                <field-path value="name"/>
+            </text-box>
+
+            <label id="territoryTypeLabel">
+                <text>Тип территории</text>
+            </label>
+
+            <enumeration-box id="territoryTypeValue">
+                <field-path value="territory_type"/>
+                <mapping>
+                    <map value="ter_private_housing" null-value="false" display-text="ИЖС-объект"/>
+                </mapping>
+            </enumeration-box>
+
+            <label id="ulipLinkedLabel">
+                <text>ИЖС - объект</text>
+            </label>
+
+            <linked-domain-objects-table id="ulipLinkedValue" delete-linked-objects="true" modal-width="600px" modal-height="400px">
+                <field-path value="ter_ulip^territory_id" on-root-delete="unlink"/>
+
+                <linked-form name="ter_ulip_form" inline="true"
+                             domain-object-type="ter_ulip"/>
+                <summary-table>
+                    <summary-table-column header="Состояние фасада" widget-id="stateFacadeValue">
+                        <pattern value="{facade_state}"/>
+                    </summary-table-column>
+                    <summary-table-column header="Состояние прилегающей территории" widget-id="territoryStateValue">
+                        <pattern value="{territory_state}"/>
+                    </summary-table-column>
+                    <summary-table-column header="Информация по подписании соглашения о благоустройстве" widget-id="contractInfoValue">
+                        <pattern value="{contract_of_improvement}"/>
+                    </summary-table-column>
+                </summary-table>
+                <single-choice value="true"/>
+            </linked-domain-objects-table>
 
 
-        <!--</widget-config>-->
+        </widget-config>
 
-    <!--</form>-->
+    </form>
+
+
 </configuration>
