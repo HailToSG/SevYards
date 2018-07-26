@@ -464,12 +464,12 @@
             <enumeration-box id="territoryTypeValue">
                 <field-path value="territory_type"/>
                 <mapping>
-                    <map value="ter_private_housing" null-value="false" display-text="ИЖС-объект"/>
+                    <map value="ter_ulip" null-value="false" display-text="Объект ЮЛ и ИП"/>
                 </mapping>
             </enumeration-box>
 
             <label id="ulipLinkedLabel">
-                <text>ИЖС - объект</text>
+                <text>Объект ЮЛ и ИП</text>
             </label>
 
             <linked-domain-objects-table id="ulipLinkedValue" delete-linked-objects="true" modal-width="600px" modal-height="400px">
