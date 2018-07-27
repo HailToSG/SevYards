@@ -10,6 +10,7 @@
                         <domain-object-surfer domain-object-type-to-create="ter_territory">
                             <collection-viewer>
                                 <act:tool-bar useDefault="false">
+                                    <act:action-ref name-ref="aCreate" rendered="not toggle-edit or (toggle-edit and preview)"/>
                                     <act:action-separator order="20"/>
                                     <act:action-group name="create.visual.parameters.objects1" text="Создать территорию" merged="true" imageClass="actionBar-create" order="30">
                                         <act:action-ref name-ref="aCreate" text="Общественная" >
@@ -110,7 +111,7 @@
         <link name="Inventory" display-text="Инвентаризация" image="images/docs" child-to-open="Invent">
             <child-links>
 
-                <link name="Invent" display-text="Инвенторизации">
+                <link name="Invent" display-text="Инвентаризации">
                     <plugin>
                         <domain-object-surfer domain-object-type-to-create="inventory">
                             <collection-viewer>

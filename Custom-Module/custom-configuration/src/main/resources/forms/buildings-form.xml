@@ -49,14 +49,14 @@
                         <tab-group>
                             <table>
 
-                                <tr>
-                                    <td h-align="right">
-                                        <widget id="residentialLabel"/>
-                                    </td>
-                                    <td h-align="left">
-                                        <widget id="residentialValue"/>
-                                    </td>
-                                </tr>
+                                <!--<tr>-->
+                                    <!--<td h-align="right">-->
+                                        <!--<widget id="residentialLabel"/>-->
+                                    <!--</td>-->
+                                    <!--<td h-align="left">-->
+                                        <!--<widget id="residentialValue"/>-->
+                                    <!--</td>-->
+                                <!--</tr>-->
 
                                 <!--<tr>-->
                                     <!--<td h-align="right">-->
@@ -117,29 +117,29 @@
             </enumeration-box>
 
 
-            <label id="residentialLabel">
-                <text>Доп.инфо</text>
-            </label>
-            <linked-domain-objects-table id="residentialValue" delete-linked-objects="true">
-                <field-path value="build_residential^build_id" on-root-delete="unlink"/>
-                <linked-form name="bld_residential_form" inline="true" domain-object-type="build_residential"/>
-                <single-choice value="true"/>
-                <summary-table>
-                    <summary-table-column header="ФИАС" widget-id="residentialFiasValue">
-                        <pattern value="{fias}"/>
-                    </summary-table-column>
-                    <summary-table-column header="Адрес без ФИАС" widget-id="residentialNoFiasAddressValue">
-                        <pattern value="{no_fias_address}"/>
-                    </summary-table-column>
-                    <summary-table-column header="Вид постройки" widget-id="residentialKindValue">
-                        <pattern value="{kind}"/>
-                    </summary-table-column>
-                    <summary-table-column header="Площадь" widget-id="residentialAreaValue">
-                        <pattern value="{area}"/>
-                    </summary-table-column>
+            <!--<label id="residentialLabel">-->
+                <!--<text>Доп.инфо</text>-->
+            <!--</label>-->
+            <!--<linked-domain-objects-table id="residentialValue" delete-linked-objects="true">-->
+                <!--<field-path value="build_residential^build_id" on-root-delete="unlink"/>-->
+                <!--<linked-form name="bld_residential_form" inline="true" domain-object-type="build_residential"/>-->
+                <!--<single-choice value="true"/>-->
+                <!--<summary-table>-->
+                    <!--<summary-table-column header="ФИАС" widget-id="residentialFiasValue">-->
+                        <!--<pattern value="{fias}"/>-->
+                    <!--</summary-table-column>-->
+                    <!--<summary-table-column header="Адрес без ФИАС" widget-id="residentialNoFiasAddressValue">-->
+                        <!--<pattern value="{no_fias_address}"/>-->
+                    <!--</summary-table-column>-->
+                    <!--<summary-table-column header="Вид постройки" widget-id="residentialKindValue">-->
+                        <!--<pattern value="{kind}"/>-->
+                    <!--</summary-table-column>-->
+                    <!--<summary-table-column header="Площадь" widget-id="residentialAreaValue">-->
+                        <!--<pattern value="{area}"/>-->
+                    <!--</summary-table-column>-->
 
-                </summary-table>
-            </linked-domain-objects-table>
+                <!--</summary-table>-->
+            <!--</linked-domain-objects-table>-->
 
 
         </widget-config>

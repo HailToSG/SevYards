@@ -21,6 +21,9 @@
                 </constraints>
             </date-time>
         </fields>
+        <attachment-types>
+            <attachment-type name="territory_photo"/>
+        </attachment-types>
     </domain-object-type>
 
 </configuration>

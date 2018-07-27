@@ -106,6 +106,16 @@
                                     </td>
                                 </tr>
 
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="inventoryLabel"/>
+                                    </td>
+
+                                    <td h-align="left">
+                                        <widget id="inventoryValue"/>
+                                    </td>
+                                </tr>
+
                             </table>
                         </tab-group>
 
@@ -134,16 +144,17 @@
 
             <enumeration-box id="territoryTypeValue">
                 <field-path value="territory_type"/>
-               <mapping>
-                   <map value="ter_yard" null-value="false" display-text="Дворовая территория"/>
-               </mapping>
+                <mapping>
+                    <map value="ter_yard" null-value="false" display-text="Дворовая территория"/>
+                </mapping>
             </enumeration-box>
 
             <label id="yardLinkedLabel">
                 <text>Дворовая территория</text>
             </label>
 
-            <linked-domain-objects-table id="yardLinkedValue" delete-linked-objects="true" modal-width="600px" modal-height="400px">
+            <linked-domain-objects-table id="yardLinkedValue" delete-linked-objects="true" modal-width="600px"
+                                         modal-height="400px">
                 <field-path value="ter_yard^territory_id" on-root-delete="unlink"/>
 
                 <linked-form name="ter_yard_form" inline="true"
@@ -154,6 +165,27 @@
                     </summary-table-column>
                     <summary-table-column header="Площадь объектов" widget-id="objAreaValue">
                         <pattern value="{objects_area}"/>
+                    </summary-table-column>
+                </summary-table>
+                <single-choice value="true"/>
+            </linked-domain-objects-table>
+
+            <label id="inventoryLabel">
+                <text>Дворовая территория</text>
+            </label>
+
+            <linked-domain-objects-table id="inventoryValue" delete-linked-objects="true" modal-width="600px"
+                                         modal-height="400px">
+                <field-path value="inventory^territory_id" on-root-delete="unlink"/>
+
+                <linked-form name="inventory_form" inline="true"
+                             domain-object-type="inventory"/>
+                <summary-table>
+                    <summary-table-column header="Дата начала" widget-id="sumAreaValue">
+                        <pattern value="{start_time}"/>
+                    </summary-table-column>
+                    <summary-table-column header="Дата окончания" widget-id="objAreaValue">
+                        <pattern value="{end_time}"/>
                     </summary-table-column>
                 </summary-table>
                 <single-choice value="true"/>
@@ -223,7 +255,6 @@
 
         </markup>
         <widget-config>
-
             <label id="headerLabel">
                 <text>Территория</text>
             </label>
@@ -250,7 +281,8 @@
                 <text>Общественная территория</text>
             </label>
 
-            <linked-domain-objects-table id="publicLinkedValue" delete-linked-objects="true" modal-width="600px" modal-height="400px">
+            <linked-domain-objects-table id="publicLinkedValue" delete-linked-objects="true" modal-width="600px"
+                                         modal-height="400px">
                 <field-path value="ter_public^territory_id" on-root-delete="unlink"/>
 
                 <linked-form name="ter_public_form" inline="true"
@@ -273,7 +305,6 @@
         </widget-config>
 
     </form>
-
 
     <form name="territories_private_form" domain-object-type="ter_territory" is-default="false">
         <markup>
@@ -361,7 +392,8 @@
                 <text>ИЖС - объект</text>
             </label>
 
-            <linked-domain-objects-table id="privateLinkedValue" delete-linked-objects="true" modal-width="600px" modal-height="400px">
+            <linked-domain-objects-table id="privateLinkedValue" delete-linked-objects="true" modal-width="600px"
+                                         modal-height="400px">
                 <field-path value="ter_private_housing^territory_id" on-root-delete="unlink"/>
 
                 <linked-form name="ter_private_form" inline="true"
@@ -373,18 +405,16 @@
                     <summary-table-column header="Состояние придомовой территории" widget-id="territoryStateValue">
                         <pattern value="{territory_state}"/>
                     </summary-table-column>
-                    <summary-table-column header="Информация по подписании соглашения о благоустройстве" widget-id="contractInfoValue">
+                    <summary-table-column header="Информация по подписании соглашения о благоустройстве"
+                                          widget-id="contractInfoValue">
                         <pattern value="{contract_of_improvement}"/>
                     </summary-table-column>
                 </summary-table>
                 <single-choice value="true"/>
             </linked-domain-objects-table>
-
-
         </widget-config>
 
     </form>
-
 
     <form name="territories_ulip_form" domain-object-type="ter_territory" is-default="false">
         <markup>
@@ -472,7 +502,8 @@
                 <text>Объект ЮЛ и ИП</text>
             </label>
 
-            <linked-domain-objects-table id="ulipLinkedValue" delete-linked-objects="true" modal-width="600px" modal-height="400px">
+            <linked-domain-objects-table id="ulipLinkedValue" delete-linked-objects="true" modal-width="600px"
+                                         modal-height="400px">
                 <field-path value="ter_ulip^territory_id" on-root-delete="unlink"/>
 
                 <linked-form name="ter_ulip_form" inline="true"
@@ -484,7 +515,8 @@
                     <summary-table-column header="Состояние прилегающей территории" widget-id="territoryStateValue">
                         <pattern value="{territory_state}"/>
                     </summary-table-column>
-                    <summary-table-column header="Информация по подписании соглашения о благоустройстве" widget-id="contractInfoValue">
+                    <summary-table-column header="Информация по подписании соглашения о благоустройстве"
+                                          widget-id="contractInfoValue">
                         <pattern value="{contract_of_improvement}"/>
                     </summary-table-column>
                 </summary-table>
@@ -495,6 +527,4 @@
         </widget-config>
 
     </form>
-
-
 </configuration>

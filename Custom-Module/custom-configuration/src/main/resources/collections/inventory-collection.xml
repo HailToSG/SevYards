@@ -6,14 +6,21 @@
             <![CDATA[
             SELECT
               id              AS  id,
-              start_time      AS  star_time,
-              end_time        AS  end_time
+              inventory.start_time      AS  star_time,
+              inventory.end_time        AS  end_time
 
             FROM inventory
             WHERE
               1=1 ::where-clause
             ]]>
         </prototype>
+        <filter name="byInventory">
+            <criteria placeholder="where-clause">
+                <![CDATA[
+                    inventory.id = {0}
+                ]]>
+            </criteria>
+        </filter>
 
     </collection>
 
