@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<configuration xmlns="https://cm5.intertrust.ru/config">
+
+    <!-- Cущность "Правообладатель" -->
+
+    <domain-object-type name="rightholder">
+        <fields>
+
+            <!-- Наименование -->
+            <string name="name" length="1024">
+                <constraints>
+                    <simple-constraint value="not-empty"/>
+                </constraints>
+            </string>
+        </fields>
+
+    </domain-object-type>
+
+</configuration>
