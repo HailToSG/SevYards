@@ -10,8 +10,6 @@
                         <domain-object-surfer domain-object-type-to-create="ter_territory">
                             <collection-viewer>
                                 <act:tool-bar useDefault="false">
-                                    <act:action-ref name-ref="aCreate" rendered="not toggle-edit or (toggle-edit and preview)"/>
-                                    <act:action-separator order="20"/>
                                     <act:action-group name="create.visual.parameters.objects1" text="Создать территорию" merged="true" imageClass="actionBar-create" order="30">
                                         <act:action-ref name-ref="aCreate" text="Общественная" >
                                             <act:action-params>

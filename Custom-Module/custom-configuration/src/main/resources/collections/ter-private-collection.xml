@@ -19,13 +19,16 @@
 
     </collection>
 
-    <collection-view name="ter_private_housing_collection_view" collection="ter_private_housing_collection" is-default="true">
+    <collection-view name="ter_private_housing_collection_view" collection="ter_private_housing_collection"
+                     is-default="true">
         <display>
             <column field="facade_state" name="Состояние фасада" type="string" editable="false" sortable="true"
                     min-width="50px" text-break-style="cut"/>
-            <column field="territory_state" name="Состояние придомовой территории" type="string" editable="false" sortable="true"
+            <column field="territory_state" name="Состояние придомовой территории" type="string" editable="false"
+                    sortable="true"
                     min-width="50px" text-break-style="cut"/>
-            <column field="contract_of_improvement" name="Информация по подписании соглашения о благоустройстве" type="text" editable="false" sortable="true"
+            <column field="contract_of_improvement" name="Информация по подписании соглашения о благоустройстве"
+                    type="text" editable="false" sortable="true"
                     min-width="50px" text-break-style="cut"/>
         </display>
     </collection-view>

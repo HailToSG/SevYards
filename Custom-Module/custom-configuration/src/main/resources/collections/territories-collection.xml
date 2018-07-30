@@ -26,7 +26,7 @@
                     sortable="true" min-width="50px" text-break-style="cut"/>
             <column field="inventories" name="Инвентаризации" type="integer" editable="false" sortable="true"
                     min-width="50px" text-break-style="cut">
-                <child-collection-viewer filter="byInventory" domain-object-type-to-create="inventory"
+                <child-collection-viewer filter="byTerritory" domain-object-type-to-create="inventory"
                                          bread-crumb="Инвентаризации">
                     <collection-viewer>
                         <collection-ref name="inventory_collection"/>

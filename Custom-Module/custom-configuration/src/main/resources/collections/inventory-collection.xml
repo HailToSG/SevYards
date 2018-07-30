@@ -5,19 +5,20 @@
         <prototype>
             <![CDATA[
             SELECT
-              id                        AS  id,
+              inventory.id              AS  id,
               inventory.start_time      AS  start_time,
               inventory.end_time        AS  end_time
 
             FROM inventory
+            LEFT JOIN ter_territory ter ON ter.id = inventory.territory_id
             WHERE
               1=1 ::where-clause
             ]]>
         </prototype>
-        <filter name="byInventory">
+        <filter name="byTerritory">
             <criteria placeholder="where-clause">
                 <![CDATA[
-                    inventory.id = {0}
+                    inventory.territory_id = {0}
                 ]]>
             </criteria>
         </filter>
