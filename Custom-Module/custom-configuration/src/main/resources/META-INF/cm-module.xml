@@ -57,7 +57,7 @@
         <configuration-path>forms/ter-ulip-form.xml</configuration-path>
         <configuration-path>forms/ter-yard-form.xml</configuration-path>
         <configuration-path>forms/inventory-form.xml</configuration-path>
-        <configuration-path>forms/gardening-form.xml</configuration-path>
+        <!--<configuration-path>forms/gardening-form.xml</configuration-path>-->
         <configuration-path>forms/maf-form.xml</configuration-path>
         <configuration-path>forms/others-form.xml</configuration-path>
         <configuration-path>forms/planar-linear-form.xml</configuration-path>

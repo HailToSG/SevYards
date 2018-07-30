@@ -59,12 +59,19 @@
                 </constraints>
             </string>
 
-            <!--Ссылка на id МАФа-->
-            <reference name="maf_id" type="maf">
+            <!--состояние объекта МАФ-->
+            <string name="state" length="1024">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </reference>
+            </string>
+
+            <!--Ссылка на инвентаризацию -->
+            <reference name="inventory_id" type="inventory"/>
+
+            <!--Ссылка на id территории -->
+            <reference name="territory_id" type="ter_territory"/>
+
         </fields>
     </domain-object-type>
 
@@ -100,12 +107,18 @@
                 </constraints>
             </string>
 
-            <!--Ссылка на id МАФа-->
-            <reference name="maf_id" type="maf">
+            <!--состояние объекта МАФ-->
+            <string name="state" length="1024">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </reference>
+            </string>
+
+            <!--Ссылка на инвентаризацию -->
+            <reference name="inventory_id" type="inventory"/>
+
+            <!--Ссылка на id территории -->
+            <reference name="territory_id" type="ter_territory"/>
         </fields>
     </domain-object-type>
 
@@ -133,12 +146,18 @@
                 </constraints>
             </string>
 
-            <!--Ссылка на id МАФа-->
-            <reference name="maf_id" type="maf">
+            <!--состояние объекта МАФ-->
+            <string name="state" length="1024">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </reference>
+            </string>
+
+            <!--Ссылка на инвентаризацию -->
+            <reference name="inventory_id" type="inventory"/>
+
+            <!--Ссылка на id территории -->
+            <reference name="territory_id" type="ter_territory"/>
         </fields>
     </domain-object-type>
 
@@ -181,12 +200,18 @@
                 </constraints>
             </string>
 
-            <!--Ссылка на id МАФа-->
-            <reference name="maf_id" type="maf">
+            <!--состояние объекта МАФ-->
+            <string name="state" length="1024">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </reference>
+            </string>
+
+            <!--Ссылка на инвентаризацию -->
+            <reference name="inventory_id" type="inventory"/>
+
+            <!--Ссылка на id территории -->
+            <reference name="territory_id" type="ter_territory"/>
         </fields>
     </domain-object-type>
 
@@ -220,12 +245,18 @@
                 </constraints>
             </string>
 
-            <!--Ссылка на id МАФа-->
-            <reference name="maf_id" type="maf">
+            <!--состояние объекта МАФ-->
+            <string name="state" length="1024">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </reference>
+            </string>
+
+            <!--Ссылка на инвентаризацию -->
+            <reference name="inventory_id" type="inventory"/>
+
+            <!--Ссылка на id территории -->
+            <reference name="territory_id" type="ter_territory"/>
 
         </fields>
     </domain-object-type>
@@ -248,12 +279,18 @@
                 </constraints>
             </string>
 
-            <!--Ссылка на id МАФа-->
-            <reference name="maf_id" type="maf">
+            <!--состояние объекта МАФ-->
+            <string name="state" length="1024">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </reference>
+            </string>
+
+            <!--Ссылка на инвентаризацию -->
+            <reference name="inventory_id" type="inventory"/>
+
+            <!--Ссылка на id территории -->
+            <reference name="territory_id" type="ter_territory"/>
         </fields>
     </domain-object-type>
 
@@ -275,12 +312,18 @@
                 </constraints>
             </string>
 
-            <!--Ссылка на id МАФа-->
-            <reference name="maf_id" type="maf">
+            <!--состояние объекта МАФ-->
+            <string name="state" length="1024">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </reference>
+            </string>
+
+            <!--Ссылка на инвентаризацию -->
+            <reference name="inventory_id" type="inventory"/>
+
+            <!--Ссылка на id территории -->
+            <reference name="territory_id" type="ter_territory"/>
 
         </fields>
     </domain-object-type>
@@ -303,12 +346,18 @@
                 </constraints>
             </string>
 
-            <!--Ссылка на id МАФа-->
-            <reference name="maf_id" type="maf">
+            <!--состояние объекта МАФ-->
+            <string name="state" length="1024">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </reference>
+            </string>
+
+            <!--Ссылка на инвентаризацию -->
+            <reference name="inventory_id" type="inventory"/>
+
+            <!--Ссылка на id территории -->
+            <reference name="territory_id" type="ter_territory"/>
         </fields>
     </domain-object-type>
 

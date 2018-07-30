@@ -12,13 +12,6 @@
             <!--Ссылка на id территории -->
             <reference name="territory_id" type="ter_territory"/>
 
-            <!--Тип элемента озеленения -->
-            <string name="type" length="1024">
-                <constraints>
-                    <simple-constraint value="not-empty"/>
-                </constraints>
-            </string>
-
             <!--Состояние элемента озеленения-->
             <string name="state" length="1024">
                 <constraints>
@@ -50,12 +43,18 @@
                 </constraints>
             </long>
 
-            <!--Ссылка на id Элемента Озеленения-->
-            <reference name="gard_id" type="gard_gardening">
+            <!--Состояние элемента озеленения-->
+            <string name="state" length="1024">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </reference>
+            </string>
+
+            <!--Ссылка на инвентаризацию -->
+            <reference name="inventory_id" type="inventory"/>
+
+            <!--Ссылка на id территории -->
+            <reference name="territory_id" type="ter_territory"/>
         </fields>
     </domain-object-type>
 
@@ -70,12 +69,18 @@
                 </constraints>
             </long>
 
-            <!--Ссылка на id Элемента Озеленения-->
-            <reference name="gard_id" type="gard_gardening">
+            <!--Состояние элемента озеленения-->
+            <string name="state" length="1024">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </reference>
+            </string>
+
+            <!--Ссылка на инвентаризацию -->
+            <reference name="inventory_id" type="inventory"/>
+
+            <!--Ссылка на id территории -->
+            <reference name="territory_id" type="ter_territory"/>
         </fields>
     </domain-object-type>
 
@@ -96,12 +101,130 @@
                 </constraints>
             </long>
 
-            <!--Ссылка на id Элемента Озеленения-->
-            <reference name="gard_id" type="gard_gardening">
+            <!--Состояние элемента озеленения-->
+            <string name="state" length="1024">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </reference>
+            </string>
+
+            <!--Ссылка на инвентаризацию -->
+            <reference name="inventory_id" type="inventory"/>
+
+            <!--Ссылка на id территории -->
+            <reference name="territory_id" type="ter_territory"/>
+        </fields>
+    </domain-object-type>
+
+    <!-- Cущность "Живая изгородь" относится к ЭО -->
+    <domain-object-type name="gard_green_hedge">
+        <fields>
+            <!-- Протяженность изгороди -->
+            <long name="length">
+                <constraints>
+                    <simple-constraint value="not-empty"/>
+                </constraints>
+            </long>
+
+            <!--Состав-->
+            <string name="composition" length="1024">
+                <constraints>
+                    <simple-constraint value="not-empty"/>
+                </constraints>
+            </string>
+
+            <!-- Высота изгороди -->
+            <long name="height">
+                <constraints>
+                    <simple-constraint value="not-empty"/>
+                </constraints>
+            </long>
+
+            <!--техника -->
+            <string name="trim_technique" length="1024">
+                <constraints>
+                    <simple-constraint value="not-empty"/>
+                </constraints>
+            </string>
+
+            <!--Состояние элемента озеленения-->
+            <string name="state" length="1024">
+                <constraints>
+                    <simple-constraint value="not-empty"/>
+                </constraints>
+            </string>
+
+            <!--Ссылка на инвентаризацию -->
+            <reference name="inventory_id" type="inventory"/>
+
+            <!--Ссылка на id территории -->
+            <reference name="territory_id" type="ter_territory"/>
+        </fields>
+    </domain-object-type>
+
+    <!-- Cущность "Кустарник" относится к ЭО -->
+    <domain-object-type name="gard_bush">
+        <fields>
+
+            <!--Вид -->
+            <string name="kind" length="1000">
+                <constraints>
+                    <simple-constraint value="not-empty"/>
+                </constraints>
+            </string>
+
+            <!-- Высота -->
+            <long name="height">
+                <constraints>
+                    <simple-constraint value="not-empty"/>
+                </constraints>
+            </long>
+
+            <!--Состояние элемента озеленения-->
+            <string name="state" length="1024">
+                <constraints>
+                    <simple-constraint value="not-empty"/>
+                </constraints>
+            </string>
+
+            <!--Ссылка на инвентаризацию -->
+            <reference name="inventory_id" type="inventory"/>
+
+            <!--Ссылка на id территории -->
+            <reference name="territory_id" type="ter_territory"/>
+        </fields>
+    </domain-object-type>
+
+    <!-- Cущность "Газон" относится к ЭО -->
+    <domain-object-type name="gard_lawn">
+        <fields>
+
+            <!--площадь -->
+            <long name="area">
+                <constraints>
+                    <simple-constraint value="not-empty"/>
+                </constraints>
+            </long>
+
+            <!--тип газона-->
+            <string name="type" length="1024">
+                <constraints>
+                    <simple-constraint value="not-empty"/>
+                </constraints>
+            </string>
+
+            <!--Состояние элемента озеленения-->
+            <string name="state" length="1024">
+                <constraints>
+                    <simple-constraint value="not-empty"/>
+                </constraints>
+            </string>
+
+            <!--Ссылка на инвентаризацию -->
+            <reference name="inventory_id" type="inventory"/>
+
+            <!--Ссылка на id территории -->
+            <reference name="territory_id" type="ter_territory"/>
         </fields>
     </domain-object-type>
 
