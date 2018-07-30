@@ -5,8 +5,9 @@
         <prototype>
             <![CDATA[
             SELECT
-              id              AS  id,
-              inventory.start_time      AS  star_time,
+              id                        AS  id,
+              territory_id              AS  territory_id,
+              inventory.start_time      AS  start_time,
               inventory.end_time        AS  end_time
 
             FROM inventory
@@ -26,7 +27,9 @@
 
     <collection-view name="inventory_collection_view" collection="inventory_collection" is-default="true">
         <display>
-            <column field="star_time" name="Начало инвентаризации" type="string" editable="false" sortable="true"
+            <column field="territory_id" name="Территория" type="integer" editable="false" sortable="true"
+                    min-width="50px" text-break-style="cut"/>
+            <column field="start_time" name="Начало инвентаризации" type="string" editable="false" sortable="true"
                     min-width="50px" text-break-style="cut"/>
             <column field="end_time" name="Конец инвентаризации" type="string" editable="false"
                     sortable="true" min-width="50px" text-break-style="cut"/>

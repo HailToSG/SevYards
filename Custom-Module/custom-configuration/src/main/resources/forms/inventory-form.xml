@@ -22,7 +22,19 @@
                             <table>
                                 <tr>
                                     <td h-align="right">
-                                        <widget id="infoLabel"/>
+                                        <widget id="dateStartLabel"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="dateStartValue"/>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="dateEndLabel"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="dateEndValue"/>
                                     </td>
                                 </tr>
                             </table>
@@ -36,7 +48,7 @@
                             <table>
                                 <tr>
                                     <td h-align="right">
-                                        <widget id="holdersLabel"/>
+                                        <widget id="holdersNameValue"/>
                                     </td>
                                 </tr>
                             </table>
@@ -127,6 +139,7 @@
                         </tab-group>
                     </single-entry-group>
                 </tab>
+
             </body>
 
         </markup>
@@ -136,13 +149,48 @@
                 <text>Инвентаризация</text>
             </label>
 
+            <label id="dateStartLabel">
+                <text>Время начала</text>
+            </label>
+            <date-box id="dateStartValue">
+                <field-path value="start_time"/>
+            </date-box>
+
+            <label id="dateEndLabel">
+                <text>Время конца</text>
+            </label>
+            <date-box id="dateEndValue">
+                <field-path value="end_time"/>
+            </date-box>
+
+
             <label id="infoLabel">
                 <text>Инфо территории</text>
             </label>
 
-            <label id="holdersLabel">
-                <text>Правообладатели</text>
+            <label id="holdersNameLabel">
+                <text>Наименование правообладателя</text>
             </label>
+            <table-viewer id="holdersNameValue"  show-workflow-menu="false" show-actions-menu="true">
+                <collection-table-buttons display-all-possible="true"/>
+                <collection-viewer>
+                    <collection-ref name="rightholder_collection"/>
+                    <collection-view-ref name="rightholder_collection_view"/>
+                    <act:tool-bar useDefault="true"/>
+
+                    <filter-panel panel-state="open"/>
+                </collection-viewer>
+
+                <linked-form-mapping>
+                    <linked-form domain-object-type="rightholder" name="rightholder_form"
+                                 inline="true"
+                                 modal-width="700px" modal-height="565px"/>
+                </linked-form-mapping>
+                <created-objects>
+                    <created-object domain-object-type="rightholder" text="Зелёное"/>
+                </created-objects>
+            </table-viewer>
+
 
             <label id="buildingsLabel">
                 <text>Строения</text>
