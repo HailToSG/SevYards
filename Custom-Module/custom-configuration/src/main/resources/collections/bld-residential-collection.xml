@@ -41,11 +41,9 @@
               res.no_fias_address    AS no_fias_address,
               res.area               AS area,
               res.kind               AS kind,
-              buildings.type         AS type,
-              buildings.state        AS state
+              res.state              AS state
 
             FROM build_residential res
-            JOIN build_buildings buildings ON buildings.id = res.build_id
             WHERE
               1=1 ::where-clause
             ]]>
@@ -62,8 +60,6 @@
             <column field="area" name="Занимаемая площадь" type="integer" editable="false" sortable="true" width="50px"
                     text-break-style="cut"/>
             <column field="kind" name="Вид строения" type="string" editable="false" sortable="true"
-                    min-width="50px" text-break-style="cut"/>
-            <column field="type" name="Тип строения" type="string" editable="false" sortable="true"
                     min-width="50px" text-break-style="cut"/>
             <column field="state" name="Состояние строения" type="string" editable="false"
                     sortable="true" min-width="50px" text-break-style="cut"/>

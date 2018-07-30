@@ -42,19 +42,19 @@
                     </single-entry-group>
                 </tab>
 
-                <tab name="Правообладатели">
-                    <single-entry-group>
-                        <tab-group>
-                            <table>
-                                <tr>
-                                    <td h-align="right">
-                                        <widget id="holdersNameValue"/>
-                                    </td>
-                                </tr>
-                            </table>
-                        </tab-group>
-                    </single-entry-group>
-                </tab>
+                <!--<tab name="Правообладатели">-->
+                    <!--<single-entry-group>-->
+                        <!--<tab-group>-->
+                            <!--<table>-->
+                                <!--<tr>-->
+                                    <!--<td h-align="right">-->
+                                        <!--<widget id="holdersNameValue"/>-->
+                                    <!--</td>-->
+                                <!--</tr>-->
+                            <!--</table>-->
+                        <!--</tab-group>-->
+                    <!--</single-entry-group>-->
+                <!--</tab>-->
 
                 <tab name="Строения">
                     <single-entry-group>
@@ -62,7 +62,28 @@
                             <table>
                                 <tr>
                                     <td h-align="right">
-                                        <widget id="buildingsLabel"/>
+                                        <widget id="residentialLabel"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="residentialValue"/>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="permanentLabel"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="permanentValue"/>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="temporaryLabel"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="temporaryValue"/>
                                     </td>
                                 </tr>
                             </table>
@@ -171,30 +192,114 @@
             <label id="holdersNameLabel">
                 <text>Наименование правообладателя</text>
             </label>
-            <table-viewer id="holdersNameValue"  show-workflow-menu="false" show-actions-menu="true">
-                <collection-table-buttons display-all-possible="true"/>
-                <collection-viewer>
-                    <collection-ref name="rightholder_collection"/>
-                    <collection-view-ref name="rightholder_collection_view"/>
-                    <act:tool-bar useDefault="true"/>
 
-                    <filter-panel panel-state="open"/>
-                </collection-viewer>
+            <!--<linked-domain-objects-table id="holdersNameValue">-->
+                <!--<field-path value=""-->
+                <!--<linked-form-mapping>-->
+                    <!--<linked-form domain-object-type="rightholder" name="rightholder_form"-->
+                                 <!--inline="true"-->
+                                 <!--modal-width="700px" modal-height="565px"/>-->
+                <!---->
+                <!--</linked-form-mapping>-->
+                <!--<created-objects>-->
+                    <!--<created-object domain-object-type="rightholder" text="Правообладатель"/>-->
+                <!--</created-objects>-->
+            <!--</linked-domain-objects-table>-->
 
-                <linked-form-mapping>
-                    <linked-form domain-object-type="rightholder" name="rightholder_form"
-                                 inline="true"
-                                 modal-width="700px" modal-height="565px"/>
-                </linked-form-mapping>
-                <created-objects>
-                    <created-object domain-object-type="rightholder" text="Зелёное"/>
-                </created-objects>
-            </table-viewer>
-
-
-            <label id="buildingsLabel">
-                <text>Строения</text>
+            <label id="residentialLabel">
+                <text>Жилые строения</text>
             </label>
+            <linked-domain-objects-table id="residentialValue" modal-width="600px" modal-height="400px" >
+                <field-path value="build_residential^inventory_id" on-root-delete="unlink"/>
+
+                <linked-form name="bld_residential_form" inline="true"
+                             domain-object-type="build_residential"/>
+                <summary-table>
+                    <summary-table-column header="ФИАС" widget-id="residentialFiasValue">
+                        <pattern value="{fias}"/>
+                    </summary-table-column>
+
+                    <summary-table-column header="Адрес без ФИАС" widget-id="residentialNoFiasAddressValue">
+                        <pattern value="{no_fias_address}"/>
+                    </summary-table-column>
+
+                    <summary-table-column header="Площадь" widget-id="residentialAreaValue">
+                        <pattern value="{area}"/>
+                    </summary-table-column>
+
+                    <summary-table-column header="Вид" widget-id="residentialKindValue">
+                        <pattern value="{kind}"/>
+                    </summary-table-column>
+
+                    <summary-table-column header="Состояние" widget-id="residentialStateValue">
+                        <pattern value="{state}"/>
+                    </summary-table-column>
+
+                </summary-table>
+                <single-choice value="false"/>
+
+            </linked-domain-objects-table>
+
+            <label id="permanentLabel">
+                <text>Нежилые кап. строения</text>
+            </label>
+            <linked-domain-objects-table id="permanentValue" modal-width="600px" modal-height="400px" >
+                <field-path value="build_permanent^inventory_id" on-root-delete="unlink"/>
+
+                <linked-form name="bld_permanent_form" inline="true"
+                             domain-object-type="build_permanent"/>
+                <summary-table>
+                    <summary-table-column header="ФИАС" widget-id="permanentFiasValue">
+                        <pattern value="{fias}"/>
+                    </summary-table-column>
+
+                    <summary-table-column header="Адрес без ФИАС" widget-id="permanentNoFiasAddressValue">
+                        <pattern value="{no_fias_address}"/>
+                    </summary-table-column>
+
+                    <summary-table-column header="Площадь" widget-id="permanentAreaValue">
+                        <pattern value="{area}"/>
+                    </summary-table-column>
+
+                    <summary-table-column header="Вид" widget-id="permanentKindValue">
+                        <pattern value="{kind}"/>
+                    </summary-table-column>
+
+                    <summary-table-column header="Состояние" widget-id="permanentStateValue">
+                        <pattern value="{state}"/>
+                    </summary-table-column>
+
+                </summary-table>
+                <single-choice value="false"/>
+
+            </linked-domain-objects-table>
+
+            <label id="temporaryLabel">
+                <text>Нежилые некап. строения</text>
+            </label>
+            <linked-domain-objects-table id="temporaryValue" modal-width="600px" modal-height="400px" >
+                <field-path value="build_temporary^inventory_id" on-root-delete="unlink"/>
+
+                <linked-form name="bld_temporary_form" inline="true"
+                             domain-object-type="build_temporary"/>
+                <summary-table>
+
+                    <summary-table-column header="Площадь" widget-id="temporaryAreaValue">
+                        <pattern value="{area}"/>
+                    </summary-table-column>
+
+                    <summary-table-column header="Вид" widget-id="temporaryKindValue">
+                        <pattern value="{kind}"/>
+                    </summary-table-column>
+
+                    <summary-table-column header="Состояние" widget-id="temporaryStateValue">
+                        <pattern value="{state}"/>
+                    </summary-table-column>
+
+                </summary-table>
+                <single-choice value="false"/>
+
+            </linked-domain-objects-table>
 
             <label id="gardeningLabel">
                 <text>Элементы озеленения</text>

@@ -57,6 +57,14 @@
                                         <widget id="residentialKindValue"/>
                                     </td>
                                 </tr>
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="residentialStateLabel"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="residentialStateValue"/>
+                                    </td>
+                                </tr>
 
                             </table>
                         </tab-group>
@@ -103,6 +111,18 @@
                     <map display-text="МКД" value="MKD"/>
                     <map display-text="ИЖС" value="IJS"/>
                     <map display-text="Блокированный" value="Blocked"/>
+                </mapping>
+            </enumeration-box>
+
+            <label id="residentialStateLabel">
+                <text>Состояние жилого строения</text>
+            </label>
+            <enumeration-box id="residentialStateValue">
+                <field-path value="state"/>
+                <mapping>
+                    <map value="Отличное"/>
+                    <map value="Среднее"/>
+                    <map value="Требует ремонта"/>
                 </mapping>
             </enumeration-box>
 

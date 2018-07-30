@@ -58,6 +58,15 @@
                                     </td>
                                 </tr>
 
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="permanentStateLabel"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="permanentStateValue"/>
+                                    </td>
+                                </tr>
+
                             </table>
                         </tab-group>
                     </single-entry-group>
@@ -104,6 +113,18 @@
                     <map display-text="ИЖС" value="IJS"/>
                     <map display-text="Блокированный" value="Blocked"/>
                 </mapping>
+            </enumeration-box>
+
+            <label id="permanentStateLabel">
+                <text>Состояние жилого строения</text>
+            </label>
+            <enumeration-box id="permanentStateValue">
+                <field-path value="state"/>
+                    <mapping>
+                        <map value="Отличное"/>
+                        <map value="Среднее"/>
+                        <map value="Требует ремонта"/>
+                    </mapping>
             </enumeration-box>
 
         </widget-config>

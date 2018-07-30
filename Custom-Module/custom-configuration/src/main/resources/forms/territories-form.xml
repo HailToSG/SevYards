@@ -142,12 +142,13 @@
                 <text>Тип территории</text>
             </label>
 
-            <enumeration-box id="territoryTypeValue">
-                <field-path value="territory_type"/>
-                <mapping>
-                    <map value="ter_yard" null-value="false" display-text="Дворовая территория"/>
-                </mapping>
-            </enumeration-box>
+            <text-box id="territoryTypeValue" read-only="true">
+                <field-path value="territory_type">
+                    <default-value>
+                        <field value="Дворовая территория"/>
+                    </default-value>
+                </field-path>
+            </text-box>
 
             <label id="yardLinkedLabel">
                 <text>Дворовая территория</text>

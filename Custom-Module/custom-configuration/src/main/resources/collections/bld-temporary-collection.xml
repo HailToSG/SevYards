@@ -7,11 +7,9 @@
             SELECT
               temp.id                 AS id,
               temp.area               AS area,
-              buildings.type          AS type,
-              buildings.state         AS state
+              temp.state              AS state
 
             FROM build_temporary temp
-            JOIN build_buildings buildings ON buildings.id = temp.buildings_id
             WHERE
               1=1 ::where-clause
             ]]>
@@ -20,8 +18,9 @@
 
     <collection-view name="bld_temporary_collection_view" collection="bld_temporary_collection" is-default="true">
         <display>
-            <column field="area" name="Занимаемая площадь" type="integer" editable="false" sortable="true" width="50px" text-break-style="cut"/>
-            <column field="type" name="Тип строения" type="string" editable="false" sortable="true"
+            <column field="area" name="Занимаемая площадь" type="integer" editable="false" sortable="true" width="50px"
+                    text-break-style="cut"/>
+            <column field="state" name="Состояние строения" type="string" editable="false" sortable="true"
                     min-width="50px" text-break-style="cut"/>
         </display>
     </collection-view>

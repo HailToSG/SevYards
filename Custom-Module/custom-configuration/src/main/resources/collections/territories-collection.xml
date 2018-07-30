@@ -8,7 +8,7 @@
               territory.id                 AS id,
               territory.territory_type    AS type,
               territory.name              AS name,
-              (SELECT COUNT(*) FROM inventory WHERE territory.id = territory_id) AS inventories
+             (SELECT COUNT(*) FROM inventory WHERE territory.id = territory_id) AS inventories
 
             FROM ter_territory territory
             WHERE
@@ -24,8 +24,10 @@
                     min-width="50px" text-break-style="cut"/>
             <column field="name" name="Адрес (название)" type="string" editable="false"
                     sortable="true" min-width="50px" text-break-style="cut"/>
-            <column field="inventories" name="Инвентаризации" type="integer" editable="false" sortable="true" min-width="50px" text-break-style="cut">
-                <child-collection-viewer filter="byInventory" domain-object-type-to-create="inventory" bread-crumb="Инвентаризации">
+            <column field="inventories" name="Инвентаризации" type="integer" editable="false" sortable="true"
+                    min-width="50px" text-break-style="cut">
+                <child-collection-viewer filter="byInventory" domain-object-type-to-create="inventory"
+                                         bread-crumb="Инвентаризации">
                     <collection-viewer>
                         <collection-ref name="inventory_collection"/>
                         <act:tool-bar useDefault="false"/>

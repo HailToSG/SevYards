@@ -64,8 +64,22 @@
                 </constraints>
             </string>
 
-            <!--Ссылка на id Строения-->
-            <reference name="build_id" type="build_buildings">
+            <!--состояние строения-->
+            <string name="state" length="1024">
+                <constraints>
+                    <simple-constraint value="not-empty"/>
+                </constraints>
+            </string>
+
+            <!--Ссылка на id территории -->
+            <reference name="territory_id" type="ter_territory">
+                <constraints>
+                    <simple-constraint value="not-empty"/>
+                </constraints>
+            </reference>
+
+            <!--Ссылка на id инвентаризации -->
+            <reference name="inventory_id" type="inventory">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
@@ -104,8 +118,22 @@
                 </constraints>
             </string>
 
-            <!--Ссылка на id Строения-->
-            <reference name="build_id" type="build_buildings">
+            <!--состояние строения-->
+            <string name="state" length="1024">
+                <constraints>
+                    <simple-constraint value="not-empty"/>
+                </constraints>
+            </string>
+
+            <!--Ссылка на id территории -->
+            <reference name="territory_id" type="ter_territory">
+                <constraints>
+                    <simple-constraint value="not-empty"/>
+                </constraints>
+            </reference>
+
+            <!--Ссылка на id инвентаризации -->
+            <reference name="inventory_id" type="inventory">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
@@ -131,8 +159,22 @@
                 </constraints>
             </string>
 
-            <!--Ссылка на id Строения-->
-            <reference name="build_id" type="build_buildings">
+            <!--состояние строения-->
+            <string name="state" length="1024">
+                <constraints>
+                    <simple-constraint value="not-empty"/>
+                </constraints>
+            </string>
+
+            <!--Ссылка на id территории -->
+            <reference name="territory_id" type="ter_territory">
+                <constraints>
+                    <simple-constraint value="not-empty"/>
+                </constraints>
+            </reference>
+
+            <!--Ссылка на id инвентаризации -->
+            <reference name="inventory_id" type="inventory">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
