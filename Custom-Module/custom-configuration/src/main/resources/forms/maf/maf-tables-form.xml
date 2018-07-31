@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<configuration xmlns="https://cm5.intertrust.ru/config" xmlns:act="https://cm5.intertrust.ru/config/action">
+
+    <!-- Форма для доменного объекта "Столы" -->
+    <form name="maf_tables_form" domain-object-type="maf_tables" is-default="true">
+        <markup>
+            <header>
+                <table>
+                    <tr>
+                        <td h-align="left">
+                            <widget id="headerLabel"/>
+                        </td>
+                    </tr>
+                </table>
+            </header>
+
+            <body display-single-tab="true">
+
+                <tab>
+                    <single-entry-group>
+                        <tab-group>
+                            <table>
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="tablesSizeLabel"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="tablesSizeValue"/>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="tablesShapeLabel"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="tablesShapeValue"/>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="tablesAppointmentLabel"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="tablesAppointmentValue"/>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="tablesMaterialLabel"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="tablesMaterialValue"/>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="tablesStateLabel"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="tablesStateValue"/>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="tablesPhotoLabel"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="tablesPhotoValue"/>
+                                    </td>
+                                </tr>
+                            </table>
+                        </tab-group>
+                    </single-entry-group>
+                </tab>
+
+            </body>
+
+        </markup>
+        <widget-config>
+
+            <label id="headerLabel">
+                <text>Стол</text>
+            </label>
+
+            <label id="tablesSizeLabel">
+                <text>Размер</text>
+            </label>
+
+            <integer-box id="tablesSizeValue">
+                <field-path value="size"/>
+            </integer-box>
+
+            <label id="tablesShapeLabel">
+                <text>Форма</text>
+            </label>
+
+            <enumeration-box id="tablesShapeValue">
+                <field-path value="shape"/>
+                <mapping>
+                    <map value="Прямоугольный"/>
+                    <map value="Круглый"/>
+                </mapping>
+            </enumeration-box>
+
+            <label id="tablesAppointmentLabel">
+                <text>Назначение</text>
+            </label>
+
+            <enumeration-box id="tablesAppointmentValue">
+                <field-path value="appointment"/>
+                <mapping>
+                    <map value="Шахматный стол"/>
+                    <map value="Теннисный"/>
+                    <map value="Декоративный"/>
+                    <map value="Универсальный"/>
+                </mapping>
+            </enumeration-box>
+
+            <label id="tablesMaterialLabel">
+                <text>Материал</text>
+            </label>
+
+            <enumeration-box id="tablesMaterialValue">
+                <field-path value="material"/>
+                <mapping>
+                    <map value="Металл"/>
+                    <map value="Бетон"/>
+                    <map value="Пластик"/>
+                    <map value="Дерево"/>
+                    <map value="Иное"/>
+                </mapping>
+            </enumeration-box>
+
+            <label id="tablesStateLabel">
+                <text>Состояние объекта</text>
+            </label>
+
+            <enumeration-box id="tablesStateValue">
+                <field-path value="state"/>
+                <mapping>
+                    <map value="Отличное"/>
+                    <map value="Требует обслуживание"/>
+                    <map value="Требует ремонта"/>
+                    <map value="Требует замены"/>
+                </mapping>
+            </enumeration-box>
+
+            <label id="tablesPhotoLabel">
+                <text>Состояние покрытия</text>
+            </label>
+            <attachment-box id="tablesPhotoValue">
+                <field-path value="tables_photo^maf_tables"/>
+                <attachment-type-ref name="tables_photo"/>
+                <scanner enabled="true"/>
+                <selection-style name="table"/>
+                <images-only>
+                    <read-only-preview width="200px" height="200px" preserve-proportion="true"/>
+                    <small-preview width="200px" height="200px" preserve-proportion="true"/>
+                    <large-preview width="600px" preserve-proportion="true"/>
+                </images-only>
+                <choice-style name="popup"/>
+            </attachment-box>
+
+        </widget-config>
+    </form>
+</configuration>

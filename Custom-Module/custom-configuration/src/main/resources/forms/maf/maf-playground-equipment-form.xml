@@ -1,0 +1,207 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<configuration xmlns="https://cm5.intertrust.ru/config" xmlns:act="https://cm5.intertrust.ru/config/action">
+
+    <!-- Форма для доменного объекта "Оснащение детских площадок" -->
+    <form name="maf_playground_equipment_form" domain-object-type="maf_playground_equipment" is-default="true">
+        <markup>
+            <header>
+                <table>
+                    <tr>
+                        <td h-align="left">
+                            <widget id="headerLabel"/>
+                        </td>
+                    </tr>
+                </table>
+            </header>
+
+            <body display-single-tab="true">
+
+                <tab>
+                    <single-entry-group>
+                        <tab-group>
+                            <table>
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="playgroundSupportKindLabel"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="playgroundSupportKindValue"/>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="playgroundSupportMaterialLabel"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="playgroundSupportMaterialValue"/>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="playgroundSeatMaterialLabel"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="playgroundSeatMaterialValue"/>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="playgroundSuspensionTypeLabel"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="playgroundSuspensionTypeValue"/>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="playgroundCoatingStateLabel"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="playgroundCoatingStateValue"/>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="playgroundStateLabel"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="playgroundStateValue"/>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="playgroundPhotoLabel"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="playgroundPhotoValue"/>
+                                    </td>
+                                </tr>
+
+
+                            </table>
+                        </tab-group>
+                    </single-entry-group>
+                </tab>
+
+            </body>
+
+        </markup>
+        <widget-config>
+
+            <label id="headerLabel">
+                <text>Оснащение детских площадок</text>
+            </label>
+
+            <label id="playgroundSupportKindLabel">
+                <text>Тип оснащения</text>
+            </label>
+
+            <enumeration-box id="playgroundSupportKindValue">
+                <field-path value="kind"/>
+                <mapping>
+                    <map value="Песочница"/>
+                    <map value="Карусель"/>
+                    <map value="Качели"/>
+                    <map value="Горка"/>
+                    <map value="Качалка"/>
+                    <map value="Домик"/>
+                    <map value="Балансир"/>
+                    <map value="Комплексный объект"/>
+                    <map value="Иное"/>
+                </mapping>
+            </enumeration-box>
+
+            <label id="playgroundSuspensionTypeLabel">
+                <text>Тип подвеса</text>
+            </label>
+
+            <enumeration-box id="playgroundSuspensionTypeValue">
+                <field-path value="type_suspension"/>
+                <mapping>
+                    <map value="Веревочный подвес"/>
+                    <map value="Цепной подвес"/>
+                    <map value="Жесткий подвес"/>
+                    <map value="Иное"/>
+                </mapping>
+            </enumeration-box>
+
+            <label id="playgroundSupportMaterialLabel">
+                <text>Материал опор</text>
+            </label>
+
+            <enumeration-box id="playgroundSupportMaterialValue">
+                <field-path value="support_material"/>
+                <mapping>
+                    <map value="Металл"/>
+                    <map value="Пластик"/>
+                    <map value="Дерево"/>
+                    <map value="Иное"/>
+                </mapping>
+            </enumeration-box>
+
+            <label id="playgroundSeatMaterialLabel">
+                <text>Материал сидений</text>
+            </label>
+
+            <enumeration-box id="playgroundSeatMaterialValue">
+                <field-path value="seat_material"/>
+                <mapping>
+                    <map value="Металл"/>
+                    <map value="Пластик"/>
+                    <map value="Дерево"/>
+                    <map value="Иное"/>
+                </mapping>
+            </enumeration-box>
+
+            <label id="playgroundCoatingStateLabel">
+                <text>Состояние покрытия</text>
+            </label>
+
+            <enumeration-box id="playgroundCoatingStateValue">
+                <field-path value="state_coating"/>
+                <mapping>
+                    <map value="Окрашено"/>
+                    <map value="Требуется окраска"/>
+                    <map value="Окраска не требуется"/>
+                </mapping>
+            </enumeration-box>
+
+            <label id="playgroundStateLabel">
+                <text>Состояние объекта</text>
+            </label>
+
+            <enumeration-box id="playgroundStateValue">
+                <field-path value="state"/>
+                <mapping>
+                    <map value="Отличное"/>
+                    <map value="Требует обслуживание"/>
+                    <map value="Требует ремонта"/>
+                    <map value="Требует замены"/>
+                </mapping>
+            </enumeration-box>
+
+            <label id="playgroundPhotoLabel">
+                <text>Состояние покрытия</text>
+            </label>
+            <attachment-box id="playgroundPhotoValue">
+                <field-path value="playground_photo^maf_playground_equipment"/>
+                <attachment-type-ref name="playground_photo"/>
+                <scanner enabled="true"/>
+                <selection-style name="table"/>
+                <images-only>
+                    <read-only-preview width="200px" height="200px" preserve-proportion="true"/>
+                    <small-preview width="200px" height="200px" preserve-proportion="true"/>
+                    <large-preview width="600px" preserve-proportion="true"/>
+                </images-only>
+                <choice-style name="popup"/>
+            </attachment-box>
+
+        </widget-config>
+    </form>
+</configuration>

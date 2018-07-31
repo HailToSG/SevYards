@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<configuration xmlns="https://cm5.intertrust.ru/config" xmlns:act="https://cm5.intertrust.ru/config/action">
+
+    <!-- Форма для доменного объекта "Скамьи" -->
+    <form name="maf_benches_form" domain-object-type="maf_benches" is-default="true">
+        <markup>
+            <header>
+                <table>
+                    <tr>
+                        <td h-align="left">
+                            <widget id="headerLabel"/>
+                        </td>
+                    </tr>
+                </table>
+            </header>
+
+            <body display-single-tab="true">
+
+                <tab>
+                    <single-entry-group>
+                        <tab-group>
+                            <table>
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="benchesWidthLabel"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="benchesWidthValue"/>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="benchesMaterialLabel"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="benchesMaterialValue"/>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="benchesCoatingStateLabel"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="benchesCoatingStateValue"/>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="benchesHasBackLabel"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="benchesHasBackValue"/>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="benchesStateLabel"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="benchesStateValue"/>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="benchesPhotoLabel"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="benchesPhotoValue"/>
+                                    </td>
+                                </tr>
+                            </table>
+                        </tab-group>
+                    </single-entry-group>
+                </tab>
+
+            </body>
+
+        </markup>
+        <widget-config>
+
+            <label id="headerLabel">
+                <text>Скамейка</text>
+            </label>
+
+            <label id="benchesWidthLabel">
+                <text>Ширина(см)</text>
+            </label>
+
+            <integer-box id="benchesWidthValue">
+                <field-path value="width"/>
+            </integer-box>
+
+            <label id="benchesMaterialLabel">
+                <text>Материал</text>
+            </label>
+
+            <enumeration-box id="benchesMaterialValue">
+                <field-path value="material"/>
+                <mapping>
+                    <map value="Металл"/>
+                    <map value="Бетон"/>
+                    <map value="Пластик"/>
+                    <map value="Дерево"/>
+                    <map value="Иное"/>
+                </mapping>
+            </enumeration-box>
+
+            <label id="benchesCoatingStateLabel">
+                <text>Состояние покрытия</text>
+            </label>
+
+            <enumeration-box id="benchesCoatingStateValue">
+                <field-path value="state_coating"/>
+                <mapping>
+                    <map value="Окрашено"/>
+                    <map value="Требуется окраска"/>
+                    <map value="Окраска не требуется"/>
+                </mapping>
+            </enumeration-box>
+
+            <label id="benchesStateLabel">
+                <text>Состояние объекта</text>
+            </label>
+
+            <enumeration-box id="benchesStateValue">
+                <field-path value="state"/>
+                <mapping>
+                    <map value="Отличное"/>
+                    <map value="Требует обслуживание"/>
+                    <map value="Требует ремонта"/>
+                    <map value="Требует замены"/>
+                </mapping>
+            </enumeration-box>
+
+            <label id="benchesHasBackLabel">
+                <text>Состояние покрытия</text>
+            </label>
+
+            <enumeration-box id="benchesHasBackValue">
+                <field-path value="has_a_back"/>
+                <mapping>
+                    <map value="Есть"/>
+                    <map value="Нет"/>
+                </mapping>
+            </enumeration-box>
+
+            <label id="benchesPhotoLabel">
+                <text>Фото</text>
+            </label>
+            <attachment-box id="benchesPhotoValue">
+                <field-path value="benches_photo^maf_benches"/>
+                <attachment-type-ref name="benches_photo"/>
+                <scanner enabled="true"/>
+                <selection-style name="table"/>
+                <images-only>
+                    <read-only-preview width="200px" height="200px" preserve-proportion="true"/>
+                    <small-preview width="200px" height="200px" preserve-proportion="true"/>
+                    <large-preview width="600px" preserve-proportion="true"/>
+                </images-only>
+                <choice-style name="popup"/>
+            </attachment-box>
+
+        </widget-config>
+    </form>
+</configuration>

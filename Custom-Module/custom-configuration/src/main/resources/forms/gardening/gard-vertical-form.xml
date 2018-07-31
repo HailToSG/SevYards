@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<configuration xmlns="https://cm5.intertrust.ru/config" xmlns:act="https://cm5.intertrust.ru/config/action">
+
+    <!-- Форма для доменного объекта "Вертикальное озеленение" -->
+    <form name="gard_vertical_form" domain-object-type="gard_vertical" is-default="true">
+        <markup>
+            <header>
+                <table>
+                    <tr>
+                        <td h-align="left">
+                            <widget id="headerLabel"/>
+                        </td>
+                    </tr>
+                </table>
+            </header>
+
+            <body display-single-tab="true">
+                <tab>
+                    <single-entry-group>
+                        <tab-group>
+                            <table>
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="verticalAreaLabel"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="verticalAreaValue"/>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="verticalStateLabel"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="verticalStateValue"/>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="verticalPhotoLabel"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="verticalPhotoValue"/>
+                                    </td>
+                                </tr>
+                            </table>
+                        </tab-group>
+                    </single-entry-group>
+                </tab>
+
+            </body>
+
+        </markup>
+        <widget-config>
+
+            <label id="headerLabel">
+                <text>Вертикальное озеленение</text>
+            </label>
+
+            <label id="verticalAreaLabel">
+                <text>Площадь</text>
+            </label>
+            <integer-box id="verticalAreaValue">
+                <field-path value="area"/>
+            </integer-box>
+
+            <label id="verticalStateLabel">
+                <text>Состояние объекта</text>
+            </label>
+            <enumeration-box id="verticalStateValue">
+                <field-path value="state"/>
+                <mapping>
+                    <map value="Ухоженное"/>
+                    <map value="Требует ухода"/>
+                    <map value="Требует ремонта"/>
+                    <map value="Требует удаления/замены"/>
+                </mapping>
+            </enumeration-box>
+
+            <label id="verticalPhotoLabel">
+                <text>Фото</text>
+            </label>
+            <attachment-box id="verticalPhotoValue">
+                <field-path value="vertical_photo^gard_vertical"/>
+                <attachment-type-ref name="vertical_photo"/>
+                <scanner enabled="true"/>
+                <selection-style name="table"/>
+                <images-only>
+                    <read-only-preview width="200px" height="200px" preserve-proportion="true"/>
+                    <small-preview width="200px" height="200px" preserve-proportion="true"/>
+                    <large-preview width="600px" preserve-proportion="true"/>
+                </images-only>
+                <choice-style name="popup"/>
+            </attachment-box>
+
+        </widget-config>
+    </form>
+</configuration>

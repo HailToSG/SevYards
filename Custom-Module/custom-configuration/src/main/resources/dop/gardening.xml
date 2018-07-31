@@ -30,21 +30,21 @@
         <fields>
 
             <!--Вид дерева -->
-            <string name="kind" length="1000">
+            <string name="kind" length="100">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
             </string>
 
             <!-- Высота дерева -->
-            <long name="height">
+            <string name="height" length="100">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </long>
+            </string>
 
             <!--Состояние элемента озеленения-->
-            <string name="state" length="1024">
+            <string name="state" length="100">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
@@ -56,6 +56,9 @@
             <!--Ссылка на id территории -->
             <reference name="territory_id" type="ter_territory"/>
         </fields>
+        <attachment-types>
+            <attachment-type name="tree_photo"/>
+        </attachment-types>
     </domain-object-type>
 
     <!-- Cущность "Вертикальное озеленение" относится к ЭО -->
@@ -82,27 +85,30 @@
             <!--Ссылка на id территории -->
             <reference name="territory_id" type="ter_territory"/>
         </fields>
+        <attachment-types>
+            <attachment-type name="vertical_photo"/>
+        </attachment-types>
     </domain-object-type>
 
     <!-- Cущность "Цветник" относится к ЭО -->
     <domain-object-type name="gard_parterre">
         <fields>
             <!--Тип цветника-->
-            <string name="kind" length="1000">
+            <string name="kind" length="100">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
             </string>
 
             <!--Размер цветника-->
-            <long name="size">
+            <string name="size" length="100">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </long>
+            </string>
 
             <!--Состояние элемента озеленения-->
-            <string name="state" length="1024">
+            <string name="state" length="100">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
@@ -114,6 +120,9 @@
             <!--Ссылка на id территории -->
             <reference name="territory_id" type="ter_territory"/>
         </fields>
+        <attachment-types>
+            <attachment-type name="parterre_photo"/>
+        </attachment-types>
     </domain-object-type>
 
     <!-- Cущность "Живая изгородь" относится к ЭО -->
@@ -127,28 +136,28 @@
             </long>
 
             <!--Состав-->
-            <string name="composition" length="1024">
+            <string name="composition" length="100">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
             </string>
 
             <!-- Высота изгороди -->
-            <long name="height">
+            <string name="height" length="100">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </long>
+            </string>
 
             <!--техника -->
-            <string name="trim_technique" length="1024">
+            <string name="trim_technique" length="100">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
             </string>
 
             <!--Состояние элемента озеленения-->
-            <string name="state" length="1024">
+            <string name="state" length="100">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
@@ -160,6 +169,9 @@
             <!--Ссылка на id территории -->
             <reference name="territory_id" type="ter_territory"/>
         </fields>
+        <attachment-types>
+            <attachment-type name="green_hedge_photo"/>
+        </attachment-types>
     </domain-object-type>
 
     <!-- Cущность "Кустарник" относится к ЭО -->
@@ -174,11 +186,11 @@
             </string>
 
             <!-- Высота -->
-            <long name="height">
+            <string name="height" length="100">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </long>
+            </string>
 
             <!--Состояние элемента озеленения-->
             <string name="state" length="1024">
@@ -193,6 +205,9 @@
             <!--Ссылка на id территории -->
             <reference name="territory_id" type="ter_territory"/>
         </fields>
+        <attachment-types>
+            <attachment-type name="bush_photo"/>
+        </attachment-types>
     </domain-object-type>
 
     <!-- Cущность "Газон" относится к ЭО -->
@@ -226,6 +241,9 @@
             <!--Ссылка на id территории -->
             <reference name="territory_id" type="ter_territory"/>
         </fields>
+        <attachment-types>
+            <attachment-type name="lawn_photo"/>
+        </attachment-types>
     </domain-object-type>
 
 </configuration>

@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<configuration xmlns="https://cm5.intertrust.ru/config" xmlns:act="https://cm5.intertrust.ru/config/action">
+
+    <!-- Форма для доменного объекта "Терасы" -->
+    <form name="maf_terraces_form" domain-object-type="maf_terraces" is-default="true">
+        <markup>
+            <header>
+                <table>
+                    <tr>
+                        <td h-align="left">
+                            <widget id="headerLabel"/>
+                        </td>
+                    </tr>
+                </table>
+            </header>
+
+            <body display-single-tab="true">
+
+                <tab>
+                    <single-entry-group>
+                        <tab-group>
+                            <table>
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="terracesAreaLabel"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="terracesAreaValue"/>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="terracesMaterialLabel"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="terracesMaterialValue"/>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="terracesStateLabel"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="terracesStateValue"/>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="terracesPhotoLabel"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="terracesPhotoValue"/>
+                                    </td>
+                                </tr>
+                            </table>
+                        </tab-group>
+                    </single-entry-group>
+                </tab>
+
+            </body>
+
+        </markup>
+        <widget-config>
+
+            <label id="headerLabel">
+                <text>Терраса</text>
+            </label>
+
+            <label id="terracesAreaLabel">
+                <text>Площадь</text>
+            </label>
+
+            <integer-box id="terracesAreaValue">
+                <field-path value="area"/>
+            </integer-box>
+
+            <label id="terracesMaterialLabel">
+                <text>Материал</text>
+            </label>
+
+            <enumeration-box id="terracesMaterialValue">
+                <field-path value="material"/>
+                <mapping>
+                    <map value="Металл"/>
+                    <map value="Пластик"/>
+                    <map value="Дерево"/>
+                    <map value="Иное"/>
+                </mapping>
+            </enumeration-box>
+
+            <label id="terracesStateLabel">
+                <text>Состояние объекта</text>
+            </label>
+
+            <enumeration-box id="terracesStateValue">
+                <field-path value="state"/>
+                <mapping>
+                    <map value="Отличное"/>
+                    <map value="Требует обслуживание"/>
+                    <map value="Требует ремонта"/>
+                    <map value="Требует замены"/>
+                </mapping>
+            </enumeration-box>
+
+            <label id="terracesPhotoLabel">
+                <text>Фото</text>
+            </label>
+            <attachment-box id="terracesPhotoValue">
+                <field-path value="terraces_photo^maf_terraces"/>
+                <attachment-type-ref name="terraces_photo"/>
+                <scanner enabled="true"/>
+                <selection-style name="table"/>
+                <images-only>
+                    <read-only-preview width="200px" height="200px" preserve-proportion="true"/>
+                    <small-preview width="200px" height="200px" preserve-proportion="true"/>
+                    <large-preview width="600px" preserve-proportion="true"/>
+                </images-only>
+                <choice-style name="popup"/>
+            </attachment-box>
+
+        </widget-config>
+    </form>
+</configuration>

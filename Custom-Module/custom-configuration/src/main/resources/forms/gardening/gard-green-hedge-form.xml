@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<configuration xmlns="https://cm5.intertrust.ru/config" xmlns:act="https://cm5.intertrust.ru/config/action">
+
+    <!-- Форма для доменного объекта "Живая изгородь" -->
+    <form name="gard_green_hedge_form" domain-object-type="gard_green_hedge" is-default="true">
+        <markup>
+            <header>
+                <table>
+                    <tr>
+                        <td h-align="left">
+                            <widget id="headerLabel"/>
+                        </td>
+                    </tr>
+                </table>
+            </header>
+
+            <body display-single-tab="true">
+
+                <tab>
+                    <single-entry-group>
+                        <tab-group>
+                            <table>
+
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="greenHedgeLengthLabel"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="greenHedgeLengthValue"/>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="greenHedgeCompositionLabel"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="greenHedgeCompositionValue"/>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="greenHedgeHeightLabel"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="greenHedgeHeightValue"/>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="greenHedgeTrimTechniqueLabel"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="greenHedgeTrimTechniqueValue"/>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="greenHedgeStateLabel"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="greenHedgeStateValue"/>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="greenHedgePhotoLabel"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="greenHedgePhotoValue"/>
+                                    </td>
+                                </tr>
+                            </table>
+                        </tab-group>
+                    </single-entry-group>
+                </tab>
+
+            </body>
+
+        </markup>
+        <widget-config>
+
+            <label id="headerLabel">
+                <text>Цветник</text>
+            </label>
+
+            <label id="greenHedgeLengthLabel">
+                <text>Протяженность</text>
+            </label>
+            <integer-box id="greenHedgeLengthValue">
+                <field-path value="composition"/>
+            </integer-box>
+
+            <label id="greenHedgeCompositionLabel">
+                <text>Состав</text>
+            </label>
+            <enumeration-box id="greenHedgeCompositionValue">
+                <field-path value="composition"/>
+                <mapping>
+                    <map value="Листопадные кустарники"/>
+                    <map value="Вечнозеленые кустарники"/>
+                    <map value="Цветущие"/>
+                    <map value="Вьющиеся"/>
+                </mapping>
+            </enumeration-box>
+
+            <label id="greenHedgeHeightLabel">
+                <text>Высота</text>
+            </label>
+            <enumeration-box id="greenHedgeHeightValue">
+                <field-path value="height"/>
+                <mapping>
+                    <map value="До 0.5 метров"/>
+                    <map value="0.5-1 метр"/>
+                    <map value="1-2 метра"/>
+                    <map value="Более 2 метров"/>
+                </mapping>
+            </enumeration-box>
+
+            <label id="greenHedgeTrimTechniqueLabel">
+                <text>Техника ухода</text>
+            </label>
+
+            <enumeration-box id="greenHedgeTrimTechniqueValue">
+                <field-path value="trim_technique"/>
+                <mapping>
+                    <map value="Формированная"/>
+                    <map value="Свободно растущая"/>
+                </mapping>
+            </enumeration-box>
+
+
+            <label id="greenHedgeStateLabel">
+                <text>Состояние объекта</text>
+            </label>
+
+            <enumeration-box id="greenHedgeStateValue">
+                <field-path value="state"/>
+                <mapping>
+                    <map value="Ухоженное"/>
+                    <map value="Требует ухода"/>
+                    <map value="Требует ремонта"/>
+                    <map value="Требует восстановления"/>
+                </mapping>
+            </enumeration-box>
+
+            <label id="greenHedgePhotoLabel">
+                <text>Фото</text>
+            </label>
+            <attachment-box id="greenHedgePhotoValue">
+                <field-path value="green_hedge_photo^gard_green_hedge"/>
+                <attachment-type-ref name="green_hedge_photo"/>
+                <scanner enabled="true"/>
+                <selection-style name="table"/>
+                <images-only>
+                    <read-only-preview width="200px" height="200px" preserve-proportion="true"/>
+                    <small-preview width="200px" height="200px" preserve-proportion="true"/>
+                    <large-preview width="600px" preserve-proportion="true"/>
+                </images-only>
+                <choice-style name="popup"/>
+            </attachment-box>
+
+        </widget-config>
+    </form>
+</configuration>

@@ -48,21 +48,40 @@
         <!--<configuration-path>collections/bld-temporary-collection.xml</configuration-path>-->
 
         <!-- Формы -->
-        <configuration-path>forms/bld-residential-form.xml</configuration-path>
-        <configuration-path>forms/bld-permanent-form.xml</configuration-path>
-        <configuration-path>forms/bld-temporary-form.xml</configuration-path>
-        <configuration-path>forms/territories-form.xml</configuration-path>
-        <configuration-path>forms/ter-private-form.xml</configuration-path>
-        <configuration-path>forms/ter-public-form.xml</configuration-path>
-        <configuration-path>forms/ter-ulip-form.xml</configuration-path>
-        <configuration-path>forms/ter-yard-form.xml</configuration-path>
+        <!-- Формы строений-->
+        <configuration-path>forms/buildings/bld-residential-form.xml</configuration-path>
+        <configuration-path>forms/buildings/bld-permanent-form.xml</configuration-path>
+        <configuration-path>forms/buildings/bld-temporary-form.xml</configuration-path>
+        <!-- Формы территорий-->
+        <configuration-path>forms/territories/territories-form.xml</configuration-path>
+        <configuration-path>forms/territories/ter-private-form.xml</configuration-path>
+        <configuration-path>forms/territories/ter-public-form.xml</configuration-path>
+        <configuration-path>forms/territories/ter-ulip-form.xml</configuration-path>
+        <configuration-path>forms/territories/ter-yard-form.xml</configuration-path>
+        <!-- Форма инвентаризации-->
         <configuration-path>forms/inventory-form.xml</configuration-path>
-        <!--<configuration-path>forms/gardening-form.xml</configuration-path>-->
-        <configuration-path>forms/maf-form.xml</configuration-path>
+        <!-- Формы МАФ-->
+        <configuration-path>forms/maf/maf-benches-form.xml</configuration-path>
+        <configuration-path>forms/maf/maf-canopies-form.xml</configuration-path>
+        <configuration-path>forms/maf/maf-fountains-form.xml</configuration-path>
+        <configuration-path>forms/maf/maf-pavilions-form.xml</configuration-path>
+        <configuration-path>forms/maf/maf-playground-equipment-form.xml</configuration-path>
+        <configuration-path>forms/maf/maf-sport-equipments-form.xml</configuration-path>
+        <configuration-path>forms/maf/maf-tables-form.xml</configuration-path>
+        <configuration-path>forms/maf/maf-terraces-form.xml</configuration-path>
+        <configuration-path>forms/maf/maf-trash-can-form.xml</configuration-path>
+        <!-- Формы элементов озеленения-->
+        <configuration-path>forms/gardening/gard-bush-form.xml</configuration-path>
+        <configuration-path>forms/gardening/gard-green-hedge-form.xml</configuration-path>
+        <configuration-path>forms/gardening/gard-lawn-form.xml</configuration-path>
+        <configuration-path>forms/gardening/gard-parterre-form.xml</configuration-path>
+        <configuration-path>forms/gardening/gard-tree-form.xml</configuration-path>
+        <configuration-path>forms/gardening/gard-vertical-form.xml</configuration-path>
+        <!-- Остальные формы-->
         <configuration-path>forms/others-form.xml</configuration-path>
         <configuration-path>forms/planar-linear-form.xml</configuration-path>
         <configuration-path>forms/rightholder-form.xml</configuration-path>
-        <!--<configuration-path>forms/buildings-form.xml</configuration-path>-->
+
 
     </configuration-paths>
     <import-files rewrite="true">

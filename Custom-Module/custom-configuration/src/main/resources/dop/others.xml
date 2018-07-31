@@ -176,6 +176,9 @@
                 </constraints>
             </string>
         </fields>
+        <attachment-types>
+            <attachment-type name="information_stand_photo"/>
+        </attachment-types>
     </domain-object-type>
 
     <!-- Cущность "Ограждения" относится к классу "Иное"-->
@@ -216,9 +219,7 @@
 
     <!-- Cущность "Водоемы" относится к классу "Иное"-->
     <domain-object-type name="other_pond">
-
         <fields>
-
             <!--Ссылка на инвентаризацию -->
             <reference name="inventory_id" type="inventory"/>
 
@@ -228,7 +229,6 @@
                     <simple-constraint value="not-empty"/>
                 </constraints>
             </string>
-
         </fields>
     </domain-object-type>
 

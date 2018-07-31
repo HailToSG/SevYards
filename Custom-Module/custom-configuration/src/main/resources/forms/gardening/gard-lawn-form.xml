@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<configuration xmlns="https://cm5.intertrust.ru/config" xmlns:act="https://cm5.intertrust.ru/config/action">
+
+    <!-- Форма для доменного объекта "Газон" -->
+    <form name="gard_lawn_form" domain-object-type="gard_lawn" is-default="true">
+        <markup>
+            <header>
+                <table>
+                    <tr>
+                        <td h-align="left">
+                            <widget id="headerLabel"/>
+                        </td>
+                    </tr>
+                </table>
+            </header>
+
+            <body display-single-tab="true">
+
+                <tab>
+                    <single-entry-group>
+                        <tab-group>
+                            <table>
+
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="lawnAreaLabel"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="lawnAreaValue"/>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="lawnTypeLabel"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="lawnTypeValue"/>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="lawnStateLabel"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="lawnStateValue"/>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="lawnPhotoLabel"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="lawnPhotoValue"/>
+                                    </td>
+                                </tr>
+                            </table>
+                        </tab-group>
+                    </single-entry-group>
+                </tab>
+
+            </body>
+
+        </markup>
+        <widget-config>
+
+            <label id="headerLabel">
+                <text>Газон</text>
+            </label>
+
+            <label id="lawnAreaLabel">
+                <text>Площадь</text>
+            </label>
+
+            <integer-box id="lawnAreaValue">
+                <field-path value="area"/>
+            </integer-box>
+
+            <label id="lawnTypeLabel">
+                <text>Вид</text>
+            </label>
+            <enumeration-box id="lawnTypeValue">
+                <field-path value="type"/>
+                <mapping>
+                    <map value="Вечнозеленое"/>
+                    <map value="Листопадное неплодовое"/>
+                    <map value="Листопадное плодовое"/>
+                </mapping>
+            </enumeration-box>
+
+            <label id="lawnStateLabel">
+                <text>Состояние объекта</text>
+            </label>
+
+            <enumeration-box id="lawnStateValue">
+                <field-path value="state"/>
+                <mapping>
+                    <map value="Ухоженное"/>
+                    <map value="Требует ухода"/>
+                    <map value="Требует восстановления"/>
+                </mapping>
+            </enumeration-box>
+
+            <label id="lawnPhotoLabel">
+                <text>Фото</text>
+            </label>
+            <attachment-box id="lawnPhotoValue">
+                <field-path value="lawn_photo^gard_lawn"/>
+                <attachment-type-ref name="lawn_photo"/>
+                <scanner enabled="true"/>
+                <selection-style name="table"/>
+                <images-only>
+                    <read-only-preview width="200px" height="200px" preserve-proportion="true"/>
+                    <small-preview width="200px" height="200px" preserve-proportion="true"/>
+                    <large-preview width="600px" preserve-proportion="true"/>
+                </images-only>
+                <choice-style name="popup"/>
+            </attachment-box>
+
+        </widget-config>
+    </form>
+</configuration>

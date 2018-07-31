@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<configuration xmlns="https://cm5.intertrust.ru/config" xmlns:act="https://cm5.intertrust.ru/config/action">
+
+    <!-- Форма для доменного объекта "Дерево" -->
+    <form name="gard_tree_form" domain-object-type="gard_tree" is-default="true">
+        <markup>
+            <header>
+                <table>
+                    <tr>
+                        <td h-align="left">
+                            <widget id="headerLabel"/>
+                        </td>
+                    </tr>
+                </table>
+            </header>
+
+            <body display-single-tab="true">
+
+                <tab>
+                    <single-entry-group>
+                        <tab-group>
+                            <table>
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="treeKindLabel"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="treeKindValue"/>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="treeHeightLabel"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="treeHeightValue"/>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="treeStateLabel"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="treeStateValue"/>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="treePhotoLabel"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="treePhotoValue"/>
+                                    </td>
+                                </tr>
+                            </table>
+                        </tab-group>
+                    </single-entry-group>
+                </tab>
+
+            </body>
+
+        </markup>
+        <widget-config>
+
+            <label id="headerLabel">
+                <text>Дерево</text>
+            </label>
+
+            <label id="treeKindLabel">
+                <text>Вид</text>
+            </label>
+            <enumeration-box id="treeKindValue">
+                <field-path value="kind"/>
+                <mapping>
+                    <map value="Вечнозеленое"/>
+                    <map value="Листопадное неплодовое"/>
+                    <map value="Листопадное плодовое"/>
+                </mapping>
+            </enumeration-box>
+
+            <label id="treeHeightLabel">
+                <text>Высота</text>
+            </label>
+
+            <enumeration-box id="treeHeightValue">
+                <field-path value="height"/>
+                <mapping>
+                    <map value="До 1 метра"/>
+                    <map value="1-2 метра"/>
+                    <map value="2 - 4 метра"/>
+                    <map value="Более 4 метров"/>
+                </mapping>
+            </enumeration-box>
+
+
+            <label id="treeStateLabel">
+                <text>Состояние объекта</text>
+            </label>
+
+            <enumeration-box id="treeStateValue">
+                <field-path value="state"/>
+                <mapping>
+                    <map value="Ухоженное"/>
+                    <map value="Требует ухода"/>
+                    <map value="Требует ремонта"/>
+                    <map value="Требует удаления/замены"/>
+                </mapping>
+            </enumeration-box>
+
+            <label id="treePhotoLabel">
+                <text>Фото</text>
+            </label>
+            <attachment-box id="treePhotoValue">
+                <field-path value="tree_photo^gard_tree"/>
+                <attachment-type-ref name="tree_photo"/>
+                <scanner enabled="true"/>
+                <selection-style name="table"/>
+                <images-only>
+                    <read-only-preview width="200px" height="200px" preserve-proportion="true"/>
+                    <small-preview width="200px" height="200px" preserve-proportion="true"/>
+                    <large-preview width="600px" preserve-proportion="true"/>
+                </images-only>
+                <choice-style name="popup"/>
+            </attachment-box>
+
+        </widget-config>
+    </form>
+</configuration>

@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<configuration xmlns="https://cm5.intertrust.ru/config" xmlns:act="https://cm5.intertrust.ru/config/action">
+
+    <!-- Форма для доменного объекта "Беседки" -->
+    <form name="maf_pavilions_form" domain-object-type="maf_pavilions" is-default="true">
+        <markup>
+            <header>
+                <table>
+                    <tr>
+                        <td h-align="left">
+                            <widget id="headerLabel"/>
+                        </td>
+                    </tr>
+                </table>
+            </header>
+
+            <body display-single-tab="true">
+
+                <tab>
+                    <single-entry-group>
+                        <tab-group>
+                            <table>
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="pavilionsAreaLabel"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="pavilionsAreaValue"/>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="pavilionsMaterialLabel"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="pavilionsMaterialValue"/>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="pavilionsStateLabel"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="pavilionsStateValue"/>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="pavilionsPhotoLabel"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="pavilionsPhotoValue"/>
+                                    </td>
+                                </tr>
+                            </table>
+                        </tab-group>
+                    </single-entry-group>
+                </tab>
+
+            </body>
+
+        </markup>
+        <widget-config>
+
+            <label id="headerLabel">
+                <text>Беседка</text>
+            </label>
+
+            <label id="pavilionsAreaLabel">
+                <text>Площадь</text>
+            </label>
+
+            <integer-box id="pavilionsAreaValue">
+                <field-path value="area"/>
+            </integer-box>
+
+            <label id="pavilionsMaterialLabel">
+                <text>Материал</text>
+            </label>
+
+            <enumeration-box id="pavilionsMaterialValue">
+                <field-path value="material"/>
+                <mapping>
+                    <map value="Металл"/>
+                    <map value="Пластик"/>
+                    <map value="Дерево"/>
+                    <map value="Иное"/>
+                </mapping>
+            </enumeration-box>
+
+            <label id="pavilionsStateLabel">
+                <text>Состояние объекта</text>
+            </label>
+
+            <enumeration-box id="pavilionsStateValue">
+                <field-path value="state"/>
+                <mapping>
+                    <map value="Отличное"/>
+                    <map value="Требует обслуживание"/>
+                    <map value="Требует ремонта"/>
+                    <map value="Требует замены"/>
+                </mapping>
+            </enumeration-box>
+
+            <label id="pavilionsPhotoLabel">
+                <text>Фото</text>
+            </label>
+            <attachment-box id="pavilionsPhotoValue">
+                <field-path value="pavilions_photo^maf_pavilions"/>
+                <attachment-type-ref name="pavilions_photo"/>
+                <scanner enabled="true"/>
+                <selection-style name="table"/>
+                <images-only>
+                    <read-only-preview width="200px" height="200px" preserve-proportion="true"/>
+                    <small-preview width="200px" height="200px" preserve-proportion="true"/>
+                    <large-preview width="600px" preserve-proportion="true"/>
+                </images-only>
+                <choice-style name="popup"/>
+            </attachment-box>
+
+        </widget-config>
+    </form>
+</configuration>

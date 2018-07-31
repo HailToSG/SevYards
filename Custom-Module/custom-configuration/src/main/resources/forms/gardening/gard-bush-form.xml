@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<configuration xmlns="https://cm5.intertrust.ru/config" xmlns:act="https://cm5.intertrust.ru/config/action">
+
+    <!-- Форма для доменного объекта "Пандус" -->
+    <form name="gard_bush_form" domain-object-type="gard_bush" is-default="true">
+        <markup>
+            <header>
+                <table>
+                    <tr>
+                        <td h-align="left">
+                            <widget id="headerLabel"/>
+                        </td>
+                    </tr>
+                </table>
+            </header>
+
+            <body display-single-tab="true">
+
+                <tab>
+                    <single-entry-group>
+                        <tab-group>
+                            <table>
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="bushKindLabel"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="bushKindValue"/>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="bushHeightLabel"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="bushHeightValue"/>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="bushStateLabel"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="bushStateValue"/>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="bushPhotoLabel"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="bushPhotoValue"/>
+                                    </td>
+                                </tr>
+                            </table>
+                        </tab-group>
+                    </single-entry-group>
+                </tab>
+
+            </body>
+
+        </markup>
+        <widget-config>
+
+            <label id="headerLabel">
+                <text>Кустарник</text>
+            </label>
+
+            <label id="bushKindLabel">
+                <text>Вид</text>
+            </label>
+            <enumeration-box id="bushKindValue">
+                <field-path value="kind"/>
+                <mapping>
+                    <map value="Листопадный"/>
+                    <map value="Вечнозеленый"/>
+                    <map value="Цветущий"/>
+                    <map value="Плодовый"/>
+                </mapping>
+            </enumeration-box>
+
+            <label id="bushHeightLabel">
+                <text>Высота</text>
+            </label>
+
+            <enumeration-box id="bushHeightValue">
+                <field-path value="height"/>
+                <mapping>
+                    <map value="До 0.5 метров"/>
+                    <map value="0.5 - 1 метр"/>
+                    <map value="Более 2 метров"/>
+                </mapping>
+            </enumeration-box>
+
+            <label id="bushStateLabel">
+                <text>Состояние объекта</text>
+            </label>
+            <enumeration-box id="bushStateValue">
+                <field-path value="state"/>
+                <mapping>
+                    <map value="Ухоженное"/>
+                    <map value="Требует ухода"/>
+                    <map value="Требует ремонта"/>
+                    <map value="Требует удаления/замены"/>
+                </mapping>
+            </enumeration-box>
+
+            <label id="bushPhotoLabel">
+                <text>Фото</text>
+            </label>
+            <attachment-box id="bushPhotoValue">
+                <field-path value="bush_photo^gard_bush"/>
+                <attachment-type-ref name="bush_photo"/>
+                <scanner enabled="true"/>
+                <selection-style name="table"/>
+                <images-only>
+                    <read-only-preview width="200px" height="200px" preserve-proportion="true"/>
+                    <small-preview width="200px" height="200px" preserve-proportion="true"/>
+                    <large-preview width="600px" preserve-proportion="true"/>
+                </images-only>
+                <choice-style name="popup"/>
+            </attachment-box>
+
+        </widget-config>
+    </form>
+</configuration>
