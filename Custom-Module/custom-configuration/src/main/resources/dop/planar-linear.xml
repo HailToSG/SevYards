@@ -49,13 +49,12 @@
                 </constraints>
             </string>
 
-
-            <!--Ссылка на id объекта "Плоскостные и Линейные"-->
-            <reference name="planar_linear_id" type="planar_linear">
+            <!--состояние объекта класса Дворовой проезд -->
+            <string name="state" length="1024">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </reference>
+            </string>
         </fields>
     </domain-object-type>
 
@@ -77,12 +76,12 @@
                 </constraints>
             </string>
 
-            <!--Ссылка на id объекта "Плоскостные и Линейные"-->
-            <reference name="planar_linear_id" type="planar_linear">
+            <!--состояние объекта класса Тротуар-->
+            <string name="state" length="1024">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </reference>
+            </string>
         </fields>
     </domain-object-type>
 
@@ -103,12 +102,12 @@
                 </constraints>
             </long>
 
-            <!--Ссылка на id объекта "Плоскостные и Линейные"-->
-            <reference name="planar_linear_id" type="planar_linear">
+            <!--состояние объекта класса Велопарковка-->
+            <string name="state" length="1024">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </reference>
+            </string>
         </fields>
     </domain-object-type>
 
@@ -147,12 +146,12 @@
                 </constraints>
             </long>
 
-            <!--Ссылка на id объекта "Плоскостные и Линейные"-->
-            <reference name="planar_linear_id" type="planar_linear">
+            <!--состояние объекта класса Автопарковка -->
+            <string name="state" length="1024">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </reference>
+            </string>
         </fields>
     </domain-object-type>
 
@@ -181,12 +180,12 @@
                 </constraints>
             </string>
 
-            <!--Ссылка на id объекта "Плоскостные и Линейные"-->
-            <reference name="planar_linear_id" type="planar_linear">
+            <!--состояние объекта класса Детская площадка -->
+            <string name="state" length="1024">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </reference>
+            </string>
 
         </fields>
     </domain-object-type>
@@ -204,12 +203,12 @@
 
             <boolean name="is_enclosure"/>
 
-            <!--Ссылка на id объекта "Плоскостные и Линейные"-->
-            <reference name="planar_linear_id" type="planar_linear">
+            <!--состояние объекта класса Площадка для выгула собак -->
+            <string name="state" length="1024">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </reference>
+            </string>
 
         </fields>
     </domain-object-type>
@@ -246,12 +245,12 @@
                 </constraints>
             </string>
 
-            <!--Ссылка на id объекта "Плоскостные и Линейные"-->
-            <reference name="planar_linear_id" type="planar_linear">
+            <!--состояние объекта класса Спортивная площадка -->
+            <string name="state" length="1024">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </reference>
+            </string>
         </fields>
     </domain-object-type>
 
@@ -272,12 +271,12 @@
                 </constraints>
             </string>
 
-            <!--Ссылка на id объекта "Плоскостные и Линейные"-->
-            <reference name="planar_linear_id" type="planar_linear">
+            <!--состояние объекта класса Велодорожка -->
+            <string name="state" length="1024">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </reference>
+            </string>
         </fields>
     </domain-object-type>
 
@@ -309,12 +308,12 @@
                 </constraints>
             </long>
 
-            <!--Ссылка на id объекта "Плоскостные и Линейные"-->
-            <reference name="planar_linear_id" type="planar_linear">
+            <!--состояние объекта класса Контейнерная площадка -->
+            <string name="state" length="1024">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </reference>
+            </string>
         </fields>
     </domain-object-type>
 
