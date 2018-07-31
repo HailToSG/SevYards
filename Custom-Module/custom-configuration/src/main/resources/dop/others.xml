@@ -42,26 +42,29 @@
                 </constraints>
             </long>
 
-            <!--Перепад высот -->
+            <!-- Перепад высот -->
             <long name="height_difference">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
             </long>
 
-            <!-- покрытие -->
+            <!-- Покрытие -->
             <string name="coating" length="1000">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
             </string>
 
-            <!--Ссылка на id объекта Иное-->
-            <reference name="others_id" type="other_others">
+            <!-- Ссылка на инвентаризацию -->
+            <reference name="inventory_id" type="inventory"/>
+
+            <!-- Состояние объекта класса "Пандус" -->
+            <string name="state" length="1024">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </reference>
+            </string>
         </fields>
     </domain-object-type>
 
@@ -97,12 +100,15 @@
                 </constraints>
             </string>
 
-            <!--Ссылка на id объекта Иное-->
-            <reference name="others_id" type="other_others">
+            <!--Ссылка на инвентаризацию -->
+            <reference name="inventory_id" type="inventory"/>
+
+            <!--состояние объекта класса "Устройство для преграждения пути"-->
+            <string name="state" length="1024">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </reference>
+            </string>
         </fields>
     </domain-object-type>
 
@@ -137,12 +143,15 @@
                 </constraints>
             </string>
 
-            <!--Ссылка на id объекта Иное-->
-            <reference name="others_id" type="other_others">
+            <!--Ссылка на инвентаризацию -->
+            <reference name="inventory_id" type="inventory"/>
+
+            <!--состояние объекта класса "Светильники"-->
+            <string name="state" length="1024">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </reference>
+            </string>
         </fields>
     </domain-object-type>
 
@@ -157,12 +166,15 @@
                 </constraints>
             </string>
 
-            <!--Ссылка на id объекта Иное-->
-            <reference name="others_id" type="other_others">
+            <!--Ссылка на инвентаризацию -->
+            <reference name="inventory_id" type="inventory"/>
+
+            <!--состояние объекта класса "Информационные стенды"-->
+            <string name="state" length="1024">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </reference>
+            </string>
         </fields>
     </domain-object-type>
 
@@ -190,12 +202,15 @@
                 </constraints>
             </string>
 
-            <!--Ссылка на id объекта Иное-->
-            <reference name="others_id" type="other_others">
+            <!--Ссылка на инвентаризацию -->
+            <reference name="inventory_id" type="inventory"/>
+
+            <!--состояние объекта класса "Ограждения"-->
+            <string name="state" length="1024">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </reference>
+            </string>
         </fields>
     </domain-object-type>
 
@@ -203,12 +218,17 @@
     <domain-object-type name="other_pond">
 
         <fields>
-            <!--Ссылка на id объекта Иное-->
-            <reference name="others_id" type="other_others">
+
+            <!--Ссылка на инвентаризацию -->
+            <reference name="inventory_id" type="inventory"/>
+
+            <!--состояние объекта класса "Водоёмы"-->
+            <string name="state" length="1024">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </reference>
+            </string>
+
         </fields>
     </domain-object-type>
 
@@ -223,12 +243,15 @@
                 </constraints>
             </string>
 
-            <!--Ссылка на id объекта Иное-->
-            <reference name="others_id" type="other_others">
+            <!--Ссылка на инвентаризацию -->
+            <reference name="inventory_id" type="inventory"/>
+
+            <!--состояние объекта класса "Люки подземных коммуникаций"-->
+            <string name="state" length="1024">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </reference>
+            </string>
         </fields>
     </domain-object-type>
 
@@ -250,12 +273,15 @@
                 </constraints>
             </string>
 
-            <!--Ссылка на id объекта Иное-->
-            <reference name="others_id" type="other_others">
+            <!--Ссылка на инвентаризацию -->
+            <reference name="inventory_id" type="inventory"/>
+
+            <!--состояние объекта класса "Опоры ЛЭП"-->
+            <string name="state" length="1024">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </reference>
+            </string>
         </fields>
     </domain-object-type>
 
