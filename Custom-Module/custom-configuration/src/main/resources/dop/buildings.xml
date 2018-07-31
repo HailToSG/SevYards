@@ -142,6 +142,9 @@
                 </constraints>
             </reference>
         </fields>
+        <attachment-types>
+            <attachment-type name="permanent_photo"/>
+        </attachment-types>
     </domain-object-type>
 
     <!-- Cущность "Нежилое некапитальное строение" -->
@@ -184,6 +187,9 @@
             </reference>
 
         </fields>
+        <attachment-types>
+            <attachment-type name="temporary_photo"/>
+        </attachment-types>
     </domain-object-type>
 
 </configuration>

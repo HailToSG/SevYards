@@ -67,6 +67,15 @@
                                     </td>
                                 </tr>
 
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="permanentPhotoLabel"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="permanentPhotoValue"/>
+                                    </td>
+                                </tr>
+
                             </table>
                         </tab-group>
                     </single-entry-group>
@@ -126,6 +135,22 @@
                         <map value="Требует ремонта"/>
                     </mapping>
             </enumeration-box>
+
+            <label id="permanentPhotoLabel">
+                <text>Фото</text>
+            </label>
+            <attachment-box id="permanentPhotoValue">
+                <field-path value="permanent_photo^build_permanent"/>
+                <attachment-type-ref name="permanent_photo"/>
+                <scanner enabled="true"/>
+                <selection-style name="table"/>
+                <images-only>
+                    <read-only-preview width="200px" height="200px" preserve-proportion="true"/>
+                    <small-preview width="200px" height="200px" preserve-proportion="true"/>
+                    <large-preview width="600px" preserve-proportion="true"/>
+                </images-only>
+                <choice-style name="popup"/>
+            </attachment-box>
 
         </widget-config>
 

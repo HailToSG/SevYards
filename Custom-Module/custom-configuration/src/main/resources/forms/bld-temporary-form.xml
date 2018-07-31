@@ -46,6 +46,15 @@
                                         </td>
                                     </tr>
 
+                                    <tr>
+                                        <td h-align="right">
+                                            <widget id="temporaryPhotoLabel"/>
+                                        </td>
+                                        <td h-align="left">
+                                            <widget id="temporaryPhotoValue"/>
+                                        </td>
+                                    </tr>
+
                                 </table>
                             </tab-group>
                         </single-entry-group>
@@ -92,6 +101,22 @@
                         <map value="Требует ремонта"/>
                     </mapping>
                 </enumeration-box>
+
+                <label id="temporaryPhotoLabel">
+                    <text>Фото</text>
+                </label>
+                <attachment-box id="temporaryPhotoValue">
+                    <field-path value="temporary_photo^build_temporary"/>
+                    <attachment-type-ref name="temporary_photo"/>
+                    <scanner enabled="true"/>
+                    <selection-style name="table"/>
+                    <images-only>
+                        <read-only-preview width="200px" height="200px" preserve-proportion="true"/>
+                        <small-preview width="200px" height="200px" preserve-proportion="true"/>
+                        <large-preview width="600px" preserve-proportion="true"/>
+                    </images-only>
+                    <choice-style name="popup"/>
+                </attachment-box>
 
             </widget-config>
 
