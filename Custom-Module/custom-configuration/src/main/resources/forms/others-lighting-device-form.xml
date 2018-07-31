@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<configuration xmlns="https://cm5.intertrust.ru/config" xmlns:act="https://cm5.intertrust.ru/config/action">
+
+    <!-- Форма для доменного объекта "Жилое строение" -->
+    <form name="others_lighting_device_form" domain-object-type="other_lighting_device" is-default="true">
+        <markup>
+            <header>
+                <table>
+                    <tr>
+                        <td h-align="left">
+                            <widget id="headerLabel"/>
+                        </td>
+                    </tr>
+                </table>
+            </header>
+
+            <body display-single-tab="true">
+
+                <tab>
+                    <single-entry-group>
+                        <tab-group>
+                            <table>
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="kindLabel"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="kindValue"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="heightLabel"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="heightValue"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="othersCoatingStateLabel"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="othersCoatingStateValue"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="othersStateLightingDeviceLabel"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="othersStateLightingDeviceValue"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="othersLightingDevicePhotoLabel"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="othersLightingDevicePhotoValue"/>
+                                    </td>
+                                </tr>
+                            </table>
+                        </tab-group>
+                    </single-entry-group>
+                </tab>
+
+            </body>
+
+        </markup>
+        <widget-config>
+
+            <label id="headerLabel">
+                <text>Осветительное устройство</text>
+            </label>
+
+            <label id="kindLabel">
+                <text>Тип</text>
+            </label>
+            <enumeration-box id="kindValue">
+                <field-path value="kind_of_device"/>
+                <mapping>
+                    <map value="Ртутный"/>
+                    <map value="Галогеновый"/>
+                    <map value="Люминисцентный"/>
+                    <map value="Накаливания"/>
+                    <map value="Светодиодный"/>
+                    <map value="Иное"/>
+                </mapping>
+            </enumeration-box>
+
+            <label id="heightLabel">
+                <text>Высота опоры</text>
+            </label>
+            <enumeration-box id="heightValue">
+                <field-path value="power_pylon_type"/>
+                <mapping>
+                    <map value="Менее 3 метров"/>
+                    <map value="3-5 метров"/>
+                    <map value="5-7 метров"/>
+                    <map value="Настенный"/>
+                </mapping>
+            </enumeration-box>
+
+            <label id="othersCoatingStateLabel">
+                <text>Состояние покрытия</text>
+            </label>
+            <enumeration-box id="othersCoatingStateValue">
+                <field-path value="coating_state"/>
+                <mapping>
+                    <map value="Окрашено"/>
+                    <map value="Требуется окраска"/>
+                    <map value="Окраска не требуется"/>
+                </mapping>
+            </enumeration-box>
+
+            <label id="othersStateLightingDeviceLabel">
+                <text>Состояние светильника</text>
+            </label>
+            <enumeration-box id="othersStateLightingDeviceValue">
+                <field-path value="state"/>
+                <mapping>
+                    <map value="Отличное"/>
+                    <map value="Требует обслуживание"/>
+                    <map value="Требует ремонта"/>
+                    <map value="Требует замены"/>
+                </mapping>
+            </enumeration-box>
+
+            <label id="othersLightingDevicePhotoLabel">
+                <text>Фото</text>
+            </label>
+            <attachment-box id="othersLightingDevicePhotoValue">
+                <field-path value="lighting_device_photo^other_lighting_device"/>
+                <attachment-type-ref name="lighting_device_photo"/>
+                <scanner enabled="true"/>
+                <selection-style name="table"/>
+                <images-only>
+                    <read-only-preview width="200px" height="200px" preserve-proportion="true"/>
+                    <small-preview width="200px" height="200px" preserve-proportion="true"/>
+                    <large-preview width="600px" preserve-proportion="true"/>
+                </images-only>
+                <choice-style name="popup"/>
+            </attachment-box>
+
+        </widget-config>
+    </form>
+</configuration>

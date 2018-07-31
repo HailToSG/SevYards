@@ -55,7 +55,14 @@
                     <simple-constraint value="not-empty"/>
                 </constraints>
             </string>
+
+            <!--Ссылка на инвентаризацию -->
+            <reference name="inventory_id" type="inventory"/>
         </fields>
+
+        <attachment-types>
+            <attachment-type name="yard_passage_photo"/>
+        </attachment-types>
     </domain-object-type>
 
     <!-- Сущность "Тротуар" -->
@@ -82,7 +89,13 @@
                     <simple-constraint value="not-empty"/>
                 </constraints>
             </string>
+
+            <!--Ссылка на инвентаризацию -->
+            <reference name="inventory_id" type="inventory"/>
         </fields>
+        <attachment-types>
+            <attachment-type name="sidewalk_photo"/>
+        </attachment-types>
     </domain-object-type>
 
     <!-- Сущность "Велопарковка"-->
@@ -108,7 +121,13 @@
                     <simple-constraint value="not-empty"/>
                 </constraints>
             </string>
+
+            <!--Ссылка на инвентаризацию -->
+            <reference name="inventory_id" type="inventory"/>
         </fields>
+        <attachment-types>
+            <attachment-type name="bicycle_parking_photo"/>
+        </attachment-types>
     </domain-object-type>
 
     <!-- Сущность "Автопарковка"-->
@@ -152,7 +171,13 @@
                     <simple-constraint value="not-empty"/>
                 </constraints>
             </string>
+
+            <!--Ссылка на инвентаризацию -->
+            <reference name="inventory_id" type="inventory"/>
         </fields>
+        <attachment-types>
+            <attachment-type name="car_parking_photo"/>
+        </attachment-types>
     </domain-object-type>
 
     <!-- Сущность "Детская площадка" -->
@@ -187,7 +212,12 @@
                 </constraints>
             </string>
 
+            <!--Ссылка на инвентаризацию -->
+            <reference name="inventory_id" type="inventory"/>
         </fields>
+        <attachment-types>
+            <attachment-type name="playground_photo"/>
+        </attachment-types>
     </domain-object-type>
 
     <!-- Сущность "Площадка для выгула собак" -->
@@ -210,7 +240,12 @@
                 </constraints>
             </string>
 
+            <!--Ссылка на инвентаризацию -->
+            <reference name="inventory_id" type="inventory"/>
         </fields>
+        <attachment-types>
+            <attachment-type name="dog_walking_area_photo"/>
+        </attachment-types>
     </domain-object-type>
 
     <!-- Сущность "Спортивная площадка" -->
@@ -251,7 +286,14 @@
                     <simple-constraint value="not-empty"/>
                 </constraints>
             </string>
+
+            <!--Ссылка на инвентаризацию -->
+            <reference name="inventory_id" type="inventory"/>
         </fields>
+
+        <attachment-types>
+            <attachment-type name="sport_ground_photo"/>
+        </attachment-types>
     </domain-object-type>
 
     <!-- Сущность "Велодорожка" относится к классу "Плоскостные и Линейные" -->
@@ -277,7 +319,14 @@
                     <simple-constraint value="not-empty"/>
                 </constraints>
             </string>
+
+            <!--Ссылка на инвентаризацию -->
+            <reference name="inventory_id" type="inventory"/>
         </fields>
+
+        <attachment-types>
+            <attachment-type name="bicycle_road_photo"/>
+        </attachment-types>
     </domain-object-type>
 
     <!-- Сущность "Контейнерная площадка"-->
@@ -314,7 +363,14 @@
                     <simple-constraint value="not-empty"/>
                 </constraints>
             </string>
+
+            <!--Ссылка на инвентаризацию -->
+            <reference name="inventory_id" type="inventory"/>
         </fields>
+
+        <attachment-types>
+            <attachment-type name="container_square_photo"/>
+        </attachment-types>
     </domain-object-type>
 
 </configuration>

@@ -55,6 +55,9 @@
                     <simple-constraint value="not-empty"/>
                 </constraints>
             </string>
+            
+            <!-- Является ли откидным -->
+            <boolean name="is_flap"/>
 
             <!-- Ссылка на инвентаризацию -->
             <reference name="inventory_id" type="inventory"/>
@@ -66,6 +69,9 @@
                 </constraints>
             </string>
         </fields>
+        <attachment-types>
+            <attachment-type name="other_rampant_photo"/>
+        </attachment-types>
     </domain-object-type>
 
     <!-- Cущность "Устройство преграждения пути" относится к классу Иное -->
@@ -110,34 +116,37 @@
                 </constraints>
             </string>
         </fields>
+        <attachment-types>
+            <attachment-type name="others_barrier_photo"/>
+        </attachment-types>
     </domain-object-type>
 
     <!-- Cущность "Светильники" относится к классу "Иное"-->
     <domain-object-type name="other_lighting_device">
         <fields>
             <!-- Тип-->
-            <string name="kind_of_device" length="1000">
+            <string name="kind_of_device" length="100">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
             </string>
 
             <!--Высота опоры -->
-            <long name="power_pylon_height">
+            <string name="power_pylon_height" length="100">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </long>
+            </string>
 
             <!-- Тип опоры-->
-            <string name="power_pylon_type" length="1000">
+            <string name="power_pylon_type" length="100">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
             </string>
 
             <!-- Состояние покрытия-->
-            <string name="coating_state" length="1000">
+            <string name="coating_state" length="100">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
@@ -147,12 +156,15 @@
             <reference name="inventory_id" type="inventory"/>
 
             <!--состояние объекта класса "Светильники"-->
-            <string name="state" length="1024">
+            <string name="state" length="102">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
             </string>
         </fields>
+        <attachment-types>
+            <attachment-type name="lighting_device_photo"/>
+        </attachment-types>
     </domain-object-type>
 
     <!-- Cущность "Информационные стенды" относится к классу "Иное"-->
@@ -160,7 +172,7 @@
 
         <fields>
             <!-- Назначение-->
-            <string name="purpose" length="1000">
+            <string name="purpose" length="100">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
@@ -170,12 +182,15 @@
             <reference name="inventory_id" type="inventory"/>
 
             <!--состояние объекта класса "Информационные стенды"-->
-            <string name="state" length="1024">
+            <string name="state" length="102">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
             </string>
         </fields>
+        <attachment-types>
+            <attachment-type name="information_stand_photo"/>
+        </attachment-types>
     </domain-object-type>
 
     <!-- Cущность "Ограждения" относится к классу "Иное"-->
@@ -189,14 +204,21 @@
             </long>
 
             <!-- Материал-->
-            <string name="material" length="1000">
+            <string name="material" length="100">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
             </string>
 
             <!-- Состояние покрытия-->
-            <string name="coating_state" length="1000">
+            <string name="coating_state" length="100">
+                <constraints>
+                    <simple-constraint value="not-empty"/>
+                </constraints>
+            </string>
+
+            <!-- Тип ограждения -->
+            <string name="fences_type" length="100">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
@@ -206,12 +228,15 @@
             <reference name="inventory_id" type="inventory"/>
 
             <!--состояние объекта класса "Ограждения"-->
-            <string name="state" length="1024">
+            <string name="state" length="104">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
             </string>
         </fields>
+        <attachment-types>
+            <attachment-type name="fences_photo"/>
+        </attachment-types>
     </domain-object-type>
 
     <!-- Cущность "Водоемы" относится к классу "Иное"-->
@@ -222,14 +247,24 @@
             <!--Ссылка на инвентаризацию -->
             <reference name="inventory_id" type="inventory"/>
 
+            <!-- Тип водоёма-->
+            <long name="pond_type">
+                <constraints>
+                    <simple-constraint value="not-empty"/>
+                </constraints>
+            </long>
+
             <!--состояние объекта класса "Водоёмы"-->
-            <string name="state" length="1024">
+            <string name="state" length="102">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
             </string>
 
         </fields>
+        <attachment-types>
+            <attachment-type name="pond_photo"/>
+        </attachment-types>
     </domain-object-type>
 
     <!-- Cущность "Люки подземных коммуникаций" относится к классу "Иное"-->
@@ -253,6 +288,9 @@
                 </constraints>
             </string>
         </fields>
+        <attachment-types>
+            <attachment-type name="underground_hatch_photo"/>
+        </attachment-types>
     </domain-object-type>
 
     <!-- Cущность "Опоры ЛЭП" относится к классу "Иное"-->
@@ -283,6 +321,9 @@
                 </constraints>
             </string>
         </fields>
+        <attachment-types>
+            <attachment-type name="power_pylon_photo"/>
+        </attachment-types>
     </domain-object-type>
 
 </configuration>

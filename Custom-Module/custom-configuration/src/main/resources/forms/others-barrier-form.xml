@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<configuration xmlns="https://cm5.intertrust.ru/config" xmlns:act="https://cm5.intertrust.ru/config/action">
+
+    <!-- Форма для доменного объекта "Жилое строениеd" -->
+    <form name="others_barrier_form" domain-object-type="others_barrier" is-default="true">
+        <markup>
+            <header>
+                <table>
+                    <tr>
+                        <td h-align="left">
+                            <widget id="headerLabel"/>
+                        </td>
+                    </tr>
+                </table>
+            </header>
+
+            <body display-single-tab="true">
+
+                <tab>
+                    <single-entry-group>
+                        <tab-group>
+                            <table>
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="passageWidthLabel"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="passageWidthValue"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="kindOfBarrierLabel"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="kindOfBarrierValue"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="materialLabel"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="materialValue"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="mechanizationLabel"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="mechanizationValue"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="stateLabel"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="stateValue"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="othersBarrierPhotoLabel"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="othersBarrierPhotoValue"/>
+                                    </td>
+                                </tr>
+                            </table>
+                        </tab-group>
+                    </single-entry-group>
+                </tab>
+
+            </body>
+
+        </markup>
+        <widget-config>
+
+            <label id="headerLabel">
+                <text>Устройство преграждения пути</text>
+            </label>
+
+            <label id="passageWidthLabel">
+                <text>Ширина проезда</text>
+            </label>
+            <decimal-box id="passageWidthValue">
+                <field-path value="passage_width"/>
+            </decimal-box>
+
+            <label id="kindOfBarrierLabel">
+                <text>Тип устройства</text>
+            </label>
+            <enumeration-box id="kindOfBarrierValue">
+                <field-path value="kind_of_barrier"/>
+                <mapping>
+                    <map value="Шлагбаум"/>
+                    <map value="Ворота"/>
+                    <map value="Цепь"/>
+                    <map value="Парковочный столбик"/>
+                    <map value="Иное"/>
+                </mapping>
+            </enumeration-box>
+
+            <label id="materialLabel">
+                <text>Материал</text>
+            </label>
+            <enumeration-box id="materialValue">
+                <field-path value="material"/>
+                <mapping>
+                    <map value="Металл"/>
+                    <map value="Дерево"/>
+                    <map value="Бетон"/>
+                    <map value="Пластик"/>
+                </mapping>
+            </enumeration-box>
+
+            <label id="mechanizationLabel">
+                <text>Механизация</text>
+            </label>
+            <enumeration-box id="mechanizationValue">
+                <field-path value="mechanization"/>
+                <mapping>
+                    <map value="Автоматический"/>
+                    <map value="Ручной"/>
+                    <map value="Иное"/>
+                </mapping>
+            </enumeration-box>
+
+            <label id="stateLabel">
+                <text>Состояние объекта</text>
+            </label>
+            <enumeration-box id="stateValue">
+                <field-path value="state"/>
+                <mapping>
+                    <map value="Отличное"/>
+                    <map value="Требует обслуживание"/>
+                    <map value="Требует ремонта"/>
+                    <map value="Требует замены"/>
+                </mapping>
+            </enumeration-box>
+
+            <label id="othersBarrierPhotoLabel">
+                <text>Фото</text>
+            </label>
+            <attachment-box id="othersBarrierPhotoValue">
+                <field-path value="others_barrier_photo^others_barrier"/>
+                <attachment-type-ref name="others_barrier_photo"/>
+                <scanner enabled="true"/>
+                <selection-style name="table"/>
+                <images-only>
+                    <read-only-preview width="200px" height="200px" preserve-proportion="true"/>
+                    <small-preview width="200px" height="200px" preserve-proportion="true"/>
+                    <large-preview width="600px" preserve-proportion="true"/>
+                </images-only>
+                <choice-style name="popup"/>
+            </attachment-box>
+
+        </widget-config>
+    </form>
+</configuration>

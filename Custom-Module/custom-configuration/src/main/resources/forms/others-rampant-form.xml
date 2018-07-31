@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<configuration xmlns="https://cm5.intertrust.ru/config" xmlns:act="https://cm5.intertrust.ru/config/action">
+
+    <!-- Форма для доменного объекта "Жилое строение" -->
+    <form name="others_rampant_form" domain-object-type="other_rampant" is-default="true">
+        <markup>
+            <header>
+                <table>
+                    <tr>
+                        <td h-align="left">
+                            <widget id="headerLabel"/>
+                        </td>
+                    </tr>
+                </table>
+            </header>
+
+            <body display-single-tab="true">
+
+                <tab>
+                    <single-entry-group>
+                        <tab-group>
+                            <table>
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="widthLabel"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="widthValue"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="heightDifferenceLabel"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="heightDifferenceValue"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="coatingLabel"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="coatingValue"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="stateOthersLabel"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="stateOthersValue"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="othersRampantPhotoLabel"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="othersRampantPhotoValue"/>
+                                    </td>
+                                </tr>
+                            </table>
+                        </tab-group>
+                    </single-entry-group>
+                </tab>
+
+            </body>
+
+        </markup>
+        <widget-config>
+
+            <label id="headerLabel">
+                <text>Пандус</text>
+            </label>
+
+            <label id="widthLabel">
+                <text>Ширина</text>
+            </label>
+            <decimal-box id="widthValue">
+                <field-path value="width"/>
+            </decimal-box>
+
+            <label id="heightDifferenceLabel">
+                <text>Перепад высот</text>
+            </label>
+            <decimal-box id="heightDifferenceValue">
+                <field-path value="height_difference"/>
+            </decimal-box>
+
+            <label id="coatingLabel">
+                <text>Покрытие</text>
+            </label>
+            <enumeration-box id="coatingValue">
+                <field-path value="coating"/>
+                <mapping>
+                    <map value="Бетон"/>
+                    <map value="Дерево"/>
+                    <map value="Металл"/>
+                    <map value="Иное"/>
+                </mapping>
+            </enumeration-box>
+
+            <label id="isFlap">
+                <text>Является ли откидным?</text>
+            </label>
+            <check-box>
+                <field-path value="is_flap"/>
+            </check-box>
+
+            <label id="stateOthersLabel">
+                <text>Состояние объекта</text>
+            </label>
+            <enumeration-box id="stateOthersValue">
+                <field-path value="coating"/>
+                <mapping>
+                    <map value="Отличное"/>
+                    <map value="Требует обслуживание"/>
+                    <map value="Требует ремонта"/>
+                    <map value="Требует замены"/>
+                </mapping>
+            </enumeration-box>
+
+            <label id="othersRampantPhotoLabel">
+                <text>Фото</text>
+            </label>
+            <attachment-box id="othersRampantPhotoValue">
+                <field-path value="other_rampant_photo^other_rampant"/>
+                <attachment-type-ref name="other_rampant_photo"/>
+                <scanner enabled="true"/>
+                <selection-style name="table"/>
+                <images-only>
+                    <read-only-preview width="200px" height="200px" preserve-proportion="true"/>
+                    <small-preview width="200px" height="200px" preserve-proportion="true"/>
+                    <large-preview width="600px" preserve-proportion="true"/>
+                </images-only>
+                <choice-style name="popup"/>
+            </attachment-box>
+
+        </widget-config>
+    </form>
+</configuration>

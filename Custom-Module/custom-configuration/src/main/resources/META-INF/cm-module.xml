@@ -60,6 +60,8 @@
         <!--<configuration-path>forms/gardening-form.xml</configuration-path>-->
         <configuration-path>forms/maf-form.xml</configuration-path>
         <configuration-path>forms/others-form.xml</configuration-path>
+        <configuration-path>forms/others-rampant-form.xml</configuration-path>
+        <configuration-path>forms/others-barrier-form.xml</configuration-path>
         <configuration-path>forms/planar-linear-form.xml</configuration-path>
         <configuration-path>forms/rightholder-form.xml</configuration-path>
         <!--<configuration-path>forms/buildings-form.xml</configuration-path>-->

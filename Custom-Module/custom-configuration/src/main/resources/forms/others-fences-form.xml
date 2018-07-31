@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<configuration xmlns="https://cm5.intertrust.ru/config" xmlns:act="https://cm5.intertrust.ru/config/action">
+
+    <!-- Форма для доменного объекта "Жилое строение" -->
+    <form name="others_fences_form" domain-object-type="other_fences" is-default="true">
+        <markup>
+            <header>
+                <table>
+                    <tr>
+                        <td h-align="left">
+                            <widget id="headerLabel"/>
+                        </td>
+                    </tr>
+                </table>
+            </header>
+
+            <body display-single-tab="true">
+
+                <tab>
+                    <single-entry-group>
+                        <tab-group>
+                            <table>
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="othersFencesLengthLabel"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="othersFencesLengthValue"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="othersFencesMaterialLabel"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="othersFencesMaterialValue"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="othersFencesCoatingStateLabel"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="othersFencesCoatingStateValue"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="othersTypeFencesLabel"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="othersTypeFencesValue"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="othersFencesStateLabel"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="othersFencesStateValue"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="othersFencesPhotoLabel"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="othersFencesPhotoValue"/>
+                                    </td>
+                                </tr>
+                            </table>
+                        </tab-group>
+                    </single-entry-group>
+                </tab>
+
+            </body>
+
+        </markup>
+        <widget-config>
+
+            <label id="headerLabel">
+                <text>Ограждение</text>
+            </label>
+
+            <label id="othersFencesLengthLabel">
+                <text>Протяженность</text>
+            </label>
+            <integer-box id="othersFencesLengthValue">
+                <field-path value="length"/>
+            </integer-box>
+
+            <label id="othersFencesMaterialLabel">
+                <text>Материал</text>
+            </label>
+            <enumeration-box id="othersFencesMaterialValue">
+                <field-path value="material"/>
+                <mapping>
+                    <map value="Металл"/>
+                    <map value="Бетон"/>
+                    <map value="Пластик"/>
+                    <map value="Дерево"/>
+                    <map value="Иное"/>
+                </mapping>
+            </enumeration-box>
+
+            <label id="othersFencesCoatingStateLabel">
+                <text>Состояние покрытия</text>
+            </label>
+            <enumeration-box id="othersFencesCoatingStateValue">
+                <field-path value="coating_state"/>
+                <mapping>
+                    <map value="Окрашено"/>
+                    <map value="Требуется окраска"/>
+                    <map value="Окраска не требуется"/>
+                </mapping>
+            </enumeration-box>
+
+            <label id="othersTypeFencesLabel">
+                <text>Тип ограждения</text>
+            </label>
+            <enumeration-box id="othersTypeFencesValue">
+                <field-path value="fences_type"/>
+                <mapping>
+                    <map value="Сплошное"/>
+                    <map value="С просветами"/>
+                </mapping>
+            </enumeration-box>
+
+            <label id="othersFencesStateLabel">
+                <text>Состояние объекта</text>
+            </label>
+            <enumeration-box id="othersFencesStateValue">
+                <field-path value="state"/>
+                <mapping>
+                    <map value="Отличное"/>
+                    <map value="Требует обслуживание"/>
+                    <map value="Требует ремонта"/>
+                    <map value="Требует замены"/>
+                </mapping>
+            </enumeration-box>
+
+            <label id="othersFencesPhotoLabel">
+                <text>Фото</text>
+            </label>
+            <attachment-box id="othersFencesPhotoValue">
+                <field-path value="fences_photo^other_fences"/>
+                <attachment-type-ref name="fences_photo"/>
+                <scanner enabled="true"/>
+                <selection-style name="table"/>
+                <images-only>
+                    <read-only-preview width="200px" height="200px" preserve-proportion="true"/>
+                    <small-preview width="200px" height="200px" preserve-proportion="true"/>
+                    <large-preview width="600px" preserve-proportion="true"/>
+                </images-only>
+                <choice-style name="popup"/>
+            </attachment-box>
+
+        </widget-config>
+    </form>
+</configuration>
