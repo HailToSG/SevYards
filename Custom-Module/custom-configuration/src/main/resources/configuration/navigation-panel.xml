@@ -10,29 +10,34 @@
                         <domain-object-surfer domain-object-type-to-create="ter_territory">
                             <collection-viewer>
                                 <act:tool-bar useDefault="false">
-                                    <act:action-group name="create.visual.parameters.objects1" text="Создать территорию" merged="true" imageClass="actionBar-create" order="30">
-                                        <act:action-ref name-ref="aCreate" text="Общественная" >
+                                    <act:action-group name="create.visual.parameters.objects1" text="Создать территорию"
+                                                      merged="true" imageClass="actionBar-create" order="30">
+                                        <act:action-ref name-ref="aCreate" text="Общественная">
                                             <act:action-params>
-                                                <act:action-param name="create.object.type" value="ter_territory" />
-                                                <act:action-param name="create.object.form" value="territories_public_form" />
+                                                <act:action-param name="create.object.type" value="ter_territory"/>
+                                                <act:action-param name="create.object.form"
+                                                                  value="territories_public_form"/>
                                             </act:action-params>
                                         </act:action-ref>
                                         <act:action-ref name-ref="aCreate" text="Дворовая">
                                             <act:action-params>
-                                                <act:action-param name="create.object.type" value="ter_territory" />
-                                                <act:action-param name="create.object.form" value="territories_yard_form" />
+                                                <act:action-param name="create.object.type" value="ter_territory"/>
+                                                <act:action-param name="create.object.form"
+                                                                  value="territories_yard_form"/>
                                             </act:action-params>
                                         </act:action-ref>
                                         <act:action-ref name-ref="aCreate" text="ИЖС">
                                             <act:action-params>
                                                 <act:action-param name="create.object.type" value="ter_territory"/>
-                                                <act:action-param name="create.object.form" value="territories_private_form"/>
+                                                <act:action-param name="create.object.form"
+                                                                  value="territories_private_form"/>
                                             </act:action-params>
                                         </act:action-ref>
                                         <act:action-ref name-ref="aCreate" text="ЮЛ и ИП">
                                             <act:action-params>
                                                 <act:action-param name="create.object.type" value="ter_territory"/>
-                                                <act:action-param name="create.object.form" value="territories_ulip_form" />
+                                                <act:action-param name="create.object.form"
+                                                                  value="territories_ulip_form"/>
                                             </act:action-params>
                                         </act:action-ref>
                                     </act:action-group>

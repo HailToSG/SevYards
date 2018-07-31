@@ -66,6 +66,15 @@
                                     </td>
                                 </tr>
 
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="residentialPhotoLabel"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="residentialPhotoValue"/>
+                                    </td>
+                                </tr>
+
                             </table>
                         </tab-group>
                     </single-entry-group>
@@ -125,6 +134,21 @@
                     <map value="Требует ремонта"/>
                 </mapping>
             </enumeration-box>
+            <label id="residentialPhotoLabel">
+                <text>Фото</text>
+            </label>
+            <attachment-box id="residentialPhotoValue">
+                <field-path value="residential_photo^build_residential"/>
+                <attachment-type-ref name="residential_photo"/>
+                <scanner enabled="true"/>
+                <selection-style name="table"/>
+                <images-only>
+                    <read-only-preview width="200px" height="200px" preserve-proportion="true"/>
+                    <small-preview width="200px" height="200px" preserve-proportion="true"/>
+                    <large-preview width="600px" preserve-proportion="true"/>
+                </images-only>
+                <choice-style name="popup"/>
+            </attachment-box>
 
         </widget-config>
 

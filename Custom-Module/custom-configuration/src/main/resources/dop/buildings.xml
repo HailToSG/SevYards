@@ -86,6 +86,9 @@
             </reference>
 
         </fields>
+        <attachment-types>
+            <attachment-type name="residential_photo"/>
+        </attachment-types>
     </domain-object-type>
 
     <!-- Cущность "Нежилое капитальное строение" -->
