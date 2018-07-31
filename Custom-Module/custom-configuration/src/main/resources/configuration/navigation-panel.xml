@@ -54,13 +54,13 @@
                 </link>
                 <link name="ter_public_territories" display-text="Общественные территории">
                     <plugin>
-                        <domain-object-surfer domain-object-type-to-create="ter_public">
+                        <domain-object-surfer domain-object-type-to-create="ter_territory">
                             <collection-viewer>
                                 <collection-ref name="ter_public_collection"/>
                                 <collection-view-ref name="ter_public_collection_view"/>
                             </collection-viewer>
                             <form-viewer>
-                                <form-mapping domain-object-type="ter_public" form="ter_public_form"/>
+                                <form-mapping domain-object-type="ter_territory" form="territories_public_form"/>
                             </form-viewer>
                         </domain-object-surfer>
                     </plugin>
@@ -68,13 +68,13 @@
 
                 <link name="ter_yard_territories" display-text="Дворовые территории">
                     <plugin>
-                        <domain-object-surfer domain-object-type-to-create="ter_yard">
+                        <domain-object-surfer domain-object-type-to-create="ter_territory">
                             <collection-viewer>
                                 <collection-ref name="ter_yard_collection"/>
                                 <collection-view-ref name="ter_yard_collection_view"/>
                             </collection-viewer>
                             <form-viewer>
-                                <form-mapping domain-object-type="ter_yard" form="ter_yard_form"/>
+                                <form-mapping domain-object-type="ter_territory" form="territories_yard_form"/>
                             </form-viewer>
                         </domain-object-surfer>
                     </plugin>
@@ -82,13 +82,13 @@
 
                 <link name="ter_private_territories" display-text="ИЖС - объекты">
                     <plugin>
-                        <domain-object-surfer domain-object-type-to-create="ter_private_housing">
+                        <domain-object-surfer domain-object-type-to-create="ter_territory">
                             <collection-viewer>
                                 <collection-ref name="ter_private_housing_collection"/>
                                 <collection-view-ref name="ter_private_housing_collection_view"/>
                             </collection-viewer>
                             <form-viewer>
-                                <form-mapping domain-object-type="ter_private_housing" form="ter_private_form"/>
+                                <form-mapping domain-object-type="ter_territory" form="territories_private_form"/>
                             </form-viewer>
                         </domain-object-surfer>
                     </plugin>
@@ -96,13 +96,13 @@
 
                 <link name="ter_ulip_territories" display-text="Объекты недвиж. имущ. и з.у. у ЮЛ и ИП">
                     <plugin>
-                        <domain-object-surfer domain-object-type-to-create="ter_ulip">
+                        <domain-object-surfer domain-object-type-to-create="ter_territory">
                             <collection-viewer>
                                 <collection-ref name="ter_ulip_collection"/>
                                 <collection-view-ref name="ter_ulip_collection_view"/>
                             </collection-viewer>
                             <form-viewer>
-                                <form-mapping domain-object-type="ter_ulip" form="ter_ulip_form"/>
+                                <form-mapping domain-object-type="ter_territory" form="territories_ulip_form"/>
                             </form-viewer>
                         </domain-object-surfer>
                     </plugin>

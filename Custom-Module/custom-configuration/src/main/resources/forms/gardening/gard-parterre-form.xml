@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<configuration xmlns="https://cm5.intertrust.ru/config" xmlns:act="https://cm5.intertrust.ru/config/action">
+
+    <!-- Форма для доменного объекта "Цветник" -->
+    <form name="gard_parterre_form" domain-object-type="gard_parterre" is-default="true">
+        <markup>
+            <header>
+                <table>
+                    <tr>
+                        <td h-align="left">
+                            <widget id="headerLabel"/>
+                        </td>
+                    </tr>
+                </table>
+            </header>
+
+            <body display-single-tab="true">
+
+                <tab>
+                    <single-entry-group>
+                        <tab-group>
+                            <table>
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="parterreKindLabel"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="parterreKindValue"/>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="parterreSizeLabel"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="parterreSizeValue"/>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="parterreStateLabel"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="parterreStateValue"/>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="parterrePhotoLabel"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="parterrePhotoValue"/>
+                                    </td>
+                                </tr>
+                            </table>
+                        </tab-group>
+                    </single-entry-group>
+                </tab>
+
+            </body>
+
+        </markup>
+        <widget-config>
+
+            <label id="headerLabel">
+                <text>Цветник</text>
+            </label>
+
+            <label id="parterreKindLabel">
+                <text>Тип цветника</text>
+            </label>
+            <enumeration-box id="parterreKindValue">
+                <field-path value="kind"/>
+                <mapping>
+                    <map value="Клумба"/>
+                    <map value="Горка"/>
+                    <map value="Палисадник"/>
+                    <map value="Подвесной"/>
+                    <map value="Другое"/>
+                </mapping>
+            </enumeration-box>
+
+            <label id="parterreSizeLabel">
+                <text>Размер</text>
+            </label>
+
+            <enumeration-box id="parterreSizeValue">
+                <field-path value="size"/>
+                <mapping>
+                    <map value="До 0.5 метров"/>
+                    <map value="0.5-1 метр"/>
+                    <map value="1-2 метра"/>
+                    <map value="Более 2 метров"/>
+                </mapping>
+            </enumeration-box>
+
+
+            <label id="parterreStateLabel">
+                <text>Состояние объекта</text>
+            </label>
+
+            <enumeration-box id="parterreStateValue">
+                <field-path value="state"/>
+                <mapping>
+                    <map value="Ухоженное"/>
+                    <map value="Требует ухода"/>
+                    <map value="Требует ремонта"/>
+                    <map value="Требует восстановления"/>
+                </mapping>
+            </enumeration-box>
+
+            <label id="parterrePhotoLabel">
+                <text>Фото</text>
+            </label>
+            <attachment-box id="parterrePhotoValue">
+                <field-path value="parterre_photo^gard_parterre"/>
+                <attachment-type-ref name="parterre_photo"/>
+                <scanner enabled="true"/>
+                <selection-style name="table"/>
+                <images-only>
+                    <read-only-preview width="200px" height="200px" preserve-proportion="true"/>
+                    <small-preview width="200px" height="200px" preserve-proportion="true"/>
+                    <large-preview width="600px" preserve-proportion="true"/>
+                </images-only>
+                <choice-style name="popup"/>
+            </attachment-box>
+
+        </widget-config>
+    </form>
+</configuration>

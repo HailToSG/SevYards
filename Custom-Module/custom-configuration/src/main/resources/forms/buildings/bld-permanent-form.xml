@@ -118,9 +118,18 @@
             <enumeration-box id="permanentKindValue">
                 <field-path value="kind"/>
                 <mapping>
-                    <map display-text="МКД" value="MKD"/>
-                    <map display-text="ИЖС" value="IJS"/>
-                    <map display-text="Блокированный" value="Blocked"/>
+                    <map display-text="Гараж" value="Garage"/>
+                    <map display-text="Офисное здание" value="Office"/>
+                    <map display-text="Трансформаторная подстанция" value="Station"/>
+                    <map display-text="Хозяйственна постройка" value="Economic building"/>
+                    <map display-text="Учреждение культуры" value="Establishment of culture"/>
+                    <map display-text="Учреждение образования" value="Establishment of education"/>
+                    <map display-text="Лечебное учреждение" value="Establishment of medicine"/>
+                    <map display-text="Тепловой пункт" value="Thermal station"/>
+                    <map display-text="Туалет" value="WC"/>
+                    <map display-text="Незавершенный" value="Unfinished"/>
+                    <map display-text="Заброшенный" value="Abandoned"/>
+                    <map display-text="Иное" value="Other"/>
                 </mapping>
             </enumeration-box>
 
@@ -129,11 +138,11 @@
             </label>
             <enumeration-box id="permanentStateValue">
                 <field-path value="state"/>
-                    <mapping>
-                        <map value="Отличное"/>
-                        <map value="Среднее"/>
-                        <map value="Требует ремонта"/>
-                    </mapping>
+                <mapping>
+                    <map value="Отличное"/>
+                    <map value="Среднее"/>
+                    <map value="Требует ремонта"/>
+                </mapping>
             </enumeration-box>
 
             <label id="permanentPhotoLabel">

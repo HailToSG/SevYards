@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<configuration xmlns="https://cm5.intertrust.ru/config" xmlns:act="https://cm5.intertrust.ru/config/action">
+
+    <!-- Форма для доменного объекта "Спортивный инвентарь" -->
+    <form name="maf_sport_equipments_form" domain-object-type="maf_sport_equipments" is-default="true">
+        <markup>
+            <header>
+                <table>
+                    <tr>
+                        <td h-align="left">
+                            <widget id="headerLabel"/>
+                        </td>
+                    </tr>
+                </table>
+            </header>
+
+            <body display-single-tab="true">
+
+                <tab>
+                    <single-entry-group>
+                        <tab-group>
+                            <table>
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="sportEquipmentsKindLabel"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="sportEquipmentsKindValue"/>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="sportEquipmentsStateLabel"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="sportEquipmentsStateValue"/>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="sportEquipmentsPhotoLabel"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="sportEquipmentsPhotoValue"/>
+                                    </td>
+                                </tr>
+                            </table>
+                        </tab-group>
+                    </single-entry-group>
+                </tab>
+
+            </body>
+
+        </markup>
+        <widget-config>
+
+            <label id="headerLabel">
+                <text>Спортивный инвентарь</text>
+            </label>
+
+            <label id="sportEquipmentsKindLabel">
+                <text>Тип инвентаря</text>
+            </label>
+
+            <enumeration-box id="sportEquipmentsKindValue">
+                <field-path value="kind"/>
+                <mapping>
+                    <map value="Тренажер"/>
+                    <map value="Параллельные брусья"/>
+                    <map value="Турник"/>
+                    <map value="Дерево"/>
+                    <map value="Шведская стенка"/>
+                    <map value="Иное"/>
+                </mapping>
+            </enumeration-box>
+
+            <label id="sportEquipmentsStateLabel">
+                <text>Состояние объекта</text>
+            </label>
+
+            <enumeration-box id="sportEquipmentsStateValue">
+                <field-path value="state"/>
+                <mapping>
+                    <map value="Отличное"/>
+                    <map value="Требует обслуживание"/>
+                    <map value="Требует ремонта"/>
+                    <map value="Требует замены"/>
+                </mapping>
+            </enumeration-box>
+
+            <label id="sportEquipmentsPhotoLabel">
+                <text>Состояние покрытия</text>
+            </label>
+            <attachment-box id="sportEquipmentsPhotoValue">
+                <field-path value="sport_equipments_photo^maf_sport_equipments"/>
+                <attachment-type-ref name="sport_equipments_photo"/>
+                <scanner enabled="true"/>
+                <selection-style name="table"/>
+                <images-only>
+                    <read-only-preview width="200px" height="200px" preserve-proportion="true"/>
+                    <small-preview width="200px" height="200px" preserve-proportion="true"/>
+                    <large-preview width="600px" preserve-proportion="true"/>
+                </images-only>
+                <choice-style name="popup"/>
+            </attachment-box>
+        </widget-config>
+    </form>
+</configuration>

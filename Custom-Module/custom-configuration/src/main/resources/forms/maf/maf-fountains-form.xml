@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<configuration xmlns="https://cm5.intertrust.ru/config" xmlns:act="https://cm5.intertrust.ru/config/action">
+
+    <!-- Форма для доменного объекта "Фонтан" -->
+    <form name="maf_fountains_form" domain-object-type="maf_fountains" is-default="true">
+        <markup>
+            <header>
+                <table>
+                    <tr>
+                        <td h-align="left">
+                            <widget id="headerLabel"/>
+                        </td>
+                    </tr>
+                </table>
+            </header>
+
+            <body display-single-tab="true">
+
+                <tab>
+                    <single-entry-group>
+                        <tab-group>
+                            <table>
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="fountainsSizeLabel"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="fountainsSizeValue"/>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="fountainsMaterialLabel"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="fountainsMaterialValue"/>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="fountainsStateLabel"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="fountainsStateValue"/>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="fountainsPhotoLabel"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="fountainsPhotoValue"/>
+                                    </td>
+                                </tr>
+                            </table>
+                        </tab-group>
+                    </single-entry-group>
+                </tab>
+
+            </body>
+
+        </markup>
+        <widget-config>
+
+            <label id="headerLabel">
+                <text>Фонтан</text>
+            </label>
+
+            <label id="fountainsSizeLabel">
+                <text>Размер</text>
+            </label>
+
+            <enumeration-box id="fountainsSizeValue">
+                <field-path value="size"/>
+                <mapping>
+                    <map value="До 0.5 метров"/>
+                    <map value="0.5 - 1 метр"/>
+                    <map value="1 - 2 метра"/>
+                    <map value="Более 2 метров"/>
+                </mapping>
+            </enumeration-box>
+
+            <label id="fountainsMaterialLabel">
+                <text>Материал</text>
+            </label>
+
+            <enumeration-box id="fountainsMaterialValue">
+                <field-path value="material"/>
+                <mapping>
+                    <map value="Металл"/>
+                    <map value="Пластик"/>
+                    <map value="Дерево"/>
+                    <map value="Иное"/>
+                </mapping>
+            </enumeration-box>
+
+            <label id="fountainsStateLabel">
+                <text>Состояние объекта</text>
+            </label>
+
+            <enumeration-box id="fountainsStateValue">
+                <field-path value="state"/>
+                <mapping>
+                    <map value="Отличное"/>
+                    <map value="Требует обслуживание"/>
+                    <map value="Требует ремонта"/>
+                    <map value="Требует замены"/>
+                </mapping>
+            </enumeration-box>
+
+            <label id="fountainsPhotoLabel">
+                <text>Фото</text>
+            </label>
+            <attachment-box id="fountainsPhotoValue">
+                <field-path value="fountains_photo^maf_fountains"/>
+                <attachment-type-ref name="fountains_photo"/>
+                <scanner enabled="true"/>
+                <selection-style name="table"/>
+                <images-only>
+                    <read-only-preview width="200px" height="200px" preserve-proportion="true"/>
+                    <small-preview width="200px" height="200px" preserve-proportion="true"/>
+                    <large-preview width="600px" preserve-proportion="true"/>
+                </images-only>
+                <choice-style name="popup"/>
+            </attachment-box>
+
+        </widget-config>
+    </form>
+</configuration>

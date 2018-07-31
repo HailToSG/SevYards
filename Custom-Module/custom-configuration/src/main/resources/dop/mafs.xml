@@ -39,7 +39,7 @@
         <fields>
 
             <!-- материал, из которого сделан накопитель ТКО -->
-            <string name="material" length="1000">
+            <string name="material" length="100">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
@@ -53,14 +53,21 @@
             </long>
 
             <!-- состояние покрытия -->
-            <string name="state_coating_trash" length="1000">
+            <string name="state_coating_trash" length="100">
+                <constraints>
+                    <simple-constraint value="not-empty"/>
+                </constraints>
+            </string>
+
+            <!--Тип ТКО-->
+            <string name="kind" length="100">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
             </string>
 
             <!--состояние объекта МАФ-->
-            <string name="state" length="1024">
+            <string name="state" length="100">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
@@ -73,42 +80,52 @@
             <reference name="territory_id" type="ter_territory"/>
 
         </fields>
+
+        <attachment-types>
+            <attachment-type name="trash_can_photo"/>
+        </attachment-types>
     </domain-object-type>
 
     <!-- Сущность "Оснащения детских площадок"-->
     <domain-object-type name="maf_playground_equipment">
         <fields>
+            <!-- Тип оснащения -->
+            <string name="kind" length="100">
+                <constraints>
+                    <simple-constraint value="not-empty"/>
+                </constraints>
+            </string>
 
             <!-- материал опор площадки -->
-            <string name="support_material" length="1000">
+            <string name="support_material" length="100">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
             </string>
 
             <!-- материал сидений -->
-            <string name="seat_material" length="1000">
+            <string name="seat_material" length="100">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
             </string>
 
             <!-- тип подвеса -->
-            <string name="type_suspension" length="1000">
+            <string name="type_suspension" length="100">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
             </string>
 
             <!-- состояние покрытия -->
-            <string name="state_coating" length="1000">
+            <string name="state_coating" length="100">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
             </string>
 
             <!--состояние объекта МАФ-->
-            <string name="state" length="1024">
+            <string name="state" length="100">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
@@ -120,8 +137,13 @@
             <!--Ссылка на id территории -->
             <reference name="territory_id" type="ter_territory"/>
         </fields>
+
+        <attachment-types>
+            <attachment-type name="playground_photo"/>
+        </attachment-types>
     </domain-object-type>
 
+    <!-- Сущность "Скамьи"-->
     <domain-object-type name="maf_benches">
         <fields>
 
@@ -133,21 +155,28 @@
             </long>
 
             <!-- материал, из которого сделана скамья -->
-            <string name="material" length="1000">
+            <string name="material" length="100">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
             </string>
 
             <!-- состояние покрытия -->
-            <string name="state_coating" length="1000">
+            <string name="state_coating" length="100">
+                <constraints>
+                    <simple-constraint value="not-empty"/>
+                </constraints>
+            </string>
+
+            <!-- имеет спинку -->
+            <string name="has_a_back" length="100">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
             </string>
 
             <!--состояние объекта МАФ-->
-            <string name="state" length="1024">
+            <string name="state" length="100">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
@@ -159,6 +188,10 @@
             <!--Ссылка на id территории -->
             <reference name="territory_id" type="ter_territory"/>
         </fields>
+
+        <attachment-types>
+            <attachment-type name="benches_photo"/>
+        </attachment-types>
     </domain-object-type>
 
     <!-- Сущность "Столы"-->
@@ -173,35 +206,28 @@
             </long>
 
             <!-- форма стола -->
-            <string name="shape" length="1000">
+            <string name="shape" length="100">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
             </string>
 
             <!-- назначение стола -->
-            <string name="appointment" length="1000">
+            <string name="appointment" length="100">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
             </string>
 
             <!-- материал, из которого сделан стол  -->
-            <string name="material" length="1000">
-                <constraints>
-                    <simple-constraint value="not-empty"/>
-                </constraints>
-            </string>
-
-            <!-- состояние покрытия -->
-            <string name="state_coating" length="1000">
+            <string name="material" length="100">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
             </string>
 
             <!--состояние объекта МАФ-->
-            <string name="state" length="1024">
+            <string name="state" length="100">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
@@ -213,18 +239,39 @@
             <!--Ссылка на id территории -->
             <reference name="territory_id" type="ter_territory"/>
         </fields>
+
+        <attachment-types>
+            <attachment-type name="tables_photo"/>
+        </attachment-types>
     </domain-object-type>
 
     <!-- Сущность "Спортивный инвентарь"-->
     <domain-object-type name="maf_sport_equipments">
         <fields>
-            <!--Ссылка на id МАФа-->
-            <reference name="maf_id" type="maf">
+
+            <!-- Тип инвентаря -->
+            <string name="kind" length="100">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </reference>
+            </string>
+
+            <!--состояние объекта МАФ-->
+            <string name="state" length="100">
+                <constraints>
+                    <simple-constraint value="not-empty"/>
+                </constraints>
+            </string>
+
+            <!--Ссылка на инвентаризацию -->
+            <reference name="inventory_id" type="inventory"/>
+
+            <!--Ссылка на id территории -->
+            <reference name="territory_id" type="ter_territory"/>
         </fields>
+        <attachment-types>
+            <attachment-type name="sport_equipments_photo"/>
+        </attachment-types>
     </domain-object-type>
 
     <!-- Сущность "Беседки" -->
@@ -239,14 +286,14 @@
             </long>
 
             <!-- материал, из которого сделана беседка -->
-            <string name="material" length="1000">
+            <string name="material" length="100">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
             </string>
 
             <!--состояние объекта МАФ-->
-            <string name="state" length="1024">
+            <string name="state" length="100">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
@@ -259,6 +306,10 @@
             <reference name="territory_id" type="ter_territory"/>
 
         </fields>
+
+        <attachment-types>
+            <attachment-type name="pavilions_photo"/>
+        </attachment-types>
     </domain-object-type>
 
     <!-- Сущность "Терассы"-->
@@ -273,14 +324,14 @@
             </long>
 
             <!-- материал, из которого сделана терасса -->
-            <string name="material" length="1000">
+            <string name="material" length="100">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
             </string>
 
             <!--состояние объекта МАФ-->
-            <string name="state" length="1024">
+            <string name="state" length="100">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
@@ -292,43 +343,13 @@
             <!--Ссылка на id территории -->
             <reference name="territory_id" type="ter_territory"/>
         </fields>
+
+        <attachment-types>
+            <attachment-type name="terraces_photo"/>
+        </attachment-types>
     </domain-object-type>
 
-    <!-- Сущность "Фонтаны"-->
-    <domain-object-type name="maf_fountains">
-        <fields>
-
-            <!-- Размер фонтана -->
-            <long name="size">
-                <constraints>
-                    <simple-constraint value="not-empty"/>
-                </constraints>
-            </long>
-
-            <!-- материал, из которого сделан фонтан -->
-            <string name="material" length="1000">
-                <constraints>
-                    <simple-constraint value="not-empty"/>
-                </constraints>
-            </string>
-
-            <!--состояние объекта МАФ-->
-            <string name="state" length="1024">
-                <constraints>
-                    <simple-constraint value="not-empty"/>
-                </constraints>
-            </string>
-
-            <!--Ссылка на инвентаризацию -->
-            <reference name="inventory_id" type="inventory"/>
-
-            <!--Ссылка на id территории -->
-            <reference name="territory_id" type="ter_territory"/>
-
-        </fields>
-    </domain-object-type>
-
-    <!-- Сущность "Фонтаны" -->
+    <!-- Сущность "Навесы" -->
     <domain-object-type name="maf_canopies">
         <fields>
 
@@ -340,14 +361,14 @@
             </long>
 
             <!-- материал, из которого сделан навес -->
-            <string name="material" length="1000">
+            <string name="material" length="100">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
             </string>
 
             <!--состояние объекта МАФ-->
-            <string name="state" length="1024">
+            <string name="state" length="100">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
@@ -359,6 +380,44 @@
             <!--Ссылка на id территории -->
             <reference name="territory_id" type="ter_territory"/>
         </fields>
+        <attachment-types>
+            <attachment-type name="canopies_photo"/>
+        </attachment-types>
+    </domain-object-type>
+
+    <!-- Сущность "Фонтаны"-->
+    <domain-object-type name="maf_fountains">
+        <fields>
+            <!-- Размер фонтана -->
+            <string name="size" length="100">
+                <constraints>
+                    <simple-constraint value="not-empty"/>
+                </constraints>
+            </string>
+
+            <!-- материал, из которого сделан фонтан -->
+            <string name="material" length="100">
+                <constraints>
+                    <simple-constraint value="not-empty"/>
+                </constraints>
+            </string>
+
+            <!--состояние объекта МАФ-->
+            <string name="state" length="100">
+                <constraints>
+                    <simple-constraint value="not-empty"/>
+                </constraints>
+            </string>
+
+            <!--Ссылка на инвентаризацию -->
+            <reference name="inventory_id" type="inventory"/>
+
+            <!--Ссылка на id территории -->
+            <reference name="territory_id" type="ter_territory"/>
+        </fields>
+        <attachment-types>
+            <attachment-type name="fountains_photo"/>
+        </attachment-types>
     </domain-object-type>
 
 </configuration>
