@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <configuration xmlns="https://cm5.intertrust.ru/config" xmlns:act="https://cm5.intertrust.ru/config/action">
 
-    <!-- Форма для доменного объекта "Жилое строение" -->
-    <form name="bld_residential_form" domain-object-type="build_residential" is-default="true">
+    <!-- Форма для доменного объекта "Контейнерная площадка" -->
+    <form name="pl_container_square_form" domain-object-type="pl_container_square" is-default="true">
         <markup>
             <header>
                 <table>
@@ -13,133 +13,134 @@
                     </tr>
                 </table>
             </header>
+
             <body display-single-tab="true">
 
-                <tab name="Жилое строение">
+                <tab>
                     <single-entry-group>
                         <tab-group>
                             <table>
 
                                 <tr>
                                     <td h-align="right">
-                                        <widget id="residentialFiasLabel"/>
+                                        <widget id="containerSquareAreaLabel"/>
                                     </td>
-
                                     <td h-align="left">
-                                        <widget id="residentialFiasValue"/>
+                                        <widget id="containerSquareAreaValue"/>
                                     </td>
                                 </tr>
 
                                 <tr>
                                     <td h-align="right">
-                                        <widget id="residentialNoFiasAddressLabel"/>
+                                        <widget id="containerSquareStateLabel"/>
                                     </td>
-
                                     <td h-align="left">
-                                        <widget id="residentialNoFiasAddressValue"/>
+                                        <widget id="containerSquareStateValue"/>
                                     </td>
                                 </tr>
 
                                 <tr>
                                     <td h-align="right">
-                                        <widget id="residentialAreaLabel"/>
+                                        <widget id="containerSquareCoatingLabel"/>
                                     </td>
                                     <td h-align="left">
-                                        <widget id="residentialAreaValue"/>
+                                        <widget id="containerSquareCoatingValue"/>
                                     </td>
                                 </tr>
 
                                 <tr>
                                     <td h-align="right">
-                                        <widget id="residentialKindLabel"/>
+                                        <widget id="containerSquareKgoPlaceLabel"/>
                                     </td>
                                     <td h-align="left">
-                                        <widget id="residentialKindValue"/>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td h-align="right">
-                                        <widget id="residentialStateLabel"/>
-                                    </td>
-                                    <td h-align="left">
-                                        <widget id="residentialStateValue"/>
+                                        <widget id="containerSquareKgoPlaceValue"/>
                                     </td>
                                 </tr>
 
                                 <tr>
                                     <td h-align="right">
-                                        <widget id="residentialPhotoLabel"/>
+                                        <widget id="containerSquareContainerAmountLabel"/>
                                     </td>
                                     <td h-align="left">
-                                        <widget id="residentialPhotoValue"/>
+                                        <widget id="containerSquareContainerAmountValue"/>
                                     </td>
                                 </tr>
 
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="containerSquarePhotoLabel"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="containerSquarePhotoValue"/>
+                                    </td>
+                                </tr>
                             </table>
                         </tab-group>
                     </single-entry-group>
                 </tab>
+
             </body>
 
         </markup>
         <widget-config>
 
             <label id="headerLabel">
-                <text>Жилое строение</text>
+                <text>Контейнерная площадка</text>
             </label>
 
-            <label id="residentialFiasLabel">
-                <text>ФИАС</text>
+            <label id="containerSquareAreaLabel">
+                <text>Площадь</text>
             </label>
-            <text-box id="residentialFiasValue">
-                <field-path value="fias"/>
-            </text-box>
-
-            <label id="residentialNoFiasAddressLabel">
-                <text>Адрес при отсутствии ФИАС</text>
-            </label>
-            <text-box id="residentialNoFiasAddressValue">
-                <field-path value="no_fias_address"/>
-            </text-box>
-
-            <!-- Занимаемая площадь -->
-            <label id="residentialAreaLabel">
-                <text>Занимаемая площадь</text>
-            </label>
-            <integer-box id="residentialAreaValue">
-                <field-path value="area"/>
+            <integer-box id="containerSquareAreaValue">
+                <field-path value="square"/>
             </integer-box>
 
-            <!-- Вид жилого здания-->
-            <label id="residentialKindLabel">
-                <text>Вид жилого строения</text>
+            <label id="containerSquareStateLabel">
+                <text>Состояние объекта</text>
             </label>
-            <enumeration-box id="residentialKindValue">
-                <field-path value="kind"/>
-                <mapping>
-                    <map display-text="МКД" value="0"/>
-                    <map display-text="ИЖС" value="5"/>
-                    <map display-text="Блокированный" value="10"/>
-                </mapping>
-            </enumeration-box>
-
-            <label id="residentialStateLabel">
-                <text>Состояние жилого строения</text>
-            </label>
-            <enumeration-box id="residentialStateValue">
+            <enumeration-box id="containerSquareStateValue">
                 <field-path value="state"/>
                 <mapping>
                     <map value="0" display-text="Отличное"/>
-                    <map value="5" display-text="Среднее"/>
+                    <map value="20" display-text="Требует обслуживания"/>
                     <map value="10" display-text="Требует ремонта"/>
                 </mapping>
             </enumeration-box>
-            <label id="residentialPhotoLabel">
+
+            <label id="containerSquareCoatingLabel">
+                <text>Покрытие</text>
+            </label>
+            <enumeration-box id="containerSquareCoatingValue">
+                <field-path value="coating"/>
+                <mapping>
+                    <map value="5" display-text="Асфальт"/>
+                    <map value="10" display-text="Бетон"/>
+                    <map value="25" display-text="Грунт"/>
+                    <map value="0" display-text="Иное"/>
+                </mapping>
+            </enumeration-box>
+
+            <label id="containerSquareKgoPlaceLabel">
+                <text>Наличие места для КГО</text>
+            </label>
+
+            <check-box id="containerSquareKgoPlaceValue">
+                <field-path value="availability_place_kgo"/>
+            </check-box>
+
+            <label id="containerSquareContainerAmountLabel">
+                <text>Количесвто контейнеров</text>
+            </label>
+            <integer-box id="containerSquareContainerAmountValue">
+                <field-path value="number_containers"/>
+            </integer-box>
+
+            <label id="containerSquarePhotoLabel">
                 <text>Фото</text>
             </label>
-            <attachment-box id="residentialPhotoValue">
-                <field-path value="residential_photo^build_residential"/>
-                <attachment-type-ref name="residential_photo"/>
+            <attachment-box id="containerSquarePhotoValue">
+                <field-path value="container_square_photo^pl_container_square"/>
+                <attachment-type-ref name="container_square_photo"/>
                 <scanner enabled="true"/>
                 <selection-style name="table"/>
                 <images-only>
@@ -151,6 +152,5 @@
             </attachment-box>
 
         </widget-config>
-
     </form>
 </configuration>

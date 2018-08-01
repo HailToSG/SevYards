@@ -88,10 +88,10 @@
             <enumeration-box id="treeHeightValue">
                 <field-path value="height"/>
                 <mapping>
-                    <map value="До 1 метра"/>
-                    <map value="1-2 метра"/>
-                    <map value="2 - 4 метра"/>
-                    <map value="Более 4 метров"/>
+                    <map value="5" display-text="До 1 метра"/>
+                    <map value="15" display-text="1-2 метра"/>
+                    <map value="25" display-text="2 - 4 метра"/>
+                    <map value="30" display-text="Более 4 метров"/>
                 </mapping>
             </enumeration-box>
 
@@ -103,10 +103,9 @@
             <enumeration-box id="treeStateValue">
                 <field-path value="state"/>
                 <mapping>
-                    <map value="Ухоженное"/>
-                    <map value="Требует ухода"/>
-                    <map value="Требует ремонта"/>
-                    <map value="Требует удаления/замены"/>
+                    <map value="30" display-text="Ухоженное"/>
+                    <map value="35" display-text="Требует ухода"/>
+                    <map value="45" display-text="Требует удаления/замены"/>
                 </mapping>
             </enumeration-box>
 

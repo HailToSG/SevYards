@@ -84,9 +84,9 @@
             <enumeration-box id="lawnTypeValue">
                 <field-path value="type"/>
                 <mapping>
-                    <map value="Вечнозеленое"/>
-                    <map value="Листопадное неплодовое"/>
-                    <map value="Листопадное плодовое"/>
+                    <map value="0" display-text="Вечнозеленое"/>
+                    <map value="5" display-text="Листопадное неплодовое"/>
+                    <map value="10" display-text="Листопадное плодовое"/>
                 </mapping>
             </enumeration-box>
 
@@ -97,9 +97,9 @@
             <enumeration-box id="lawnStateValue">
                 <field-path value="state"/>
                 <mapping>
-                    <map value="Ухоженное"/>
-                    <map value="Требует ухода"/>
-                    <map value="Требует восстановления"/>
+                    <map value="30" display-text="Ухоженное"/>
+                    <map value="35" display-text="Требует ухода"/>
+                    <map value="40" display-text="Требует восстановления"/>
                 </mapping>
             </enumeration-box>
 

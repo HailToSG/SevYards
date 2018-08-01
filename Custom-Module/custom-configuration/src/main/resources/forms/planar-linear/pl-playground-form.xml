@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <configuration xmlns="https://cm5.intertrust.ru/config" xmlns:act="https://cm5.intertrust.ru/config/action">
 
-    <!-- Форма для доменного объекта "Терасы" -->
-    <form name="maf_terraces_form" domain-object-type="maf_terraces" is-default="true">
+    <!-- Форма для доменного объекта "Детская площадка" -->
+    <form name="pl_playground_form" domain-object-type="pl_playground" is-default="true">
         <markup>
             <header>
                 <table>
@@ -20,39 +20,49 @@
                     <single-entry-group>
                         <tab-group>
                             <table>
+
                                 <tr>
                                     <td h-align="right">
-                                        <widget id="terracesAreaLabel"/>
+                                        <widget id="playgroundAreaLabel"/>
                                     </td>
                                     <td h-align="left">
-                                        <widget id="terracesAreaValue"/>
+                                        <widget id="playgroundAreaValue"/>
                                     </td>
                                 </tr>
 
                                 <tr>
                                     <td h-align="right">
-                                        <widget id="terracesMaterialLabel"/>
+                                        <widget id="playgroundCoatingLabel"/>
                                     </td>
                                     <td h-align="left">
-                                        <widget id="terracesMaterialValue"/>
+                                        <widget id="playgroundCoatingValue"/>
                                     </td>
                                 </tr>
 
                                 <tr>
                                     <td h-align="right">
-                                        <widget id="terracesStateLabel"/>
+                                        <widget id="playgroundStateLabel"/>
                                     </td>
                                     <td h-align="left">
-                                        <widget id="terracesStateValue"/>
+                                        <widget id="playgroundStateValue"/>
                                     </td>
                                 </tr>
 
                                 <tr>
                                     <td h-align="right">
-                                        <widget id="terracesPhotoLabel"/>
+                                        <widget id="playgroundAgeGroupLabel"/>
                                     </td>
                                     <td h-align="left">
-                                        <widget id="terracesPhotoValue"/>
+                                        <widget id="playgroundAgeGroupValue"/>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="playgroundPhotoLabel"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="playgroundPhotoValue"/>
                                     </td>
                                 </tr>
                             </table>
@@ -66,51 +76,59 @@
         <widget-config>
 
             <label id="headerLabel">
-                <text>Терраса</text>
+                <text>Детская площадка</text>
             </label>
 
-            <label id="terracesAreaLabel">
+            <label id="playgroundAreaLabel">
                 <text>Площадь</text>
             </label>
-
-            <integer-box id="terracesAreaValue">
-                <field-path value="area"/>
+            <integer-box id="playgroundAreaValue">
+                <field-path value="square"/>
             </integer-box>
 
-            <label id="terracesMaterialLabel">
-                <text>Материал</text>
+            <label id="playgroundCoatingLabel">
+                <text>Покрытие</text>
             </label>
-
-            <enumeration-box id="terracesMaterialValue">
-                <field-path value="material"/>
+            <enumeration-box id="playgroundCoatingValue">
+                <field-path value="coating"/>
                 <mapping>
-                    <map value="5" display-text="Металл"/>
-                    <map value="10" display-text="Пластик"/>
-                    <map value="20" display-text="Дерево"/>
+                    <map value="5" display-text="Асфальт"/>
+                    <map value="10" display-text="Бетон"/>
+                    <map value="25" display-text="Грунт"/>
                     <map value="0" display-text="Иное"/>
                 </mapping>
             </enumeration-box>
 
-            <label id="terracesStateLabel">
+            <label id="playgroundStateLabel">
                 <text>Состояние объекта</text>
             </label>
-
-            <enumeration-box id="terracesStateValue">
+            <enumeration-box id="playgroundStateValue">
                 <field-path value="state"/>
                 <mapping>
                     <map value="0" display-text="Отличное"/>
-                    <map value="20" display-text="Требует обслуживание"/>
+                    <map value="20" display-text="Требует обслуживания"/>
                     <map value="10" display-text="Требует ремонта"/>
-                    <map value="15" display-text="Требует замены"/>
                 </mapping>
             </enumeration-box>
 
-            <label id="terracesPhotoLabel">
+            <label id="playgroundAgeGroupLabel">
+                <text>Возрастная группа</text>
+            </label>
+            <enumeration-box id="playgroundAgeGroupValue">
+                <field-path value="age_group"/>
+                <mapping>
+                    <map value="0" display-text="От 3 до 6 лет"/>
+                    <map value="5" display-text="От 7 до 16 лет"/>
+                    <map value="10" display-text="Универсальная"/>
+                </mapping>
+            </enumeration-box>
+
+            <label id="playgroundPhotoLabel">
                 <text>Фото</text>
             </label>
-            <attachment-box id="terracesPhotoValue">
-                <field-path value="terraces_photo^maf_terraces"/>
-                <attachment-type-ref name="terraces_photo"/>
+            <attachment-box id="playgroundPhotoValue">
+                <field-path value="playground_photo^pl_playground"/>
+                <attachment-type-ref name="playground_photo"/>
                 <scanner enabled="true"/>
                 <selection-style name="table"/>
                 <images-only>

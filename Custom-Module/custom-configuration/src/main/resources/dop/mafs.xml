@@ -139,7 +139,7 @@
         </fields>
 
         <attachment-types>
-            <attachment-type name="playground_photo"/>
+            <attachment-type name="playground_equip_photo"/>
         </attachment-types>
     </domain-object-type>
 
@@ -169,11 +169,7 @@
             </string>
 
             <!-- имеет спинку -->
-            <string name="has_a_back" length="100">
-                <constraints>
-                    <simple-constraint value="not-empty"/>
-                </constraints>
-            </string>
+            <boolean name="has_a_back" not-null="true"/>
 
             <!--состояние объекта МАФ-->
             <string name="state" length="100">

@@ -75,10 +75,10 @@
             <enumeration-box id="bushKindValue">
                 <field-path value="kind"/>
                 <mapping>
-                    <map value="Листопадный"/>
-                    <map value="Вечнозеленый"/>
-                    <map value="Цветущий"/>
-                    <map value="Плодовый"/>
+                    <map value="15" display-text="Листопадный"/>
+                    <map value="20" display-text="Вечнозеленый"/>
+                    <map value="25" display-text="Цветущий"/>
+                    <map value="30" display-text="Плодовый"/>
                 </mapping>
             </enumeration-box>
 
@@ -89,9 +89,9 @@
             <enumeration-box id="bushHeightValue">
                 <field-path value="height"/>
                 <mapping>
-                    <map value="До 0.5 метров"/>
-                    <map value="0.5 - 1 метр"/>
-                    <map value="Более 2 метров"/>
+                    <map value="0" display-text="До 0.5 метров"/>
+                    <map value="10" display-text="0.5 - 1 метр"/>
+                    <map value="15" display-text="Более 2 метров"/>
                 </mapping>
             </enumeration-box>
 
@@ -101,10 +101,9 @@
             <enumeration-box id="bushStateValue">
                 <field-path value="state"/>
                 <mapping>
-                    <map value="Ухоженное"/>
-                    <map value="Требует ухода"/>
-                    <map value="Требует ремонта"/>
-                    <map value="Требует удаления/замены"/>
+                    <map value="30" display-text="Ухоженное"/>
+                    <map value="35" display-text="Требует ухода"/>
+                    <map value="45" display-text="Требует удаления/замены"/>
                 </mapping>
             </enumeration-box>
 

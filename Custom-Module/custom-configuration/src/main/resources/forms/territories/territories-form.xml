@@ -278,12 +278,13 @@
                 <text>Тип территории</text>
             </label>
 
-            <enumeration-box id="territoryTypeValue">
-                <field-path value="territory_type"/>
-                <mapping>
-                    <map value="ter_public" null-value="false" display-text="Общественная территория"/>
-                </mapping>
-            </enumeration-box>
+            <text-box id="territoryTypeValue" read-only="true">
+                <field-path value="territory_type">
+                    <default-value>
+                        <field value="Общественная территория"/>
+                    </default-value>
+                </field-path>
+            </text-box>
 
             <label id="publicLinkedLabel">
                 <text>Общественная территория</text>
@@ -420,12 +421,13 @@
                 <text>Тип территории</text>
             </label>
 
-            <enumeration-box id="territoryTypeValue">
-                <field-path value="territory_type"/>
-                <mapping>
-                    <map value="ter_private_housing" null-value="false" display-text="ИЖС-объект"/>
-                </mapping>
-            </enumeration-box>
+            <text-box id="territoryTypeValue" read-only="true">
+                <field-path value="territory_type">
+                    <default-value>
+                        <field value="Объект ИЖС"/>
+                    </default-value>
+                </field-path>
+            </text-box>
 
             <label id="privateLinkedLabel">
                 <text>ИЖС - объект</text>
@@ -560,12 +562,13 @@
                 <text>Тип территории</text>
             </label>
 
-            <enumeration-box id="territoryTypeValue">
-                <field-path value="territory_type"/>
-                <mapping>
-                    <map value="ter_ulip" null-value="false" display-text="Объект ЮЛ и ИП"/>
-                </mapping>
-            </enumeration-box>
+            <text-box id="territoryTypeValue" read-only="true">
+                <field-path value="territory_type">
+                    <default-value>
+                        <field value="Объект ЮЛ и ИП"/>
+                    </default-value>
+                </field-path>
+            </text-box>
 
             <label id="ulipLinkedLabel">
                 <text>Объект ЮЛ и ИП</text>

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <configuration xmlns="https://cm5.intertrust.ru/config" xmlns:act="https://cm5.intertrust.ru/config/action">
 
-    <!-- Форма для доменного объекта "Терасы" -->
-    <form name="maf_terraces_form" domain-object-type="maf_terraces" is-default="true">
+    <!-- Форма для доменного объекта "Площадка для выгула собак" -->
+    <form name="pl_dog_walking_area_form" domain-object-type="pl_dog_walking_area" is-default="true">
         <markup>
             <header>
                 <table>
@@ -20,39 +20,40 @@
                     <single-entry-group>
                         <tab-group>
                             <table>
+
                                 <tr>
                                     <td h-align="right">
-                                        <widget id="terracesAreaLabel"/>
+                                        <widget id="dogWalkingAreaLabel"/>
                                     </td>
                                     <td h-align="left">
-                                        <widget id="terracesAreaValue"/>
+                                        <widget id="dogWalkingAreaValue"/>
                                     </td>
                                 </tr>
 
                                 <tr>
                                     <td h-align="right">
-                                        <widget id="terracesMaterialLabel"/>
+                                        <widget id="dogWalkingStateLabel"/>
                                     </td>
                                     <td h-align="left">
-                                        <widget id="terracesMaterialValue"/>
+                                        <widget id="dogWalkingStateValue"/>
                                     </td>
                                 </tr>
 
                                 <tr>
                                     <td h-align="right">
-                                        <widget id="terracesStateLabel"/>
+                                        <widget id="dogWalkingHasEnclosureLabel"/>
                                     </td>
                                     <td h-align="left">
-                                        <widget id="terracesStateValue"/>
+                                        <widget id="dogWalkingHasEnclosureValue"/>
                                     </td>
                                 </tr>
 
                                 <tr>
                                     <td h-align="right">
-                                        <widget id="terracesPhotoLabel"/>
+                                        <widget id="dogWalkingPhotoLabel"/>
                                     </td>
                                     <td h-align="left">
-                                        <widget id="terracesPhotoValue"/>
+                                        <widget id="dogWalkingPhotoValue"/>
                                     </td>
                                 </tr>
                             </table>
@@ -66,51 +67,42 @@
         <widget-config>
 
             <label id="headerLabel">
-                <text>Терраса</text>
+                <text>Площадка для выгула собак</text>
             </label>
 
-            <label id="terracesAreaLabel">
+            <label id="dogWalkingAreaLabel">
                 <text>Площадь</text>
             </label>
-
-            <integer-box id="terracesAreaValue">
-                <field-path value="area"/>
+            <integer-box id="dogWalkingAreaValue">
+                <field-path value="square"/>
             </integer-box>
 
-            <label id="terracesMaterialLabel">
-                <text>Материал</text>
-            </label>
-
-            <enumeration-box id="terracesMaterialValue">
-                <field-path value="material"/>
-                <mapping>
-                    <map value="5" display-text="Металл"/>
-                    <map value="10" display-text="Пластик"/>
-                    <map value="20" display-text="Дерево"/>
-                    <map value="0" display-text="Иное"/>
-                </mapping>
-            </enumeration-box>
-
-            <label id="terracesStateLabel">
+            <label id="dogWalkingStateLabel">
                 <text>Состояние объекта</text>
             </label>
-
-            <enumeration-box id="terracesStateValue">
+            <enumeration-box id="dogWalkingStateValue">
                 <field-path value="state"/>
                 <mapping>
                     <map value="0" display-text="Отличное"/>
-                    <map value="20" display-text="Требует обслуживание"/>
-                    <map value="10" display-text="Требует ремонта"/>
-                    <map value="15" display-text="Требует замены"/>
+                    <map value="20" display-text="Требует обслуживания"/>
+                    <map value="40" display-text="Требует восстановления"/>
                 </mapping>
             </enumeration-box>
 
-            <label id="terracesPhotoLabel">
+            <label id="dogWalkingHasEnclosureLabel">
+                <text>Наличие ограждения</text>
+            </label>
+
+            <check-box id="dogWalkingHasEnclosureValue">
+                <field-path value="has_enclosure"/>
+            </check-box>
+
+            <label id="dogWalkingPhotoLabel">
                 <text>Фото</text>
             </label>
-            <attachment-box id="terracesPhotoValue">
-                <field-path value="terraces_photo^maf_terraces"/>
-                <attachment-type-ref name="terraces_photo"/>
+            <attachment-box id="dogWalkingPhotoValue">
+                <field-path value="dog_walking_area_photo^pl_dog_walking_area"/>
+                <attachment-type-ref name="dog_walking_area_photo"/>
                 <scanner enabled="true"/>
                 <selection-style name="table"/>
                 <images-only>

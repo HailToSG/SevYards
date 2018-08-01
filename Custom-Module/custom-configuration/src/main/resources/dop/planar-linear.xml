@@ -13,14 +13,14 @@
             <reference name="territory_id" type="ter_territory"/>
 
             <!--тип объекта класса Плоскостные и Линейные -->
-            <string name="type" length="1024">
+            <string name="type" length="100">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
             </string>
 
             <!--состояние объекта класса Плоскостные и Линейные-->
-            <string name="state" length="1024">
+            <string name="state" length="100">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
@@ -33,7 +33,7 @@
     </domain-object-type>
 
     <!--Сущность "Дворовой проезд" -->
-    <domain-object-type name="yard_passage">
+    <domain-object-type name="pl_yard_passage">
         <fields>
             <!--Ширина -->
             <long name="width">
@@ -43,14 +43,14 @@
             </long>
 
             <!-- покрытие -->
-            <string name="coating" length="1000">
+            <string name="coating" length="100">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
             </string>
 
             <!--состояние объекта класса Дворовой проезд -->
-            <string name="state" length="1024">
+            <string name="state" length="100">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
@@ -66,7 +66,7 @@
     </domain-object-type>
 
     <!-- Сущность "Тротуар" -->
-    <domain-object-type name="sidewalk">
+    <domain-object-type name="pl_sidewalk">
         <fields>
 
             <!--Ширина -->
@@ -77,14 +77,14 @@
             </long>
 
             <!-- покрытие -->
-            <string name="coating" length="1000">
+            <string name="coating" length="100">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
             </string>
 
             <!--состояние объекта класса Тротуар-->
-            <string name="state" length="1024">
+            <string name="state" length="100">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
@@ -99,7 +99,7 @@
     </domain-object-type>
 
     <!-- Сущность "Велопарковка"-->
-    <domain-object-type name="bicycle_parking">
+    <domain-object-type name="pl_bicycle_parking">
         <fields>
             <!--Площадь -->
             <long name="square">
@@ -116,7 +116,7 @@
             </long>
 
             <!--состояние объекта класса Велопарковка-->
-            <string name="state" length="1024">
+            <string name="state" length="100">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
@@ -131,7 +131,7 @@
     </domain-object-type>
 
     <!-- Сущность "Автопарковка"-->
-    <domain-object-type name="car_parking">
+    <domain-object-type name="pl_car_parking">
         <fields>
 
             <!-- Количество парковочных мест -->
@@ -149,7 +149,7 @@
             </long>
 
             <!-- покрытие -->
-            <string name="coating" length="1000">
+            <string name="coating" length="100">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
@@ -166,7 +166,7 @@
             </long>
 
             <!--состояние объекта класса Автопарковка -->
-            <string name="state" length="1024">
+            <string name="state" length="100">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
@@ -181,7 +181,7 @@
     </domain-object-type>
 
     <!-- Сущность "Детская площадка" -->
-    <domain-object-type name="playground">
+    <domain-object-type name="pl_playground">
         <fields>
 
             <!--Площадь -->
@@ -192,21 +192,21 @@
             </long>
 
             <!-- покрытие -->
-            <string name="coating" length="1000">
+            <string name="coating" length="100">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
             </string>
 
             <!-- Возрастная группа -->
-            <string name="age_group" length="1000">
+            <string name="age_group" length="100">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
             </string>
 
             <!--состояние объекта класса Детская площадка -->
-            <string name="state" length="1024">
+            <string name="state" length="100">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
@@ -221,7 +221,7 @@
     </domain-object-type>
 
     <!-- Сущность "Площадка для выгула собак" -->
-    <domain-object-type name="dog_walking_area">
+    <domain-object-type name="pl_dog_walking_area">
         <fields>
 
             <!--Площадь -->
@@ -231,10 +231,11 @@
                 </constraints>
             </long>
 
-            <boolean name="is_enclosure"/>
+            <!--Наличие ограждения -->
+            <boolean name="has_enclosure" not-null="true"/>
 
             <!--состояние объекта класса Площадка для выгула собак -->
-            <string name="state" length="1024">
+            <string name="state" length="100">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
@@ -249,7 +250,7 @@
     </domain-object-type>
 
     <!-- Сущность "Спортивная площадка" -->
-    <domain-object-type name="sport_ground">
+    <domain-object-type name="pl_sport_ground">
         <fields>
 
             <!--Площадь -->
@@ -260,28 +261,28 @@
             </long>
 
             <!-- Покрытие -->
-            <string name="coating" length="1000">
+            <string name="coating" length="100">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
             </string>
 
             <!-- вид спорта -->
-            <string name="type_sport" length="1000">
+            <string name="type_sport" length="100">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
             </string>
 
             <!-- Освещение -->
-            <string name="lighting" length="1000">
+            <string name="lighting" length="100">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
             </string>
 
             <!--состояние объекта класса Спортивная площадка -->
-            <string name="state" length="1024">
+            <string name="state" length="100">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
@@ -297,7 +298,7 @@
     </domain-object-type>
 
     <!-- Сущность "Велодорожка" относится к классу "Плоскостные и Линейные" -->
-    <domain-object-type name="bicycle_road">
+    <domain-object-type name="pl_bicycle_road">
         <fields>
             <!--Ширина -->
             <long name="width">
@@ -307,14 +308,14 @@
             </long>
 
             <!-- покрытие -->
-            <string name="coating" length="1000">
+            <string name="coating" length="100">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
             </string>
 
             <!--состояние объекта класса Велодорожка -->
-            <string name="state" length="1024">
+            <string name="state" length="100">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
@@ -323,14 +324,13 @@
             <!--Ссылка на инвентаризацию -->
             <reference name="inventory_id" type="inventory"/>
         </fields>
-
         <attachment-types>
             <attachment-type name="bicycle_road_photo"/>
         </attachment-types>
     </domain-object-type>
 
     <!-- Сущность "Контейнерная площадка"-->
-    <domain-object-type name="container_square">
+    <domain-object-type name="pl_container_square">
         <fields>
             
             <!--Площадь -->
@@ -341,7 +341,7 @@
             </long>
 
             <!-- покрытие -->
-            <string name="coating" length="1000">
+            <string name="coating" length="100">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
@@ -358,7 +358,7 @@
             </long>
 
             <!--состояние объекта класса Контейнерная площадка -->
-            <string name="state" length="1024">
+            <string name="state" length="100">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
@@ -367,7 +367,6 @@
             <!--Ссылка на инвентаризацию -->
             <reference name="inventory_id" type="inventory"/>
         </fields>
-
         <attachment-types>
             <attachment-type name="container_square_photo"/>
         </attachment-types>

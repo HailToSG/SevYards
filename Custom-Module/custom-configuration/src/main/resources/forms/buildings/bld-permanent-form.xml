@@ -118,18 +118,19 @@
             <enumeration-box id="permanentKindValue">
                 <field-path value="kind"/>
                 <mapping>
-                    <map display-text="Гараж" value="Garage"/>
-                    <map display-text="Офисное здание" value="Office"/>
-                    <map display-text="Трансформаторная подстанция" value="Station"/>
-                    <map display-text="Хозяйственна постройка" value="Economic building"/>
-                    <map display-text="Учреждение культуры" value="Establishment of culture"/>
-                    <map display-text="Учреждение образования" value="Establishment of education"/>
-                    <map display-text="Лечебное учреждение" value="Establishment of medicine"/>
-                    <map display-text="Тепловой пункт" value="Thermal station"/>
-                    <map display-text="Туалет" value="WC"/>
-                    <map display-text="Незавершенный" value="Unfinished"/>
-                    <map display-text="Заброшенный" value="Abandoned"/>
-                    <map display-text="Иное" value="Other"/>
+                    <map display-text="Гараж" value="15"/>
+                    <map display-text="Офисное здание" value="20"/>
+                    <map display-text="Магазин" value="25"/>
+                    <map display-text="Трансформаторная подстанция" value="30"/>
+                    <map display-text="Хозяйственна постройка" value="35"/>
+                    <map display-text="Учреждение культуры" value="45"/>
+                    <map display-text="Учреждение образования" value="50"/>
+                    <map display-text="Лечебное учреждение" value="55"/>
+                    <map display-text="Тепловой пункт" value="60"/>
+                    <map display-text="Туалет" value="40"/>
+                    <map display-text="Незавершенный" value="65"/>
+                    <map display-text="Заброшенный" value="70"/>
+                    <map display-text="Иное" value="0"/>
                 </mapping>
             </enumeration-box>
 
@@ -139,9 +140,9 @@
             <enumeration-box id="permanentStateValue">
                 <field-path value="state"/>
                 <mapping>
-                    <map value="Отличное"/>
-                    <map value="Среднее"/>
-                    <map value="Требует ремонта"/>
+                    <map value="0" display-text="Отличное"/>
+                    <map value="5" display-text="Среднее"/>
+                    <map value="10" display-text="Требует ремонта"/>
                 </mapping>
             </enumeration-box>
 
