@@ -92,7 +92,7 @@
                 <text>Протяженность</text>
             </label>
             <integer-box id="greenHedgeLengthValue">
-                <field-path value="composition"/>
+                <field-path value="length"/>
             </integer-box>
 
             <label id="greenHedgeCompositionLabel">

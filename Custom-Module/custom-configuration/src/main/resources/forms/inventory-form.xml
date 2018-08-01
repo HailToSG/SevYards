@@ -97,14 +97,61 @@
                             <table>
                                 <tr>
                                     <td h-align="right">
-                                        <widget id="gardeningLabel"/>
+                                        <widget id="bushLabel"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="bushValue"/>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="greenHedgeLabel"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="greenHedgeValue"/>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="lawnLabel"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="lawnValue"/>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="parterreLabel"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="parterreValue"/>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="treeLabel"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="treeValue"/>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="verticalLabel"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="verticalValue"/>
                                     </td>
                                 </tr>
                             </table>
                         </tab-group>
                     </single-entry-group>
                 </tab>
-
                 <tab name="МАФы">
                     <single-entry-group>
                         <tab-group>
@@ -118,7 +165,6 @@
                         </tab-group>
                     </single-entry-group>
                 </tab>
-
                 <tab name="Плоскостные и линейные">
                     <single-entry-group>
                         <tab-group>
@@ -132,7 +178,6 @@
                         </tab-group>
                     </single-entry-group>
                 </tab>
-
                 <tab name="Иные объекты">
                     <single-entry-group>
                         <tab-group>
@@ -146,7 +191,6 @@
                         </tab-group>
                     </single-entry-group>
                 </tab>
-
                 <tab name="Галерея">
                     <single-entry-group>
                         <tab-group>
@@ -160,7 +204,6 @@
                         </tab-group>
                     </single-entry-group>
                 </tab>
-
             </body>
 
         </markup>
@@ -301,9 +344,159 @@
 
             </linked-domain-objects-table>
 
-            <label id="gardeningLabel">
-                <text>Элементы озеленения</text>
+            <label id="bushLabel">
+                <text>Кусты</text>
             </label>
+            <linked-domain-objects-table id="bushValue" modal-width="600px" modal-height="400px" >
+            <field-path value="gard_bush^inventory_id" on-root-delete="unlink"/>
+
+            <linked-form name="gard_bush_form" inline="true"
+                         domain-object-type="gard_bush"/>
+            <summary-table>
+                <summary-table-column header="Тип" widget-id="bushKindValue">
+                    <pattern value="{kind}"/>
+                </summary-table-column>
+
+                <summary-table-column header="Высота" widget-id="bushHeightValue">
+                    <pattern value="{height}"/>
+                </summary-table-column>
+
+                <summary-table-column header="Состояние" widget-id="bushStateValue">
+                    <pattern value="{state}"/>
+                </summary-table-column>
+
+            </summary-table>
+            <single-choice value="false"/>
+            </linked-domain-objects-table>
+
+            <label id="greenHedgeLabel">
+                <text>Живая изгородь</text>
+            </label>
+            <linked-domain-objects-table id="greenHedgeValue" modal-width="600px" modal-height="400px" >
+                <field-path value="gard_green_hedge^inventory_id" on-root-delete="unlink"/>
+
+                <linked-form name="gard_green_hedge_form" inline="true"
+                             domain-object-type="gard_green_hedge"/>
+                <summary-table>
+                    <summary-table-column header="Высота" widget-id="greenHedgeHeightValue">
+                        <pattern value="{height}"/>
+                    </summary-table-column>
+
+                    <summary-table-column header="Протяженность" widget-id="greenHedgeLengthValue">
+                        <pattern value="{length}"/>
+                    </summary-table-column>
+
+                    <summary-table-column header="Состав" widget-id="greenHedgeCompositionValue">
+                        <pattern value="{composition}"/>
+                    </summary-table-column>
+
+                    <summary-table-column header="Техника" widget-id="greenHedgeTrimTechniqueValue">
+                        <pattern value="{trim_technique}"/>
+                    </summary-table-column>
+
+                    <summary-table-column header="Состояние" widget-id="greenHedgeStateValue">
+                        <pattern value="{state}"/>
+                    </summary-table-column>
+
+                </summary-table>
+                <single-choice value="false"/>
+            </linked-domain-objects-table>
+
+            <label id="lawnLabel">
+                <text>Газон</text>
+            </label>
+            <linked-domain-objects-table id="lawnValue" modal-width="600px" modal-height="400px" >
+                <field-path value="gard_lawn^inventory_id" on-root-delete="unlink"/>
+
+                <linked-form name="gard_lawn_form" inline="true"
+                             domain-object-type="gard_lawn"/>
+                <summary-table>
+                    <summary-table-column header="Площадь" widget-id="lawnAreaValue">
+                        <pattern value="{area}"/>
+                    </summary-table-column>
+
+                    <summary-table-column header="Тип" widget-id="lawnTypeValue">
+                        <pattern value="{type}"/>
+                    </summary-table-column>
+
+                    <summary-table-column header="Состояние" widget-id="lawnStateValue">
+                        <pattern value="{state}"/>
+                    </summary-table-column>
+
+                </summary-table>
+                <single-choice value="false"/>
+            </linked-domain-objects-table>
+
+            <label id="parterreLabel">
+                <text>Цветник</text>
+            </label>
+            <linked-domain-objects-table id="parterreValue" modal-width="600px" modal-height="400px" >
+                <field-path value="gard_parterre^inventory_id" on-root-delete="unlink"/>
+
+                <linked-form name="gard_parterre_form" inline="true"
+                             domain-object-type="gard_parterre"/>
+                <summary-table>
+                    <summary-table-column header="Тип" widget-id="parterreKindValue">
+                        <pattern value="{kind}"/>
+                    </summary-table-column>
+
+                    <summary-table-column header="Размер" widget-id="parterreSizeValue">
+                        <pattern value="{size}"/>
+                    </summary-table-column>
+
+                    <summary-table-column header="Состояние" widget-id="parterreStateValue">
+                        <pattern value="{state}"/>
+                    </summary-table-column>
+
+                </summary-table>
+                <single-choice value="false"/>
+            </linked-domain-objects-table>
+
+            <label id="treeLabel">
+                <text>Дерево</text>
+            </label>
+            <linked-domain-objects-table id="treeValue" modal-width="600px" modal-height="400px" >
+                <field-path value="gard_tree^inventory_id" on-root-delete="unlink"/>
+
+                <linked-form name="gard_tree_form" inline="true"
+                             domain-object-type="gard_tree"/>
+                <summary-table>
+                    <summary-table-column header="Виж" widget-id="treeKindValue">
+                        <pattern value="{kind}"/>
+                    </summary-table-column>
+
+                    <summary-table-column header="Высота" widget-id="treeHeightValue">
+                        <pattern value="{height}"/>
+                    </summary-table-column>
+
+                    <summary-table-column header="Состояние" widget-id="treeStateValue">
+                        <pattern value="{state}"/>
+                    </summary-table-column>
+
+                </summary-table>
+                <single-choice value="false"/>
+            </linked-domain-objects-table>
+
+            <label id="verticalLabel">
+                <text>Вертикальное озеленение</text>
+            </label>
+            <linked-domain-objects-table id="verticalValue" modal-width="600px" modal-height="400px" >
+                <field-path value="gard_vertical^inventory_id" on-root-delete="unlink"/>
+
+                <linked-form name="gard_vertical_form" inline="true"
+                             domain-object-type="gard_vertical"/>
+                <summary-table>
+                    <summary-table-column header="Площадь" widget-id="verticalAreaValue">
+                        <pattern value="{area}"/>
+                    </summary-table-column>
+
+                    <summary-table-column header="Состояние" widget-id="verticalStateValue">
+                        <pattern value="{state}"/>
+                    </summary-table-column>
+
+                </summary-table>
+                <single-choice value="false"/>
+            </linked-domain-objects-table>
 
             <label id="mafsLabel">
                 <text>МАФы</text>

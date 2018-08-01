@@ -86,7 +86,6 @@
             <label id="parterreSizeLabel">
                 <text>Размер</text>
             </label>
-
             <enumeration-box id="parterreSizeValue">
                 <field-path value="size"/>
                 <mapping>
@@ -105,10 +104,9 @@
             <enumeration-box id="parterreStateValue">
                 <field-path value="state"/>
                 <mapping>
-                    <map value="" display-text="Ухоженное"/>
-                    <map value="" display-text="Требует ухода"/>
-                    <map value="" display-text="Требует ремонта"/>
-                    <map value="" display-text="Требует восстановления"/>
+                    <map value="30" display-text="Ухоженное"/>
+                    <map value="35" display-text="Требует ухода"/>
+                    <map value="40" display-text="Требует восстановления"/>
                 </mapping>
             </enumeration-box>
 
