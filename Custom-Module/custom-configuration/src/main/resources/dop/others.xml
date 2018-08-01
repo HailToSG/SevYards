@@ -35,6 +35,10 @@
     <!-- Cущность "Пандус" относится к классу Иное-->
     <domain-object-type name="other_rampant">
         <fields>
+
+            <!-- Ссылка на инвентаризацию -->
+            <reference name="inventory_id" type="inventory"/>
+
             <!--Ширина -->
             <long name="width">
                 <constraints>
@@ -50,24 +54,21 @@
             </long>
 
             <!-- Покрытие -->
-            <string name="coating" length="1000">
+            <long name="coating">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </string>
+            </long>
             
             <!-- Является ли откидным -->
             <boolean name="is_flap"/>
 
-            <!-- Ссылка на инвентаризацию -->
-            <reference name="inventory_id" type="inventory"/>
-
             <!-- Состояние объекта класса "Пандус" -->
-            <string name="state" length="1024">
+            <long name="state">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </string>
+            </long>
         </fields>
         <attachment-types>
             <attachment-type name="other_rampant_photo"/>
@@ -86,35 +87,35 @@
             </long>
 
             <!-- Тип устройства -->
-            <string name="kind_of_barrier" length="1000">
+            <long name="kind_of_barrier">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </string>
+            </long>
 
             <!-- Материал-->
-            <string name="material" length="1000">
+            <long name="material">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </string>
+            </long>
 
             <!-- Механизация-->
-            <string name="mechanization" length="1000">
+            <long name="mechanization">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </string>
+            </long>
 
             <!--Ссылка на инвентаризацию -->
             <reference name="inventory_id" type="inventory"/>
 
             <!--состояние объекта класса "Устройство для преграждения пути"-->
-            <string name="state" length="1024">
+            <long name="state">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </string>
+            </long>
         </fields>
         <attachment-types>
             <attachment-type name="others_barrier_photo"/>
@@ -124,43 +125,44 @@
     <!-- Cущность "Светильники" относится к классу "Иное"-->
     <domain-object-type name="other_lighting_device">
         <fields>
-            <!-- Тип-->
-            <string name="kind_of_device" length="100">
-                <constraints>
-                    <simple-constraint value="not-empty"/>
-                </constraints>
-            </string>
-
-            <!--Высота опоры -->
-            <string name="power_pylon_height" length="100">
-                <constraints>
-                    <simple-constraint value="not-empty"/>
-                </constraints>
-            </string>
-
-            <!-- Тип опоры-->
-            <string name="power_pylon_type" length="100">
-                <constraints>
-                    <simple-constraint value="not-empty"/>
-                </constraints>
-            </string>
-
-            <!-- Состояние покрытия-->
-            <string name="coating_state" length="100">
-                <constraints>
-                    <simple-constraint value="not-empty"/>
-                </constraints>
-            </string>
 
             <!--Ссылка на инвентаризацию -->
             <reference name="inventory_id" type="inventory"/>
 
-            <!--состояние объекта класса "Светильники"-->
-            <string name="state" length="102">
+            <!-- Тип-->
+            <long name="kind_of_device">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </string>
+            </long>
+
+            <!--Высота опоры -->
+            <long name="height">
+                <constraints>
+                    <simple-constraint value="not-empty"/>
+                </constraints>
+            </long>
+
+            <!-- Тип опоры-->
+            <long name="type">
+                <constraints>
+                    <simple-constraint value="not-empty"/>
+                </constraints>
+            </long>
+
+            <!-- Состояние покрытия-->
+            <long name="coating_state">
+                <constraints>
+                    <simple-constraint value="not-empty"/>
+                </constraints>
+            </long>
+
+            <!--состояние объекта класса "Светильники"-->
+            <long name="state">
+                <constraints>
+                    <simple-constraint value="not-empty"/>
+                </constraints>
+            </long>
         </fields>
         <attachment-types>
             <attachment-type name="lighting_device_photo"/>
@@ -172,7 +174,7 @@
 
         <fields>
             <!-- Назначение-->
-            <string name="purpose" length="100">
+            <string name="purpose" length="1024">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
@@ -182,11 +184,11 @@
             <reference name="inventory_id" type="inventory"/>
 
             <!--состояние объекта класса "Информационные стенды"-->
-            <string name="state" length="102">
+            <long name="state">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </string>
+            </long>
         </fields>
         <attachment-types>
             <attachment-type name="information_stand_photo"/>
@@ -204,35 +206,35 @@
             </long>
 
             <!-- Материал-->
-            <string name="material" length="100">
+            <long name="material">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </string>
+            </long>
 
             <!-- Состояние покрытия-->
-            <string name="coating_state" length="100">
+            <long name="coating_state">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </string>
+            </long>
 
             <!-- Тип ограждения -->
-            <string name="fences_type" length="100">
+            <long name="fences_type">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </string>
+            </long>
 
             <!--Ссылка на инвентаризацию -->
             <reference name="inventory_id" type="inventory"/>
 
             <!--состояние объекта класса "Ограждения"-->
-            <string name="state" length="104">
+            <long name="state">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </string>
+            </long>
         </fields>
         <attachment-types>
             <attachment-type name="fences_photo"/>
@@ -253,11 +255,11 @@
             </long>
 
             <!--состояние объекта класса "Водоёмы"-->
-            <string name="state" length="102">
+            <long name="state">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </string>
+            </long>
         </fields>
         <attachment-types>
             <attachment-type name="pond_photo"/>
@@ -269,21 +271,15 @@
 
         <fields>
             <!-- Тип люка -->
-            <string name="kind_of_hatch" length="1000">
+            <long name="kind_of_hatch">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </string>
+            </long>
 
             <!--Ссылка на инвентаризацию -->
             <reference name="inventory_id" type="inventory"/>
 
-            <!--состояние объекта класса "Люки подземных коммуникаций"-->
-            <string name="state" length="1024">
-                <constraints>
-                    <simple-constraint value="not-empty"/>
-                </constraints>
-            </string>
         </fields>
         <attachment-types>
             <attachment-type name="underground_hatch_photo"/>
@@ -295,28 +291,28 @@
         <fields>
 
             <!--Высота опоры -->
-            <long name="height">
+            <long name="height_pylon">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
             </long>
 
             <!-- Тип опоры-->
-            <string name="type" length="1000">
+            <long name="type_pylon">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </string>
+            </long>
 
             <!--Ссылка на инвентаризацию -->
             <reference name="inventory_id" type="inventory"/>
 
             <!--состояние объекта класса "Опоры ЛЭП"-->
-            <string name="state" length="1024">
+            <long name="state_pylon">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </string>
+            </long>
         </fields>
         <attachment-types>
             <attachment-type name="power_pylon_photo"/>

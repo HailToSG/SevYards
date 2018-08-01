@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <configuration xmlns="https://cm5.intertrust.ru/config" xmlns:act="https://cm5.intertrust.ru/config/action">
 
-    <!-- Форма для доменного объекта "Жилое строение" -->
-    <form name="others_rampant_form" domain-object-type="other_information_stand" is-default="true">
+    <!-- Форма для доменного объекта "Пандус" -->
+    <form name="others_information_stand_form" domain-object-type="other_information_stand" is-default="true">
         <markup>
             <header>
                 <table>
@@ -71,10 +71,10 @@
             <enumeration-box id="othersInformationStateValue">
                 <field-path value="state"/>
                 <mapping>
-                    <map value="Отличное"/>
-                    <map value="Требует обслуживание"/>
-                    <map value="Требует ремонта"/>
-                    <map value="Требует замены"/>
+                    <map value="0" display-text="Отличное"/>
+                    <map value="10" display-text="Требует ремонта"/>
+                    <map value="15" display-text="Требует замены"/>
+                    <map value="20" display-text="Требует обслуживание"/>
                 </mapping>
             </enumeration-box>
 

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <configuration xmlns="https://cm5.intertrust.ru/config" xmlns:act="https://cm5.intertrust.ru/config/action">
 
-    <!-- Форма для доменного объекта "Жилое строение" -->
+    <!-- Форма для доменного объекта "Пандус" -->
     <form name="others_rampant_form" domain-object-type="other_rampant" is-default="true">
         <markup>
             <header>
@@ -42,6 +42,14 @@
                                     </td>
                                     <td h-align="left">
                                         <widget id="coatingValue"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="isFlapLabel"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="isFlapValue"/>
                                     </td>
                                 </tr>
                                 <tr>
@@ -94,17 +102,17 @@
             <enumeration-box id="coatingValue">
                 <field-path value="coating"/>
                 <mapping>
-                    <map value="Бетон"/>
-                    <map value="Дерево"/>
-                    <map value="Металл"/>
-                    <map value="Иное"/>
+                    <map value="10" display-text="Бетон"/>
+                    <map value="50" display-text="Дерево"/>
+                    <map value="45" display-text="Металл"/>
+                    <map value="0" display-text="Иное"/>
                 </mapping>
             </enumeration-box>
 
-            <label id="isFlap">
+            <label id="isFlapLabel">
                 <text>Является ли откидным?</text>
             </label>
-            <check-box>
+            <check-box id="isFlapValue">
                 <field-path value="is_flap"/>
             </check-box>
 
@@ -114,10 +122,9 @@
             <enumeration-box id="stateOthersValue">
                 <field-path value="coating"/>
                 <mapping>
-                    <map value="Отличное"/>
-                    <map value="Требует обслуживание"/>
-                    <map value="Требует ремонта"/>
-                    <map value="Требует замены"/>
+                    <map value="0" display-text="Отличное"/>
+                    <map value="10" display-text="Требует ремонта"/>
+                    <map value="20" display-text="Требует обслуживание"/>
                 </mapping>
             </enumeration-box>
 

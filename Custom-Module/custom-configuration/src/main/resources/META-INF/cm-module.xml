@@ -83,18 +83,27 @@
         <configuration-path>forms/planar-linear/pl-dog-walking-area-form.xml</configuration-path>
         <configuration-path>forms/planar-linear/pl-playground-form.xml</configuration-path>
         <!-- Остальные формы-->
-        <configuration-path>forms/others-form.xml</configuration-path>
+        <configuration-path>forms/others/others-form.xml</configuration-path>
+        <configuration-path>forms/others/others-barrier-form.xml</configuration-path>
+        <configuration-path>forms/others/others-fences-form.xml</configuration-path>
+        <configuration-path>forms/others/others-information-stand-form.xml</configuration-path>
+        <configuration-path>forms/others/others-lighting-device-form.xml</configuration-path>
+        <configuration-path>forms/others/others-pond-form.xml</configuration-path>
+        <configuration-path>forms/others/others-power-pylon-form.xml</configuration-path>
+        <configuration-path>forms/others/others-rampant-form.xml</configuration-path>
+        <configuration-path>forms/others/others-underground-hatch-form.xml</configuration-path>
+        <configuration-path>forms/planar-linear-form.xml</configuration-path>
         <configuration-path>forms/rightholder-form.xml</configuration-path>
 
 
     </configuration-paths>
     <import-files rewrite="true">
-        <import-file>importdata/f1.csv</import-file>
-        <import-file>importdata/d1.csv</import-file>
-        <import-file>importdata/c1.csv</import-file>
-        <import-file>importdata/b1.csv</import-file>
-        <import-file>importdata/a1.csv</import-file>
-        <import-file>importdata/e1.csv</import-file>
-        <import-file>importdata/a1_f1.csv</import-file>
+        <!--<import-file>importdata/f1.csv</import-file>-->
+        <!--<import-file>importdata/d1.csv</import-file>-->
+        <!--<import-file>importdata/c1.csv</import-file>-->
+        <!--<import-file>importdata/b1.csv</import-file>-->
+        <!--<import-file>importdata/a1.csv</import-file>-->
+        <!--<import-file>importdata/e1.csv</import-file>-->
+        <!--<import-file>importdata/a1_f1.csv</import-file>-->
     </import-files>
 </module>

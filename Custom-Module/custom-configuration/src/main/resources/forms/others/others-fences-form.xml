@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <configuration xmlns="https://cm5.intertrust.ru/config" xmlns:act="https://cm5.intertrust.ru/config/action">
 
-    <!-- Форма для доменного объекта "Жилое строение" -->
+    <!-- Форма для доменного объекта "Ограждения" -->
     <form name="others_fences_form" domain-object-type="other_fences" is-default="true">
         <markup>
             <header>
@@ -95,11 +95,11 @@
             <enumeration-box id="othersFencesMaterialValue">
                 <field-path value="material"/>
                 <mapping>
-                    <map value="Металл"/>
-                    <map value="Бетон"/>
-                    <map value="Пластик"/>
-                    <map value="Дерево"/>
-                    <map value="Иное"/>
+                    <map value="5" display-text="Металл"/>
+                    <map value="10" display-text="Пластик"/>
+                    <map value="15" display-text="Бетон"/>
+                    <map value="20" display-text="Дерево"/>
+                    <map value="0" display-text="Иное"/>
                 </mapping>
             </enumeration-box>
 
@@ -109,9 +109,9 @@
             <enumeration-box id="othersFencesCoatingStateValue">
                 <field-path value="coating_state"/>
                 <mapping>
-                    <map value="Окрашено"/>
-                    <map value="Требуется окраска"/>
-                    <map value="Окраска не требуется"/>
+                    <map value="50" display-text="Окрашено"/>
+                    <map value="55" display-text="Требуется окраска"/>
+                    <map value="60" display-text="Окраска не требуется"/>
                 </mapping>
             </enumeration-box>
 
@@ -121,8 +121,8 @@
             <enumeration-box id="othersTypeFencesValue">
                 <field-path value="fences_type"/>
                 <mapping>
-                    <map value="Сплошное"/>
-                    <map value="С просветами"/>
+                    <map value="300" display-text="Сплошное"/>
+                    <map value="305" display-text="С просветами"/>
                 </mapping>
             </enumeration-box>
 
@@ -132,10 +132,10 @@
             <enumeration-box id="othersFencesStateValue">
                 <field-path value="state"/>
                 <mapping>
-                    <map value="Отличное"/>
-                    <map value="Требует обслуживание"/>
-                    <map value="Требует ремонта"/>
-                    <map value="Требует замены"/>
+                    <map value="0" display-text="Отличное"/>
+                    <map value="10" display-text="Требует ремонта"/>
+                    <map value="15" display-text="Требует замены"/>
+                    <map value="20" display-text="Требует обслуживание"/>
                 </mapping>
             </enumeration-box>
 

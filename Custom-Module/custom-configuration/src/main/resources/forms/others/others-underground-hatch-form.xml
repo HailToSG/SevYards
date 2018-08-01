@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <configuration xmlns="https://cm5.intertrust.ru/config" xmlns:act="https://cm5.intertrust.ru/config/action">
 
-    <!-- Форма для доменного объекта "Жилое строение" -->
-    <form name="others_pond_form" domain-object-type="other_pond" is-default="true">
+    <!-- Форма для доменного объекта "Люки подземных коммуникаций" -->
+    <form name="others_underground_hatch_form" domain-object-type="other_underground_hatch" is-default="true">
         <markup>
             <header>
                 <table>
@@ -22,10 +22,18 @@
                             <table>
                                 <tr>
                                     <td h-align="right">
-                                        <widget id="Label"/>
+                                        <widget id="othersUnderGroundHatchTypeLabel"/>
                                     </td>
                                     <td h-align="left">
-                                        <widget id="Value"/>
+                                        <widget id="othersUnderGroundHatchTypeValue"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="othersUndergroundHatchPhotoLabel"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="othersUndergroundHatchPhotoValue"/>
                                     </td>
                                 </tr>
                             </table>
@@ -39,45 +47,28 @@
         <widget-config>
 
             <label id="headerLabel">
-                <text>Осветительное устройство</text>
+                <text>Люк подземных коммуникаций</text>
             </label>
 
-            <label id="othersPondTypeLabel">
+            <label id="othersUnderGroundHatchTypeLabel">
                 <text>Тип</text>
             </label>
-            <enumeration-box id="othersPondTypeValue">
-                <field-path value="pond_type"/>
+            <enumeration-box id="othersUnderGroundHatchTypeValue">
+                <field-path value="kind_of_hatch"/>
                 <mapping>
-                    <map value="Ртутный"/>
-                    <map value="Галогеновый"/>
-                    <map value="Люминисцентный"/>
-                    <map value="Накаливания"/>
-                    <map value="Светодиодный"/>
-                    <map value="Иное"/>
+                    <map value="325" display-text="Коммуникации связи"/>
+                    <map value="330" display-text="Канализационный колодец"/>
+                    <map value="335" display-text="Колодец водоснабжения"/>
+                    <map value="0" display-text="Иное"/>
                 </mapping>
             </enumeration-box>
 
-
-
-            <label id="othersStateLightingDeviceLabel">
-                <text>Состояние водоёма</text>
-            </label>
-            <enumeration-box id="othersStatePondValue">
-                <field-path value="state"/>
-                <mapping>
-                    <map value="Отличное"/>
-                    <map value="Требует обслуживание"/>
-                    <map value="Требует ремонта"/>
-                    <map value="Требует замены"/>
-                </mapping>
-            </enumeration-box>
-
-            <label id="othersLightingDevicePhotoLabel">
+            <label id="othersUndergroundHatchPhotoLabel">
                 <text>Фото</text>
             </label>
-            <attachment-box id="othersLightingDevicePhotoValue">
-                <field-path value="pond_photo^other_pond"/>
-                <attachment-type-ref name="pond_photo"/>
+            <attachment-box id="othersUndergroundHatchPhotoValue">
+                <field-path value="underground_hatch_photo^other_underground_hatch"/>
+                <attachment-type-ref name="underground_hatch_photo"/>
                 <scanner enabled="true"/>
                 <selection-style name="table"/>
                 <images-only>

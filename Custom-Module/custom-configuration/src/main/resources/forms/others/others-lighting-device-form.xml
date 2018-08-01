@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <configuration xmlns="https://cm5.intertrust.ru/config" xmlns:act="https://cm5.intertrust.ru/config/action">
 
-    <!-- Форма для доменного объекта "Жилое строение" -->
+    <!-- Форма для доменного объекта "Светильники" -->
     <form name="others_lighting_device_form" domain-object-type="other_lighting_device" is-default="true">
         <markup>
             <header>
@@ -80,12 +80,12 @@
             <enumeration-box id="kindValue">
                 <field-path value="kind_of_device"/>
                 <mapping>
-                    <map value="Ртутный"/>
-                    <map value="Галогеновый"/>
-                    <map value="Люминисцентный"/>
-                    <map value="Накаливания"/>
-                    <map value="Светодиодный"/>
-                    <map value="Иное"/>
+                    <map value="255" display-text="Ртутный"/>
+                    <map value="260" display-text="Галогеновый"/>
+                    <map value="265" display-text="Люминисцентный"/>
+                    <map value="270" display-text="Накаливания"/>
+                    <map value="275" display-text="Светодиодный"/>
+                    <map value="0" display-text="Иное"/>
                 </mapping>
             </enumeration-box>
 
@@ -93,12 +93,26 @@
                 <text>Высота опоры</text>
             </label>
             <enumeration-box id="heightValue">
-                <field-path value="power_pylon_type"/>
+                <field-path value="height"/>
                 <mapping>
-                    <map value="Менее 3 метров"/>
-                    <map value="3-5 метров"/>
-                    <map value="5-7 метров"/>
-                    <map value="Настенный"/>
+                    <map value="35" display-text="Менее 3 метров"/>
+                    <map value="40" display-text="3-5 метров"/>
+                    <map value="45" display-text="5-7 метров"/>
+                    <map value="50" display-text="Настенный"/>
+                </mapping>
+            </enumeration-box>
+
+            <label id="typeLabel">
+                <text>Тип опоры</text>
+            </label>
+            <enumeration-box id="typeValue">
+                <field-path value="type"/>
+                <mapping>
+                    <map value="280" display-text="Металлическая опора"/>
+                    <map value="285" display-text="Деревянная опора"/>
+                    <map value="290" display-text="Бетонная опора"/>
+                    <map value="295" display-text="Настенная установка"/>
+                    <map value="0"   display-text="Иное"/>
                 </mapping>
             </enumeration-box>
 
@@ -108,9 +122,9 @@
             <enumeration-box id="othersCoatingStateValue">
                 <field-path value="coating_state"/>
                 <mapping>
-                    <map value="Окрашено"/>
-                    <map value="Требуется окраска"/>
-                    <map value="Окраска не требуется"/>
+                    <map value="50" display-text="Окрашено"/>
+                    <map value="55" display-text="Требуется окраска"/>
+                    <map value="60" display-text="Окраска не требуется"/>
                 </mapping>
             </enumeration-box>
 
@@ -120,10 +134,9 @@
             <enumeration-box id="othersStateLightingDeviceValue">
                 <field-path value="state"/>
                 <mapping>
-                    <map value="Отличное"/>
-                    <map value="Требует обслуживание"/>
-                    <map value="Требует ремонта"/>
-                    <map value="Требует замены"/>
+                    <map value="0"  display-text="Отличное"/>
+                    <map value="10" display-text="Требует ремонта"/>
+                    <map value="20" display-text="Требует обслуживание"/>
                 </mapping>
             </enumeration-box>
 

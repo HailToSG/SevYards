@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<configuration xmlns="https://cm5.intertrust.ru/config" xmlns:act="https://cm5.intertrust.ru/config/action">
+
+    <!-- Форма для доменного объекта "Опоры ЛЭП" -->
+    <form name="others_power_pylon_form" domain-object-type="other_power_pylon" is-default="true">
+        <markup>
+            <header>
+                <table>
+                    <tr>
+                        <td h-align="left">
+                            <widget id="headerLabel"/>
+                        </td>
+                    </tr>
+                </table>
+            </header>
+
+            <body display-single-tab="true">
+
+                <tab>
+                    <single-entry-group>
+                        <tab-group>
+                            <table>
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="othersPowerPylonHeightLabel"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="othersPowerPylonHeightValue"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="othersPowerPylonTypeLabel"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="othersPowerPylonTypeValue"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="othersPylonStateLabel"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="othersPylonStateValue"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="othersPowerPylonPhotoLabel"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="othersPowerPylonPhotoValue"/>
+                                    </td>
+                                </tr>
+                            </table>
+                        </tab-group>
+                    </single-entry-group>
+                </tab>
+
+            </body>
+
+        </markup>
+        <widget-config>
+
+            <label id="headerLabel">
+                <text>Опоры ЛЭП</text>
+            </label>
+
+            <label id="othersPowerPylonHeightLabel">
+                <text>Высота опоры</text>
+            </label>
+            <enumeration-box id="othersPowerPylonHeightValue">
+                <field-path value="height_pylon"/>
+                <mapping>
+                    <map value="35" display-text="Менее 3 метров"/>
+                    <map value="40" display-text="3-5 метров"/>
+                    <map value="45" display-text="5-7 метров"/>
+                    <map value="50" display-text="Настенный"/>
+                </mapping>
+            </enumeration-box>
+
+            <label id="othersPowerPylonTypeLabel">
+                <text>Тип опоры</text>
+            </label>
+            <enumeration-box id="othersPowerPylonTypeValue">
+                <field-path value="type_pylon"/>
+                <mapping>
+                    <map value="280" display-text="Металлическая опора"/>
+                    <map value="285" display-text="Деревянная опора"/>
+                    <map value="290" display-text="Бетонная опора"/>
+                    <map value="0"   display-text="Иное"/>
+                </mapping>
+            </enumeration-box>
+
+            <label id="othersPylonStateLabel">
+                <text>Состояние</text>
+            </label>
+            <enumeration-box id="othersPylonStateValue">
+                <field-path value="state_pylon"/>
+                <mapping>
+                    <map value="0" display-text="Отличное"/>
+                    <map value="10" display-text="Требует ремонта"/>
+                    <map value="15" display-text="Требует замены"/>
+                    <map value="20" display-text="Требует обслуживание"/>
+                </mapping>
+            </enumeration-box>
+
+            <label id="othersPowerPylonPhotoLabel">
+                <text>Фото</text>
+            </label>
+            <attachment-box id="othersPowerPylonPhotoValue">
+                <field-path value="power_pylon_photo^other_power_pylon"/>
+                <attachment-type-ref name="power_pylon_photo"/>
+                <scanner enabled="true"/>
+                <selection-style name="table"/>
+                <images-only>
+                    <read-only-preview width="200px" height="200px" preserve-proportion="true"/>
+                    <small-preview width="200px" height="200px" preserve-proportion="true"/>
+                    <large-preview width="600px" preserve-proportion="true"/>
+                </images-only>
+                <choice-style name="popup"/>
+            </attachment-box>
+
+        </widget-config>
+    </form>
+</configuration>
