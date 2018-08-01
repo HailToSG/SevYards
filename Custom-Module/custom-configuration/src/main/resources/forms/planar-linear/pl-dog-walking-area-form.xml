@@ -83,9 +83,9 @@
             <enumeration-box id="dogWalkingStateValue">
                 <field-path value="state"/>
                 <mapping>
-                    <map value="Отличное"/>
-                    <map value="Требует обслуживания"/>
-                    <map value="Требует восстановления"/>
+                    <map value="0" display-text="Отличное"/>
+                    <map value="20" display-text="Требует обслуживания"/>
+                    <map value="40" display-text="Требует восстановления"/>
                 </mapping>
             </enumeration-box>
 

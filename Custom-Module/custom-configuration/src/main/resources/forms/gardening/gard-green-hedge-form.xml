@@ -101,10 +101,10 @@
             <enumeration-box id="greenHedgeCompositionValue">
                 <field-path value="composition"/>
                 <mapping>
-                    <map value="Листопадные кустарники"/>
-                    <map value="Вечнозеленые кустарники"/>
-                    <map value="Цветущие"/>
-                    <map value="Вьющиеся"/>
+                    <map value="0" display-text="Листопадные кустарники"/>
+                    <map value="5" display-text="Вечнозеленые кустарники"/>
+                    <map value="10" display-text="Цветущие"/>
+                    <map value="15" display-text="Вьющиеся"/>
                 </mapping>
             </enumeration-box>
 
@@ -114,10 +114,10 @@
             <enumeration-box id="greenHedgeHeightValue">
                 <field-path value="height"/>
                 <mapping>
-                    <map value="До 0.5 метров"/>
-                    <map value="0.5-1 метр"/>
-                    <map value="1-2 метра"/>
-                    <map value="Более 2 метров"/>
+                    <map value="0" display-text="До 0.5 метров"/>
+                    <map value="10" display-text="0.5-1 метр"/>
+                    <map value="15" display-text="1-2 метра"/>
+                    <map value="20" display-text="Более 2 метров"/>
                 </mapping>
             </enumeration-box>
 
@@ -128,8 +128,8 @@
             <enumeration-box id="greenHedgeTrimTechniqueValue">
                 <field-path value="trim_technique"/>
                 <mapping>
-                    <map value="Формированная"/>
-                    <map value="Свободно растущая"/>
+                    <map value="0" display-text="Формированная"/>
+                    <map value="5" display-text="Свободно растущая"/>
                 </mapping>
             </enumeration-box>
 
@@ -141,10 +141,9 @@
             <enumeration-box id="greenHedgeStateValue">
                 <field-path value="state"/>
                 <mapping>
-                    <map value="Ухоженное"/>
-                    <map value="Требует ухода"/>
-                    <map value="Требует ремонта"/>
-                    <map value="Требует восстановления"/>
+                    <map value="30" display-text="Ухоженное"/>
+                    <map value="35" display-text="Требует ухода"/>
+                    <map value="40" display-text="Требует восстановления"/>
                 </mapping>
             </enumeration-box>
 

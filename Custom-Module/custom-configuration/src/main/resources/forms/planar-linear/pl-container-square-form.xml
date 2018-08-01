@@ -101,9 +101,9 @@
             <enumeration-box id="containerSquareStateValue">
                 <field-path value="state"/>
                 <mapping>
-                    <map value="Отличное"/>
-                    <map value="Требует обслуживания"/>
-                    <map value="Требует ремонта"/>
+                    <map value="0" display-text="Отличное"/>
+                    <map value="20" display-text="Требует обслуживания"/>
+                    <map value="10" display-text="Требует ремонта"/>
                 </mapping>
             </enumeration-box>
 
@@ -113,10 +113,10 @@
             <enumeration-box id="containerSquareCoatingValue">
                 <field-path value="coating"/>
                 <mapping>
-                    <map value="Асфальт"/>
-                    <map value="Бетон"/>
-                    <map value="Грунт"/>
-                    <map value="Иное"/>
+                    <map value="5" display-text="Асфальт"/>
+                    <map value="10" display-text="Бетон"/>
+                    <map value="25" display-text="Грунт"/>
+                    <map value="0" display-text="Иное"/>
                 </mapping>
             </enumeration-box>
 

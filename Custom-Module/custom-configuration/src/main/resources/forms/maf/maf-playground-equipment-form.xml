@@ -105,15 +105,15 @@
             <enumeration-box id="playgroundSupportKindValue">
                 <field-path value="kind"/>
                 <mapping>
-                    <map value="Песочница"/>
-                    <map value="Карусель"/>
-                    <map value="Качели"/>
-                    <map value="Горка"/>
-                    <map value="Качалка"/>
-                    <map value="Домик"/>
-                    <map value="Балансир"/>
-                    <map value="Комплексный объект"/>
-                    <map value="Иное"/>
+                    <map value="160" display-text="Песочница"/>
+                    <map value="165" display-text="Карусель"/>
+                    <map value="170" display-text="Качели"/>
+                    <map value="175" display-text="Горка"/>
+                    <map value="180" display-text="Качалка"/>
+                    <map value="185" display-text="Домик"/>
+                    <map value="190" display-text="Балансир"/>
+                    <map value="195" display-text="Комплексный объект"/>
+                    <map value="0" display-text="Иное"/>
                 </mapping>
             </enumeration-box>
 
@@ -124,10 +124,10 @@
             <enumeration-box id="playgroundSuspensionTypeValue">
                 <field-path value="type_suspension"/>
                 <mapping>
-                    <map value="Веревочный подвес"/>
-                    <map value="Цепной подвес"/>
-                    <map value="Жесткий подвес"/>
-                    <map value="Иное"/>
+                    <map value="200" display-text="Веревочный подвес"/>
+                    <map value="205" display-text="Цепной подвес"/>
+                    <map value="210" display-text="Жесткий подвес"/>
+                    <map value="0" display-text="Иное"/>
                 </mapping>
             </enumeration-box>
 
@@ -138,10 +138,10 @@
             <enumeration-box id="playgroundSupportMaterialValue">
                 <field-path value="support_material"/>
                 <mapping>
-                    <map value="Металл"/>
-                    <map value="Пластик"/>
-                    <map value="Дерево"/>
-                    <map value="Иное"/>
+                    <map value="" display-text="Металл"/>
+                    <map value="" display-text="Пластик"/>
+                    <map value="" display-text="Дерево"/>
+                    <map value="" display-text="Иное"/>
                 </mapping>
             </enumeration-box>
 
@@ -152,10 +152,10 @@
             <enumeration-box id="playgroundSeatMaterialValue">
                 <field-path value="seat_material"/>
                 <mapping>
-                    <map value="Металл"/>
-                    <map value="Пластик"/>
-                    <map value="Дерево"/>
-                    <map value="Иное"/>
+                    <map value="5" display-text="Металл"/>
+                    <map value="10" display-text="Пластик"/>
+                    <map value="20" display-text="Дерево"/>
+                    <map value="0" display-text="Иное"/>
                 </mapping>
             </enumeration-box>
 
@@ -166,9 +166,9 @@
             <enumeration-box id="playgroundCoatingStateValue">
                 <field-path value="state_coating"/>
                 <mapping>
-                    <map value="Окрашено"/>
-                    <map value="Требуется окраска"/>
-                    <map value="Окраска не требуется"/>
+                    <map value="50" display-text="Окрашено"/>
+                    <map value="55" display-text="Требуется окраска"/>
+                    <map value="60" display-text="Окраска не требуется"/>
                 </mapping>
             </enumeration-box>
 
@@ -179,10 +179,10 @@
             <enumeration-box id="playgroundStateValue">
                 <field-path value="state"/>
                 <mapping>
-                    <map value="Отличное"/>
-                    <map value="Требует обслуживание"/>
-                    <map value="Требует ремонта"/>
-                    <map value="Требует замены"/>
+                    <map value="0" display-text="Отличное"/>
+                    <map value="20" display-text="Требует обслуживания"/>
+                    <map value="10" display-text="Требует ремонта"/>
+                    <map value="5" display-text="Требует замены"/>
                 </mapping>
             </enumeration-box>
 

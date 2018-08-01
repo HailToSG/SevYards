@@ -72,10 +72,9 @@
             <enumeration-box id="verticalStateValue">
                 <field-path value="state"/>
                 <mapping>
-                    <map value="Ухоженное"/>
-                    <map value="Требует ухода"/>
-                    <map value="Требует ремонта"/>
-                    <map value="Требует удаления/замены"/>
+                    <map value="30" display-text="Ухоженное"/>
+                    <map value="35" display-text="Требует ухода"/>
+                    <map value="45" display-text="Требует удаления/замены"/>
                 </mapping>
             </enumeration-box>
 

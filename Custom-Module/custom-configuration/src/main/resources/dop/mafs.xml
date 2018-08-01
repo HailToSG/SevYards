@@ -169,11 +169,7 @@
             </string>
 
             <!-- имеет спинку -->
-            <string name="has_a_back" length="100">
-                <constraints>
-                    <simple-constraint value="not-empty"/>
-                </constraints>
-            </string>
+            <boolean name="has_a_back" not-null="true"/>
 
             <!--состояние объекта МАФ-->
             <string name="state" length="100">

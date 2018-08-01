@@ -92,10 +92,10 @@
             <enumeration-box id="playgroundCoatingValue">
                 <field-path value="coating"/>
                 <mapping>
-                    <map value="Асфальт"/>
-                    <map value="Бетон"/>
-                    <map value="Грунт"/>
-                    <map value="Иное"/>
+                    <map value="5" display-text="Асфальт"/>
+                    <map value="10" display-text="Бетон"/>
+                    <map value="25" display-text="Грунт"/>
+                    <map value="0" display-text="Иное"/>
                 </mapping>
             </enumeration-box>
 
@@ -105,9 +105,9 @@
             <enumeration-box id="playgroundStateValue">
                 <field-path value="state"/>
                 <mapping>
-                    <map value="Отличное"/>
-                    <map value="Требует обслуживания"/>
-                    <map value="Требует ремонта"/>
+                    <map value="0" display-text="Отличное"/>
+                    <map value="20" display-text="Требует обслуживания"/>
+                    <map value="10" display-text="Требует ремонта"/>
                 </mapping>
             </enumeration-box>
 
@@ -117,9 +117,9 @@
             <enumeration-box id="playgroundAgeGroupValue">
                 <field-path value="age_group"/>
                 <mapping>
-                    <map value="От 3 до 6 лет"/>
-                    <map value="От 7 до 16 лет"/>
-                    <map value="Универсальная"/>
+                    <map value="0" display-text="От 3 до 6 лет"/>
+                    <map value="5" display-text="От 7 до 16 лет"/>
+                    <map value="10" display-text="Универсальная"/>
                 </mapping>
             </enumeration-box>
 

@@ -75,11 +75,11 @@
             <enumeration-box id="parterreKindValue">
                 <field-path value="kind"/>
                 <mapping>
-                    <map value="Клумба"/>
-                    <map value="Горка"/>
-                    <map value="Палисадник"/>
-                    <map value="Подвесной"/>
-                    <map value="Другое"/>
+                    <map value="110" display-text="Клумба"/>
+                    <map value="115" display-text="Горка"/>
+                    <map value="120" display-text="Палисадник"/>
+                    <map value="125" display-text="Подвесной"/>
+                    <map value="0" display-text="Другое"/>
                 </mapping>
             </enumeration-box>
 
@@ -90,10 +90,10 @@
             <enumeration-box id="parterreSizeValue">
                 <field-path value="size"/>
                 <mapping>
-                    <map value="До 0.5 метров"/>
-                    <map value="0.5-1 метр"/>
-                    <map value="1-2 метра"/>
-                    <map value="Более 2 метров"/>
+                    <map value="0" display-text="До 0.5 метров"/>
+                    <map value="10" display-text="0.5-1 метр"/>
+                    <map value="15" display-text="1-2 метра"/>
+                    <map value="20" display-text="Более 2 метров"/>
                 </mapping>
             </enumeration-box>
 
@@ -105,10 +105,10 @@
             <enumeration-box id="parterreStateValue">
                 <field-path value="state"/>
                 <mapping>
-                    <map value="Ухоженное"/>
-                    <map value="Требует ухода"/>
-                    <map value="Требует ремонта"/>
-                    <map value="Требует восстановления"/>
+                    <map value="" display-text="Ухоженное"/>
+                    <map value="" display-text="Требует ухода"/>
+                    <map value="" display-text="Требует ремонта"/>
+                    <map value="" display-text="Требует восстановления"/>
                 </mapping>
             </enumeration-box>
 
