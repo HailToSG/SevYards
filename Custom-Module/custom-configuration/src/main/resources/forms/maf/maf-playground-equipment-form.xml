@@ -190,8 +190,8 @@
                 <text>Состояние покрытия</text>
             </label>
             <attachment-box id="playgroundPhotoValue">
-                <field-path value="playground_photo^maf_playground_equipment"/>
-                <attachment-type-ref name="playground_photo"/>
+                <field-path value="playground_equip_photo^maf_playground_equipment"/>
+                <attachment-type-ref name="playground_equip_photo"/>
                 <scanner enabled="true"/>
                 <selection-style name="table"/>
                 <images-only>

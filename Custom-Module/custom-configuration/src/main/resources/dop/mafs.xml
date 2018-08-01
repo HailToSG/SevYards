@@ -139,7 +139,7 @@
         </fields>
 
         <attachment-types>
-            <attachment-type name="playground_photo"/>
+            <attachment-type name="playground_equip_photo"/>
         </attachment-types>
     </domain-object-type>
 

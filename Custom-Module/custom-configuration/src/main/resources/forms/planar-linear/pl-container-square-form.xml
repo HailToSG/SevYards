@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<configuration xmlns="https://cm5.intertrust.ru/config" xmlns:act="https://cm5.intertrust.ru/config/action">
+
+    <!-- Форма для доменного объекта "Контейнерная площадка" -->
+    <form name="pl_container_square_form" domain-object-type="pl_container_square" is-default="true">
+        <markup>
+            <header>
+                <table>
+                    <tr>
+                        <td h-align="left">
+                            <widget id="headerLabel"/>
+                        </td>
+                    </tr>
+                </table>
+            </header>
+
+            <body display-single-tab="true">
+
+                <tab>
+                    <single-entry-group>
+                        <tab-group>
+                            <table>
+
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="containerSquareAreaLabel"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="containerSquareAreaValue"/>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="containerSquareStateLabel"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="containerSquareStateValue"/>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="containerSquareCoatingLabel"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="containerSquareCoatingValue"/>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="containerSquareKgoPlaceLabel"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="containerSquareKgoPlaceValue"/>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="containerSquareContainerAmountLabel"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="containerSquareContainerAmountValue"/>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="containerSquarePhotoLabel"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="containerSquarePhotoValue"/>
+                                    </td>
+                                </tr>
+                            </table>
+                        </tab-group>
+                    </single-entry-group>
+                </tab>
+
+            </body>
+
+        </markup>
+        <widget-config>
+
+            <label id="headerLabel">
+                <text>Контейнерная площадка</text>
+            </label>
+
+            <label id="containerSquareAreaLabel">
+                <text>Площадь</text>
+            </label>
+            <integer-box id="containerSquareAreaValue">
+                <field-path value="square"/>
+            </integer-box>
+
+            <label id="containerSquareStateLabel">
+                <text>Состояние объекта</text>
+            </label>
+            <enumeration-box id="containerSquareStateValue">
+                <field-path value="state"/>
+                <mapping>
+                    <map value="Отличное"/>
+                    <map value="Требует обслуживания"/>
+                    <map value="Требует ремонта"/>
+                </mapping>
+            </enumeration-box>
+
+            <label id="containerSquareCoatingLabel">
+                <text>Покрытие</text>
+            </label>
+            <enumeration-box id="containerSquareCoatingValue">
+                <field-path value="coating"/>
+                <mapping>
+                    <map value="Асфальт"/>
+                    <map value="Бетон"/>
+                    <map value="Грунт"/>
+                    <map value="Иное"/>
+                </mapping>
+            </enumeration-box>
+
+            <label id="containerSquareKgoPlaceLabel">
+                <text>Наличие места для КГО</text>
+            </label>
+
+            <check-box id="containerSquareKgoPlaceValue">
+                <field-path value="availability_place_kgo"/>
+            </check-box>
+
+            <label id="containerSquareContainerAmountLabel">
+                <text>Количесвто контейнеров</text>
+            </label>
+            <integer-box id="containerSquareContainerAmountValue">
+                <field-path value="number_containers"/>
+            </integer-box>
+
+            <label id="containerSquarePhotoLabel">
+                <text>Фото</text>
+            </label>
+            <attachment-box id="containerSquarePhotoValue">
+                <field-path value="container_square_photo^pl_container_square"/>
+                <attachment-type-ref name="container_square_photo"/>
+                <scanner enabled="true"/>
+                <selection-style name="table"/>
+                <images-only>
+                    <read-only-preview width="200px" height="200px" preserve-proportion="true"/>
+                    <small-preview width="200px" height="200px" preserve-proportion="true"/>
+                    <large-preview width="600px" preserve-proportion="true"/>
+                </images-only>
+                <choice-style name="popup"/>
+            </attachment-box>
+
+        </widget-config>
+    </form>
+</configuration>

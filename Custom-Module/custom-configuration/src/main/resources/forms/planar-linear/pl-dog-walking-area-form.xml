@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<configuration xmlns="https://cm5.intertrust.ru/config" xmlns:act="https://cm5.intertrust.ru/config/action">
+
+    <!-- Форма для доменного объекта "Площадка для выгула собак" -->
+    <form name="pl_dog_walking_area_form" domain-object-type="pl_dog_walking_area" is-default="true">
+        <markup>
+            <header>
+                <table>
+                    <tr>
+                        <td h-align="left">
+                            <widget id="headerLabel"/>
+                        </td>
+                    </tr>
+                </table>
+            </header>
+
+            <body display-single-tab="true">
+
+                <tab>
+                    <single-entry-group>
+                        <tab-group>
+                            <table>
+
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="dogWalkingAreaLabel"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="dogWalkingAreaValue"/>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="dogWalkingStateLabel"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="dogWalkingStateValue"/>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="dogWalkingHasEnclosureLabel"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="dogWalkingHasEnclosureValue"/>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="dogWalkingPhotoLabel"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="dogWalkingPhotoValue"/>
+                                    </td>
+                                </tr>
+                            </table>
+                        </tab-group>
+                    </single-entry-group>
+                </tab>
+
+            </body>
+
+        </markup>
+        <widget-config>
+
+            <label id="headerLabel">
+                <text>Площадка для выгула собак</text>
+            </label>
+
+            <label id="dogWalkingAreaLabel">
+                <text>Площадь</text>
+            </label>
+            <integer-box id="dogWalkingAreaValue">
+                <field-path value="square"/>
+            </integer-box>
+
+            <label id="dogWalkingStateLabel">
+                <text>Состояние объекта</text>
+            </label>
+            <enumeration-box id="dogWalkingStateValue">
+                <field-path value="state"/>
+                <mapping>
+                    <map value="Отличное"/>
+                    <map value="Требует обслуживания"/>
+                    <map value="Требует восстановления"/>
+                </mapping>
+            </enumeration-box>
+
+            <label id="dogWalkingHasEnclosureLabel">
+                <text>Наличие ограждения</text>
+            </label>
+
+            <check-box id="dogWalkingHasEnclosureValue">
+                <field-path value="has_enclosure"/>
+            </check-box>
+
+            <label id="dogWalkingPhotoLabel">
+                <text>Фото</text>
+            </label>
+            <attachment-box id="dogWalkingPhotoValue">
+                <field-path value="dog_walking_area_photo^pl_dog_walking_area"/>
+                <attachment-type-ref name="dog_walking_area_photo"/>
+                <scanner enabled="true"/>
+                <selection-style name="table"/>
+                <images-only>
+                    <read-only-preview width="200px" height="200px" preserve-proportion="true"/>
+                    <small-preview width="200px" height="200px" preserve-proportion="true"/>
+                    <large-preview width="600px" preserve-proportion="true"/>
+                </images-only>
+                <choice-style name="popup"/>
+            </attachment-box>
+
+        </widget-config>
+    </form>
+</configuration>

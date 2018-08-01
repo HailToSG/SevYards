@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<configuration xmlns="https://cm5.intertrust.ru/config" xmlns:act="https://cm5.intertrust.ru/config/action">
+
+    <!-- Форма для доменного объекта "Детская площадка" -->
+    <form name="pl_playground_form" domain-object-type="pl_playground" is-default="true">
+        <markup>
+            <header>
+                <table>
+                    <tr>
+                        <td h-align="left">
+                            <widget id="headerLabel"/>
+                        </td>
+                    </tr>
+                </table>
+            </header>
+
+            <body display-single-tab="true">
+
+                <tab>
+                    <single-entry-group>
+                        <tab-group>
+                            <table>
+
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="playgroundAreaLabel"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="playgroundAreaValue"/>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="playgroundCoatingLabel"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="playgroundCoatingValue"/>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="playgroundStateLabel"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="playgroundStateValue"/>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="playgroundAgeGroupLabel"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="playgroundAgeGroupValue"/>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="playgroundPhotoLabel"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="playgroundPhotoValue"/>
+                                    </td>
+                                </tr>
+                            </table>
+                        </tab-group>
+                    </single-entry-group>
+                </tab>
+
+            </body>
+
+        </markup>
+        <widget-config>
+
+            <label id="headerLabel">
+                <text>Детская площадка</text>
+            </label>
+
+            <label id="playgroundAreaLabel">
+                <text>Площадь</text>
+            </label>
+            <integer-box id="playgroundAreaValue">
+                <field-path value="square"/>
+            </integer-box>
+
+            <label id="playgroundCoatingLabel">
+                <text>Покрытие</text>
+            </label>
+            <enumeration-box id="playgroundCoatingValue">
+                <field-path value="coating"/>
+                <mapping>
+                    <map value="Асфальт"/>
+                    <map value="Бетон"/>
+                    <map value="Грунт"/>
+                    <map value="Иное"/>
+                </mapping>
+            </enumeration-box>
+
+            <label id="playgroundStateLabel">
+                <text>Состояние объекта</text>
+            </label>
+            <enumeration-box id="playgroundStateValue">
+                <field-path value="state"/>
+                <mapping>
+                    <map value="Отличное"/>
+                    <map value="Требует обслуживания"/>
+                    <map value="Требует ремонта"/>
+                </mapping>
+            </enumeration-box>
+
+            <label id="playgroundAgeGroupLabel">
+                <text>Возрастная группа</text>
+            </label>
+            <enumeration-box id="playgroundAgeGroupValue">
+                <field-path value="age_group"/>
+                <mapping>
+                    <map value="От 3 до 6 лет"/>
+                    <map value="От 7 до 16 лет"/>
+                    <map value="Универсальная"/>
+                </mapping>
+            </enumeration-box>
+
+            <label id="playgroundPhotoLabel">
+                <text>Фото</text>
+            </label>
+            <attachment-box id="playgroundPhotoValue">
+                <field-path value="playground_photo^pl_playground"/>
+                <attachment-type-ref name="playground_photo"/>
+                <scanner enabled="true"/>
+                <selection-style name="table"/>
+                <images-only>
+                    <read-only-preview width="200px" height="200px" preserve-proportion="true"/>
+                    <small-preview width="200px" height="200px" preserve-proportion="true"/>
+                    <large-preview width="600px" preserve-proportion="true"/>
+                </images-only>
+                <choice-style name="popup"/>
+            </attachment-box>
+
+        </widget-config>
+    </form>
+</configuration>

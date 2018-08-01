@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<configuration xmlns="https://cm5.intertrust.ru/config" xmlns:act="https://cm5.intertrust.ru/config/action">
+
+    <!-- Форма для доменного объекта "Живая изгородь" -->
+    <form name="pl_bicycle_road_form" domain-object-type="pl_bicycle_road" is-default="true">
+        <markup>
+            <header>
+                <table>
+                    <tr>
+                        <td h-align="left">
+                            <widget id="headerLabel"/>
+                        </td>
+                    </tr>
+                </table>
+            </header>
+
+            <body display-single-tab="true">
+
+                <tab>
+                    <single-entry-group>
+                        <tab-group>
+                            <table>
+
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="bicycleRoadWidthLabel"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="bicycleRoadWidthValue"/>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="bicycleRoadStateLabel"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="bicycleRoadStateValue"/>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="bicycleRoadCoatingLabel"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="bicycleRoadCoatingValue"/>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="bicycleRoadPhotoLabel"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="bicycleRoadPhotoValue"/>
+                                    </td>
+                                </tr>
+                            </table>
+                        </tab-group>
+                    </single-entry-group>
+                </tab>
+            </body>
+        </markup>
+        <widget-config>
+
+            <label id="headerLabel">
+                <text>Велодорожка</text>
+            </label>
+
+            <label id="bicycleRoadWidthLabel">
+                <text>Ширина</text>
+            </label>
+            <integer-box id="bicycleRoadWidthValue">
+                <field-path value="width"/>
+            </integer-box>
+
+            <label id="bicycleRoadStateLabel">
+                <text>Состояние объекта</text>
+            </label>
+            <enumeration-box id="bicycleRoadStateValue">
+                <field-path value="state"/>
+                <mapping>
+                    <map value="Отличное"/>
+                    <map value="Незначительные повреждения"/>
+                    <map value="Требует ремонта"/>
+                </mapping>
+            </enumeration-box>
+
+            <label id="bicycleRoadCoatingLabel">
+                <text>Покрытие</text>
+            </label>
+            <enumeration-box id="bicycleRoadCoatingValue">
+                <field-path value="coating"/>
+                <mapping>
+                    <map value="Асфальт"/>
+                    <map value="Бетон"/>
+                    <map value="Брусчатка"/>
+                    <map value="Грунт"/>
+                    <map value="Полимерное покрытие"/>
+                    <map value="Иное"/>
+                </mapping>
+            </enumeration-box>
+
+            <label id="bicycleRoadPhotoLabel">
+                <text>Фото</text>
+            </label>
+            <attachment-box id="bicycleRoadPhotoValue">
+                <field-path value="bicycle_road_photo^pl_bicycle_road"/>
+                <attachment-type-ref name="bicycle_road_photo"/>
+                <scanner enabled="true"/>
+                <selection-style name="table"/>
+                <images-only>
+                    <read-only-preview width="200px" height="200px" preserve-proportion="true"/>
+                    <small-preview width="200px" height="200px" preserve-proportion="true"/>
+                    <large-preview width="600px" preserve-proportion="true"/>
+                </images-only>
+                <choice-style name="popup"/>
+            </attachment-box>
+
+        </widget-config>
+    </form>
+</configuration>
