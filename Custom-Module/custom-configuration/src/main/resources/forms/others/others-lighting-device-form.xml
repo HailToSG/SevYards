@@ -22,34 +22,43 @@
                             <table>
                                 <tr>
                                     <td h-align="right">
-                                        <widget id="kindLabel"/>
+                                        <widget id="othersLightingDeviceKindLabel"/>
                                     </td>
                                     <td h-align="left">
-                                        <widget id="kindValue"/>
+                                        <widget id="othersLightingDeviceKindValue"/>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td h-align="right">
-                                        <widget id="heightLabel"/>
+                                        <widget id="othersLightingDeviceHeightLabel"/>
                                     </td>
                                     <td h-align="left">
-                                        <widget id="heightValue"/>
+                                        <widget id="othersLightingDeviceHeightValue"/>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="othersLightingDeviceTypeLabel"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="othersLightingDeviceTypeValue"/>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td h-align="right">
-                                        <widget id="othersCoatingStateLabel"/>
+                                        <widget id="othersLightingDeviceCoatingStateLabel"/>
                                     </td>
                                     <td h-align="left">
-                                        <widget id="othersCoatingStateValue"/>
+                                        <widget id="othersLightingDeviceCoatingStateValue"/>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td h-align="right">
-                                        <widget id="othersStateLightingDeviceLabel"/>
+                                        <widget id="othersLightingDeviceStateLabel"/>
                                     </td>
                                     <td h-align="left">
-                                        <widget id="othersStateLightingDeviceValue"/>
+                                        <widget id="othersLightingDeviceStateValue"/>
                                     </td>
                                 </tr>
                                 <tr>
@@ -74,10 +83,10 @@
                 <text>Осветительное устройство</text>
             </label>
 
-            <label id="kindLabel">
+            <label id="othersLightingDeviceKindLabel">
                 <text>Тип</text>
             </label>
-            <enumeration-box id="kindValue">
+            <enumeration-box id="othersLightingDeviceKindValue">
                 <field-path value="kind_of_device"/>
                 <mapping>
                     <map value="255" display-text="Ртутный"/>
@@ -89,10 +98,10 @@
                 </mapping>
             </enumeration-box>
 
-            <label id="heightLabel">
+            <label id="othersLightingDeviceHeightLabel">
                 <text>Высота опоры</text>
             </label>
-            <enumeration-box id="heightValue">
+            <enumeration-box id="othersLightingDeviceHeightValue">
                 <field-path value="height"/>
                 <mapping>
                     <map value="35" display-text="Менее 3 метров"/>
@@ -102,10 +111,10 @@
                 </mapping>
             </enumeration-box>
 
-            <label id="typeLabel">
+            <label id="othersLightingDeviceTypeLabel">
                 <text>Тип опоры</text>
             </label>
-            <enumeration-box id="typeValue">
+            <enumeration-box id="othersLightingDeviceTypeValue">
                 <field-path value="type"/>
                 <mapping>
                     <map value="280" display-text="Металлическая опора"/>
@@ -116,10 +125,10 @@
                 </mapping>
             </enumeration-box>
 
-            <label id="othersCoatingStateLabel">
+            <label id="othersLightingDeviceCoatingStateLabel">
                 <text>Состояние покрытия</text>
             </label>
-            <enumeration-box id="othersCoatingStateValue">
+            <enumeration-box id="othersLightingDeviceCoatingStateValue">
                 <field-path value="coating_state"/>
                 <mapping>
                     <map value="50" display-text="Окрашено"/>
@@ -128,10 +137,10 @@
                 </mapping>
             </enumeration-box>
 
-            <label id="othersStateLightingDeviceLabel">
-                <text>Состояние светильника</text>
+            <label id="othersLightingDeviceStateLabel">
+                <text>Состояние объекта</text>
             </label>
-            <enumeration-box id="othersStateLightingDeviceValue">
+            <enumeration-box id="othersLightingDeviceStateValue">
                 <field-path value="state"/>
                 <mapping>
                     <map value="0"  display-text="Отличное"/>

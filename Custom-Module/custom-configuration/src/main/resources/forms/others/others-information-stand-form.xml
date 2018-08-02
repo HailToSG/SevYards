@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <configuration xmlns="https://cm5.intertrust.ru/config" xmlns:act="https://cm5.intertrust.ru/config/action">
 
-    <!-- Форма для доменного объекта "Пандус" -->
+    <!-- Форма для доменного объекта "Информационный стенд" -->
     <form name="others_information_stand_form" domain-object-type="other_information_stand" is-default="true">
         <markup>
             <header>
@@ -22,10 +22,10 @@
                             <table>
                                 <tr>
                                     <td h-align="right">
-                                        <widget id="othersPurposeLabel"/>
+                                        <widget id="othersInformationPurposeLabel"/>
                                     </td>
                                     <td h-align="left">
-                                        <widget id="othersPurposeValue"/>
+                                        <widget id="othersInformationPurposeValue"/>
                                     </td>
                                 </tr>
                                 <tr>
@@ -58,10 +58,10 @@
                 <text>Информационный стенд</text>
             </label>
 
-            <label id="othersPurposeLabel">
+            <label id="othersInformationPurposeLabel">
                 <text>Назначение</text>
             </label>
-            <text-box id="othersPurposeValue">
+            <text-box id="othersInformationPurposeValue">
                 <field-path value="purpose"/>
             </text-box>
 

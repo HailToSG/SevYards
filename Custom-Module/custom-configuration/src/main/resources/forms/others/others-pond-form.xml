@@ -72,7 +72,7 @@
             </enumeration-box>
 
             <label id="othersStatePondLabel">
-                <text>Состояние водоёма</text>
+                <text>Состояние объекта</text>
             </label>
             <enumeration-box id="othersStatePondValue">
                 <field-path value="state"/>

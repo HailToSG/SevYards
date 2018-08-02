@@ -31,6 +31,15 @@
 
                                 <tr>
                                     <td h-align="right">
+                                        <widget id="playgroundSupportSuspensionTypeLabel"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="playgroundSupportSuspensionTypeValue"/>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td h-align="right">
                                         <widget id="playgroundSupportMaterialLabel"/>
                                     </td>
                                     <td h-align="left">
@@ -40,49 +49,48 @@
 
                                 <tr>
                                     <td h-align="right">
-                                        <widget id="playgroundSeatMaterialLabel"/>
+                                        <widget id="playgroundSupportSeatMaterialLabel"/>
                                     </td>
                                     <td h-align="left">
-                                        <widget id="playgroundSeatMaterialValue"/>
+                                        <widget id="playgroundSupportSeatMaterialValue"/>
                                     </td>
                                 </tr>
 
                                 <tr>
                                     <td h-align="right">
-                                        <widget id="playgroundSuspensionTypeLabel"/>
+                                        <widget id="playgroundSupportMaterialLabel"/>
                                     </td>
                                     <td h-align="left">
-                                        <widget id="playgroundSuspensionTypeValue"/>
+                                        <widget id="playgroundSupportMaterialValue"/>
                                     </td>
                                 </tr>
 
                                 <tr>
                                     <td h-align="right">
-                                        <widget id="playgroundCoatingStateLabel"/>
+                                        <widget id="playgroundSupportCoatingStateLabel"/>
                                     </td>
                                     <td h-align="left">
-                                        <widget id="playgroundCoatingStateValue"/>
+                                        <widget id="playgroundSupportCoatingStateValue"/>
                                     </td>
                                 </tr>
 
                                 <tr>
                                     <td h-align="right">
-                                        <widget id="playgroundStateLabel"/>
+                                        <widget id="playgroundSupportStateLabel"/>
                                     </td>
                                     <td h-align="left">
-                                        <widget id="playgroundStateValue"/>
+                                        <widget id="playgroundSupportStateValue"/>
                                     </td>
                                 </tr>
 
                                 <tr>
                                     <td h-align="right">
-                                        <widget id="playgroundPhotoLabel"/>
+                                        <widget id="playgroundSupportPhotoLabel"/>
                                     </td>
                                     <td h-align="left">
-                                        <widget id="playgroundPhotoValue"/>
+                                        <widget id="playgroundSupportPhotoValue"/>
                                     </td>
                                 </tr>
-
 
                             </table>
                         </tab-group>
@@ -117,11 +125,11 @@
                 </mapping>
             </enumeration-box>
 
-            <label id="playgroundSuspensionTypeLabel">
+            <label id="playgroundSupportSuspensionTypeLabel">
                 <text>Тип подвеса</text>
             </label>
 
-            <enumeration-box id="playgroundSuspensionTypeValue">
+            <enumeration-box id="playgroundSupportSuspensionTypeValue">
                 <field-path value="type_suspension"/>
                 <mapping>
                     <map value="200" display-text="Веревочный подвес"/>
@@ -138,18 +146,18 @@
             <enumeration-box id="playgroundSupportMaterialValue">
                 <field-path value="support_material"/>
                 <mapping>
-                    <map value="" display-text="Металл"/>
-                    <map value="" display-text="Пластик"/>
-                    <map value="" display-text="Дерево"/>
-                    <map value="" display-text="Иное"/>
+                    <map value="5" display-text="Металл"/>
+                    <map value="10" display-text="Пластик"/>
+                    <map value="20" display-text="Дерево"/>
+                    <map value="0" display-text="Иное"/>
                 </mapping>
             </enumeration-box>
 
-            <label id="playgroundSeatMaterialLabel">
+            <label id="playgroundSupportSeatMaterialLabel">
                 <text>Материал сидений</text>
             </label>
 
-            <enumeration-box id="playgroundSeatMaterialValue">
+            <enumeration-box id="playgroundSupportSeatMaterialValue">
                 <field-path value="seat_material"/>
                 <mapping>
                     <map value="5" display-text="Металл"/>
@@ -159,11 +167,11 @@
                 </mapping>
             </enumeration-box>
 
-            <label id="playgroundCoatingStateLabel">
+            <label id="playgroundSupportCoatingStateLabel">
                 <text>Состояние покрытия</text>
             </label>
 
-            <enumeration-box id="playgroundCoatingStateValue">
+            <enumeration-box id="playgroundSupportCoatingStateValue">
                 <field-path value="state_coating"/>
                 <mapping>
                     <map value="50" display-text="Окрашено"/>
@@ -172,11 +180,11 @@
                 </mapping>
             </enumeration-box>
 
-            <label id="playgroundStateLabel">
+            <label id="playgroundSupportStateLabel">
                 <text>Состояние объекта</text>
             </label>
 
-            <enumeration-box id="playgroundStateValue">
+            <enumeration-box id="playgroundSupportStateValue">
                 <field-path value="state"/>
                 <mapping>
                     <map value="0" display-text="Отличное"/>
@@ -186,10 +194,10 @@
                 </mapping>
             </enumeration-box>
 
-            <label id="playgroundPhotoLabel">
+            <label id="playgroundSupportPhotoLabel">
                 <text>Состояние покрытия</text>
             </label>
-            <attachment-box id="playgroundPhotoValue">
+            <attachment-box id="playgroundSupportPhotoValue">
                 <field-path value="playground_equip_photo^maf_playground_equipment"/>
                 <attachment-type-ref name="playground_equip_photo"/>
                 <scanner enabled="true"/>

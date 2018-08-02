@@ -22,42 +22,42 @@
                             <table>
                                 <tr>
                                     <td h-align="right">
-                                        <widget id="widthLabel"/>
+                                        <widget id="otherRampantWidthLabel"/>
                                     </td>
                                     <td h-align="left">
-                                        <widget id="widthValue"/>
+                                        <widget id="otherRampantWidthValue"/>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td h-align="right">
-                                        <widget id="heightDifferenceLabel"/>
+                                        <widget id="otherRampantHeightDifferenceLabel"/>
                                     </td>
                                     <td h-align="left">
-                                        <widget id="heightDifferenceValue"/>
+                                        <widget id="otherRampantHeightDifferenceValue"/>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td h-align="right">
-                                        <widget id="coatingLabel"/>
+                                        <widget id="otherRampantCoatingLabel"/>
                                     </td>
                                     <td h-align="left">
-                                        <widget id="coatingValue"/>
+                                        <widget id="otherRampantCoatingValue"/>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td h-align="right">
-                                        <widget id="isFlapLabel"/>
+                                        <widget id="otherRampantIsFlapLabel"/>
                                     </td>
                                     <td h-align="left">
-                                        <widget id="isFlapValue"/>
+                                        <widget id="otherRampantIsFlapValue"/>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td h-align="right">
-                                        <widget id="stateOthersLabel"/>
+                                        <widget id="otherRampantStateLabel"/>
                                     </td>
                                     <td h-align="left">
-                                        <widget id="stateOthersValue"/>
+                                        <widget id="otherRampantStateValue"/>
                                     </td>
                                 </tr>
                                 <tr>
@@ -82,24 +82,24 @@
                 <text>Пандус</text>
             </label>
 
-            <label id="widthLabel">
+            <label id="otherRampantWidthLabel">
                 <text>Ширина</text>
             </label>
-            <decimal-box id="widthValue">
+            <decimal-box id="otherRampantWidthValue">
                 <field-path value="width"/>
             </decimal-box>
 
-            <label id="heightDifferenceLabel">
+            <label id="otherRampantHeightDifferenceLabel">
                 <text>Перепад высот</text>
             </label>
-            <decimal-box id="heightDifferenceValue">
+            <decimal-box id="otherRampantHeightDifferenceValue">
                 <field-path value="height_difference"/>
             </decimal-box>
 
-            <label id="coatingLabel">
+            <label id="otherRampantCoatingLabel">
                 <text>Покрытие</text>
             </label>
-            <enumeration-box id="coatingValue">
+            <enumeration-box id="otherRampantCoatingValue">
                 <field-path value="coating"/>
                 <mapping>
                     <map value="10" display-text="Бетон"/>
@@ -109,18 +109,18 @@
                 </mapping>
             </enumeration-box>
 
-            <label id="isFlapLabel">
+            <label id="otherRampantIsFlapLabel">
                 <text>Является ли откидным?</text>
             </label>
-            <check-box id="isFlapValue">
+            <check-box id="otherRampantIsFlapValue">
                 <field-path value="is_flap"/>
             </check-box>
 
-            <label id="stateOthersLabel">
+            <label id="otherRampantStateLabel">
                 <text>Состояние объекта</text>
             </label>
-            <enumeration-box id="stateOthersValue">
-                <field-path value="coating"/>
+            <enumeration-box id="otherRampantStateValue">
+                <field-path value="state"/>
                 <mapping>
                     <map value="0" display-text="Отличное"/>
                     <map value="10" display-text="Требует ремонта"/>

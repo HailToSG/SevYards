@@ -137,7 +137,7 @@
             </enumeration-box>
 
             <label id="benchesHasBackLabel">
-                <text>Состояние покрытия</text>
+                <text>Имеет ли спинку</text>
             </label>
 
             <check-box id="benchesHasBackValue">

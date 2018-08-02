@@ -22,10 +22,10 @@
                             <table>
                                 <tr>
                                     <td h-align="right">
-                                        <widget id="passageWidthLabel"/>
+                                        <widget id="barrierPassageWidthLabel"/>
                                     </td>
                                     <td h-align="left">
-                                        <widget id="passageWidthValue"/>
+                                        <widget id="barrierPassageWidthValue"/>
                                     </td>
                                 </tr>
                                 <tr>
@@ -38,26 +38,26 @@
                                 </tr>
                                 <tr>
                                     <td h-align="right">
-                                        <widget id="materialLabel"/>
+                                        <widget id="barrierMaterialLabel"/>
                                     </td>
                                     <td h-align="left">
-                                        <widget id="materialValue"/>
+                                        <widget id="barrierMaterialValue"/>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td h-align="right">
-                                        <widget id="mechanizationLabel"/>
+                                        <widget id="barrierMechanizationLabel"/>
                                     </td>
                                     <td h-align="left">
-                                        <widget id="mechanizationValue"/>
+                                        <widget id="barrierMechanizationValue"/>
                                     </td>
                                 </tr>
                                 <tr>
                                     <td h-align="right">
-                                        <widget id="stateLabel"/>
+                                        <widget id="barrierStateLabel"/>
                                     </td>
                                     <td h-align="left">
-                                        <widget id="stateValue"/>
+                                        <widget id="barrierStateValue"/>
                                     </td>
                                 </tr>
                                 <tr>
@@ -82,10 +82,10 @@
                 <text>Устройство преграждения пути</text>
             </label>
 
-            <label id="passageWidthLabel">
+            <label id="barrierPassageWidthLabel">
                 <text>Ширина проезда</text>
             </label>
-            <decimal-box id="passageWidthValue">
+            <decimal-box id="barrierPassageWidthValue">
                 <field-path value="passage_width"/>
             </decimal-box>
 
@@ -103,10 +103,10 @@
                 </mapping>
             </enumeration-box>
 
-            <label id="materialLabel">
+            <label id="barrierMaterialLabel">
                 <text>Материал</text>
             </label>
-            <enumeration-box id="materialValue">
+            <enumeration-box id="barrierMaterialValue">
                 <field-path value="material"/>
                 <mapping>
                     <map value="5"  display-text="Металл"/>
@@ -117,10 +117,10 @@
                 </mapping>
             </enumeration-box>
 
-            <label id="mechanizationLabel">
+            <label id="barrierMechanizationLabel">
                 <text>Механизация</text>
             </label>
-            <enumeration-box id="mechanizationValue">
+            <enumeration-box id="barrierMechanizationValue">
                 <field-path value="mechanization"/>
                 <mapping>
                     <map value="0"  display-text="Автоматический"/>
@@ -129,10 +129,10 @@
                 </mapping>
             </enumeration-box>
 
-            <label id="stateLabel">
+            <label id="barrierStateLabel">
                 <text>Состояние объекта</text>
             </label>
-            <enumeration-box id="stateValue">
+            <enumeration-box id="barrierStateValue">
                 <field-path value="state"/>
                 <mapping>
                     <map value="0"  display-text="Отличное"/>
