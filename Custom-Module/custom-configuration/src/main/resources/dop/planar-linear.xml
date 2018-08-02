@@ -43,18 +43,18 @@
             </long>
 
             <!-- покрытие -->
-            <string name="coating" length="100">
+            <decimal name="coating">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </string>
+            </decimal>
 
             <!--состояние объекта класса Дворовой проезд -->
-            <string name="state" length="100">
+            <decimal name="state">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </string>
+            </decimal>
 
             <!--Ссылка на инвентаризацию -->
             <reference name="inventory_id" type="inventory"/>
@@ -77,18 +77,18 @@
             </long>
 
             <!-- покрытие -->
-            <string name="coating" length="100">
+            <decimal name="coating">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </string>
+            </decimal>
 
             <!--состояние объекта класса Тротуар-->
-            <string name="state" length="100">
+            <decimal name="state">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </string>
+            </decimal>
 
             <!--Ссылка на инвентаризацию -->
             <reference name="inventory_id" type="inventory"/>
@@ -116,11 +116,11 @@
             </long>
 
             <!--состояние объекта класса Велопарковка-->
-            <string name="state" length="100">
+            <decimal name="state">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </string>
+            </decimal>
 
             <!--Ссылка на инвентаризацию -->
             <reference name="inventory_id" type="inventory"/>
@@ -149,16 +149,20 @@
             </long>
 
             <!-- покрытие -->
-            <string name="coating" length="100">
+            <decimal name="coating">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </string>
+            </decimal>
 
             <!-- наличие обозначения -->
-            <boolean name="is_signed"/>
+            <decimal name="signed">
+                <constraints>
+                    <simple-constraint value="not-empty"/>
+                </constraints>
+            </decimal>
 
-            <!-- Габариты места парковки -->
+            <!-- Габариты места парковки (Ширина)-->
             <long name="parking_size">
                 <constraints>
                     <simple-constraint value="not-empty"/>
@@ -166,11 +170,11 @@
             </long>
 
             <!--состояние объекта класса Автопарковка -->
-            <string name="state" length="100">
+            <decimal name="state">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </string>
+            </decimal>
 
             <!--Ссылка на инвентаризацию -->
             <reference name="inventory_id" type="inventory"/>
@@ -261,32 +265,32 @@
             </long>
 
             <!-- Покрытие -->
-            <string name="coating" length="100">
+            <decimal name="coating">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </string>
+            </decimal>
 
             <!-- вид спорта -->
-            <string name="type_sport" length="100">
+            <decimal name="type_sport">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </string>
+            </decimal>
 
             <!-- Освещение -->
-            <string name="lighting" length="100">
+            <decimal name="lighting">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </string>
+            </decimal>
 
             <!--состояние объекта класса Спортивная площадка -->
-            <string name="state" length="100">
+            <decimal name="state">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </string>
+            </decimal>
 
             <!--Ссылка на инвентаризацию -->
             <reference name="inventory_id" type="inventory"/>

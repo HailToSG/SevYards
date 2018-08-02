@@ -1,0 +1,177 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<configuration xmlns="https://cm5.intertrust.ru/config" xmlns:act="https://cm5.intertrust.ru/config/action">
+
+    <!-- Форма для доменного объекта "Автопарковка" -->
+    <form name="pl_car_parking_form" domain-object-type="pl_car_parking" is-default="true">
+        <markup>
+            <header>
+                <table>
+                    <tr>
+                        <td h-align="left">
+                            <widget id="headerLabel"/>
+                        </td>
+                    </tr>
+                </table>
+            </header>
+
+            <body display-single-tab="true">
+
+                <tab>
+                    <single-entry-group>
+                        <tab-group>
+                            <table>
+
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="numberOfParkingPlacesLabel"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="numberOfParkingPlacesValue"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="numberOfParkingPlacesInvalidsLabel"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="numberOfParkingPlacesInvalidsValue"/>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="carParkingCoatingLabel"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="carParkingCoatingValue"/>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="signedLabel"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="signedValue"/>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="parkingSizeLabel"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="parkingSizeValue"/>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="carParkingStateLabel"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="carParkingStateValue"/>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="carParkingPhotoLabel"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="carParkingPhotoValue"/>
+                                    </td>
+                                </tr>
+                            </table>
+                        </tab-group>
+                    </single-entry-group>
+                </tab>
+
+            </body>
+
+        </markup>
+        <widget-config>
+
+            <label id="headerLabel">
+                <text>Автопарковка</text>
+            </label>
+
+            <label id="numberOfParkingPlacesLabel">
+                <text>Количество парковочных мест</text>
+            </label>
+            <integer-box id="numberOfParkingPlacesValue">
+                <field-path value="number_of_parking_places"/>
+            </integer-box>
+
+            <label id="numberOfParkingPlacesInvalidsLabel">
+                <text>Количество парковочных мест для инвалидов</text>
+            </label>
+            <integer-box id="numberOfParkingPlacesInvalidsValue">
+                <field-path value="numb_park_places_invalids"/>
+            </integer-box>
+
+            <label id="carParkingCoatingLabel">
+                <text>Покрытие</text>
+            </label>
+            <enumeration-box id="carParkingCoatingValue">
+                <field-path value="coating"/>
+                <mapping>
+                    <map value="5" display-text="Асфальт"/>
+                    <map value="10" display-text="Бетон"/>
+                    <map value="15" display-text="Брусчатка"/>
+                    <map value="40" display-text="Плиточное"/>
+                    <map value="0" display-text="Иное"/>
+                </mapping>
+            </enumeration-box>
+
+            <label id="signedLabel">
+                <text>Наличие обозначения</text>
+            </label>
+            <enumeration-box id="signedValue">
+                <field-path value="signed"/>
+                <mapping>
+                    <map value="0"  display-text="Разметка и знак"/>
+                    <map value="5"  display-text="Только разметка"/>
+                    <map value="10" display-text="Только знак"/>
+                    <map value="15" display-text="Отсутствует"/>
+                </mapping>
+            </enumeration-box>
+
+            <label id="parkingSizeLabel">
+                <text>Габариты места парковки (Ширина)</text>
+            </label>
+            <integer-box id="parkingSizeValue">
+                <field-path value="parking_size"/>
+            </integer-box>
+
+            <label id="carParkingStateLabel">
+                <text>Состояние объекта</text>
+            </label>
+            <enumeration-box id="carParkingStateValue">
+                <field-path value="state"/>
+                <mapping>
+                    <map value="0" display-text="Отличное"/>
+                    <map value="10" display-text="Требует ремонта"/>
+                    <map value="25" display-text="Незначительные повреждения"/>
+                </mapping>
+            </enumeration-box>
+
+            <label id="carParkingPhotoLabel">
+                <text>Фото</text>
+            </label>
+            <attachment-box id="carParkingPhotoValue">
+                <field-path value="car_parking_photo^pl_car_parking"/>
+                <attachment-type-ref name="car_parking_photo"/>
+                <scanner enabled="true"/>
+                <selection-style name="table"/>
+                <images-only>
+                    <read-only-preview width="200px" height="200px" preserve-proportion="true"/>
+                    <small-preview width="200px" height="200px" preserve-proportion="true"/>
+                    <large-preview width="600px" preserve-proportion="true"/>
+                </images-only>
+                <choice-style name="popup"/>
+            </attachment-box>
+
+        </widget-config>
+    </form>
+</configuration>

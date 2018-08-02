@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<configuration xmlns="https://cm5.intertrust.ru/config" xmlns:act="https://cm5.intertrust.ru/config/action">
+
+    <!-- Форма для доменного объекта "Спортивная площадка" -->
+    <form name="pl_sport_ground_form" domain-object-type="pl_sport_ground" is-default="true">
+        <markup>
+            <header>
+                <table>
+                    <tr>
+                        <td h-align="left">
+                            <widget id="headerLabel"/>
+                        </td>
+                    </tr>
+                </table>
+            </header>
+
+            <body display-single-tab="true">
+
+                <tab>
+                    <single-entry-group>
+                        <tab-group>
+                            <table>
+
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="sportGroundAreaLabel"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="sportGroundAreaValue"/>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="sportGroundCoatingLabel"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="sportGroundCoatingValue"/>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="sportGroundStateLabel"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="sportGroundStateValue"/>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="sportGroundPhotoLabel"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="sportGroundPhotoValue"/>
+                                    </td>
+                                </tr>
+                            </table>
+                        </tab-group>
+                    </single-entry-group>
+                </tab>
+
+            </body>
+
+        </markup>
+        <widget-config>
+
+            <label id="headerLabel">
+                <text>Спортивная площадка</text>
+            </label>
+
+            <label id="sportGroundAreaLabel">
+                <text>Площадь</text>
+            </label>
+            <integer-box id="sportGroundAreaValue">
+                <field-path value="square"/>
+            </integer-box>
+
+            <label id="sportGroundCoatingLabel">
+                <text>Покрытие</text>
+            </label>
+            <enumeration-box id="sportGroundCoatingValue">
+                <field-path value="coating"/>
+                <mapping>
+                    <map value="5"  display-text="Асфальт"/>
+                    <map value="10" display-text="Бетон"/>
+                    <map value="15" display-text="Брусчатка"/>
+                    <map value="20" display-text="Газон"/>
+                    <map value="25" display-text="Грунт"/>
+                    <map value="35" display-text="Полимерное"/>
+                    <map value="0"  display-text="Иное"/>
+                </mapping>
+            </enumeration-box>
+
+            <label id="sportGroundStateLabel">
+                <text>Состояние объекта</text>
+            </label>
+            <enumeration-box id="sportGroundStateValue">
+                <field-path value="state"/>
+                <mapping>
+                    <map value="0" display-text="Отличное"/>
+                    <map value="10" display-text="Требует ремонта"/>
+                    <map value="25" display-text="Незначительные повреждения"/>
+                </mapping>
+            </enumeration-box>
+
+            <label id="sportGroundPhotoLabel">
+                <text>Фото</text>
+            </label>
+            <attachment-box id="sportGroundPhotoValue">
+                <field-path value="sport_ground_photo^pl_sport_ground"/>
+                <attachment-type-ref name="sport_ground_photo"/>
+                <scanner enabled="true"/>
+                <selection-style name="table"/>
+                <images-only>
+                    <read-only-preview width="200px" height="200px" preserve-proportion="true"/>
+                    <small-preview width="200px" height="200px" preserve-proportion="true"/>
+                    <large-preview width="600px" preserve-proportion="true"/>
+                </images-only>
+                <choice-style name="popup"/>
+            </attachment-box>
+
+        </widget-config>
+    </form>
+</configuration>

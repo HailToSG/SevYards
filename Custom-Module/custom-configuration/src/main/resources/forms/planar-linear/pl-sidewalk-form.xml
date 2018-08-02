@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<configuration xmlns="https://cm5.intertrust.ru/config" xmlns:act="https://cm5.intertrust.ru/config/action">
+
+    <!-- Форма для доменного объекта "Тротуар" -->
+    <form name="pl_sidewalk_form" domain-object-type="pl_sidewalk" is-default="true">
+        <markup>
+            <header>
+                <table>
+                    <tr>
+                        <td h-align="left">
+                            <widget id="headerLabel"/>
+                        </td>
+                    </tr>
+                </table>
+            </header>
+
+            <body display-single-tab="true">
+
+                <tab>
+                    <single-entry-group>
+                        <tab-group>
+                            <table>
+
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="sidewalkAreaLabel"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="sidewalkAreaValue"/>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="sidewalkStateLabel"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="sidewalkStateValue"/>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="sidewalkPhotoLabel"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="sidewalkPhotoValue"/>
+                                    </td>
+                                </tr>
+                            </table>
+                        </tab-group>
+                    </single-entry-group>
+                </tab>
+
+            </body>
+
+        </markup>
+        <widget-config>
+
+            <label id="headerLabel">
+                <text>Тротуар</text>
+            </label>
+
+            <label id="sidewalkWidthLabel">
+                <text>Ширина</text>
+            </label>
+            <integer-box id="sidewalkWidthValue">
+                <field-path value="width"/>
+            </integer-box>
+
+            <label id="sidewalkCoatingLabel">
+                <text>Покрытие</text>
+            </label>
+            <enumeration-box id="sidewalkCoatingValue">
+                <field-path value="coating"/>
+                <mapping>
+                    <map value="5"  display-text="Асфальт"/>
+                    <map value="10" display-text="Бетон"/>
+                    <map value="15" display-text="Брусчатка"/>
+                    <map value="40" display-text="Плиточное"/>
+                    <map value="0"  display-text="Иное"/>
+                </mapping>
+            </enumeration-box>
+
+            <label id="sidewalkStateLabel">
+                <text>Состояние объекта</text>
+            </label>
+            <enumeration-box id="sidewalkStateValue">
+                <field-path value="state"/>
+                <mapping>
+                    <map value="0" display-text="Отличное"/>
+                    <map value="10" display-text="Требует ремонта"/>
+                    <map value="20" display-text="Требует обслуживание"/>
+                </mapping>
+            </enumeration-box>
+
+            <label id="sidewalkPhotoLabel">
+                <text>Фото</text>
+            </label>
+            <attachment-box id="sidewalkPhotoValue">
+                <field-path value="sidewalk_photo^pl_sidewalk"/>
+                <attachment-type-ref name="sidewalk_photo"/>
+                <scanner enabled="true"/>
+                <selection-style name="table"/>
+                <images-only>
+                    <read-only-preview width="200px" height="200px" preserve-proportion="true"/>
+                    <small-preview width="200px" height="200px" preserve-proportion="true"/>
+                    <large-preview width="600px" preserve-proportion="true"/>
+                </images-only>
+                <choice-style name="popup"/>
+            </attachment-box>
+
+        </widget-config>
+    </form>
+</configuration>

@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<configuration xmlns="https://cm5.intertrust.ru/config" xmlns:act="https://cm5.intertrust.ru/config/action">
+
+    <!-- Форма для доменного объекта "Велопарковка" -->
+    <form name="pl_bicycle_parking_form" domain-object-type="pl_bicycle_parking" is-default="true">
+        <markup>
+            <header>
+                <table>
+                    <tr>
+                        <td h-align="left">
+                            <widget id="headerLabel"/>
+                        </td>
+                    </tr>
+                </table>
+            </header>
+
+            <body display-single-tab="true">
+
+                <tab>
+                    <single-entry-group>
+                        <tab-group>
+                            <table>
+
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="bicycleParkingAreaLabel"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="bicycleParkingAreaValue"/>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="bicycleParkingCoatingLabel"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="bicycleParkingCoatingValue"/>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="bicycleParkingStateLabel"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="bicycleParkingStateValue"/>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="bicycleParkingPhotoLabel"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="bicycleParkingPhotoValue"/>
+                                    </td>
+                                </tr>
+                            </table>
+                        </tab-group>
+                    </single-entry-group>
+                </tab>
+
+            </body>
+
+        </markup>
+        <widget-config>
+
+            <label id="headerLabel">
+                <text>Велопарковка</text>
+            </label>
+
+            <label id="bicycleParkingWidthLabel">
+                <text>Площадь</text>
+            </label>
+            <integer-box id="bicycleParkingWidthValue">
+                <field-path value="square"/>
+            </integer-box>
+
+            <label id="bicycleParkingCoatingLabel">
+                <text>Количество парковочных мест</text>
+            </label>
+            <integer-box id="bicycleParkingWidthValue">
+                <field-path value="number_parking_places"/>
+            </integer-box>
+
+            <label id="bicycleParkingStateLabel">
+                <text>Состояние объекта</text>
+            </label>
+            <enumeration-box id="bicycleParkingStateValue">
+                <field-path value="state"/>
+                <mapping>
+                    <map value="0" display-text="Отличное"/>
+                    <map value="10" display-text="Требует ремонта"/>
+                    <map value="20" display-text="Требует обслуживание"/>
+                </mapping>
+            </enumeration-box>
+
+            <label id="bicycleParkingPhotoLabel">
+                <text>Фото</text>
+            </label>
+            <attachment-box id="bicycleParkingPhotoValue">
+                <field-path value="bicycle_parking_photo^pl_bicycle_parking"/>
+                <attachment-type-ref name="bicycle_parking_photo"/>
+                <scanner enabled="true"/>
+                <selection-style name="table"/>
+                <images-only>
+                    <read-only-preview width="200px" height="200px" preserve-proportion="true"/>
+                    <small-preview width="200px" height="200px" preserve-proportion="true"/>
+                    <large-preview width="600px" preserve-proportion="true"/>
+                </images-only>
+                <choice-style name="popup"/>
+            </attachment-box>
+
+        </widget-config>
+    </form>
+</configuration>

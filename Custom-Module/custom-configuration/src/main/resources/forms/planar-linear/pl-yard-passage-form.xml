@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<configuration xmlns="https://cm5.intertrust.ru/config" xmlns:act="https://cm5.intertrust.ru/config/action">
+
+    <!-- Форма для доменного объекта "Дворовой проезд" -->
+    <form name="pl_yard_passage_form" domain-object-type="pl_yard_passage" is-default="true">
+        <markup>
+            <header>
+                <table>
+                    <tr>
+                        <td h-align="left">
+                            <widget id="headerLabel"/>
+                        </td>
+                    </tr>
+                </table>
+            </header>
+
+            <body display-single-tab="true">
+
+                <tab>
+                    <single-entry-group>
+                        <tab-group>
+                            <table>
+
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="yardPassageAreaLabel"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="yardPassageAreaValue"/>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="yardPassageStateLabel"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="yardPassageStateValue"/>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="yardPassagePhotoLabel"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="yardPassagePhotoValue"/>
+                                    </td>
+                                </tr>
+                            </table>
+                        </tab-group>
+                    </single-entry-group>
+                </tab>
+
+            </body>
+
+        </markup>
+        <widget-config>
+
+            <label id="headerLabel">
+                <text>Дворовой проезд</text>
+            </label>
+
+            <label id="yardPassageWidthLabel">
+                <text>Ширина</text>
+            </label>
+            <integer-box id="yardPassageWidthValue">
+                <field-path value="width"/>
+            </integer-box>
+
+            <label id="yardPassageCoatingLabel">
+                <text>Покрытие</text>
+            </label>
+            <enumeration-box id="yardPassageCoatingValue">
+                <field-path value="coating"/>
+                <mapping>
+                    <map value="5"  display-text="Асфальт"/>
+                    <map value="10" display-text="Бетон"/>
+                    <map value="25" display-text="Грунт"/>
+                    <map value="0"  display-text="Иное"/>
+                </mapping>
+            </enumeration-box>
+
+            <label id="yardPassageStateLabel">
+                <text>Состояние объекта</text>
+            </label>
+            <enumeration-box id="yardPassageStateValue">
+                <field-path value="state"/>
+                <mapping>
+                    <map value="0" display-text="Отличное"/>
+                    <map value="10" display-text="Требует ремонта"/>
+                    <map value="25" display-text="Незначительные повреждения"/>
+                </mapping>
+            </enumeration-box>
+
+            <label id="yardPassagePhotoLabel">
+                <text>Фото</text>
+            </label>
+            <attachment-box id="yardPassagePhotoValue">
+                <field-path value="yard_passage_photo^pl_yard_passage"/>
+                <attachment-type-ref name="yard_passage_photo"/>
+                <scanner enabled="true"/>
+                <selection-style name="table"/>
+                <images-only>
+                    <read-only-preview width="200px" height="200px" preserve-proportion="true"/>
+                    <small-preview width="200px" height="200px" preserve-proportion="true"/>
+                    <large-preview width="600px" preserve-proportion="true"/>
+                </images-only>
+                <choice-style name="popup"/>
+            </attachment-box>
+
+        </widget-config>
+    </form>
+</configuration>
