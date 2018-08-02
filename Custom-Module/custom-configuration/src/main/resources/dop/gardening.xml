@@ -30,25 +30,25 @@
         <fields>
 
             <!--Вид дерева -->
-            <string name="kind" length="100">
+            <decimal name="kind">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </string>
+            </decimal>
 
             <!-- Высота дерева -->
-            <string name="height" length="100">
+            <decimal name="height">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </string>
+            </decimal>
 
             <!--Состояние элемента озеленения-->
-            <string name="state" length="100">
+            <decimal name="state">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </string>
+            </decimal>
 
             <!--Ссылка на инвентаризацию -->
             <reference name="inventory_id" type="inventory"/>
@@ -73,11 +73,11 @@
             </long>
 
             <!--Состояние элемента озеленения-->
-            <string name="state" length="1024">
+            <decimal name="state">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </string>
+            </decimal>
 
             <!--Ссылка на инвентаризацию -->
             <reference name="inventory_id" type="inventory"/>
@@ -94,25 +94,25 @@
     <domain-object-type name="gard_parterre">
         <fields>
             <!--Тип цветника-->
-            <string name="kind" length="100">
+            <decimal name="kind">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </string>
+            </decimal>
 
             <!--Размер цветника-->
-            <string name="size" length="100">
+            <decimal name="size">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </string>
+            </decimal>
 
             <!--Состояние элемента озеленения-->
-            <string name="state" length="100">
+            <decimal name="state">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </string>
+            </decimal>
 
             <!--Ссылка на инвентаризацию -->
             <reference name="inventory_id" type="inventory"/>
@@ -136,32 +136,32 @@
             </long>
 
             <!--Состав-->
-            <string name="composition" length="100">
+            <decimal name="composition">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </string>
+            </decimal>
 
             <!-- Высота изгороди -->
-            <string name="height" length="100">
+            <decimal name="height">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </string>
+            </decimal>
 
             <!--техника -->
-            <string name="trim_technique" length="100">
+            <decimal name="trim_technique">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </string>
+            </decimal>
 
             <!--Состояние элемента озеленения-->
-            <string name="state" length="100">
+            <decimal name="state">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </string>
+            </decimal>
 
             <!--Ссылка на инвентаризацию -->
             <reference name="inventory_id" type="inventory"/>
@@ -179,25 +179,25 @@
         <fields>
 
             <!--Вид -->
-            <string name="kind" length="1000">
+            <decimal name="kind">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </string>
+            </decimal>
 
             <!-- Высота -->
-            <string name="height" length="100">
+            <decimal name="height">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </string>
+            </decimal>
 
             <!--Состояние элемента озеленения-->
-            <string name="state" length="1024">
+            <decimal name="state">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </string>
+            </decimal>
 
             <!--Ссылка на инвентаризацию -->
             <reference name="inventory_id" type="inventory"/>
@@ -222,18 +222,18 @@
             </long>
 
             <!--тип газона-->
-            <string name="type" length="1024">
+            <decimal name="type">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </string>
+            </decimal>
 
             <!--Состояние элемента озеленения-->
-            <string name="state" length="1024">
+            <decimal name="state">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </string>
+            </decimal>
 
             <!--Ссылка на инвентаризацию -->
             <reference name="inventory_id" type="inventory"/>

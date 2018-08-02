@@ -58,18 +58,18 @@
             </string>
 
             <!-- Вид жилого строения -->
-            <string name="kind" length="1000">
+            <decimal name="kind">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </string>
+            </decimal>
 
             <!--состояние строения-->
-            <string name="state" length="1024">
+            <decimal name="state">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </string>
+            </decimal>
 
             <!--Ссылка на id территории -->
             <reference name="territory_id" type="ter_territory">
@@ -115,18 +115,18 @@
             </string>
 
             <!-- Вид капитального нежилого строения -->
-            <string name="kind" length="1000">
+            <decimal name="kind">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </string>
+            </decimal>
 
             <!--состояние строения-->
-            <string name="state" length="1024">
+            <decimal name="state">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </string>
+            </decimal>
 
             <!--Ссылка на id территории -->
             <reference name="territory_id" type="ter_territory">
@@ -159,18 +159,18 @@
             </long>
 
             <!-- Вид неапитального нежилого строения -->
-            <string name="kind" length="1000">
+            <decimal name="kind">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </string>
+            </decimal>
 
             <!--состояние строения-->
-            <string name="state" length="1024">
+            <decimal name="state">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </string>
+            </decimal>
 
             <!--Ссылка на id территории -->
             <reference name="territory_id" type="ter_territory">

@@ -345,7 +345,7 @@
             </linked-domain-objects-table>
 
             <label id="bushLabel">
-                <text>Кусты</text>
+                <text>Куст</text>
             </label>
             <linked-domain-objects-table id="bushValue" modal-width="600px" modal-height="400px" >
             <field-path value="gard_bush^inventory_id" on-root-delete="unlink"/>

@@ -102,8 +102,8 @@
             <enumeration-box id="tablesShapeValue">
                 <field-path value="shape"/>
                 <mapping>
-                    <map value="Прямоугольный"/>
-                    <map value="Круглый"/>
+                    <map value="0" display-text="Прямоугольный"/>
+                    <map value="5" display-text="Круглый"/>
                 </mapping>
             </enumeration-box>
 

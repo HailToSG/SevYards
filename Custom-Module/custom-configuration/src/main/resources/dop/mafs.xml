@@ -39,11 +39,11 @@
         <fields>
 
             <!-- материал, из которого сделан накопитель ТКО -->
-            <string name="material" length="100">
+            <decimal name="material">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </string>
+            </decimal>
 
             <!-- Вместимость, куб.м -->
             <long name="capacity">
@@ -53,25 +53,25 @@
             </long>
 
             <!-- состояние покрытия -->
-            <string name="state_coating_trash" length="100">
+            <decimal name="state_coating_trash">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </string>
+            </decimal>
 
             <!--Тип ТКО-->
-            <string name="kind" length="100">
+            <decimal name="kind">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </string>
+            </decimal>
 
             <!--состояние объекта МАФ-->
-            <string name="state" length="100">
+            <decimal name="state">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </string>
+            </decimal>
 
             <!--Ссылка на инвентаризацию -->
             <reference name="inventory_id" type="inventory"/>
@@ -90,46 +90,46 @@
     <domain-object-type name="maf_playground_equipment">
         <fields>
             <!-- Тип оснащения -->
-            <string name="kind" length="100">
+            <decimal name="kind">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </string>
+            </decimal>
 
             <!-- материал опор площадки -->
-            <string name="support_material" length="100">
+            <decimal name="support_material">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </string>
+            </decimal>
 
             <!-- материал сидений -->
-            <string name="seat_material" length="100">
+            <decimal name="seat_material">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </string>
+            </decimal>
 
             <!-- тип подвеса -->
-            <string name="type_suspension" length="100">
+            <decimal name="type_suspension">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </string>
+            </decimal>
 
             <!-- состояние покрытия -->
-            <string name="state_coating" length="100">
+            <decimal name="state_coating">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </string>
+            </decimal>
 
             <!--состояние объекта МАФ-->
-            <string name="state" length="100">
+            <decimal name="state">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </string>
+            </decimal>
 
             <!--Ссылка на инвентаризацию -->
             <reference name="inventory_id" type="inventory"/>
@@ -155,28 +155,28 @@
             </long>
 
             <!-- материал, из которого сделана скамья -->
-            <string name="material" length="100">
+            <decimal name="material">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </string>
+            </decimal>
 
             <!-- состояние покрытия -->
-            <string name="state_coating" length="100">
+            <decimal name="state_coating">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </string>
+            </decimal>
 
             <!-- имеет спинку -->
             <boolean name="has_a_back" not-null="true"/>
 
             <!--состояние объекта МАФ-->
-            <string name="state" length="100">
+            <decimal name="state">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </string>
+            </decimal>
 
             <!--Ссылка на инвентаризацию -->
             <reference name="inventory_id" type="inventory"/>
@@ -202,32 +202,32 @@
             </long>
 
             <!-- форма стола -->
-            <string name="shape" length="100">
+            <decimal name="shape">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </string>
+            </decimal>
 
             <!-- назначение стола -->
-            <string name="appointment" length="100">
+            <decimal name="appointment">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </string>
+            </decimal>
 
             <!-- материал, из которого сделан стол  -->
-            <string name="material" length="100">
+            <decimal name="material">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </string>
+            </decimal>
 
             <!--состояние объекта МАФ-->
-            <string name="state" length="100">
+            <decimal name="state">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </string>
+            </decimal>
 
             <!--Ссылка на инвентаризацию -->
             <reference name="inventory_id" type="inventory"/>
@@ -246,18 +246,18 @@
         <fields>
 
             <!-- Тип инвентаря -->
-            <string name="kind" length="100">
+            <decimal name="kind">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </string>
+            </decimal>
 
             <!--состояние объекта МАФ-->
-            <string name="state" length="100">
+            <decimal name="state">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </string>
+            </decimal>
 
             <!--Ссылка на инвентаризацию -->
             <reference name="inventory_id" type="inventory"/>
@@ -282,18 +282,18 @@
             </long>
 
             <!-- материал, из которого сделана беседка -->
-            <string name="material" length="100">
+            <decimal name="material">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </string>
+            </decimal>
 
             <!--состояние объекта МАФ-->
-            <string name="state" length="100">
+            <decimal name="state">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </string>
+            </decimal>
 
             <!--Ссылка на инвентаризацию -->
             <reference name="inventory_id" type="inventory"/>
@@ -320,18 +320,18 @@
             </long>
 
             <!-- материал, из которого сделана терасса -->
-            <string name="material" length="100">
+            <decimal name="material">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </string>
+            </decimal>
 
             <!--состояние объекта МАФ-->
-            <string name="state" length="100">
+            <decimal name="state">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </string>
+            </decimal>
 
             <!--Ссылка на инвентаризацию -->
             <reference name="inventory_id" type="inventory"/>
@@ -357,18 +357,18 @@
             </long>
 
             <!-- материал, из которого сделан навес -->
-            <string name="material" length="100">
+            <decimal name="material">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </string>
+            </decimal>
 
             <!--состояние объекта МАФ-->
-            <string name="state" length="100">
+            <decimal name="state">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </string>
+            </decimal>
 
             <!--Ссылка на инвентаризацию -->
             <reference name="inventory_id" type="inventory"/>
@@ -385,25 +385,25 @@
     <domain-object-type name="maf_fountains">
         <fields>
             <!-- Размер фонтана -->
-            <string name="size" length="100">
+            <decimal name="size">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </string>
+            </decimal>
 
             <!-- материал, из которого сделан фонтан -->
-            <string name="material" length="100">
+            <decimal name="material">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </string>
+            </decimal>
 
             <!--состояние объекта МАФ-->
-            <string name="state" length="100">
+            <decimal name="state">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </string>
+            </decimal>
 
             <!--Ссылка на инвентаризацию -->
             <reference name="inventory_id" type="inventory"/>

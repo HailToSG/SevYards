@@ -75,9 +75,9 @@
             <enumeration-box id="treeKindValue">
                 <field-path value="kind"/>
                 <mapping>
-                    <map value="Вечнозеленое"/>
-                    <map value="Листопадное неплодовое"/>
-                    <map value="Листопадное плодовое"/>
+                    <map value="130" display-text="Вечнозеленое"/>
+                    <map value="135" display-text="Листопадное неплодовое"/>
+                    <map value="140" display-text="Листопадное плодовое"/>
                 </mapping>
             </enumeration-box>
 
