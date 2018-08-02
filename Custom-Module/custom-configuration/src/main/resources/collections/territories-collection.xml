@@ -8,6 +8,7 @@
               territory.id                 AS id,
               territory.territory_type    AS type,
               territory.name              AS name,
+              territory.number              AS number,
              (SELECT COUNT(*) FROM inventory WHERE territory.id = territory_id) AS inventories
 
             FROM ter_territory territory
@@ -15,6 +16,13 @@
               1=1 ::where-clause
             ]]>
         </prototype>
+        <filter name="byTerritoryName">
+            <criteria placeholder="where-clause">
+                <![CDATA[
+                    LOWER(name) LIKE LOWER('%' || {0} || '%')
+                ]]>
+            </criteria>
+        </filter>
 
     </collection>
 
@@ -22,7 +30,9 @@
         <display>
             <column field="type" name="Тип территории" type="string" editable="false" sortable="true"
                     min-width="50px" text-break-style="cut"/>
-            <column field="name" name="Адрес (название)" type="string" editable="false"
+            <column field="name" name="Имя" type="string" editable="false"
+                    sortable="true" min-width="50px" text-break-style="cut"/>
+            <column field="number" name="Номер" type="string" editable="false"
                     sortable="true" min-width="50px" text-break-style="cut"/>
             <column field="inventories" name="Инвентаризации" type="integer" editable="false" sortable="true"
                     min-width="50px" text-break-style="cut">
