@@ -6,8 +6,9 @@
     <!--Доменный объект "Территория"-->
     <domain-object-type name="ter_territory">
         <fields>
-            <string name="name" length="1000"/>
-            <string name="territory_type" length="1000"/>
+            <string name="name" length="100"/>
+            <string name="number" length="100"/>
+            <string name="territory_type" length="100"/>
         </fields>
     </domain-object-type>
 

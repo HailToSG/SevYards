@@ -23,6 +23,15 @@
 
                                 <tr>
                                     <td h-align="right">
+                                        <widget id="territoryNameLabel"/>
+                                    </td>
+
+                                    <td h-align="left">
+                                        <widget id="territoryNameValue"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td h-align="right">
                                         <widget id="territoryNumberLabel"/>
                                     </td>
 
@@ -45,11 +54,18 @@
                 <text>Территория</text>
             </label>
 
+            <label id="territoryNameLabel">
+                <text>Имя территории</text>
+            </label>
+            <text-box id="territoryNameValue">
+                <field-path value="name"/>
+            </text-box>
+
             <label id="territoryNumberLabel">
                 <text>Номер территории</text>
             </label>
             <text-box id="territoryNumberValue">
-                <field-path value="name"/>
+                <field-path value="number"/>
             </text-box>
         </widget-config>
 
@@ -73,6 +89,15 @@
                     <single-entry-group>
                         <tab-group>
                             <table>
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="territoryNameLabel"/>
+                                    </td>
+
+                                    <td h-align="left">
+                                        <widget id="territoryNameValue"/>
+                                    </td>
+                                </tr>
 
                                 <tr>
                                     <td h-align="right">
@@ -104,16 +129,6 @@
                                     </td>
                                 </tr>
 
-                                <tr>
-                                    <td h-align="right">
-                                        <widget id="yardInventoryLabel"/>
-                                    </td>
-
-                                    <td h-align="left">
-                                        <widget id="yardInventoryValue"/>
-                                    </td>
-                                </tr>
-
                             </table>
                         </tab-group>
 
@@ -129,11 +144,18 @@
                 <text>Территория</text>
             </label>
 
+            <label id="territoryNameLabel">
+                <text>Имя территории</text>
+            </label>
+            <text-box id="territoryNameValue">
+                <field-path value="name"/>
+            </text-box>
+
             <label id="territoryNumberLabel">
                 <text>Номер территории</text>
             </label>
             <text-box id="territoryNumberValue">
-                <field-path value="name"/>
+                <field-path value="number"/>
             </text-box>
 
             <label id="territoryTypeLabel">
@@ -168,31 +190,7 @@
                 </summary-table>
                 <single-choice value="true"/>
             </linked-domain-objects-table>
-
-            <label id="yardInventoryLabel">
-                <text>Дворовая территория</text>
-            </label>
-
-            <linked-domain-objects-table id="yardInventoryValue" delete-linked-objects="true" modal-width="600px"
-                                         modal-height="400px">
-                <field-path value="inventory^territory_id" on-root-delete="unlink"/>
-
-                <linked-form name="inventory_form" inline="true"
-                             domain-object-type="inventory"/>
-                <summary-table>
-                    <summary-table-column header="Дата начала" widget-id="sumAreaValue">
-                        <pattern value="{start_time}"/>
-                    </summary-table-column>
-                    <summary-table-column header="Дата окончания" widget-id="objAreaValue">
-                        <pattern value="{end_time}"/>
-                    </summary-table-column>
-                </summary-table>
-                <single-choice value="true"/>
-            </linked-domain-objects-table>
-
-
         </widget-config>
-
     </form>
 
     <form name="territories_public_form" domain-object-type="ter_territory" is-default="false">
@@ -208,13 +206,20 @@
             </header>
 
             <body display-single-tab="true">
-
                 <tab name="Общественная территория">
                     <single-entry-group>
                         <tab-group>
                             <table>
 
                                 <tr>
+                                    <td h-align="right">
+                                        <widget id="territoryNameLabel"/>
+                                    </td>
+
+                                    <td h-align="left">
+                                        <widget id="territoryNameValue"/>
+                                    </td>
+
                                     <td h-align="right">
                                         <widget id="territoryNumberLabel"/>
                                     </td>
@@ -243,15 +248,6 @@
                                         <widget id="publicLinkedValue"/>
                                     </td>
                                 </tr>
-                                <tr>
-                                    <td h-align="right">
-                                        <widget id="publicInventoryLabel"/>
-                                    </td>
-
-                                    <td h-align="left">
-                                        <widget id="publicInventoryValue"/>
-                                    </td>
-                                </tr>
 
                             </table>
                         </tab-group>
@@ -267,11 +263,18 @@
                 <text>Территория</text>
             </label>
 
+            <label id="territoryNameLabel">
+                <text>Имя территории</text>
+            </label>
+            <text-box id="territoryNameValue">
+                <field-path value="name"/>
+            </text-box>
+
             <label id="territoryNumberLabel">
                 <text>Номер территории</text>
             </label>
             <text-box id="territoryNumberValue">
-                <field-path value="name"/>
+                <field-path value="number"/>
             </text-box>
 
             <label id="territoryTypeLabel">
@@ -310,27 +313,6 @@
                 <single-choice value="true"/>
             </linked-domain-objects-table>
 
-            <label id="publicInventoryLabel">
-                <text>Дворовая территория</text>
-            </label>
-
-            <linked-domain-objects-table id="publicInventoryValue" delete-linked-objects="true" modal-width="600px"
-                                         modal-height="400px">
-                <field-path value="inventory^territory_id" on-root-delete="unlink"/>
-
-                <linked-form name="inventory_form" inline="true"
-                             domain-object-type="inventory"/>
-                <summary-table>
-                    <summary-table-column header="Дата начала" widget-id="sumAreaValue">
-                        <pattern value="{start_time}"/>
-                    </summary-table-column>
-                    <summary-table-column header="Дата окончания" widget-id="objAreaValue">
-                        <pattern value="{end_time}"/>
-                    </summary-table-column>
-                </summary-table>
-                <single-choice value="true"/>
-            </linked-domain-objects-table>
-
 
         </widget-config>
 
@@ -354,6 +336,16 @@
                     <single-entry-group>
                         <tab-group>
                             <table>
+
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="territoryNameLabel"/>
+                                    </td>
+
+                                    <td h-align="left">
+                                        <widget id="territoryNameValue"/>
+                                    </td>
+                                </tr>
 
                                 <tr>
                                     <td h-align="right">
@@ -387,11 +379,11 @@
 
                                 <tr>
                                     <td h-align="right">
-                                        <widget id="privateInventoryLabel"/>
+                                        <widget id="privateLinkedLabel"/>
                                     </td>
 
                                     <td h-align="left">
-                                        <widget id="privateInventoryValue"/>
+                                        <widget id="privateLinkedValue"/>
                                     </td>
                                 </tr>
 
@@ -410,11 +402,18 @@
                 <text>Территория</text>
             </label>
 
+            <label id="territoryNameLabel">
+                <text>Имя территории</text>
+            </label>
+            <text-box id="territoryNameValue">
+                <field-path value="name"/>
+            </text-box>
+
             <label id="territoryNumberLabel">
                 <text>Номер территории</text>
             </label>
             <text-box id="territoryNumberValue">
-                <field-path value="name"/>
+                <field-path value="number"/>
             </text-box>
 
             <label id="territoryTypeLabel">
@@ -453,26 +452,6 @@
                 </summary-table>
                 <single-choice value="true"/>
             </linked-domain-objects-table>
-
-            <label id="privateInventoryLabel">
-                <text>ИЖС - объект</text>
-            </label>
-            <linked-domain-objects-table id="privateInventoryValue" delete-linked-objects="true" modal-width="600px"
-                                         modal-height="400px">
-                <field-path value="inventory^territory_id" on-root-delete="unlink"/>
-
-                <linked-form name="inventory_form" inline="true"
-                             domain-object-type="inventory"/>
-                <summary-table>
-                    <summary-table-column header="Дата начала" widget-id="sumAreaValue">
-                        <pattern value="{start_time}"/>
-                    </summary-table-column>
-                    <summary-table-column header="Дата окончания" widget-id="objAreaValue">
-                        <pattern value="{end_time}"/>
-                    </summary-table-column>
-                </summary-table>
-                <single-choice value="true"/>
-            </linked-domain-objects-table>
         </widget-config>
 
     </form>
@@ -495,6 +474,16 @@
                     <single-entry-group>
                         <tab-group>
                             <table>
+
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="territoryNameLabel"/>
+                                    </td>
+
+                                    <td h-align="left">
+                                        <widget id="territoryNameValue"/>
+                                    </td>
+                                </tr>
 
                                 <tr>
                                     <td h-align="right">
@@ -526,16 +515,6 @@
                                     </td>
                                 </tr>
 
-                                <tr>
-                                    <td h-align="right">
-                                        <widget id="ulipInventoryLabel"/>
-                                    </td>
-
-                                    <td h-align="left">
-                                        <widget id="ulipInventoryValue"/>
-                                    </td>
-                                </tr>
-
                             </table>
                         </tab-group>
 
@@ -551,11 +530,18 @@
                 <text>Территория</text>
             </label>
 
+            <label id="territoryNameLabel">
+                <text>Имя территории</text>
+            </label>
+            <text-box id="territoryNameValue">
+                <field-path value="name"/>
+            </text-box>
+
             <label id="territoryNumberLabel">
                 <text>Номер территории</text>
             </label>
             <text-box id="territoryNumberValue">
-                <field-path value="name"/>
+                <field-path value="number"/>
             </text-box>
 
             <label id="territoryTypeLabel">
@@ -595,25 +581,6 @@
                 <single-choice value="true"/>
             </linked-domain-objects-table>
 
-            <label id="ulipInventoryLabel">
-                <text>ИЖС - объект</text>
-            </label>
-            <linked-domain-objects-table id="ulipInventoryValue" delete-linked-objects="true" modal-width="600px"
-                                         modal-height="400px">
-                <field-path value="inventory^territory_id" on-root-delete="unlink"/>
-
-                <linked-form name="inventory_form" inline="true"
-                             domain-object-type="inventory"/>
-                <summary-table>
-                    <summary-table-column header="Дата начала" widget-id="sumAreaValue">
-                        <pattern value="{start_time}"/>
-                    </summary-table-column>
-                    <summary-table-column header="Дата окончания" widget-id="objAreaValue">
-                        <pattern value="{end_time}"/>
-                    </summary-table-column>
-                </summary-table>
-                <single-choice value="true"/>
-            </linked-domain-objects-table>
         </widget-config>
 
     </form>
