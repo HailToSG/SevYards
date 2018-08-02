@@ -192,25 +192,25 @@
             </long>
 
             <!-- покрытие -->
-            <string name="coating" length="100">
+            <decimal name="coating">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </string>
+            </decimal>
 
             <!-- Возрастная группа -->
-            <string name="age_group" length="100">
+            <decimal name="age_group">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </string>
+            </decimal>
 
             <!--состояние объекта класса Детская площадка -->
-            <string name="state" length="100">
+            <decimal name="state">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </string>
+            </decimal>
 
             <!--Ссылка на инвентаризацию -->
             <reference name="inventory_id" type="inventory"/>
@@ -235,11 +235,11 @@
             <boolean name="has_enclosure" not-null="true"/>
 
             <!--состояние объекта класса Площадка для выгула собак -->
-            <string name="state" length="100">
+            <decimal name="state">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </string>
+            </decimal>
 
             <!--Ссылка на инвентаризацию -->
             <reference name="inventory_id" type="inventory"/>
@@ -308,18 +308,18 @@
             </long>
 
             <!-- покрытие -->
-            <string name="coating" length="100">
+            <decimal name="coating">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </string>
+            </decimal>
 
             <!--состояние объекта класса Велодорожка -->
-            <string name="state" length="100">
+            <decimal name="state">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </string>
+            </decimal>
 
             <!--Ссылка на инвентаризацию -->
             <reference name="inventory_id" type="inventory"/>
@@ -341,11 +341,11 @@
             </long>
 
             <!-- покрытие -->
-            <string name="coating" length="100">
+            <decimal name="coating">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </string>
+            </decimal>
 
             <!-- Наличие места для КГО-->
             <boolean name="availability_place_kgo" not-null="true"/>
@@ -358,11 +358,11 @@
             </long>
 
             <!--состояние объекта класса Контейнерная площадка -->
-            <string name="state" length="100">
+            <decimal name="state">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </string>
+            </decimal>
 
             <!--Ссылка на инвентаризацию -->
             <reference name="inventory_id" type="inventory"/>

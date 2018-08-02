@@ -40,35 +40,35 @@
             <reference name="inventory_id" type="inventory"/>
 
             <!--Ширина -->
-            <long name="width">
+            <decimal name="width">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </long>
+            </decimal>
 
             <!-- Перепад высот -->
-            <long name="height_difference">
+            <decimal name="height_difference">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </long>
+            </decimal>
 
             <!-- Покрытие -->
-            <long name="coating">
+            <decimal name="coating">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </long>
+            </decimal>
             
             <!-- Является ли откидным -->
             <boolean name="is_flap"/>
 
             <!-- Состояние объекта класса "Пандус" -->
-            <long name="state">
+            <decimal name="state">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </long>
+            </decimal>
         </fields>
         <attachment-types>
             <attachment-type name="other_rampant_photo"/>
@@ -87,35 +87,35 @@
             </long>
 
             <!-- Тип устройства -->
-            <long name="kind_of_barrier">
+            <decimal name="kind_of_barrier">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </long>
+            </decimal>
 
             <!-- Материал-->
-            <long name="material">
+            <decimal name="material">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </long>
+            </decimal>
 
             <!-- Механизация-->
-            <long name="mechanization">
+            <decimal name="mechanization">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </long>
+            </decimal>
 
             <!--Ссылка на инвентаризацию -->
             <reference name="inventory_id" type="inventory"/>
 
             <!--состояние объекта класса "Устройство для преграждения пути"-->
-            <long name="state">
+            <decimal name="state">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </long>
+            </decimal>
         </fields>
         <attachment-types>
             <attachment-type name="others_barrier_photo"/>
@@ -130,39 +130,39 @@
             <reference name="inventory_id" type="inventory"/>
 
             <!-- Тип-->
-            <long name="kind_of_device">
+            <decimal name="kind_of_device">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </long>
+            </decimal>
 
             <!--Высота опоры -->
-            <long name="height">
+            <decimal name="height">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </long>
+            </decimal>
 
             <!-- Тип опоры-->
-            <long name="type">
+            <decimal name="type">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </long>
+            </decimal>
 
             <!-- Состояние покрытия-->
-            <long name="coating_state">
+            <decimal name="coating_state">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </long>
+            </decimal>
 
             <!--состояние объекта класса "Светильники"-->
-            <long name="state">
+            <decimal name="state">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </long>
+            </decimal>
         </fields>
         <attachment-types>
             <attachment-type name="lighting_device_photo"/>
@@ -184,11 +184,11 @@
             <reference name="inventory_id" type="inventory"/>
 
             <!--состояние объекта класса "Информационные стенды"-->
-            <long name="state">
+            <decimal name="state">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </long>
+            </decimal>
         </fields>
         <attachment-types>
             <attachment-type name="information_stand_photo"/>
@@ -206,35 +206,35 @@
             </long>
 
             <!-- Материал-->
-            <long name="material">
+            <decimal name="material">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </long>
+            </decimal>
 
             <!-- Состояние покрытия-->
-            <long name="coating_state">
+            <decimal name="coating_state">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </long>
+            </decimal>
 
             <!-- Тип ограждения -->
-            <long name="fences_type">
+            <decimal name="fences_type">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </long>
+            </decimal>
 
             <!--Ссылка на инвентаризацию -->
             <reference name="inventory_id" type="inventory"/>
 
             <!--состояние объекта класса "Ограждения"-->
-            <long name="state">
+            <decimal name="state">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </long>
+            </decimal>
         </fields>
         <attachment-types>
             <attachment-type name="fences_photo"/>
@@ -248,18 +248,18 @@
             <reference name="inventory_id" type="inventory"/>
 
             <!-- Тип водоёма-->
-            <long name="pond_type">
+            <decimal name="pond_type">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </long>
+            </decimal>
 
             <!--состояние объекта класса "Водоёмы"-->
-            <long name="state">
+            <decimal name="state">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </long>
+            </decimal>
         </fields>
         <attachment-types>
             <attachment-type name="pond_photo"/>
@@ -271,11 +271,11 @@
 
         <fields>
             <!-- Тип люка -->
-            <long name="kind_of_hatch">
+            <decimal name="kind_of_hatch">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </long>
+            </decimal>
 
             <!--Ссылка на инвентаризацию -->
             <reference name="inventory_id" type="inventory"/>
@@ -291,28 +291,28 @@
         <fields>
 
             <!--Высота опоры -->
-            <long name="height_pylon">
+            <decimal name="height_pylon">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </long>
+            </decimal>
 
             <!-- Тип опоры-->
-            <long name="type_pylon">
+            <decimal name="type_pylon">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </long>
+            </decimal>
 
             <!--Ссылка на инвентаризацию -->
             <reference name="inventory_id" type="inventory"/>
 
             <!--состояние объекта класса "Опоры ЛЭП"-->
-            <long name="state_pylon">
+            <decimal name="state_pylon">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </long>
+            </decimal>
         </fields>
         <attachment-types>
             <attachment-type name="power_pylon_photo"/>
