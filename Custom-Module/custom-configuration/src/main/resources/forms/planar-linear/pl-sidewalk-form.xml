@@ -23,10 +23,10 @@
 
                                 <tr>
                                     <td h-align="right">
-                                        <widget id="sidewalkAreaLabel"/>
+                                        <widget id="sidewalkWidthLabel"/>
                                     </td>
                                     <td h-align="left">
-                                        <widget id="sidewalkAreaValue"/>
+                                        <widget id="sidewalkWidthValue"/>
                                     </td>
                                 </tr>
 

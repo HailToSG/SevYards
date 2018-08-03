@@ -250,9 +250,85 @@
                             <table>
                                 <tr>
                                     <td h-align="right">
-                                        <widget id="planarLinearLabel"/>
+                                        <widget id="bicycleParkingLabel"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="bicycleParkingValue"/>
                                     </td>
                                 </tr>
+
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="bicycleRoadLabel"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="bicycleRoadValue"/>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="carParkingLabel"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="carParkingValue"/>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="containerSquareLabel"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="containerSquareValue"/>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="dogWalkingAreaLabel"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="dogWalkingAreaValue"/>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="playgroundLabel"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="playgroundValue"/>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="sidewalkLabel"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="sidewalkValue"/>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="sportGroundLabel"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="sportGroundValue"/>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="yardPassageLabel"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="yardPassageValue"/>
+                                    </td>
+                                </tr>
+
                             </table>
                         </tab-group>
                     </single-entry-group>
@@ -974,9 +1050,252 @@
 
 
             <!--Domain linked object table для Planar-Linear-->
-            <label id="planarLinearLabel">
-                <text>Плоскостные и линейные</text>
+            <label id="bicycleParkingLabel">
+                <text>Велопарковки</text>
             </label>
+            <linked-domain-objects-table id="bicycleParkingValue" modal-width="600px" modal-height="400px" >
+                <field-path value="pl_bicycle_parking^inventory_id" on-root-delete="unlink"/>
+
+                <linked-form name="pl_bicycle_parking_form" inline="true"
+                             domain-object-type="pl_bicycle_parking"/>
+                <summary-table>
+                    <summary-table-column header="Площадь" widget-id="bicycleParkingWidthValue">
+                        <pattern value="{square}"/>
+                    </summary-table-column>
+
+                    <summary-table-column header="Количество парковочных мест" widget-id="bicycleParkingNumberPlacesValue">
+                        <pattern value="{number_parking_places}"/>
+                    </summary-table-column>
+
+                    <summary-table-column header="Состояние объекта" widget-id="bicycleParkingStateValue">
+                        <pattern value="{state}"/>
+                    </summary-table-column>
+
+                </summary-table>
+                <single-choice value="false"/>
+            </linked-domain-objects-table>
+
+            <label id="bicycleRoadLabel">
+                <text>Велодорожка</text>
+            </label>
+            <linked-domain-objects-table id="bicycleRoadValue" modal-width="600px" modal-height="400px" >
+                <field-path value="pl_bicycle_road^inventory_id" on-root-delete="unlink"/>
+
+                <linked-form name="pl_bicycle_road_form" inline="true"
+                             domain-object-type="pl_bicycle_road"/>
+                <summary-table>
+                    <summary-table-column header="Ширина" widget-id="bicycleRoadWidthValue">
+                        <pattern value="{width}"/>
+                    </summary-table-column>
+
+                    <summary-table-column header="Покрытие" widget-id="bicycleRoadCoatingValue">
+                        <pattern value="{coating}"/>
+                    </summary-table-column>
+
+                    <summary-table-column header="Состояние объекта" widget-id="bicycleRoadStateValue">
+                        <pattern value="{state}"/>
+                    </summary-table-column>
+
+                </summary-table>
+                <single-choice value="false"/>
+            </linked-domain-objects-table>
+
+            <label id="carParkingLabel">
+                <text>Автопарковка</text>
+            </label>
+            <linked-domain-objects-table id="carParkingValue" modal-width="600px" modal-height="400px" >
+                <field-path value="pl_car_parking^inventory_id" on-root-delete="unlink"/>
+
+                <linked-form name="pl_car_parking_form" inline="true"
+                             domain-object-type="pl_car_parking"/>
+                <summary-table>
+                    <summary-table-column header="Количество парковочных мест" widget-id="numberOfParkingPlacesValue">
+                        <pattern value="{number_of_parking_places}"/>
+                    </summary-table-column>
+
+                    <summary-table-column header="Количество парковочных мест для инвалидов" widget-id="numberOfParkingPlacesInvalidsValue">
+                        <pattern value="{numb_park_places_invalids}"/>
+                    </summary-table-column>
+
+                    <summary-table-column header="Покрытие" widget-id="carParkingCoatingValue">
+                        <pattern value="{coating}"/>
+                    </summary-table-column>
+
+                    <summary-table-column header="Наличие обозначения" widget-id="signedValue">
+                        <pattern value="{signed}"/>
+                    </summary-table-column>
+
+                    <summary-table-column header="Габариты места парковки (Ширина)" widget-id="parkingSizeValue">
+                        <pattern value="{parking_size}"/>
+                    </summary-table-column>
+
+                    <summary-table-column header="Состояние объекта" widget-id="carParkingStateValue">
+                        <pattern value="{state}"/>
+                    </summary-table-column>
+
+                </summary-table>
+                <single-choice value="false"/>
+            </linked-domain-objects-table>
+
+            <label id="containerSquareLabel">
+                <text>Контейнерная площадка</text>
+            </label>
+            <linked-domain-objects-table id="containerSquareValue" modal-width="600px" modal-height="400px" >
+                <field-path value="pl_container_square^inventory_id" on-root-delete="unlink"/>
+
+                <linked-form name="pl_container_square_form" inline="true"
+                             domain-object-type="pl_container_square"/>
+                <summary-table>
+                    <summary-table-column header="Площадь" widget-id="containerSquareAreaValue">
+                        <pattern value="{square}"/>
+                    </summary-table-column>
+
+                    <summary-table-column header="Покрытие" widget-id="containerSquareCoatingValue">
+                        <pattern value="{coating}"/>
+                    </summary-table-column>
+
+                    <summary-table-column header="Наличие места для КГО" widget-id="containerSquareKgoPlaceValue">
+                        <pattern value="{availability_place_kgo}"/>
+                    </summary-table-column>
+
+                    <summary-table-column header="Количество контейнеров" widget-id="containerSquareContainerAmountValue">
+                        <pattern value="{number_containers}"/>
+                    </summary-table-column>
+
+                    <summary-table-column header="Состояние объекта" widget-id="containerSquareStateValue">
+                        <pattern value="{state}"/>
+                    </summary-table-column>
+
+                </summary-table>
+                <single-choice value="false"/>
+            </linked-domain-objects-table>
+
+            <label id="dogWalkingAreaLabel">
+                <text>Площадка для выгула собак</text>
+            </label>
+            <linked-domain-objects-table id="dogWalkingAreaValue" modal-width="600px" modal-height="400px" >
+                <field-path value="pl_dog_walking_area^inventory_id" on-root-delete="unlink"/>
+
+                <linked-form name="pl_dog_walking_area_form" inline="true"
+                             domain-object-type="pl_dog_walking_area"/>
+                <summary-table>
+                    <summary-table-column header="Площадь" widget-id="dogWalkingAreaValue">
+                        <pattern value="{square}"/>
+                    </summary-table-column>
+                    <summary-table-column header="Наличие ограждения" widget-id="dogWalkingHasEnclosureValue">
+                        <pattern value="{has_enclosure}"/>
+                    </summary-table-column>
+                    <summary-table-column header="Состояние объекта" widget-id="dogWalkingStateValue">
+                        <pattern value="{state}"/>
+                    </summary-table-column>
+
+                </summary-table>
+                <single-choice value="false"/>
+            </linked-domain-objects-table>
+
+            <label id="playgroundLabel">
+                <text>Детская площадка</text>
+            </label>
+            <linked-domain-objects-table id="playgroundValue" modal-width="600px" modal-height="400px" >
+                <field-path value="pl_playground^inventory_id" on-root-delete="unlink"/>
+
+                <linked-form name="pl_playground_form" inline="true"
+                             domain-object-type="pl_playground"/>
+                <summary-table>
+                    <summary-table-column header="Площадь" widget-id="playgroundAreaValue">
+                        <pattern value="{square}"/>
+                    </summary-table-column>
+                    <summary-table-column header="Покрытие" widget-id="playgroundCoatingValue">
+                        <pattern value="{coating}"/>
+                    </summary-table-column>
+                    <summary-table-column header="Возрастная группа" widget-id="playgroundAgeGroupValue">
+                        <pattern value="{age_group}"/>
+                    </summary-table-column>
+                    <summary-table-column header="Состояние объекта" widget-id="playgroundStateValue">
+                        <pattern value="{state}"/>
+                    </summary-table-column>
+
+                </summary-table>
+                <single-choice value="false"/>
+            </linked-domain-objects-table>
+
+            <label id="sidewalkLabel">
+                <text>Тротуар</text>
+            </label>
+            <linked-domain-objects-table id="sidewalkValue" modal-width="600px" modal-height="400px" >
+                <field-path value="pl_sidewalk^inventory_id" on-root-delete="unlink"/>
+
+                <linked-form name="pl_sidewalk_form" inline="true"
+                             domain-object-type="pl_sidewalk"/>
+                <summary-table>
+
+                    <summary-table-column header="Ширина" widget-id="sidewalkWidthValue">
+                        <pattern value="{width}"/>
+                    </summary-table-column>
+
+                    <summary-table-column header="Покрытие" widget-id="sidewalkCoatingValue">
+                        <pattern value="{coating}"/>
+                    </summary-table-column>
+
+                    <summary-table-column header="Состояние объекта" widget-id="sidewalkStateValue">
+                        <pattern value="{state}"/>
+                    </summary-table-column>
+
+                </summary-table>
+                <single-choice value="false"/>
+            </linked-domain-objects-table>
+
+            <label id="sportGroundLabel">
+                <text>Спортивная площадка</text>
+            </label>
+            <linked-domain-objects-table id="sportGroundValue" modal-width="600px" modal-height="400px" >
+                <field-path value="pl_sport_ground^inventory_id" on-root-delete="unlink"/>
+
+                <linked-form name="pl_sport_ground_form" inline="true"
+                             domain-object-type="pl_sport_ground"/>
+                <summary-table>
+
+                    <summary-table-column header="Площадь" widget-id="sportGroundAreaValue">
+                        <pattern value="{square}"/>
+                    </summary-table-column>
+
+                    <summary-table-column header="Покрытие" widget-id="sportGroundCoatingValue">
+                        <pattern value="{coating}"/>
+                    </summary-table-column>
+
+                    <summary-table-column header="Состояние объекта" widget-id="sportGroundStateValue">
+                        <pattern value="{state}"/>
+                    </summary-table-column>
+
+                </summary-table>
+                <single-choice value="false"/>
+            </linked-domain-objects-table>
+
+            <label id="yardPassageLabel">
+                <text>Дворовой проезд</text>
+            </label>
+            <linked-domain-objects-table id="yardPassageValue" modal-width="600px" modal-height="400px" >
+                <field-path value="pl_yard_passage^inventory_id" on-root-delete="unlink"/>
+
+                <linked-form name="pl_yard_passage_form" inline="true"
+                             domain-object-type="pl_yard_passage"/>
+                <summary-table>
+
+                    <summary-table-column header="Ширина" widget-id="yardPassageWidthValue">
+                        <pattern value="{width}"/>
+                    </summary-table-column>
+
+                    <summary-table-column header="Покрытие" widget-id="yardPassageCoatingValue">
+                        <pattern value="{coating}"/>
+                    </summary-table-column>
+
+                    <summary-table-column header="Состояние объекта" widget-id="yardPassageStateValue">
+                        <pattern value="{state}"/>
+                    </summary-table-column>
+
+                </summary-table>
+                <single-choice value="false"/>
+            </linked-domain-objects-table>
 
 
             <!--Domain linked object table для Others-->

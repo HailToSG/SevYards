@@ -32,10 +32,10 @@
 
                                 <tr>
                                     <td h-align="right">
-                                        <widget id="bicycleParkingCoatingLabel"/>
+                                        <widget id="bicycleParkingNumberPlacesLabel"/>
                                     </td>
                                     <td h-align="left">
-                                        <widget id="bicycleParkingCoatingValue"/>
+                                        <widget id="bicycleParkingNumberPlacesValue"/>
                                     </td>
                                 </tr>
 
@@ -70,17 +70,17 @@
                 <text>Велопарковка</text>
             </label>
 
-            <label id="bicycleParkingWidthLabel">
+            <label id="bicycleParkingAreaLabel">
                 <text>Площадь</text>
             </label>
-            <integer-box id="bicycleParkingWidthValue">
+            <integer-box id="bicycleParkingAreaValue">
                 <field-path value="square"/>
             </integer-box>
 
-            <label id="bicycleParkingCoatingLabel">
+            <label id="bicycleParkingNumberPlacesLabel">
                 <text>Количество парковочных мест</text>
             </label>
-            <integer-box id="bicycleParkingWidthValue">
+            <integer-box id="bicycleParkingNumberPlacesValue">
                 <field-path value="number_parking_places"/>
             </integer-box>
 

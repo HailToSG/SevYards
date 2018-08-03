@@ -78,10 +78,15 @@
         <configuration-path>forms/gardening/gard-tree-form.xml</configuration-path>
         <configuration-path>forms/gardening/gard-vertical-form.xml</configuration-path>
         <!-- Формы плоскостных и линейных-->
+        <configuration-path>forms/planar-linear/pl-bicycle-parking-form.xml</configuration-path>
         <configuration-path>forms/planar-linear/pl-bicycle-road-form.xml</configuration-path>
+        <configuration-path>forms/planar-linear/pl-car-parking-form.xml</configuration-path>
         <configuration-path>forms/planar-linear/pl-container-square-form.xml</configuration-path>
         <configuration-path>forms/planar-linear/pl-dog-walking-area-form.xml</configuration-path>
         <configuration-path>forms/planar-linear/pl-playground-form.xml</configuration-path>
+        <configuration-path>forms/planar-linear/pl-sidewalk-form.xml</configuration-path>
+        <configuration-path>forms/planar-linear/pl-sport-ground-form.xml</configuration-path>
+        <configuration-path>forms/planar-linear/pl-yard-passage-form.xml</configuration-path>
         <!-- Остальные формы-->
         <configuration-path>forms/others/others-form.xml</configuration-path>
         <configuration-path>forms/others/others-barrier-form.xml</configuration-path>

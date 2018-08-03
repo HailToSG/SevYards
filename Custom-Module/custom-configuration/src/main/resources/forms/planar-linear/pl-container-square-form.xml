@@ -123,13 +123,12 @@
             <label id="containerSquareKgoPlaceLabel">
                 <text>Наличие места для КГО</text>
             </label>
-
             <check-box id="containerSquareKgoPlaceValue">
                 <field-path value="availability_place_kgo"/>
             </check-box>
 
             <label id="containerSquareContainerAmountLabel">
-                <text>Количесвто контейнеров</text>
+                <text>Количество контейнеров</text>
             </label>
             <integer-box id="containerSquareContainerAmountValue">
                 <field-path value="number_containers"/>

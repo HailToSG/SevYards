@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <configuration xmlns="https://cm5.intertrust.ru/config" xmlns:act="https://cm5.intertrust.ru/config/action">
 
-    <!-- Форма для доменного объекта "Живая изгородь" -->
+    <!-- Форма для доменного объекта "Велодорожка" -->
     <form name="pl_bicycle_road_form" domain-object-type="pl_bicycle_road" is-default="true">
         <markup>
             <header>
