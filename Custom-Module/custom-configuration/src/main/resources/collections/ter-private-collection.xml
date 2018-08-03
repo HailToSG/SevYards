@@ -5,15 +5,34 @@
         <prototype>
             <![CDATA[
             SELECT
-              territory.id                       AS id,
-              territory.facade_state             AS facade_state,
-              territory.territory_state          AS territory_state,
-              territory.contract_of_improvement  AS contract_of_improvement,
-              territory.territory_id             AS territory_id
+              terr.id               AS id,
+              terr.name             AS name,
+              terr.number           AS number,
 
-            FROM ter_private_housing territory
+                    (SELECT private.facade_state
+                     FROM ter_private_housing private
+                     WHERE private.territory_id = terr.id)
+                     AS facade_state,
+
+                    (SELECT private.territory_state
+                    FROM ter_private_housing private
+                    WHERE private.territory_id = terr.id)
+                    AS territory_state,
+
+                    (SELECT private.contract_of_improvement
+                    FROM ter_private_housing private
+                    WHERE private.territory_id = terr.id)
+                    AS contract_of_improvement,
+
+                    (SELECT COUNT(*)
+                    FROM inventory
+                    WHERE terr.id = territory_id)
+                    AS inventories
+
+            FROM ter_territory terr
+
             WHERE
-              1=1 ::where-clause
+              terr.territory_type='Объект ИЖС' ::where-clause
             ]]>
         </prototype>
 
@@ -22,6 +41,10 @@
     <collection-view name="ter_private_housing_collection_view" collection="ter_private_housing_collection"
                      is-default="true">
         <display>
+            <column field="name" name="Имя" type="string" editable="false"
+                    sortable="true" min-width="50px" text-break-style="cut"/>
+            <column field="number" name="Номер" type="string" editable="false"
+                    sortable="true" min-width="50px" text-break-style="cut"/>
             <column field="facade_state" name="Состояние фасада" type="string" editable="false" sortable="true"
                     min-width="50px" text-break-style="cut"/>
             <column field="territory_state" name="Состояние придомовой территории" type="string" editable="false"
@@ -30,6 +53,16 @@
             <column field="contract_of_improvement" name="Информация по подписании соглашения о благоустройстве"
                     type="text" editable="false" sortable="true"
                     min-width="50px" text-break-style="cut"/>
+            <column field="inventories" name="Инвентаризации" type="integer" editable="false" sortable="true"
+                    min-width="50px" text-break-style="cut">
+                <child-collection-viewer filter="byTerritory" domain-object-type-to-create="inventory"
+                                         bread-crumb="Инвентаризации">
+                    <collection-viewer>
+                        <collection-ref name="inventory_collection"/>
+                        <act:tool-bar useDefault="false"/>
+                    </collection-viewer>
+                </child-collection-viewer>
+            </column>
         </display>
     </collection-view>
 

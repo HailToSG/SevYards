@@ -3,6 +3,13 @@
 
     <!-- Форма для доменного объекта "Территория" -->
     <form name="territories_form" domain-object-type="ter_territory" is-default="false">
+        <act:tool-bar useDefault="false">
+            <act:action componentName="save.action" rendered="toggle-edit and not preview" text="Сохранить"
+                        tooltip="Сохранить изменения" order="10" imageClass="actionBar-save"/>
+            <act:action componentName="close.in.central.panel.action" text="Закрыть" tooltip="Закрыть"
+                        rendered="toggle-edit and not preview"
+                        imageClass="actionBar-close"/>
+        </act:tool-bar>
         <markup>
             <header>
                 <table>
@@ -71,7 +78,159 @@
 
     </form>
 
+    <form name="territories_public_form" domain-object-type="ter_territory" is-default="false">
+        <act:tool-bar useDefault="false">
+            <act:action componentName="save.action" rendered="toggle-edit and not preview" text="Сохранить"
+                        tooltip="Сохранить изменения" order="10" imageClass="actionBar-save"/>
+            <act:action componentName="toggle.edit.on.action" text="Редактировать" tooltip="Редактировать"
+                        rendered="toggle-edit and preview" imageClass="actionBar-edit" order="20"/>
+            <act:action componentName="close.in.central.panel.action" text="Закрыть" tooltip="Закрыть"
+                        rendered="toggle-edit and not preview" order="5"
+                        imageClass="actionBar-close"/>
+            <act:action componentName="delete.action" text="Удалить" tooltip="Удалить территорию"
+                        rendered="not toggle-edit or (toggle-edit and preview)"
+                        imageClass="actionBar-delete"/>
+
+        </act:tool-bar>
+        <markup>
+            <header>
+                <table>
+                    <tr>
+                        <td h-align="left">
+                            <widget id="headerLabel"/>
+                        </td>
+                    </tr>
+                </table>
+            </header>
+
+            <body display-single-tab="true">
+                <tab name="Общественная территория">
+                    <single-entry-group>
+                        <tab-group>
+                            <table>
+
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="territoryNameLabel"/>
+                                    </td>
+
+                                    <td h-align="left">
+                                        <widget id="territoryNameValue"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="territoryNumberLabel"/>
+                                    </td>
+
+                                    <td h-align="left">
+                                        <widget id="territoryNumberValue"/>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="territoryTypeLabel"/>
+                                    </td>
+
+                                    <td h-align="left">
+                                        <widget id="territoryTypeValue"/>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="publicLinkedLabel"/>
+                                    </td>
+
+                                    <td h-align="left">
+                                        <widget id="publicLinkedValue"/>
+                                    </td>
+                                </tr>
+
+                            </table>
+                        </tab-group>
+
+                    </single-entry-group>
+                </tab>
+
+            </body>
+
+        </markup>
+        <widget-config>
+            <label id="headerLabel">
+                <text>Территория</text>
+            </label>
+
+            <label id="territoryNameLabel">
+                <text>Имя территории</text>
+            </label>
+            <text-box id="territoryNameValue">
+                <field-path value="name"/>
+            </text-box>
+
+            <label id="territoryNumberLabel">
+                <text>Номер территории</text>
+            </label>
+            <text-box id="territoryNumberValue">
+                <field-path value="number"/>
+            </text-box>
+
+            <label id="territoryTypeLabel">
+                <text>Тип территории</text>
+            </label>
+
+            <text-box id="territoryTypeValue" read-only="true">
+                <field-path value="territory_type">
+                    <default-value>
+                        <field value="Общественная территория"/>
+                    </default-value>
+                </field-path>
+            </text-box>
+
+            <label id="publicLinkedLabel">
+                <text>Общественная территория</text>
+            </label>
+
+            <linked-domain-objects-table id="publicLinkedValue" delete-linked-objects="true" modal-width="600px"
+                                         modal-height="400px">
+                <field-path value="ter_public^territory_id" on-root-delete="unlink"/>
+
+                <linked-form name="ter_public_form" inline="true"
+                             domain-object-type="ter_public"/>
+                <summary-table>
+                    <summary-table-column header="Вид" widget-id="kindOfTerritoryValue">
+                        <pattern value="{kind_of_territory}"/>
+                    </summary-table-column>
+                    <summary-table-column header="Общая площадь" widget-id="summaryAreaValue">
+                        <pattern value="{summary_area}"/>
+                    </summary-table-column>
+                    <summary-table-column header="Площадь объектов" widget-id="objectsAreaLabel">
+                        <pattern value="{objects_area}"/>
+                    </summary-table-column>
+                </summary-table>
+                <single-choice value="true"/>
+            </linked-domain-objects-table>
+
+
+        </widget-config>
+
+    </form>
+
     <form name="territories_yard_form" domain-object-type="ter_territory" is-default="false">
+        <act:tool-bar useDefault="false">
+            <act:action componentName="save.action" rendered="toggle-edit and not preview" text="Сохранить"
+                        tooltip="Сохранить изменения" order="10" imageClass="actionBar-save"/>
+            <act:action componentName="toggle.edit.on.action" text="Редактировать" tooltip="Редактировать"
+                        rendered="toggle-edit and preview" imageClass="actionBar-edit" order="20"/>
+            <act:action componentName="close.in.central.panel.action" text="Закрыть" tooltip="Закрыть"
+                        rendered="toggle-edit and not preview" order="5"
+                        imageClass="actionBar-close"/>
+            <act:action componentName="delete.action" text="Удалить" tooltip="Удалить территорию"
+                        rendered="not toggle-edit or (toggle-edit and preview)"
+                        imageClass="actionBar-delete"/>
+
+        </act:tool-bar>
         <markup>
             <header>
                 <table>
@@ -193,132 +352,20 @@
         </widget-config>
     </form>
 
-    <form name="territories_public_form" domain-object-type="ter_territory" is-default="false">
-        <markup>
-            <header>
-                <table>
-                    <tr>
-                        <td h-align="left">
-                            <widget id="headerLabel"/>
-                        </td>
-                    </tr>
-                </table>
-            </header>
-
-            <body display-single-tab="true">
-                <tab name="Общественная территория">
-                    <single-entry-group>
-                        <tab-group>
-                            <table>
-
-                                <tr>
-                                    <td h-align="right">
-                                        <widget id="territoryNameLabel"/>
-                                    </td>
-
-                                    <td h-align="left">
-                                        <widget id="territoryNameValue"/>
-                                    </td>
-
-                                    <td h-align="right">
-                                        <widget id="territoryNumberLabel"/>
-                                    </td>
-
-                                    <td h-align="left">
-                                        <widget id="territoryNumberValue"/>
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <td h-align="right">
-                                        <widget id="territoryTypeLabel"/>
-                                    </td>
-
-                                    <td h-align="left">
-                                        <widget id="territoryTypeValue"/>
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <td h-align="right">
-                                        <widget id="publicLinkedLabel"/>
-                                    </td>
-
-                                    <td h-align="left">
-                                        <widget id="publicLinkedValue"/>
-                                    </td>
-                                </tr>
-
-                            </table>
-                        </tab-group>
-
-                    </single-entry-group>
-                </tab>
-
-            </body>
-
-        </markup>
-        <widget-config>
-            <label id="headerLabel">
-                <text>Территория</text>
-            </label>
-
-            <label id="territoryNameLabel">
-                <text>Имя территории</text>
-            </label>
-            <text-box id="territoryNameValue">
-                <field-path value="name"/>
-            </text-box>
-
-            <label id="territoryNumberLabel">
-                <text>Номер территории</text>
-            </label>
-            <text-box id="territoryNumberValue">
-                <field-path value="number"/>
-            </text-box>
-
-            <label id="territoryTypeLabel">
-                <text>Тип территории</text>
-            </label>
-
-            <text-box id="territoryTypeValue" read-only="true">
-                <field-path value="territory_type">
-                    <default-value>
-                        <field value="Общественная территория"/>
-                    </default-value>
-                </field-path>
-            </text-box>
-
-            <label id="publicLinkedLabel">
-                <text>Общественная территория</text>
-            </label>
-
-            <linked-domain-objects-table id="publicLinkedValue" delete-linked-objects="true" modal-width="600px"
-                                         modal-height="400px">
-                <field-path value="ter_public^territory_id" on-root-delete="unlink"/>
-
-                <linked-form name="ter_public_form" inline="true"
-                             domain-object-type="ter_public"/>
-                <summary-table>
-                    <summary-table-column header="Вид" widget-id="kindOfTerritoryValue">
-                        <pattern value="{kind_of_territory}"/>
-                    </summary-table-column>
-                    <summary-table-column header="Общая площадь" widget-id="summaryAreaValue">
-                        <pattern value="{summary_area}"/>
-                    </summary-table-column>
-                    <summary-table-column header="Площадь объектов" widget-id="objectsAreaLabel">
-                        <pattern value="{objects_area}"/>
-                    </summary-table-column>
-                </summary-table>
-                <single-choice value="true"/>
-            </linked-domain-objects-table>
-
-
-        </widget-config>
-
-    </form>
-
     <form name="territories_private_form" domain-object-type="ter_territory" is-default="false">
+        <act:tool-bar useDefault="false">
+            <act:action componentName="save.action" rendered="toggle-edit and not preview" text="Сохранить"
+                        tooltip="Сохранить изменения" order="10" imageClass="actionBar-save"/>
+            <act:action componentName="toggle.edit.on.action" text="Редактировать" tooltip="Редактировать"
+                        rendered="toggle-edit and preview" imageClass="actionBar-edit" order="20"/>
+            <act:action componentName="close.in.central.panel.action" text="Закрыть" tooltip="Закрыть"
+                        rendered="toggle-edit and not preview" order="5"
+                        imageClass="actionBar-close"/>
+            <act:action componentName="delete.action" text="Удалить" tooltip="Удалить территорию"
+                        rendered="not toggle-edit or (toggle-edit and preview)"
+                        imageClass="actionBar-delete"/>
+
+        </act:tool-bar>
         <markup>
             <header>
                 <table>
@@ -364,16 +411,6 @@
 
                                     <td h-align="left">
                                         <widget id="territoryTypeValue"/>
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <td h-align="right">
-                                        <widget id="privateLinkedLabel"/>
-                                    </td>
-
-                                    <td h-align="left">
-                                        <widget id="privateLinkedValue"/>
                                     </td>
                                 </tr>
 
@@ -457,6 +494,19 @@
     </form>
 
     <form name="territories_ulip_form" domain-object-type="ter_territory" is-default="false">
+        <act:tool-bar useDefault="false">
+            <act:action componentName="save.action" rendered="toggle-edit and not preview" text="Сохранить"
+                        tooltip="Сохранить изменения" order="10" imageClass="actionBar-save"/>
+            <act:action componentName="toggle.edit.on.action" text="Редактировать" tooltip="Редактировать"
+                        rendered="toggle-edit and preview" imageClass="actionBar-edit" order="20"/>
+            <act:action componentName="close.in.central.panel.action" text="Закрыть" tooltip="Закрыть"
+                        rendered="toggle-edit and not preview" order="5"
+                        imageClass="actionBar-close"/>
+            <act:action componentName="delete.action" text="Удалить" tooltip="Удалить территорию"
+                        rendered="not toggle-edit or (toggle-edit and preview)"
+                        imageClass="actionBar-delete"/>
+
+        </act:tool-bar>
         <markup>
             <header>
                 <table>

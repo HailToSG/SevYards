@@ -5,13 +5,27 @@
         <prototype>
             <![CDATA[
             SELECT
-              territory.id               AS id,
-              territory.summary_area     AS summary_area,
-              territory.objects_area     AS objects_area
+              terr.id               AS id,
+              terr.name             AS name,
+              terr.number           AS number,
 
-            FROM ter_yard territory
+                    (SELECT yard.objects_area
+                    FROM ter_yard yard
+                    WHERE yard.territory_id = terr.id)
+                    AS objects_area,
+
+                    (SELECT yard.objects_area
+                    FROM ter_yard yard
+                    WHERE yard.territory_id = terr.id)
+                    AS summary_area,
+
+                    (SELECT COUNT(*) FROM inventory
+                    WHERE terr.id = territory_id)
+                    AS inventories
+
+            FROM ter_territory terr
             WHERE
-              1=1 ::where-clause
+              terr.territory_type='Дворовая территория' ::where-clause
             ]]>
         </prototype>
 
@@ -19,10 +33,24 @@
 
     <collection-view name="ter_yard_collection_view" collection="ter_yard_collection" is-default="true">
         <display>
-            <column field="summary_area" name="Общая площадь" type="integer" editable="false"
+            <column field="name" name="Имя" type="string" editable="false"
+                    sortable="true" min-width="50px" text-break-style="cut"/>
+            <column field="number" name="Номер" type="string" editable="false"
                     sortable="true" min-width="50px" text-break-style="cut"/>
             <column field="objects_area" name="Площадь зданий, сооружений, строений" type="integer" editable="false"
                     sortable="true" min-width="50px" text-break-style="cut"/>
+            <column field="summary_area" name="Общая площадь" type="integer" editable="false"
+                    sortable="true" min-width="50px" text-break-style="cut"/>
+            <column field="inventories" name="Инвентаризации" type="integer" editable="false" sortable="true"
+                    min-width="50px" text-break-style="cut">
+                <child-collection-viewer filter="byTerritory" domain-object-type-to-create="inventory"
+                                         bread-crumb="Инвентаризации">
+                    <collection-viewer>
+                        <collection-ref name="inventory_collection"/>
+                        <act:tool-bar useDefault="false"/>
+                    </collection-viewer>
+                </child-collection-viewer>
+            </column>
         </display>
     </collection-view>
 

@@ -116,18 +116,18 @@
                                 </tr>
                                 <tr>
                                     <td h-align="right">
-                                        <widget id="bushLabel"/>
-                                    </td>
-                                    <td h-align="left">
-                                        <widget id="bushValue"/>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td h-align="right">
                                         <widget id="lawnLabel"/>
                                     </td>
                                     <td h-align="left">
                                         <widget id="lawnValue"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="bushLabel"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="bushValue"/>
                                     </td>
                                 </tr>
                                 <tr>
@@ -220,14 +220,7 @@
                                         <widget id="pavilionsValue"/>
                                     </td>
                                 </tr>
-                                <tr>
-                                    <td h-align="right">
-                                        <widget id="sportEquipmentLabel"/>
-                                    </td>
-                                    <td h-align="left">
-                                        <widget id="sportEquipmentValue"/>
-                                    </td>
-                                </tr>
+
                                 <tr>
                                     <td h-align="right">
                                         <widget id="terracesLabel"/>
@@ -237,7 +230,14 @@
                                     </td>
                                 </tr>
 
-
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="sportEquipmentLabel"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="sportEquipmentValue"/>
+                                    </td>
+                                </tr>
                             </table>
                         </tab-group>
                     </single-entry-group>
@@ -248,24 +248,6 @@
                     <single-entry-group>
                         <tab-group>
                             <table>
-                                <tr>
-                                    <td h-align="right">
-                                        <widget id="bicycleParkingLabel"/>
-                                    </td>
-                                    <td h-align="left">
-                                        <widget id="bicycleParkingValue"/>
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <td h-align="right">
-                                        <widget id="bicycleRoadLabel"/>
-                                    </td>
-                                    <td h-align="left">
-                                        <widget id="bicycleRoadValue"/>
-                                    </td>
-                                </tr>
-
                                 <tr>
                                     <td h-align="right">
                                         <widget id="carParkingLabel"/>
@@ -286,6 +268,24 @@
 
                                 <tr>
                                     <td h-align="right">
+                                        <widget id="playgroundLabel"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="playgroundValue"/>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="bicycleParkingLabel"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="bicycleParkingValue"/>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td h-align="right">
                                         <widget id="dogWalkingAreaLabel"/>
                                     </td>
                                     <td h-align="left">
@@ -295,10 +295,10 @@
 
                                 <tr>
                                     <td h-align="right">
-                                        <widget id="playgroundLabel"/>
+                                        <widget id="sportGroundLabel"/>
                                     </td>
                                     <td h-align="left">
-                                        <widget id="playgroundValue"/>
+                                        <widget id="sportGroundValue"/>
                                     </td>
                                 </tr>
 
@@ -313,10 +313,10 @@
 
                                 <tr>
                                     <td h-align="right">
-                                        <widget id="sportGroundLabel"/>
+                                        <widget id="bicycleRoadLabel"/>
                                     </td>
                                     <td h-align="left">
-                                        <widget id="sportGroundValue"/>
+                                        <widget id="bicycleRoadValue"/>
                                     </td>
                                 </tr>
 
@@ -341,6 +341,16 @@
                             <table>
                                 <tr>
                                     <td h-align="right">
+                                        <widget id="fencesLabel"/>
+                                    </td>
+
+                                    <td h-align="left">
+                                        <widget id="fencesValue"/>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td h-align="right">
                                         <widget id="barrierLabel"/>
                                     </td>
 
@@ -349,51 +359,7 @@
                                         <widget id="barrierValue"/>
                                     </td>
                                 </tr>
-                                <tr>
-                                    <td h-align="right">
-                                        <widget id="fencesLabel"/>
-                                    </td>
 
-                                    <td h-align="left">
-                                        <widget id="fencesValue"/>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td h-align="right">
-                                        <widget id="informationStandLabel"/>
-                                    </td>
-
-                                    <td h-align="left">
-                                        <widget id="informationStandValue"/>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td h-align="right">
-                                        <widget id="lightingDeviceLabel"/>
-                                    </td>
-
-                                    <td h-align="left">
-                                        <widget id="lightingDeviceValue"/>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td h-align="right">
-                                        <widget id="pondLabel"/>
-                                    </td>
-
-                                    <td h-align="left">
-                                        <widget id="pondValue"/>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td h-align="right">
-                                        <widget id="powerPylonLabel"/>
-                                    </td>
-
-                                    <td h-align="left">
-                                        <widget id="powerPylonValue"/>
-                                    </td>
-                                </tr>
                                 <tr>
                                     <td h-align="right">
                                         <widget id="rampantLabel"/>
@@ -403,6 +369,47 @@
                                         <widget id="rampantValue"/>
                                     </td>
                                 </tr>
+
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="lightingDeviceLabel"/>
+                                    </td>
+
+                                    <td h-align="left">
+                                        <widget id="lightingDeviceValue"/>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="powerPylonLabel"/>
+                                    </td>
+
+                                    <td h-align="left">
+                                        <widget id="powerPylonValue"/>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="informationStandLabel"/>
+                                    </td>
+
+                                    <td h-align="left">
+                                        <widget id="informationStandValue"/>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="pondLabel"/>
+                                    </td>
+
+                                    <td h-align="left">
+                                        <widget id="pondValue"/>
+                                    </td>
+                                </tr>
+
                                 <tr>
                                     <td h-align="right">
                                         <widget id="undergroundHatchLabel"/>

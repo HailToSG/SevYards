@@ -9,7 +9,7 @@
                     <plugin>
                         <domain-object-surfer domain-object-type-to-create="ter_territory">
                             <collection-viewer>
-                                <act:tool-bar useDefault="false">
+                                <act:tool-bar useDefault="false" rendered="false">
                                     <act:action-group name="create.visual.parameters.objects1" text="Создать территорию"
                                                       merged="true" imageClass="actionBar-create" order="30">
                                         <act:action-ref name-ref="aCreate" text="Общественная">
@@ -56,6 +56,15 @@
                     <plugin>
                         <domain-object-surfer domain-object-type-to-create="ter_territory">
                             <collection-viewer>
+                                <act:tool-bar useDefault="false">
+                                    <act:action-ref name-ref="aCreate" order="1" text="Создать территорию">
+                                        <act:action-params>
+                                            <act:action-param name="create.object.type" value="ter_territory"/>
+                                            <act:action-param name="create.object.form"
+                                                              value="territories_public_form"/>
+                                        </act:action-params>
+                                    </act:action-ref>
+                                </act:tool-bar>
                                 <collection-ref name="ter_public_collection"/>
                                 <collection-view-ref name="ter_public_collection_view"/>
                             </collection-viewer>
@@ -70,6 +79,15 @@
                     <plugin>
                         <domain-object-surfer domain-object-type-to-create="ter_territory">
                             <collection-viewer>
+                                <act:tool-bar useDefault="false">
+                                    <act:action-ref name-ref="aCreate" order="1" text="Создать территорию">
+                                        <act:action-params>
+                                            <act:action-param name="create.object.type" value="ter_territory"/>
+                                            <act:action-param name="create.object.form"
+                                                              value="territories_yard_form"/>
+                                        </act:action-params>
+                                    </act:action-ref>
+                                </act:tool-bar>
                                 <collection-ref name="ter_yard_collection"/>
                                 <collection-view-ref name="ter_yard_collection_view"/>
                             </collection-viewer>
@@ -84,6 +102,15 @@
                     <plugin>
                         <domain-object-surfer domain-object-type-to-create="ter_territory">
                             <collection-viewer>
+                                <act:tool-bar rendered="false" useDefault="false" replace="none">
+                                    <act:action-ref name-ref="aCreate" order="1" text="Создать территорию">
+                                        <act:action-params>
+                                            <act:action-param name="create.object.type" value="ter_territory"/>
+                                            <act:action-param name="create.object.form"
+                                                              value="territories_private_form"/>
+                                        </act:action-params>
+                                    </act:action-ref>
+                                </act:tool-bar>
                                 <collection-ref name="ter_private_housing_collection"/>
                                 <collection-view-ref name="ter_private_housing_collection_view"/>
                             </collection-viewer>
@@ -98,6 +125,15 @@
                     <plugin>
                         <domain-object-surfer domain-object-type-to-create="ter_territory">
                             <collection-viewer>
+                                <act:tool-bar rendered="false" useDefault="false" replace="none">
+                                    <act:action-ref name-ref="aCreate" order="1" text="Создать территорию">
+                                        <act:action-params>
+                                            <act:action-param name="create.object.type" value="ter_territory"/>
+                                            <act:action-param name="create.object.form"
+                                                              value="territories_ulip_form"/>
+                                        </act:action-params>
+                                    </act:action-ref>
+                                </act:tool-bar>
                                 <collection-ref name="ter_ulip_collection"/>
                                 <collection-view-ref name="ter_ulip_collection_view"/>
                             </collection-viewer>

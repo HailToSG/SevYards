@@ -78,14 +78,14 @@
         <fields>
 
             <!--Состояние фасада-->
-            <string name="facade_state" length="1000">
+            <string name="facade_state" length="100">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
             </string>
 
             <!--Состояние придомовой территории-->
-            <string name="territory_state" length="1000">
+            <string name="territory_state" length="100">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
@@ -109,14 +109,14 @@
         <fields>
 
             <!--Состояние фасада-->
-            <string name="facade_state" length="1000">
+            <string name="facade_state" length="100">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
             </string>
 
             <!--Состояние прилегающей территории-->
-            <string name="territory_state" length="1000">
+            <string name="territory_state" length="100">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
