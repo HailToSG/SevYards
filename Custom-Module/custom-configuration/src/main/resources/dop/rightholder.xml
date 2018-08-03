@@ -6,12 +6,26 @@
     <domain-object-type name="rightholder">
         <fields>
 
+            <!--Ссылка на инвентаризацию -->
+            <reference name="inventory_id" type="inventory"/>
+
             <!-- Наименование -->
             <string name="name" length="1024">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
             </string>
+
+            <!-- Категория -->
+            <decimal name="category">
+                <constraints>
+                    <simple-constraint value="not-empty"/>
+                </constraints>
+            </decimal>
+
+            <!-- Общая информация -->
+            <text name="information"/>
+
         </fields>
 
     </domain-object-type>

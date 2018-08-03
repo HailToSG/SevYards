@@ -51,19 +51,22 @@
                     </single-entry-group>
                 </tab>
 
-                <!--<tab name="Правообладатели">-->
-                    <!--<single-entry-group>-->
-                        <!--<tab-group>-->
-                            <!--<table>-->
-                                <!--<tr>-->
-                                    <!--<td h-align="right">-->
-                                        <!--<widget id="holdersNameValue"/>-->
-                                    <!--</td>-->
-                                <!--</tr>-->
-                            <!--</table>-->
-                        <!--</tab-group>-->
-                    <!--</single-entry-group>-->
-                <!--</tab>-->
+                <tab name="Правообладатели">
+                    <single-entry-group>
+                        <tab-group>
+                            <table>
+                                <tr>
+                                    <td h-align="left">
+                                        <widget id="holdersNameLabel"/>
+                                    </td>
+                                    <td h-align="right">
+                                        <widget id="holdersNameValue"/>
+                                    </td>
+                                </tr>
+                            </table>
+                        </tab-group>
+                    </single-entry-group>
+                </tab>
 
                 <!--Domain linked object table для Buildings-->
                 <tab name="Строения">
@@ -488,18 +491,28 @@
                 <text>Наименование правообладателя</text>
             </label>
 
-            <!--<linked-domain-objects-table id="holdersNameValue">-->
-                <!--<field-path value=""-->
-                <!--<linked-form-mapping>-->
-                    <!--<linked-form domain-object-type="rightholder" name="rightholder_form"-->
-                                 <!--inline="true"-->
-                                 <!--modal-width="700px" modal-height="565px"/>-->
-                <!---->
-                <!--</linked-form-mapping>-->
-                <!--<created-objects>-->
-                    <!--<created-object domain-object-type="rightholder" text="Правообладатель"/>-->
-                <!--</created-objects>-->
-            <!--</linked-domain-objects-table>-->
+            <linked-domain-objects-table id="holdersNameValue" modal-width="600px" modal-height="400px" >
+                <field-path value="rightholder^inventory_id" on-root-delete="unlink"/>
+
+                <linked-form name="rightholder_form" inline="true"
+                             domain-object-type="rightholder"/>
+                <summary-table>
+                    <summary-table-column header="Наименование" widget-id="rightholderNameValue">
+                        <pattern value="{name}"/>
+                    </summary-table-column>
+
+                    <summary-table-column header="Категория" widget-id="categoryValue">
+                        <pattern value="{category}"/>
+                    </summary-table-column>
+
+                    <summary-table-column header="Информация" widget-id="infoValue">
+                        <pattern value="{information}"/>
+                    </summary-table-column>
+
+                </summary-table>
+                <single-choice value="false"/>
+
+            </linked-domain-objects-table>
 
 
             <!--Domain linked object table для Buildings-->

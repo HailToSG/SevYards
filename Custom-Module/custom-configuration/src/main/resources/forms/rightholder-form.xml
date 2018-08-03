@@ -28,6 +28,22 @@
                                         <widget id="rightholderNameValue"/>
                                     </td>
                                 </tr>
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="categoryLabel"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="categoryValue"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="infoLabel"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="infoValue"/>
+                                    </td>
+                                </tr>
                             </table>
                         </tab-group>
                     </single-entry-group>
@@ -49,6 +65,24 @@
                 <field-path value="name"/>
             </text-box>
 
+            <label id="categoryLabel">
+                <text>Категория</text>
+            </label>
+            <enumeration-box id="categoryValue">
+                <field-path value="category"/>
+                <mapping>
+                    <map value="0" display-text="Юридическое лицо"/>
+                    <map value="5" display-text="Индивидуальный предприниматель"/>
+                    <map value="10" display-text="Физическое лицо"/>
+                </mapping>
+            </enumeration-box>
+
+            <label id="infoLabel">
+                <text>Информация</text>
+            </label>
+            <text-box id="infoValue">
+                <field-path value="information"/>
+            </text-box>
 
         </widget-config>
     </form>
