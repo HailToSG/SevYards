@@ -6,6 +6,7 @@ import ru.intertrust.cm.core.business.api.dto.*;
 import ru.intertrust.cm.core.gui.api.server.action.ActionVisibilityChecker;
 import ru.intertrust.cm.core.gui.api.server.action.ActionVisibilityContext;
 import ru.intertrust.cm.core.gui.model.ComponentName;
+import ru.intertrust.cm.core.gui.model.util.PlaceholderResolver;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,7 +25,7 @@ public class InventoryStatusFinishVisibilityChecker implements ActionVisibilityC
 
     @Override
     public boolean isVisible(ActionVisibilityContext context) {
-
+        PlaceholderResolver placeholderResolver = new PlaceholderResolver();
         if          (context.getDomainObject()!=null && context.getDomainObject().getStatus() !=null
                     &&(getQueryStatusById(context.getDomainObject().getStatus()).equals(STATUS_DRAFT)
                     &&context.getDomainObject().getBoolean(IS_BUILDINGS_FILLED_FIELD)

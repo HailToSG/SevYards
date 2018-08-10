@@ -3,6 +3,11 @@
 
     <!-- Форма для доменного объекта "Жилое строение" -->
     <form name="inventory_form" domain-object-type="inventory" is-default="true">
+        <default-value-setter component="inventory.form.default.value.setter">
+            <widget-states>
+                <widgets ids="isBuildingsFilledValue"/>
+            </widget-states>
+        </default-value-setter>
         <act:tool-bar useDefault="false">
             <act:action-ref name-ref="aCreate" order="1" text="Создать" rendered="not toggle-edit or (toggle-edit and preview)">
                 <act:action-params>
@@ -14,7 +19,7 @@
             <act:action componentName="save.action" rendered="toggle-edit and not preview" text="Сохранить"
                         tooltip="Сохранить изменения" order="10" imageClass="actionBar-save"/>
             <act:action componentName="toggle.edit.on.action" text="Редактировать" tooltip="Редактировать"
-                        rendered="toggle-edit and preview" imageClass="actionBar-edit" order="20" visibility-checker="inventory.status.finish.visible.checker"/>
+                        rendered="toggle-edit and preview" imageClass="actionBar-edit" order="20"  visibility-checker="inventory.edit.visible.checker"/>
             <act:action componentName="close.in.central.panel.action" text="Закрыть" tooltip="Закрыть"
                         rendered="toggle-edit and not preview" order="5"
                         imageClass="actionBar-close"/>
@@ -547,14 +552,14 @@
             <label id="dateStartLabel">
                 <text>Время начала</text>
             </label>
-            <date-box id="dateStartValue">
+            <date-box id="dateStartValue" read-only="true">
                 <field-path value="start_time"/>
             </date-box>
 
             <label id="dateEndLabel">
                 <text>Время конца</text>
             </label>
-            <date-box id="dateEndValue">
+            <date-box id="dateEndValue" read-only="true">
                 <field-path value="end_time"/>
             </date-box>
 

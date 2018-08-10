@@ -16,10 +16,6 @@ import ru.intertrust.cm.core.gui.model.action.SimpleActionData;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Класс для автозаполнения поля формы "Инвентаризация"
- */
-
 @ComponentName("inventory.action")
 public class InventoryFormStatusSetter extends ActionHandler {
 

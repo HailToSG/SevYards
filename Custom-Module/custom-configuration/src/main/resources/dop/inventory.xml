@@ -8,18 +8,10 @@
             <!--Ссылка на ID территории-->
             <reference name="territory_id" type="ter_territory"/>
             <!--Время начала инвентаризации-->
-            <date-time name="start_time">
-                <constraints>
-                    <simple-constraint value="not-empty"/>
-                </constraints>
-            </date-time>
+            <date-time name="start_time"/>
 
             <!--Время окончания инвентаризации-->
-            <date-time name="end_time">
-                <constraints>
-                    <simple-constraint value="not-empty"/>
-                </constraints>
-            </date-time>
+            <date-time name="end_time"/>
             <boolean name="is_buildings_filled" not-null="true"/>
             <boolean name="is_rightholders_filled" not-null="true"/>
             <boolean name="is_elements_filled" not-null="true"/>
