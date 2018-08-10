@@ -110,7 +110,7 @@
             </enumeration-box>
 
             <label id="otherRampantIsFlapLabel">
-                <text>Является ли откидным?</text>
+                <text>Является ли откидным</text>
             </label>
             <check-box id="otherRampantIsFlapValue">
                 <field-path value="is_flap"/>

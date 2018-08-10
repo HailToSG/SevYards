@@ -154,6 +154,7 @@
                     <plugin>
                         <domain-object-surfer domain-object-type-to-create="inventory">
                             <collection-viewer>
+                                <act:tool-bar useDefault="false"/>
                                 <collection-ref name="inventory_collection"/>
                                 <collection-view-ref name="inventory_collection_view"/>
                             </collection-viewer>

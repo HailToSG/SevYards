@@ -5,12 +5,14 @@
         <prototype>
             <![CDATA[
             SELECT
-              inventory.id              AS  id,
-              inventory.start_time      AS  start_time,
-              inventory.end_time        AS  end_time
+              inventory.id                      AS  id,
+              inventory.start_time              AS  start_time,
+              inventory.end_time                AS  end_time,
+              stat.description                  AS  status
 
             FROM inventory
-            LEFT JOIN ter_territory ter ON ter.id = inventory.territory_id
+            INNER JOIN ter_territory ter ON ter.id = inventory.territory_id
+            INNER JOIN status stat ON stat.id = inventory.status
             WHERE
               1=1 ::where-clause
             ]]>
@@ -31,7 +33,31 @@
                     min-width="50px" text-break-style="cut"/>
             <column field="end_time" name="Конец инвентаризации" type="string" editable="false"
                     sortable="true" min-width="50px" text-break-style="cut"/>
+            <column field="status" name="Статус инвентаризации" type="string" editable="false"
+                    sortable="true" min-width="50px" text-break-style="cut"/>
         </display>
     </collection-view>
+
+    <collection name="inventory_status_collection" idField="id">
+        <prototype>
+            <![CDATA[
+                SELECT
+                    id,
+                    name status_name
+                    description status_description
+                FROM status
+                WHERE
+                name IN ('Draft inventory', 'Finished inventory') ::where-clause
+            ]]>
+        </prototype>
+
+        <filter name="byStatusDescription">
+            <criteria placeholder="where-clause">
+                <![CDATA[
+                    LOWER(description) LIKE LOWER('%' || {0} || '%')
+                ]]>
+            </criteria>
+        </filter>
+    </collection>
 
 </configuration>

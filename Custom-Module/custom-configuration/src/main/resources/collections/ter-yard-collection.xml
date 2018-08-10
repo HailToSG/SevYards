@@ -28,15 +28,29 @@
               terr.territory_type='Дворовая территория' ::where-clause
             ]]>
         </prototype>
+        <filter name="byName">
+            <criteria placeholder="where-clause">
+                <![CDATA[
+                    LOWER(terr.name) LIKE LOWER('%' || {0} || '%')
+                ]]>
+            </criteria>
+        </filter>
 
+        <filter name="byNumber">
+            <criteria placeholder="where-clause">
+                <![CDATA[
+                    LOWER(terr.number) LIKE LOWER('%' || {0} || '%')
+                ]]>
+            </criteria>
+        </filter>
     </collection>
 
     <collection-view name="ter_yard_collection_view" collection="ter_yard_collection" is-default="true">
         <display>
             <column field="name" name="Имя" type="string" editable="false"
-                    sortable="true" min-width="50px" text-break-style="cut"/>
+                    sortable="true" min-width="50px" text-break-style="cut" search-filter="byName"/>
             <column field="number" name="Номер" type="string" editable="false"
-                    sortable="true" min-width="50px" text-break-style="cut"/>
+                    sortable="true" min-width="50px" text-break-style="cut" search-filter="byNumber"/>
             <column field="objects_area" name="Площадь зданий, сооружений, строений" type="integer" editable="false"
                     sortable="true" min-width="50px" text-break-style="cut"/>
             <column field="summary_area" name="Общая площадь" type="integer" editable="false"

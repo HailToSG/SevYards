@@ -7,7 +7,9 @@
     </depends>
     <extension-points-packages>
         <extension-points-package>ru/intertrust/custommodule</extension-points-package>
+        <extension-points-package>ru/intertrust/custommodule/extensions</extension-points-package>
     </extension-points-packages>
+
     <gui-components-packages>
         <gui-components-package>ru/intertrust/custommodule</gui-components-package>
     </gui-components-packages>
@@ -19,6 +21,7 @@
         <configuration-path>configuration/navigation-panel.xml</configuration-path>
         <configuration-path>configuration/global.xml</configuration-path>
         <configuration-path>configuration/form-mechanism-1.xml</configuration-path>
+        <configuration-path>configuration/action/actions.xml</configuration-path>
 
         <!-- Доменные объекты -->
         <configuration-path>dop/buildings.xml</configuration-path>
@@ -48,16 +51,16 @@
         <!--<configuration-path>collections/bld-temporary-collection.xml</configuration-path>-->
 
         <!-- Формы -->
-        <!-- Формы строений-->
-        <configuration-path>forms/buildings/bld-residential-form.xml</configuration-path>
-        <configuration-path>forms/buildings/bld-permanent-form.xml</configuration-path>
-        <configuration-path>forms/buildings/bld-temporary-form.xml</configuration-path>
         <!-- Формы территорий-->
         <configuration-path>forms/territories/territories-form.xml</configuration-path>
         <configuration-path>forms/territories/ter-private-form.xml</configuration-path>
         <configuration-path>forms/territories/ter-public-form.xml</configuration-path>
         <configuration-path>forms/territories/ter-ulip-form.xml</configuration-path>
         <configuration-path>forms/territories/ter-yard-form.xml</configuration-path>
+        <!-- Формы строений-->
+        <configuration-path>forms/buildings/bld-residential-form.xml</configuration-path>
+        <configuration-path>forms/buildings/bld-permanent-form.xml</configuration-path>
+        <configuration-path>forms/buildings/bld-temporary-form.xml</configuration-path>
         <!-- Форма инвентаризации-->
         <configuration-path>forms/inventory-form.xml</configuration-path>
         <!-- Формы МАФ-->
@@ -87,7 +90,7 @@
         <configuration-path>forms/planar-linear/pl-sidewalk-form.xml</configuration-path>
         <configuration-path>forms/planar-linear/pl-sport-ground-form.xml</configuration-path>
         <configuration-path>forms/planar-linear/pl-yard-passage-form.xml</configuration-path>
-        <!-- Остальные формы-->
+        <!-- Формы объектов класса Иное-->
         <configuration-path>forms/others/others-form.xml</configuration-path>
         <configuration-path>forms/others/others-barrier-form.xml</configuration-path>
         <configuration-path>forms/others/others-fences-form.xml</configuration-path>
@@ -97,18 +100,12 @@
         <configuration-path>forms/others/others-power-pylon-form.xml</configuration-path>
         <configuration-path>forms/others/others-rampant-form.xml</configuration-path>
         <configuration-path>forms/others/others-underground-hatch-form.xml</configuration-path>
-        <configuration-path>forms/planar-linear-form.xml</configuration-path>
+        <!-- Формы для правообладателей-->
         <configuration-path>forms/rightholder-form.xml</configuration-path>
 
 
     </configuration-paths>
     <import-files rewrite="true">
-        <!--<import-file>importdata/f1.csv</import-file>-->
-        <!--<import-file>importdata/d1.csv</import-file>-->
-        <!--<import-file>importdata/c1.csv</import-file>-->
-        <!--<import-file>importdata/b1.csv</import-file>-->
-        <!--<import-file>importdata/a1.csv</import-file>-->
-        <!--<import-file>importdata/e1.csv</import-file>-->
-        <!--<import-file>importdata/a1_f1.csv</import-file>-->
+        <import-file>importdata/status.csv</import-file>
     </import-files>
 </module>

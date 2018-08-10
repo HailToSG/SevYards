@@ -3,7 +3,7 @@
 
     <!--Доменный объект "Инвентаризация"-->
 
-    <domain-object-type name="inventory">
+    <domain-object-type name="inventory" initial-status="Draft inventory">
         <fields>
             <!--Ссылка на ID территории-->
             <reference name="territory_id" type="ter_territory"/>
@@ -20,6 +20,10 @@
                     <simple-constraint value="not-empty"/>
                 </constraints>
             </date-time>
+            <boolean name="is_buildings_filled" not-null="true"/>
+            <boolean name="is_rightholders_filled" not-null="true"/>
+            <boolean name="is_elements_filled" not-null="true"/>
+            <boolean name="is_inventory_finished"/>
         </fields>
         <attachment-types>
             <attachment-type name="territory_photo"/>

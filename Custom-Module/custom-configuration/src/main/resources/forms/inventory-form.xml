@@ -3,6 +3,49 @@
 
     <!-- Форма для доменного объекта "Жилое строение" -->
     <form name="inventory_form" domain-object-type="inventory" is-default="true">
+        <act:tool-bar useDefault="false">
+            <act:action-ref name-ref="aCreate" order="1" text="Создать" rendered="not toggle-edit or (toggle-edit and preview)">
+                <act:action-params>
+                    <act:action-param name="create.object.type" value="inventory"/>
+                    <act:action-param name="create.object.form"
+                                      value="inventory_form"/>
+                </act:action-params>
+            </act:action-ref>
+            <act:action componentName="save.action" rendered="toggle-edit and not preview" text="Сохранить"
+                        tooltip="Сохранить изменения" order="10" imageClass="actionBar-save"/>
+            <act:action componentName="toggle.edit.on.action" text="Редактировать" tooltip="Редактировать"
+                        rendered="toggle-edit and preview" imageClass="actionBar-edit" order="20" visibility-checker="inventory.status.finish.visible.checker"/>
+            <act:action componentName="close.in.central.panel.action" text="Закрыть" tooltip="Закрыть"
+                        rendered="toggle-edit and not preview" order="5"
+                        imageClass="actionBar-close"/>
+
+            <act:simple-action name="finish" componentName="simple.action" action-handler="inventory.action"
+                               text="Завершить иневентаризацию" imageClass="actionBar-delete" dirtySensitivity="false"
+                               order="300" merged="true" visibility-checker="inventory.status.finish.visible.checker">
+
+                <act:before-execution>
+                    <act:confirmation-message text="Инвентаризация будет завершена. Продолжить?"/>
+                </act:before-execution>
+
+                <act:after-execution>
+                    <act:on-success-message text="Инвентаризация завершена"/>
+                </act:after-execution>
+            </act:simple-action>
+
+            <act:simple-action name="finish" componentName="simple.action" action-handler="inventory.action"
+                               text="Возобновить иневентаризацию" imageClass="actionBar-edit" dirtySensitivity="false"
+                               order="300" merged="true" visibility-checker="inventory.status.draft.visible.checker">
+
+                <act:before-execution>
+                    <act:confirmation-message text="Инвентаризация будет возобновлена. Продолжить?"/>
+                </act:before-execution>
+
+                <act:after-execution>
+                    <act:on-success-message text="Инвентаризация возобновлена"/>
+                </act:after-execution>
+            </act:simple-action>
+        </act:tool-bar>
+
         <markup>
             <header>
                 <table>
@@ -46,6 +89,32 @@
                                         <widget id="dateEndValue"/>
                                     </td>
                                 </tr>
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="isBuildingsFilledLabel"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="isBuildingsFilledValue"/>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="isRightholdersFilledLabel"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="isRightholdersFilledValue"/>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="isElementsFilledLabel"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="isElementsFilledValue"/>
+                                    </td>
+                                </tr>
                             </table>
                         </tab-group>
                     </single-entry-group>
@@ -63,6 +132,7 @@
                                         <widget id="holdersNameValue"/>
                                     </td>
                                 </tr>
+
                             </table>
                         </tab-group>
                     </single-entry-group>
@@ -452,6 +522,7 @@
         <widget-config>
 
 
+            <!--Виджеты для вкладки Инфо-->
             <label id="headerLabel">
                 <text>Инвентаризация</text>
             </label>
@@ -487,11 +558,33 @@
                 <field-path value="end_time"/>
             </date-box>
 
+            <label id="isBuildingsFilledLabel">
+                <text>Инфо о строениях заполнено</text>
+            </label>
+            <check-box id="isBuildingsFilledValue">
+                <field-path value="is_buildings_filled"/>
+            </check-box>
+
+            <label id="isRightholdersFilledLabel">
+                <text>Инфо о правообладателях заполнено</text>
+            </label>
+            <check-box id="isRightholdersFilledValue">
+                <field-path value="is_rightholders_filled"/>
+            </check-box>
+
+            <label id="isElementsFilledLabel">
+                <text>Инфо об элементах благоустройства заполнено</text>
+            </label>
+            <check-box id="isElementsFilledValue">
+                <field-path value="is_elements_filled"/>
+            </check-box>
+
+            <!--Виджеты для вкладки Правообладатели-->
             <label id="holdersNameLabel">
                 <text>Наименование правообладателя</text>
             </label>
 
-            <linked-domain-objects-table id="holdersNameValue" modal-width="600px" modal-height="400px" >
+            <linked-domain-objects-table id="holdersNameValue" modal-width="600px" modal-height="400px">
                 <field-path value="rightholder^inventory_id" on-root-delete="unlink"/>
 
                 <linked-form name="rightholder_form" inline="true"
@@ -519,7 +612,7 @@
             <label id="residentialLabel">
                 <text>Жилые строения</text>
             </label>
-            <linked-domain-objects-table id="residentialValue" modal-width="600px" modal-height="400px" >
+            <linked-domain-objects-table id="residentialValue" modal-width="600px" modal-height="400px">
                 <field-path value="build_residential^inventory_id" on-root-delete="unlink"/>
 
                 <linked-form name="bld_residential_form" inline="true"
@@ -553,7 +646,7 @@
             <label id="permanentLabel">
                 <text>Нежилые кап. строения</text>
             </label>
-            <linked-domain-objects-table id="permanentValue" modal-width="600px" modal-height="400px" >
+            <linked-domain-objects-table id="permanentValue" modal-width="600px" modal-height="400px">
                 <field-path value="build_permanent^inventory_id" on-root-delete="unlink"/>
 
                 <linked-form name="bld_permanent_form" inline="true"
@@ -587,7 +680,7 @@
             <label id="temporaryLabel">
                 <text>Нежилые некап. строения</text>
             </label>
-            <linked-domain-objects-table id="temporaryValue" modal-width="600px" modal-height="400px" >
+            <linked-domain-objects-table id="temporaryValue" modal-width="600px" modal-height="400px">
                 <field-path value="build_temporary^inventory_id" on-root-delete="unlink"/>
 
                 <linked-form name="bld_temporary_form" inline="true"
@@ -616,7 +709,7 @@
             <label id="greenHedgeLabel">
                 <text>Живая изгородь</text>
             </label>
-            <linked-domain-objects-table id="greenHedgeValue" modal-width="600px" modal-height="400px" >
+            <linked-domain-objects-table id="greenHedgeValue" modal-width="600px" modal-height="400px">
                 <field-path value="gard_green_hedge^inventory_id" on-root-delete="unlink"/>
 
                 <linked-form name="gard_green_hedge_form" inline="true"
@@ -649,32 +742,32 @@
             <label id="bushLabel">
                 <text>Куст</text>
             </label>
-            <linked-domain-objects-table id="bushValue" modal-width="600px" modal-height="400px" >
-            <field-path value="gard_bush^inventory_id" on-root-delete="unlink"/>
+            <linked-domain-objects-table id="bushValue" modal-width="600px" modal-height="400px">
+                <field-path value="gard_bush^inventory_id" on-root-delete="unlink"/>
 
-            <linked-form name="gard_bush_form" inline="true"
-                         domain-object-type="gard_bush"/>
-            <summary-table>
-                <summary-table-column header="Тип" widget-id="bushKindValue">
-                    <pattern value="{kind}"/>
-                </summary-table-column>
+                <linked-form name="gard_bush_form" inline="true"
+                             domain-object-type="gard_bush"/>
+                <summary-table>
+                    <summary-table-column header="Тип" widget-id="bushKindValue">
+                        <pattern value="{kind}"/>
+                    </summary-table-column>
 
-                <summary-table-column header="Высота" widget-id="bushHeightValue">
-                    <pattern value="{height}"/>
-                </summary-table-column>
+                    <summary-table-column header="Высота" widget-id="bushHeightValue">
+                        <pattern value="{height}"/>
+                    </summary-table-column>
 
-                <summary-table-column header="Состояние" widget-id="bushStateValue">
-                    <pattern value="{state}"/>
-                </summary-table-column>
+                    <summary-table-column header="Состояние" widget-id="bushStateValue">
+                        <pattern value="{state}"/>
+                    </summary-table-column>
 
-            </summary-table>
-            <single-choice value="false"/>
+                </summary-table>
+                <single-choice value="false"/>
             </linked-domain-objects-table>
 
             <label id="greenHedgeLabel">
                 <text>Живая изгородь</text>
             </label>
-            <linked-domain-objects-table id="greenHedgeValue" modal-width="600px" modal-height="400px" >
+            <linked-domain-objects-table id="greenHedgeValue" modal-width="600px" modal-height="400px">
                 <field-path value="gard_green_hedge^inventory_id" on-root-delete="unlink"/>
 
                 <linked-form name="gard_green_hedge_form" inline="true"
@@ -707,7 +800,7 @@
             <label id="lawnLabel">
                 <text>Газон</text>
             </label>
-            <linked-domain-objects-table id="lawnValue" modal-width="600px" modal-height="400px" >
+            <linked-domain-objects-table id="lawnValue" modal-width="600px" modal-height="400px">
                 <field-path value="gard_lawn^inventory_id" on-root-delete="unlink"/>
 
                 <linked-form name="gard_lawn_form" inline="true"
@@ -732,7 +825,7 @@
             <label id="parterreLabel">
                 <text>Цветник</text>
             </label>
-            <linked-domain-objects-table id="parterreValue" modal-width="600px" modal-height="400px" >
+            <linked-domain-objects-table id="parterreValue" modal-width="600px" modal-height="400px">
                 <field-path value="gard_parterre^inventory_id" on-root-delete="unlink"/>
 
                 <linked-form name="gard_parterre_form" inline="true"
@@ -757,7 +850,7 @@
             <label id="treeLabel">
                 <text>Дерево</text>
             </label>
-            <linked-domain-objects-table id="treeValue" modal-width="600px" modal-height="400px" >
+            <linked-domain-objects-table id="treeValue" modal-width="600px" modal-height="400px">
                 <field-path value="gard_tree^inventory_id" on-root-delete="unlink"/>
 
                 <linked-form name="gard_tree_form" inline="true"
@@ -782,7 +875,7 @@
             <label id="verticalLabel">
                 <text>Вертикальное озеленение</text>
             </label>
-            <linked-domain-objects-table id="verticalValue" modal-width="600px" modal-height="400px" >
+            <linked-domain-objects-table id="verticalValue" modal-width="600px" modal-height="400px">
                 <field-path value="gard_vertical^inventory_id" on-root-delete="unlink"/>
 
                 <linked-form name="gard_vertical_form" inline="true"
@@ -805,7 +898,7 @@
             <label id="playgroundEquipmentLabel">
                 <text>Оснащения детских площадок</text>
             </label>
-            <linked-domain-objects-table id="playgroundEquipmentValue" modal-width="600px" modal-height="400px" >
+            <linked-domain-objects-table id="playgroundEquipmentValue" modal-width="600px" modal-height="400px">
                 <field-path value="maf_playground_equipment^inventory_id" on-root-delete="unlink"/>
 
                 <linked-form name="maf_playground_equipment_form" inline="true"
@@ -843,7 +936,7 @@
             <label id="trashCanLabel">
                 <text>Накопитель ТКО</text>
             </label>
-            <linked-domain-objects-table id="trashCanValue" modal-width="600px" modal-height="400px" >
+            <linked-domain-objects-table id="trashCanValue" modal-width="600px" modal-height="400px">
                 <field-path value="maf_trash_can^inventory_id" on-root-delete="unlink"/>
 
                 <linked-form name="maf_trash_can_form" inline="true"
@@ -877,7 +970,7 @@
             <label id="benchesLabel">
                 <text>Скамья</text>
             </label>
-            <linked-domain-objects-table id="benchesValue" modal-width="600px" modal-height="400px" >
+            <linked-domain-objects-table id="benchesValue" modal-width="600px" modal-height="400px">
                 <field-path value="maf_benches^inventory_id" on-root-delete="unlink"/>
 
                 <linked-form name="maf_benches_form" inline="true"
@@ -914,7 +1007,7 @@
             <label id="tablesLabel">
                 <text>Стол</text>
             </label>
-            <linked-domain-objects-table id="tablesValue" modal-width="600px" modal-height="400px" >
+            <linked-domain-objects-table id="tablesValue" modal-width="600px" modal-height="400px">
                 <field-path value="maf_tables^inventory_id" on-root-delete="unlink"/>
 
                 <linked-form name="maf_tables_form" inline="true"
@@ -948,7 +1041,7 @@
             <label id="canopiesLabel">
                 <text>Навес</text>
             </label>
-            <linked-domain-objects-table id="canopiesValue" modal-width="600px" modal-height="400px" >
+            <linked-domain-objects-table id="canopiesValue" modal-width="600px" modal-height="400px">
                 <field-path value="maf_canopies^inventory_id" on-root-delete="unlink"/>
 
                 <linked-form name="maf_canopies_form" inline="true"
@@ -974,7 +1067,7 @@
             <label id="fountainsLabel">
                 <text>Фонтан</text>
             </label>
-            <linked-domain-objects-table id="fountainsValue" modal-width="600px" modal-height="400px" >
+            <linked-domain-objects-table id="fountainsValue" modal-width="600px" modal-height="400px">
                 <field-path value="maf_fountains^inventory_id" on-root-delete="unlink"/>
 
                 <linked-form name="maf_fountains_form" inline="true"
@@ -1000,7 +1093,7 @@
             <label id="pavilionsLabel">
                 <text>Беседка</text>
             </label>
-            <linked-domain-objects-table id="pavilionsValue" modal-width="600px" modal-height="400px" >
+            <linked-domain-objects-table id="pavilionsValue" modal-width="600px" modal-height="400px">
                 <field-path value="maf_pavilions^inventory_id" on-root-delete="unlink"/>
 
                 <linked-form name="maf_pavilions_form" inline="true"
@@ -1026,7 +1119,7 @@
             <label id="sportEquipmentLabel">
                 <text>Спортивный инвентарь</text>
             </label>
-            <linked-domain-objects-table id="sportEquipmentValue" modal-width="600px" modal-height="400px" >
+            <linked-domain-objects-table id="sportEquipmentValue" modal-width="600px" modal-height="400px">
                 <field-path value="maf_sport_equipments^inventory_id" on-root-delete="unlink"/>
 
                 <linked-form name="maf_sport_equipments_form" inline="true"
@@ -1048,7 +1141,7 @@
             <label id="terracesLabel">
                 <text>Терасса</text>
             </label>
-            <linked-domain-objects-table id="terracesValue" modal-width="600px" modal-height="400px" >
+            <linked-domain-objects-table id="terracesValue" modal-width="600px" modal-height="400px">
                 <field-path value="maf_terraces^inventory_id" on-root-delete="unlink"/>
 
                 <linked-form name="maf_terraces_form" inline="true"
@@ -1073,7 +1166,7 @@
             <label id="bicycleParkingLabel">
                 <text>Велопарковки</text>
             </label>
-            <linked-domain-objects-table id="bicycleParkingValue" modal-width="600px" modal-height="400px" >
+            <linked-domain-objects-table id="bicycleParkingValue" modal-width="600px" modal-height="400px">
                 <field-path value="pl_bicycle_parking^inventory_id" on-root-delete="unlink"/>
 
                 <linked-form name="pl_bicycle_parking_form" inline="true"
@@ -1083,7 +1176,8 @@
                         <pattern value="{square}"/>
                     </summary-table-column>
 
-                    <summary-table-column header="Количество парковочных мест" widget-id="bicycleParkingNumberPlacesValue">
+                    <summary-table-column header="Количество парковочных мест"
+                                          widget-id="bicycleParkingNumberPlacesValue">
                         <pattern value="{number_parking_places}"/>
                     </summary-table-column>
 
@@ -1098,7 +1192,7 @@
             <label id="bicycleRoadLabel">
                 <text>Велодорожка</text>
             </label>
-            <linked-domain-objects-table id="bicycleRoadValue" modal-width="600px" modal-height="400px" >
+            <linked-domain-objects-table id="bicycleRoadValue" modal-width="600px" modal-height="400px">
                 <field-path value="pl_bicycle_road^inventory_id" on-root-delete="unlink"/>
 
                 <linked-form name="pl_bicycle_road_form" inline="true"
@@ -1123,7 +1217,7 @@
             <label id="carParkingLabel">
                 <text>Автопарковка</text>
             </label>
-            <linked-domain-objects-table id="carParkingValue" modal-width="600px" modal-height="400px" >
+            <linked-domain-objects-table id="carParkingValue" modal-width="600px" modal-height="400px">
                 <field-path value="pl_car_parking^inventory_id" on-root-delete="unlink"/>
 
                 <linked-form name="pl_car_parking_form" inline="true"
@@ -1133,7 +1227,8 @@
                         <pattern value="{number_of_parking_places}"/>
                     </summary-table-column>
 
-                    <summary-table-column header="Количество парковочных мест для инвалидов" widget-id="numberOfParkingPlacesInvalidsValue">
+                    <summary-table-column header="Количество парковочных мест для инвалидов"
+                                          widget-id="numberOfParkingPlacesInvalidsValue">
                         <pattern value="{numb_park_places_invalids}"/>
                     </summary-table-column>
 
@@ -1160,7 +1255,7 @@
             <label id="containerSquareLabel">
                 <text>Контейнерная площадка</text>
             </label>
-            <linked-domain-objects-table id="containerSquareValue" modal-width="600px" modal-height="400px" >
+            <linked-domain-objects-table id="containerSquareValue" modal-width="600px" modal-height="400px">
                 <field-path value="pl_container_square^inventory_id" on-root-delete="unlink"/>
 
                 <linked-form name="pl_container_square_form" inline="true"
@@ -1178,7 +1273,8 @@
                         <pattern value="{availability_place_kgo}"/>
                     </summary-table-column>
 
-                    <summary-table-column header="Количество контейнеров" widget-id="containerSquareContainerAmountValue">
+                    <summary-table-column header="Количество контейнеров"
+                                          widget-id="containerSquareContainerAmountValue">
                         <pattern value="{number_containers}"/>
                     </summary-table-column>
 
@@ -1193,7 +1289,7 @@
             <label id="dogWalkingAreaLabel">
                 <text>Площадка для выгула собак</text>
             </label>
-            <linked-domain-objects-table id="dogWalkingAreaValue" modal-width="600px" modal-height="400px" >
+            <linked-domain-objects-table id="dogWalkingAreaValue" modal-width="600px" modal-height="400px">
                 <field-path value="pl_dog_walking_area^inventory_id" on-root-delete="unlink"/>
 
                 <linked-form name="pl_dog_walking_area_form" inline="true"
@@ -1216,7 +1312,7 @@
             <label id="playgroundLabel">
                 <text>Детская площадка</text>
             </label>
-            <linked-domain-objects-table id="playgroundValue" modal-width="600px" modal-height="400px" >
+            <linked-domain-objects-table id="playgroundValue" modal-width="600px" modal-height="400px">
                 <field-path value="pl_playground^inventory_id" on-root-delete="unlink"/>
 
                 <linked-form name="pl_playground_form" inline="true"
@@ -1242,7 +1338,7 @@
             <label id="sidewalkLabel">
                 <text>Тротуар</text>
             </label>
-            <linked-domain-objects-table id="sidewalkValue" modal-width="600px" modal-height="400px" >
+            <linked-domain-objects-table id="sidewalkValue" modal-width="600px" modal-height="400px">
                 <field-path value="pl_sidewalk^inventory_id" on-root-delete="unlink"/>
 
                 <linked-form name="pl_sidewalk_form" inline="true"
@@ -1268,7 +1364,7 @@
             <label id="sportGroundLabel">
                 <text>Спортивная площадка</text>
             </label>
-            <linked-domain-objects-table id="sportGroundValue" modal-width="600px" modal-height="400px" >
+            <linked-domain-objects-table id="sportGroundValue" modal-width="600px" modal-height="400px">
                 <field-path value="pl_sport_ground^inventory_id" on-root-delete="unlink"/>
 
                 <linked-form name="pl_sport_ground_form" inline="true"
@@ -1294,7 +1390,7 @@
             <label id="yardPassageLabel">
                 <text>Дворовой проезд</text>
             </label>
-            <linked-domain-objects-table id="yardPassageValue" modal-width="600px" modal-height="400px" >
+            <linked-domain-objects-table id="yardPassageValue" modal-width="600px" modal-height="400px">
                 <field-path value="pl_yard_passage^inventory_id" on-root-delete="unlink"/>
 
                 <linked-form name="pl_yard_passage_form" inline="true"
@@ -1322,7 +1418,7 @@
             <label id="barrierLabel">
                 <text>Устройство преграждения пути</text>
             </label>
-            <linked-domain-objects-table id="barrierValue" modal-width="600px" modal-height="400px" >
+            <linked-domain-objects-table id="barrierValue" modal-width="600px" modal-height="400px">
                 <field-path value="others_barrier^inventory_id" on-root-delete="unlink"/>
 
                 <linked-form name="others_barrier_form" inline="true"
@@ -1355,7 +1451,7 @@
             <label id="fencesLabel">
                 <text>Ограждение</text>
             </label>
-            <linked-domain-objects-table id="fencesValue" modal-width="600px" modal-height="400px" >
+            <linked-domain-objects-table id="fencesValue" modal-width="600px" modal-height="400px">
                 <field-path value="other_fences^inventory_id" on-root-delete="unlink"/>
 
                 <linked-form name="others_fences_form" inline="true"
@@ -1388,7 +1484,7 @@
             <label id="informationStandLabel">
                 <text>Информационный стенд</text>
             </label>
-            <linked-domain-objects-table id="informationStandValue" modal-width="600px" modal-height="400px" >
+            <linked-domain-objects-table id="informationStandValue" modal-width="600px" modal-height="400px">
                 <field-path value="other_information_stand^inventory_id" on-root-delete="unlink"/>
 
                 <linked-form name="others_information_stand_form" inline="true"
@@ -1409,7 +1505,7 @@
             <label id="lightingDeviceLabel">
                 <text>Светильник</text>
             </label>
-            <linked-domain-objects-table id="lightingDeviceValue" modal-width="600px" modal-height="400px" >
+            <linked-domain-objects-table id="lightingDeviceValue" modal-width="600px" modal-height="400px">
                 <field-path value="other_lighting_device^inventory_id" on-root-delete="unlink"/>
 
                 <linked-form name="others_lighting_device_form" inline="true"
@@ -1442,7 +1538,7 @@
             <label id="pondLabel">
                 <text>Водоем</text>
             </label>
-            <linked-domain-objects-table id="pondValue" modal-width="600px" modal-height="400px" >
+            <linked-domain-objects-table id="pondValue" modal-width="600px" modal-height="400px">
                 <field-path value="other_pond^inventory_id" on-root-delete="unlink"/>
 
                 <linked-form name="others_pond_form" inline="true"
@@ -1463,7 +1559,7 @@
             <label id="powerPylonLabel">
                 <text>Опора ЛЭП</text>
             </label>
-            <linked-domain-objects-table id="powerPylonValue" modal-width="600px" modal-height="400px" >
+            <linked-domain-objects-table id="powerPylonValue" modal-width="600px" modal-height="400px">
                 <field-path value="other_power_pylon^inventory_id" on-root-delete="unlink"/>
 
                 <linked-form name="others_power_pylon_form" inline="true"
@@ -1489,7 +1585,7 @@
             <label id="rampantLabel">
                 <text>Пандус</text>
             </label>
-            <linked-domain-objects-table id="rampantValue" modal-width="600px" modal-height="400px" >
+            <linked-domain-objects-table id="rampantValue" modal-width="600px" modal-height="400px">
                 <field-path value="other_rampant^inventory_id" on-root-delete="unlink"/>
 
                 <linked-form name="others_rampant_form" inline="true"
@@ -1508,7 +1604,7 @@
                         <pattern value="{coating}"/>
                     </summary-table-column>
 
-                    <summary-table-column header="Является ли откидным?" widget-id="otherRampantIsFlapValue">
+                    <summary-table-column header="Является ли откидным" widget-id="otherRampantIsFlapValue">
                         <pattern value="{is_flap}"/>
                     </summary-table-column>
 
@@ -1523,7 +1619,7 @@
             <label id="undergroundHatchLabel">
                 <text>Люки подземных коммуникаций</text>
             </label>
-            <linked-domain-objects-table id="undergroundHatchValue" modal-width="600px" modal-height="400px" >
+            <linked-domain-objects-table id="undergroundHatchValue" modal-width="600px" modal-height="400px">
                 <field-path value="other_underground_hatch^inventory_id" on-root-delete="unlink"/>
 
                 <linked-form name="others_underground_hatch_form" inline="true"
@@ -1556,7 +1652,7 @@
                 </images-only>
                 <choice-style name="popup"/>
             </attachment-box>
-        </widget-config>
 
+        </widget-config>
     </form>
 </configuration>
