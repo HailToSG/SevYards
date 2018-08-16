@@ -23,7 +23,6 @@ public class InventoryStatusDraftVisibilityChecker implements ActionVisibilityCh
 
     @Override
     public boolean isVisible(ActionVisibilityContext context) {
-
         if (context.getDomainObject() != null && context.getDomainObject().getStatus() != null) {
             if (getQueryStatusById(context.getDomainObject().getStatus()).equals(STATUS_FINISHED)) {
 
@@ -35,13 +34,14 @@ public class InventoryStatusDraftVisibilityChecker implements ActionVisibilityCh
     }
 
     public String getQueryStatusById(Id status) {
-        List<Value> params = new ArrayList<>();
+        List<Value> parameters = new ArrayList<>();
         Value statusIdValue = new ReferenceValue(status);
-        params.add(statusIdValue);
-        IdentifiableObjectCollection collection = collectionsService.findCollectionByQuery(QUERY_STATUS_BY_ID, params);
+        parameters.add(statusIdValue);
+
+        IdentifiableObjectCollection collection = collectionsService.findCollectionByQuery(QUERY_STATUS_BY_ID, parameters);
         if (collection != null && collection.size() > 0) {
-            for (IdentifiableObject O : collection) {
-                return O.getString(FIELD_NAME);
+            for (IdentifiableObject Obj : collection) {
+                return Obj.getString(FIELD_NAME);
             }
         }
         return null;

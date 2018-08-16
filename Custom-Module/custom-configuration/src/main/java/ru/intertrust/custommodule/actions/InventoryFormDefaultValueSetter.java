@@ -1,8 +1,11 @@
 package ru.intertrust.custommodule.actions;
 
-import ru.intertrust.cm.core.business.api.dto.BooleanValue;
-import ru.intertrust.cm.core.business.api.dto.DateTimeValue;
-import ru.intertrust.cm.core.business.api.dto.Value;
+import org.springframework.beans.factory.annotation.Autowired;
+import ru.intertrust.cm.core.business.api.CollectionsService;
+import ru.intertrust.cm.core.business.api.dto.*;
+import ru.intertrust.cm.core.business.api.CrudService;
+import ru.intertrust.cm.core.dao.access.AccessControlService;
+import ru.intertrust.cm.core.dao.api.DomainObjectDao;
 import ru.intertrust.cm.core.gui.api.server.ComponentHandler;
 import ru.intertrust.cm.core.gui.api.server.widget.FormDefaultValueSetter;
 import ru.intertrust.cm.core.gui.model.ComponentName;
@@ -10,23 +13,31 @@ import ru.intertrust.cm.core.gui.model.form.FieldPath;
 import ru.intertrust.cm.core.gui.model.form.FormObjects;
 import ru.intertrust.cm.core.gui.model.form.FormState;
 
-import java.io.FileWriter;
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 
 @ComponentName("inventory.form.default.value.setter")
 public class InventoryFormDefaultValueSetter implements ComponentHandler, FormDefaultValueSetter {
 
-    FileWriter fileWriter;
+    @Autowired
+    private DomainObjectDao domainObjectService;
 
-    private static final String IS_BUILDINGS_FILLED_FIELD_CHECKBOX= "is_buildings_filled";
-    private static final String IS_RIGHTHOLDERS_FILLED_FIELD_CHECKBOX= "is_rightholders_filled";
+    @Autowired
+    CrudService crudService;
+
+    @Autowired
+    private CollectionsService collectionsService;
+
+    @Autowired
+    private AccessControlService accessControlService;
+
+    private static final String QUERY_INVENTORY_BY_MAX_ID = "SELECT * FROM inventory WHERE id=(SELECT max(id) FROM inventory)";
+    private static final String TERRITORY_LINKED_FIELD = "territory_id";
+    private static final String IS_BUILDINGS_FILLED_FIELD_CHECKBOX = "is_buildings_filled";
+    private static final String IS_RIGHTHOLDERS_FILLED_FIELD_CHECKBOX = "is_rightholders_filled";
     private static final String IS_ELEMENTS_FILLED_CHECKBOX = "is_elements_filled";
-    private static final String  DATE_START_FIELD= "start_time";
-    private static final String  DATE_END_FIELD= "end_time";
-    private static final Boolean CHECKBOX_TRUE_VALUE = true;
+    private static final String DATE_START_FIELD = "start_time";
+    private static final Boolean CHECKBOX_FALSE_VALUE = false;
 
     @Override
     public Value[] getDefaultValues(FormObjects formObjects, FieldPath fieldPath) {
@@ -45,29 +56,30 @@ public class InventoryFormDefaultValueSetter implements ComponentHandler, FormDe
 
     @Override
     public Value getDefaultValue(FormState formState, FieldPath fieldPath) {
-        List<String> fieldList = new ArrayList<>();
         String fieldPathValue = fieldPath.getPath();
 
-//        {
-//            try {
-//                fileWriter = new FileWriter("SSSSAAAAA.txt", false);
-//                fileWriter.flush();
-//                fileWriter.write("fieldPathValue: " + fieldPathValue);
-//                fileWriter.close();
-//            } catch (IOException e) {
-//                e.printStackTrace();
-//            }
-//        }
+        IdentifiableObjectCollection collection = collectionsService.findCollectionByQuery(QUERY_INVENTORY_BY_MAX_ID);
+        IdentifiableObject lastInventory = collection.get(0);
+        ArrayList list = lastInventory.getFields();
+        List<Id> temporaryBuildingsList = crudService.findLinkedDomainObjectsIds(lastInventory.getId(), "build_temporary", "inventory_id");
+        List<DomainObject> temporaryBuildingsObjects = crudService.find(temporaryBuildingsList);
+        crudService.save(temporaryBuildingsObjects);
 
-        switch (fieldPathValue){
-            case IS_BUILDINGS_FILLED_FIELD_CHECKBOX: return new BooleanValue(CHECKBOX_TRUE_VALUE);
-            case IS_RIGHTHOLDERS_FILLED_FIELD_CHECKBOX: return new BooleanValue(CHECKBOX_TRUE_VALUE);
-            case IS_ELEMENTS_FILLED_CHECKBOX: return new BooleanValue(CHECKBOX_TRUE_VALUE);
-            case DATE_START_FIELD: return new DateTimeValue(new Date());
-            case DATE_END_FIELD: return new DateTimeValue(new Date());
-            default: return null;
+        switch (fieldPathValue) {
+            case TERRITORY_LINKED_FIELD:
+                return new ReferenceValue(lastInventory.getId());
+            case IS_BUILDINGS_FILLED_FIELD_CHECKBOX:
+                return new BooleanValue(CHECKBOX_FALSE_VALUE);
+            case IS_RIGHTHOLDERS_FILLED_FIELD_CHECKBOX:
+                return new BooleanValue(CHECKBOX_FALSE_VALUE);
+            case IS_ELEMENTS_FILLED_CHECKBOX:
+                return new BooleanValue(CHECKBOX_FALSE_VALUE);
+            case DATE_START_FIELD:
+                return new DateTimeValue(new Date());
+            default:
+                return null;
         }
 
-    }
 
+    }
 }

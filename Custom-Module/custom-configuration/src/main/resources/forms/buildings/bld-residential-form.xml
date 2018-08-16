@@ -117,9 +117,9 @@
             <enumeration-box id="residentialKindValue">
                 <field-path value="kind"/>
                 <mapping>
-                    <map display-text="МКД" value="0"/>
-                    <map display-text="ИЖС" value="5"/>
-                    <map display-text="Блокированный" value="10"/>
+                    <map display-text="МКД" value="5"/>
+                    <map display-text="ИЖС" value="10"/>
+                    <map display-text="Блокированный" value="15"/>
                 </mapping>
             </enumeration-box>
 

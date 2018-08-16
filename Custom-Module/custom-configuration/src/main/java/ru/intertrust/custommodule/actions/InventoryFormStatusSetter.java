@@ -17,7 +17,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @ComponentName("inventory.action")
-public class InventoryFormStatusSetter extends ActionHandler {
+public class InventoryFormStatusSetter extends ActionHandler<ActionContext, ActionData> {
 
     private static final String STATUS_DRAFT = "Draft inventory";
     private static final String STATUS_FINISHED = "Finished inventory";
@@ -41,7 +41,6 @@ public class InventoryFormStatusSetter extends ActionHandler {
     public ActionData executeAction(ActionContext context) {
         Id rootObjectId = context.getRootObjectId();
         SimpleActionData actionData = new SimpleActionData();
-
         if (rootObjectId != null) {
             DomainObject rootDomainObject = crudService.find(rootObjectId);
 
@@ -57,8 +56,8 @@ public class InventoryFormStatusSetter extends ActionHandler {
     }
 
     public String getStatusById(Id status) {
-        List<Value> params = new ArrayList<>();
         Value statusIdValue = new ReferenceValue(status);
+        List<Value> params = new ArrayList<>();
         params.add(statusIdValue);
         IdentifiableObjectCollection collection = collectionsService.findCollectionByQuery(QUERY_STATUS_BY_ID, params);
         if (collection != null && collection.size() > 0) {

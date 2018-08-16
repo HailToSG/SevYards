@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <configuration xmlns="https://cm5.intertrust.ru/config" xmlns:act="https://cm5.intertrust.ru/config/action">
 
-    <!-- Форма для доменного объекта "Жилое строение" -->
+    <!-- Форма для доменного объекта "Инвентаризация" -->
     <form name="inventory_form" domain-object-type="inventory" is-default="true">
-        <default-value-setter component="inventory.form.default.value.setter">
-            <widget-states>
-                <widgets ids="isBuildingsFilledValue"/>
-            </widget-states>
-        </default-value-setter>
-        <act:tool-bar useDefault="false">
-            <act:action-ref name-ref="aCreate" order="1" text="Создать" rendered="not toggle-edit or (toggle-edit and preview)">
+            <act:tool-bar useDefault="false">
+            <act:action name="aRefresh" text="Обновить" componentName="action.refresh" tooltip="Обновить"
+                        order="1" imageClass="actionBar-refresh"/>
+
+            <act:action-ref name-ref="aCreate" order="2" text="Создать"
+                            rendered="not toggle-edit or (toggle-edit and preview)">
                 <act:action-params>
                     <act:action-param name="create.object.type" value="inventory"/>
                     <act:action-param name="create.object.form"
@@ -19,7 +18,8 @@
             <act:action componentName="save.action" rendered="toggle-edit and not preview" text="Сохранить"
                         tooltip="Сохранить изменения" order="10" imageClass="actionBar-save"/>
             <act:action componentName="toggle.edit.on.action" text="Редактировать" tooltip="Редактировать"
-                        rendered="toggle-edit and preview" imageClass="actionBar-edit" order="20"  visibility-checker="inventory.edit.visible.checker"/>
+                        rendered="toggle-edit and preview" imageClass="actionBar-edit" order="20"
+                        visibility-checker="inventory.edit.visible.checker"/>
             <act:action componentName="close.in.central.panel.action" text="Закрыть" tooltip="Закрыть"
                         rendered="toggle-edit and not preview" order="5"
                         imageClass="actionBar-close"/>
@@ -47,6 +47,19 @@
 
                 <act:after-execution>
                     <act:on-success-message text="Инвентаризация возобновлена"/>
+                </act:after-execution>
+            </act:simple-action>
+
+            <act:simple-action name="copy" componentName="simple.action" action-handler="last.inventory.copier.handler"
+                               text="Копия инвентаризации" imageClass="actionBar-create" dirtySensitivity="false"
+                               order="500" merged="true" visibility-checker="inventory.status.draft.visible.checker">
+
+                <act:before-execution>
+                    <act:confirmation-message text="Последняя инвентаризация будет скопированна. Продолжить?"/>
+                </act:before-execution>
+
+                <act:after-execution>
+                    <act:on-success-message text="Инвентаризация скопированна"/>
                 </act:after-execution>
             </act:simple-action>
         </act:tool-bar>
@@ -526,7 +539,6 @@
         </markup>
         <widget-config>
 
-
             <!--Виджеты для вкладки Инфо-->
             <label id="headerLabel">
                 <text>Инвентаризация</text>
@@ -552,14 +564,14 @@
             <label id="dateStartLabel">
                 <text>Время начала</text>
             </label>
-            <date-box id="dateStartValue" read-only="true">
+            <date-box id="dateStartValue">
                 <field-path value="start_time"/>
             </date-box>
 
             <label id="dateEndLabel">
                 <text>Время конца</text>
             </label>
-            <date-box id="dateEndValue" read-only="true">
+            <date-box id="dateEndValue">
                 <field-path value="end_time"/>
             </date-box>
 
@@ -769,39 +781,6 @@
                 <single-choice value="false"/>
             </linked-domain-objects-table>
 
-            <label id="greenHedgeLabel">
-                <text>Живая изгородь</text>
-            </label>
-            <linked-domain-objects-table id="greenHedgeValue" modal-width="600px" modal-height="400px">
-                <field-path value="gard_green_hedge^inventory_id" on-root-delete="unlink"/>
-
-                <linked-form name="gard_green_hedge_form" inline="true"
-                             domain-object-type="gard_green_hedge"/>
-                <summary-table>
-                    <summary-table-column header="Высота" widget-id="greenHedgeHeightValue">
-                        <pattern value="{height}"/>
-                    </summary-table-column>
-
-                    <summary-table-column header="Протяженность" widget-id="greenHedgeLengthValue">
-                        <pattern value="{length}"/>
-                    </summary-table-column>
-
-                    <summary-table-column header="Состав" widget-id="greenHedgeCompositionValue">
-                        <pattern value="{composition}"/>
-                    </summary-table-column>
-
-                    <summary-table-column header="Техника" widget-id="greenHedgeTrimTechniqueValue">
-                        <pattern value="{trim_technique}"/>
-                    </summary-table-column>
-
-                    <summary-table-column header="Состояние" widget-id="greenHedgeStateValue">
-                        <pattern value="{state}"/>
-                    </summary-table-column>
-
-                </summary-table>
-                <single-choice value="false"/>
-            </linked-domain-objects-table>
-
             <label id="lawnLabel">
                 <text>Газон</text>
             </label>
@@ -924,7 +903,6 @@
                     <summary-table-column header="Тип подвеса" widget-id="playgroundSupportSuspensionTypeValue">
                         <pattern value="{type_suspension}"/>
                     </summary-table-column>
-
 
                     <summary-table-column header="Состояние покрытия" widget-id="playgroundSupportCoatingStateValue">
                         <pattern value="{state_coating}"/>

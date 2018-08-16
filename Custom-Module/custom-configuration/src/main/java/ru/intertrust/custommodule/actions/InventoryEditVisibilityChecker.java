@@ -35,13 +35,13 @@ public class InventoryEditVisibilityChecker implements ActionVisibilityChecker {
     }
 
     public String getQueryStatusById(Id status) {
-        List<Value> params = new ArrayList<>();
+        List<Value> param = new ArrayList<>();
         Value statusIdValue = new ReferenceValue(status);
-        params.add(statusIdValue);
-        IdentifiableObjectCollection collection = collectionsService.findCollectionByQuery(QUERY_STATUS_BY_ID, params);
+        param.add(statusIdValue);
+        IdentifiableObjectCollection collection = collectionsService.findCollectionByQuery(QUERY_STATUS_BY_ID, param);
         if (collection != null && collection.size() > 0) {
-            for (IdentifiableObject O : collection) {
-                return O.getString(FIELD_NAME);
+            for (IdentifiableObject Ob : collection) {
+                return Ob.getString(FIELD_NAME);
             }
         }
         return null;

@@ -122,7 +122,7 @@
                     <map display-text="Офисное здание" value="20"/>
                     <map display-text="Магазин" value="25"/>
                     <map display-text="Трансформаторная подстанция" value="30"/>
-                    <map display-text="Хозяйственна постройка" value="35"/>
+                    <map display-text="Хозяйственный объект" value="35"/>
                     <map display-text="Учреждение культуры" value="45"/>
                     <map display-text="Учреждение образования" value="50"/>
                     <map display-text="Лечебное учреждение" value="55"/>

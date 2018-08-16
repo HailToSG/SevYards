@@ -70,14 +70,14 @@
             <enumeration-box id="kindOfTerritoryValue">
                 <field-path value="kind_of_territory"/>
                 <mapping>
-                    <map value="Площадь"/>
-                    <map value="Набережная"/>
-                    <map value="Парк"/>
-                    <map value="Набережная"/>
-                    <map value="Сквер"/>
-                    <map value="Пешеходная зона"/>
-                    <map value="Спортивно-игровая площадка"/>
-                    <map value="Иное"/>
+                    <map value="0" display-text="Площадь"/>
+                    <map value="5" display-text="Набережная"/>
+                    <map value="10" display-text="Парк"/>
+                    <map value="15" display-text="Набережная"/>
+                    <map value="20" display-text="Сквер"/>
+                    <map value="25" display-text="Пешеходная зона"/>
+                    <map value="30" display-text="Спортивно-игровая площадка"/>
+                    <map value="35" display-text="Иное"/>
                 </mapping>
             </enumeration-box>
 

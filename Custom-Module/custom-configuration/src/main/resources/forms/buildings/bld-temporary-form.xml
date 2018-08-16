@@ -83,7 +83,7 @@
             <enumeration-box id="temporaryKindValue">
                 <field-path value="kind"/>
                 <mapping>
-                    <map display-text="Гараж" value="15"/>
+                    <map display-text="Гараж" value="20"/>
                     <map display-text="Трансформаторная подстанция" value="85"/>
                     <map display-text="Хозяйственный объект" value="35"/>
                     <map display-text="Торговый павильон" value="75"/>

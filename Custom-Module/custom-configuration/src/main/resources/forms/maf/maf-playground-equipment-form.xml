@@ -195,7 +195,7 @@
             </enumeration-box>
 
             <label id="playgroundSupportPhotoLabel">
-                <text>Состояние покрытия</text>
+                <text>Фото</text>
             </label>
             <attachment-box id="playgroundSupportPhotoValue">
                 <field-path value="playground_equip_photo^maf_playground_equipment"/>
