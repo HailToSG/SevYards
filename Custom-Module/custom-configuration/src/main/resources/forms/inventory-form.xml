@@ -3,12 +3,11 @@
 
     <!-- Форма для доменного объекта "Инвентаризация" -->
     <form name="inventory_form" domain-object-type="inventory" is-default="true">
-            <act:tool-bar useDefault="false">
+        <act:tool-bar useDefault="false">
             <act:action name="aRefresh" text="Обновить" componentName="action.refresh" tooltip="Обновить"
                         order="1" imageClass="actionBar-refresh"/>
 
-            <act:action-ref name-ref="aCreate" order="2" text="Создать"
-                            rendered="not toggle-edit or (toggle-edit and preview)">
+            <act:action-ref name-ref="aCreate" order="2" text="Создать" visibility-checker="inventory.create.visibility.checker">
                 <act:action-params>
                     <act:action-param name="create.object.type" value="inventory"/>
                     <act:action-param name="create.object.form"

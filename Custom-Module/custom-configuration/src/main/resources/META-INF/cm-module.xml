@@ -21,7 +21,6 @@
         <configuration-path>configuration/navigation-panel.xml</configuration-path>
         <configuration-path>configuration/global.xml</configuration-path>
         <configuration-path>configuration/form-mechanism-1.xml</configuration-path>
-        <configuration-path>configuration/action/actions.xml</configuration-path>
 
         <!-- Доменные объекты -->
         <configuration-path>dop/buildings.xml</configuration-path>
