@@ -31,6 +31,7 @@
         <configuration-path>dop/planar-linear.xml</configuration-path>
         <configuration-path>dop/territories.xml</configuration-path>
         <configuration-path>dop/rightholder.xml</configuration-path>
+        <configuration-path>dop/roles-and-groups.xml</configuration-path>
 
         <!-- Коллекции -->
         <configuration-path>collections/buildings-collection.xml</configuration-path>
@@ -40,14 +41,15 @@
         <configuration-path>collections/ter-ulip-collection.xml</configuration-path>
         <configuration-path>collections/ter-yard-collection.xml</configuration-path>
         <configuration-path>collections/inventory-collection.xml</configuration-path>
-        <configuration-path>collections/bld-residential-collection.xml</configuration-path>
         <configuration-path>collections/gardening-collection.xml</configuration-path>
         <configuration-path>collections/maf-collection.xml</configuration-path>
         <configuration-path>collections/others-collection.xml</configuration-path>
         <configuration-path>collections/planar-linear-collection.xml</configuration-path>
         <configuration-path>collections/rightholder-collection.xml</configuration-path>
-        <!--<configuration-path>collections/bld-permanent-collection.xml</configuration-path>-->
-        <!--<configuration-path>collections/bld-temporary-collection.xml</configuration-path>-->
+        <configuration-path>collections/person-collection.xml</configuration-path>
+        <configuration-path>collections/role-collection.xml</configuration-path>
+        <configuration-path>collections/person-role-collection.xml</configuration-path>
+        <configuration-path>collections/authentication-info-collection.xml</configuration-path>
 
         <!-- Формы -->
         <!-- Формы территорий-->
@@ -56,12 +58,12 @@
         <configuration-path>forms/territories/ter-public-form.xml</configuration-path>
         <configuration-path>forms/territories/ter-ulip-form.xml</configuration-path>
         <configuration-path>forms/territories/ter-yard-form.xml</configuration-path>
+        <configuration-path>forms/person-territory-form.xml</configuration-path>
         <!-- Формы строений-->
         <configuration-path>forms/buildings/bld-residential-form.xml</configuration-path>
         <configuration-path>forms/buildings/bld-permanent-form.xml</configuration-path>
         <configuration-path>forms/buildings/bld-temporary-form.xml</configuration-path>
-        <!-- Форма инвентаризации-->
-        <configuration-path>forms/inventory-form.xml</configuration-path>
+
         <!-- Формы МАФ-->
         <configuration-path>forms/maf/maf-benches-form.xml</configuration-path>
         <configuration-path>forms/maf/maf-canopies-form.xml</configuration-path>
@@ -101,10 +103,18 @@
         <configuration-path>forms/others/others-underground-hatch-form.xml</configuration-path>
         <!-- Формы для правообладателей-->
         <configuration-path>forms/rightholder-form.xml</configuration-path>
+        <!-- Форма инвентаризации-->
+        <configuration-path>forms/inventory-form.xml</configuration-path>
+
+        <!-- Формы пользователей и ролей-->
+        <configuration-path>forms/authentication-info-form.xml</configuration-path>
+        <configuration-path>forms/person-form.xml</configuration-path>
+        <configuration-path>forms/person-role-form.xml</configuration-path>
 
 
     </configuration-paths>
     <import-files rewrite="true">
         <import-file>importdata/status.csv</import-file>
+        <import-file>importdata/roles.csv</import-file>
     </import-files>
 </module>

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<configuration xmlns="https://cm5.intertrust.ru/config">
+
+    <!-- Cущность "Роль" -->
+    <domain-object-type name="role" initial-status="Active">
+        <fields>
+            <string name="name" length="128"/>
+        </fields>
+        <uniqueKey>
+            <field name="name"/>
+        </uniqueKey>
+    </domain-object-type>
+
+    <!-- Cущность для связки "Пользователь - Роль" -->
+    <domain-object-type name="person_role">
+        <fields>
+            <reference name="person" type="person" not-null="true"/>
+            <reference name="role" type="role" not-null="true"/>
+        </fields>
+        <uniqueKey>
+            <field name="person"/>
+            <field name="role"/>
+        </uniqueKey>
+    </domain-object-type>
+
+    <dynamic-group name="super_administrator">
+        <members>
+            <track-domain-objects type="person_role" status="Active">
+                <get-person>
+                    <query>select pr.person from person_role pr
+                        join role r on r.id=pr.role and r.name ='Администратор' </query>
+                </get-person>
+            </track-domain-objects>
+        </members>
+    </dynamic-group>
+
+    <dynamic-group name="moderator">
+        <members>
+            <track-domain-objects type="person_role" status="Active">
+                <get-person>
+                    <query>select pr.person from person_role pr
+                        join role r on r.id=pr.role and r.name ='Модератор' </query>
+                </get-person>
+            </track-domain-objects>
+        </members>
+    </dynamic-group>
+
+    <dynamic-group name="executor">
+        <members>
+            <track-domain-objects type="person_role" status="Active">
+                <get-person>
+                    <query>select pr.person from person_role pr
+                        join role r on r.id=pr.role and r.name ='Исполнитель' </query>
+                </get-person>
+            </track-domain-objects>
+        </members>
+    </dynamic-group>
+    
+    <context-role name="appointed_territory_executors_role">
+        <context>
+            <domain-object type="ter_territory"/>
+        </context>
+        <groups>
+            <track-domain-objects type="ter_territory">
+                <get-group name="Person">
+                    <doel>person</doel>
+                </get-group>
+            </track-domain-objects>
+        </groups>
+    </context-role>
+</configuration>

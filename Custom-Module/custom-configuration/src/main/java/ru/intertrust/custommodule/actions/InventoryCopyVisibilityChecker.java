@@ -11,9 +11,9 @@ import ru.intertrust.cm.core.gui.model.ComponentName;
 import java.util.ArrayList;
 import java.util.List;
 
-@ComponentName("inventory.create.visibility.checker")
-public class InventoryCreateVisibilityChecker implements ActionVisibilityChecker {
-    private static final String STATUS_DRAFT = "Draft inventory";
+@ComponentName("inventory.copy.visibility.checker")
+public class InventoryCopyVisibilityChecker implements ActionVisibilityChecker {
+    private static final String STATUS_FINISHED = "Draft finished";
     private static final String FIELD_NAME = "name";
     private static final String TERRITORY_REFERENCE_FIELD = "territory_id";
     private static final String STATUS_FIELD = "status";
@@ -29,17 +29,17 @@ public class InventoryCreateVisibilityChecker implements ActionVisibilityChecker
     @Override
     public boolean isVisible(ActionVisibilityContext context) {
         DomainObject domainObject = context.getDomainObject();
-        Id terrReference = domainObject.getReference(TERRITORY_REFERENCE_FIELD);
+        Id terReference = domainObject.getReference(TERRITORY_REFERENCE_FIELD);
 
-
-        if (domainObject.isNew() || terrReference != null) {
+        if (terReference != null) {
             List<Value> ids = new ArrayList<>();
-            ids.add(new ReferenceValue(terrReference));
+            ids.add(new ReferenceValue(terReference));
             IdentifiableObjectCollection identifiableObjects = collectionsService.findCollectionByQuery(QUERY_INVENTORIES_BY_TERRITORY_ID, ids);
 
             if (identifiableObjects != null && identifiableObjects.size() > 0) {
-                for (IdentifiableObject idObj : identifiableObjects) {
-                    if (getQueryStatusById(crudService.find(idObj.getId()).getReference(STATUS_FIELD)).equals(STATUS_DRAFT)) {
+                for (IdentifiableObject idObject : identifiableObjects) {
+                    if (!getQueryStatusById(crudService.find(idObject.getId()).getReference(STATUS_FIELD)).equals(STATUS_FINISHED)||
+                            getQueryStatusById(crudService.find(idObject.getId()).getReference(STATUS_FIELD))==null) {
                         return false;
                     }
                 }
@@ -48,7 +48,6 @@ public class InventoryCreateVisibilityChecker implements ActionVisibilityChecker
         }
         return false;
     }
-
     private String getQueryStatusById(Id status) {
         List<Value> param = new ArrayList<>();
         Value statusIdValue = new ReferenceValue(status);

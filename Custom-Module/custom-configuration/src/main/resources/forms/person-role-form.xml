@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<configuration xmlns="https://cm5.intertrust.ru/config" xmlns:act="https://cm5.intertrust.ru/config/action">
+
+    <!-- Форма для служебного доменного объекта "Инфо Аутентификации" -->
+    <form name="person_role_form" domain-object-type="person_role" is-default="true" min-width="900px">
+    <markup>
+        <header>
+            <table>
+                <tr>
+                    <td h-align="left">
+                        <widget id="headerLabel"/>
+                    </td>
+                </tr>
+            </table>
+        </header>
+
+        <body display-single-tab="false">
+
+            <tab name="Информация">
+                <single-entry-group>
+                    <tab-group>
+                        <table>
+                            <tr>
+                                <td h-align="left" width="200px">
+                                    <widget id="occasionListLabel"/>
+                                </td>
+
+                                <td h-align="left">
+                                    <widget id="personGroupValue"/>
+                                </td>
+                            </tr>
+
+
+                        </table>
+                    </tab-group>
+                </single-entry-group>
+            </tab>
+
+        </body>
+
+    </markup>
+    <widget-config>
+
+        <label id="headerLabel">
+            <text>Связь пользователя с ролью</text>
+        </label>
+
+        <label id="occasionListLabel">
+            <text>Роли</text>
+        </label>
+
+        <suggest-box id="personGroupValue">
+            <field-path value="role"/>
+            <collection-ref name="role_collection"/>
+            <drop-down-pattern value="{name}"/>
+            <selection-pattern value="{name}"/>
+            <input-text-filter name="byText"/>
+            <page-size>30</page-size>
+            <selection-style name="inline"/>
+            <single-choice value="true"/>
+        </suggest-box>
+    </widget-config>
+</form>
+
+    <form name="person_role_moderator_form" domain-object-type="person_role" is-default="false" min-width="900px">
+        <markup>
+            <header>
+                <table>
+                    <tr>
+                        <td h-align="left">
+                            <widget id="headerLabel"/>
+                        </td>
+                    </tr>
+                </table>
+            </header>
+
+            <body display-single-tab="false">
+
+                <tab name="Информация">
+                    <single-entry-group>
+                        <tab-group>
+                            <table>
+                                <tr>
+                                    <td h-align="left" width="200px">
+                                        <widget id="occasionListLabel"/>
+                                    </td>
+
+                                    <td h-align="left">
+                                        <widget id="personGroupValue"/>
+                                    </td>
+                                </tr>
+
+
+                            </table>
+                        </tab-group>
+                    </single-entry-group>
+                </tab>
+
+            </body>
+
+        </markup>
+        <widget-config>
+
+            <label id="headerLabel">
+                <text>Связь пользователя с ролью</text>
+            </label>
+
+            <label id="occasionListLabel">
+                <text>Роли</text>
+            </label>
+
+            <suggest-box id="personGroupValue">
+                <field-path value="role"/>
+                <collection-ref name="role_moderator_collection"/>
+                <drop-down-pattern value="{name}"/>
+                <selection-pattern value="{name}"/>
+                <input-text-filter name="byText"/>
+                <page-size>30</page-size>
+                <selection-style name="inline"/>
+                <single-choice value="true"/>
+            </suggest-box>
+        </widget-config>
+    </form>
+
+</configuration>

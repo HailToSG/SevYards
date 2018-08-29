@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<configuration xmlns="https://cm5.intertrust.ru/config" xmlns:act="https://cm5.intertrust.ru/config/action">
+
+    <collection name="authentication_collection" idField="id">
+        <prototype>
+            <![CDATA[
+            SELECT
+              id                                AS  id,
+              auth_info.user_uid                AS  uid,
+              auth_info.password                AS  password
+
+            FROM authentication_info auth_info
+            WHERE
+              1=1 ::where-clause
+            ]]>
+        </prototype>
+
+    </collection>
+
+    <collection-view name="authentication_collection_view" collection="authentication_collection" is-default="true">
+        <display>
+            <column field="uid" name="Uid" type="string" editable="false" sortable="true"
+                    min-width="50px" text-break-style="cut"/>
+            <column field="password" name="Пароль" type="string" editable="false" sortable="true"
+                    min-width="50px" text-break-style="cut"/>
+        </display>
+    </collection-view>
+
+</configuration>

@@ -134,4 +134,16 @@
         </fields>
     </domain-object-type>
 
+    <!-- Cущность для связки "Пользователь - Территория" -->
+    <domain-object-type name="person_territory">
+        <fields>
+            <reference name="person" type="person" not-null="true"/>
+            <reference name="ter_territory" type="ter_territory" not-null="true"/>
+        </fields>
+        <uniqueKey>
+            <field name="person"/>
+            <field name="ter_territory"/>
+        </uniqueKey>
+    </domain-object-type>
+
 </configuration>

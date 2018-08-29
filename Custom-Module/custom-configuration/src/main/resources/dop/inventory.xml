@@ -20,6 +20,7 @@
                     <simple-constraint value="not-empty"/>
                 </constraints>
             </date-time>
+            <string name="territory_name" length="150"/>
             <boolean name="is_buildings_filled" not-null="true"/>
             <boolean name="is_rightholders_filled" not-null="true"/>
             <boolean name="is_elements_filled" not-null="true"/>

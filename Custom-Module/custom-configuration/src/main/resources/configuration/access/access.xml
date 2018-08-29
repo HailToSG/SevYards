@@ -1,0 +1,1430 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<configuration xmlns="https://cm5.intertrust.ru/config">
+
+    <!-- Cущность "Аутентификация" -->
+    <access-matrix type="authentication_info">
+     <create>
+         <permit-group name="super_administrator"/>
+         <permit-group name="moderator"/>
+     </create>
+        <status name="*">
+            <read>
+                <permit-group name="super_administrator"/>
+                <permit-group name="moderator"/>
+            </read>
+
+            <write>
+                <permit-group name="super_administrator"/>
+                <permit-group name="moderator"/>
+            </write>
+
+            <delete>
+                <permit-group name="super_administrator"/>
+                <permit-group name="moderator"/>
+            </delete>
+        </status>
+    </access-matrix>
+
+    <!-- Cущность "Пользователи" -->
+    <access-matrix type="Person">
+        <create>
+            <permit-group name="super_administrator"/>
+            <permit-group name="moderator"/>
+        </create>
+        <status name="*">
+            <read>
+                <permit-group name="super_administrator"/>
+                <permit-group name="moderator"/>
+            </read>
+
+            <write>
+                <permit-group name="super_administrator"/>
+                <permit-group name="moderator"/>
+            </write>
+
+            <delete>
+                <permit-group name="super_administrator"/>
+                <permit-group name="moderator"/>
+            </delete>
+            <create-child type="person_role">
+                <permit-group name="super_administrator"/>
+                <permit-group name="moderator"/>
+            </create-child>
+        </status>
+    </access-matrix>
+
+    <!-- Cущность "Роли" -->
+    <access-matrix type="role" >
+        <create>
+            <permit-group name="super_administrator"/>
+            <permit-group name="moderator"/>
+        </create>
+        <status name="*">
+            <read>
+                <permit-group name="super_administrator"/>
+                <permit-group name="moderator"/>
+            </read>
+
+            <write>
+                <permit-group name="super_administrator"/>
+                <permit-group name="moderator"/>
+            </write>
+
+            <delete>
+                <permit-group name="super_administrator"/>
+                <permit-group name="moderator"/>
+            </delete>
+            <create-child type="person_role">
+                <permit-group name="super_administrator"/>
+                <permit-group name="moderator"/>
+            </create-child>
+        </status>
+    </access-matrix>
+
+    <!-- Cвязывающая сущность пользователей и ролей-->
+    <access-matrix type="person_role" >
+        <create>
+            <permit-group name="super_administrator"/>
+            <permit-group name="moderator"/>
+        </create>
+        <status name="*">
+            <read>
+                <permit-group name="super_administrator"/>
+                <permit-group name="moderator"/>
+            </read>
+
+            <write>
+                <permit-group name="super_administrator"/>
+                <permit-group name="moderator"/>
+            </write>
+
+            <delete>
+                <permit-group name="super_administrator"/>
+                <permit-group name="moderator"/>
+            </delete>
+        </status>
+    </access-matrix>
+
+    <!-- Cущность "Строения" -->
+    <access-matrix type="build_buildings" >
+        <create>
+            <permit-group name="super_administrator"/>
+            <permit-group name="moderator"/>
+            <permit-group name="executor"/>
+        </create>
+        <status name="*">
+            <read>
+                <permit-group name="super_administrator"/>
+                <permit-group name="moderator"/>
+                <permit-group name="executor"/>
+            </read>
+
+            <write>
+                <permit-group name="super_administrator"/>
+                <permit-group name="moderator"/>
+                <permit-group name="executor"/>
+            </write>
+
+            <delete>
+                <permit-group name="super_administrator"/>
+                <permit-group name="moderator"/>
+                <permit-group name="executor"/>
+            </delete>
+        </status>
+    </access-matrix>
+
+    <!-- Cущность "Жилое строение" -->
+    <access-matrix type="build_residential" >
+        <create>
+            <permit-group name="super_administrator"/>
+            <permit-group name="moderator"/>
+            <permit-group name="executor"/>
+        </create>
+        <status name="*">
+            <read>
+                <permit-group name="super_administrator"/>
+                <permit-group name="moderator"/>
+                <permit-group name="executor"/>
+            </read>
+
+            <write>
+                <permit-group name="super_administrator"/>
+                <permit-group name="moderator"/>
+                <permit-group name="executor"/>
+            </write>
+
+            <delete>
+                <permit-group name="super_administrator"/>
+                <permit-group name="moderator"/>
+                <permit-group name="executor"/>
+            </delete>
+        </status>
+    </access-matrix>
+
+    <!-- Cущность "Нежилое капитальное строение" -->
+    <access-matrix type="build_permanent" >
+        <create>
+            <permit-group name="super_administrator"/>
+            <permit-group name="moderator"/>
+            <permit-group name="executor"/>
+        </create>
+        <status name="*">
+            <read>
+                <permit-group name="super_administrator"/>
+                <permit-group name="moderator"/>
+                <permit-group name="executor"/>
+            </read>
+
+            <write>
+                <permit-group name="super_administrator"/>
+                <permit-group name="moderator"/>
+                <permit-group name="executor"/>
+            </write>
+
+            <delete>
+                <permit-group name="super_administrator"/>
+                <permit-group name="moderator"/>
+                <permit-group name="executor"/>
+            </delete>
+        </status>
+    </access-matrix>
+
+    <!-- Cущность "Нежилое некапитальное строение" -->
+    <access-matrix type="build_temporary" >
+        <create>
+            <permit-group name="super_administrator"/>
+            <permit-group name="moderator"/>
+            <permit-group name="executor"/>
+        </create>
+        <status name="*">
+            <read>
+                <permit-group name="super_administrator"/>
+                <permit-group name="moderator"/>
+                <permit-group name="executor"/>
+            </read>
+
+            <write>
+                <permit-group name="super_administrator"/>
+                <permit-group name="moderator"/>
+                <permit-group name="executor"/>
+            </write>
+
+            <delete>
+                <permit-group name="super_administrator"/>
+                <permit-group name="moderator"/>
+                <permit-group name="executor"/>
+            </delete>
+        </status>
+    </access-matrix>
+
+    <access-matrix type="gard_gardening" >
+        <create>
+            <permit-group name="super_administrator"/>
+            <permit-group name="moderator"/>
+            <permit-group name="executor"/>
+        </create>
+        <status name="*">
+            <read>
+                <permit-group name="super_administrator"/>
+                <permit-group name="moderator"/>
+                <permit-group name="executor"/>
+            </read>
+
+            <write>
+                <permit-group name="super_administrator"/>
+                <permit-group name="moderator"/>
+                <permit-group name="executor"/>
+            </write>
+
+            <delete>
+                <permit-group name="super_administrator"/>
+                <permit-group name="moderator"/>
+                <permit-group name="executor"/>
+            </delete>
+        </status>
+    </access-matrix>
+
+    <!-- Cущность "Дерево" относится к ЭО -->
+    <access-matrix type="gard_tree" >
+        <create>
+            <permit-group name="super_administrator"/>
+            <permit-group name="moderator"/>
+            <permit-group name="executor"/>
+        </create>
+        <status name="*">
+            <read>
+                <permit-group name="super_administrator"/>
+                <permit-group name="moderator"/>
+                <permit-group name="executor"/>
+            </read>
+
+            <write>
+                <permit-group name="super_administrator"/>
+                <permit-group name="moderator"/>
+                <permit-group name="executor"/>
+            </write>
+
+            <delete>
+                <permit-group name="super_administrator"/>
+                <permit-group name="moderator"/>
+                <permit-group name="executor"/>
+            </delete>
+        </status>
+    </access-matrix>
+
+    <!-- Cущность "Вертикальное озеленение" относится к ЭО -->
+    <access-matrix type="gard_vertical" >
+        <create>
+            <permit-group name="super_administrator"/>
+            <permit-group name="moderator"/>
+            <permit-group name="executor"/>
+        </create>
+        <status name="*">
+            <read>
+                <permit-group name="super_administrator"/>
+                <permit-group name="moderator"/>
+                <permit-group name="executor"/>
+            </read>
+
+            <write>
+                <permit-group name="super_administrator"/>
+                <permit-group name="moderator"/>
+                <permit-group name="executor"/>
+            </write>
+
+            <delete>
+                <permit-group name="super_administrator"/>
+                <permit-group name="moderator"/>
+                <permit-group name="executor"/>
+            </delete>
+        </status>
+    </access-matrix>
+
+    <!-- Cущность "Цветник" относится к ЭО -->
+    <access-matrix type="gard_parterre" >
+        <create>
+            <permit-group name="super_administrator"/>
+            <permit-group name="moderator"/>
+            <permit-group name="executor"/>
+        </create>
+        <status name="*">
+            <read>
+                <permit-group name="super_administrator"/>
+                <permit-group name="moderator"/>
+                <permit-group name="executor"/>
+            </read>
+
+            <write>
+                <permit-group name="super_administrator"/>
+                <permit-group name="moderator"/>
+                <permit-group name="executor"/>
+            </write>
+
+            <delete>
+                <permit-group name="super_administrator"/>
+                <permit-group name="moderator"/>
+                <permit-group name="executor"/>
+            </delete>
+        </status>
+    </access-matrix>
+
+    <!-- Cущность "Живая изгородь" относится к ЭО -->
+    <access-matrix type="gard_green_hedge" >
+        <create>
+            <permit-group name="super_administrator"/>
+            <permit-group name="moderator"/>
+            <permit-group name="executor"/>
+        </create>
+        <status name="*">
+            <read>
+                <permit-group name="super_administrator"/>
+                <permit-group name="moderator"/>
+                <permit-group name="executor"/>
+            </read>
+
+            <write>
+                <permit-group name="super_administrator"/>
+                <permit-group name="moderator"/>
+                <permit-group name="executor"/>
+            </write>
+
+            <delete>
+                <permit-group name="super_administrator"/>
+                <permit-group name="moderator"/>
+                <permit-group name="executor"/>
+            </delete>
+        </status>
+    </access-matrix>
+
+    <!-- Cущность "Кустарник" относится к ЭО -->
+    <access-matrix type="gard_bush" >
+        <create>
+            <permit-group name="super_administrator"/>
+            <permit-group name="moderator"/>
+            <permit-group name="executor"/>
+        </create>
+        <status name="*">
+            <read>
+                <permit-group name="super_administrator"/>
+                <permit-group name="moderator"/>
+                <permit-group name="executor"/>
+            </read>
+
+            <write>
+                <permit-group name="super_administrator"/>
+                <permit-group name="moderator"/>
+                <permit-group name="executor"/>
+            </write>
+
+            <delete>
+                <permit-group name="super_administrator"/>
+                <permit-group name="moderator"/>
+                <permit-group name="executor"/>
+            </delete>
+        </status>
+    </access-matrix>
+
+    <!-- Cущность "Газон" относится к ЭО -->
+    <access-matrix type="gard_lawn" >
+        <create>
+            <permit-group name="super_administrator"/>
+            <permit-group name="moderator"/>
+            <permit-group name="executor"/>
+        </create>
+        <status name="*">
+            <read>
+                <permit-group name="super_administrator"/>
+                <permit-group name="moderator"/>
+                <permit-group name="executor"/>
+            </read>
+
+            <write>
+                <permit-group name="super_administrator"/>
+                <permit-group name="moderator"/>
+                <permit-group name="executor"/>
+            </write>
+
+            <delete>
+                <permit-group name="super_administrator"/>
+                <permit-group name="moderator"/>
+                <permit-group name="executor"/>
+            </delete>
+        </status>
+    </access-matrix>
+
+    <!--Сущность "МАФ"-->
+    <access-matrix type="maf" >
+        <create>
+            <permit-group name="super_administrator"/>
+            <permit-group name="moderator"/>
+            <permit-group name="executor"/>
+        </create>
+        <status name="*">
+            <read>
+                <permit-group name="super_administrator"/>
+                <permit-group name="moderator"/>
+                <permit-group name="executor"/>
+            </read>
+
+            <write>
+                <permit-group name="super_administrator"/>
+                <permit-group name="moderator"/>
+                <permit-group name="executor"/>
+            </write>
+
+            <delete>
+                <permit-group name="super_administrator"/>
+                <permit-group name="moderator"/>
+                <permit-group name="executor"/>
+            </delete>
+        </status>
+    </access-matrix>
+
+    <!--Сущность "Накопители ТКО"-->
+    <access-matrix type="maf_trash_can" >
+        <create>
+            <permit-group name="super_administrator"/>
+            <permit-group name="moderator"/>
+            <permit-group name="executor"/>
+        </create>
+        <status name="*">
+            <read>
+                <permit-group name="super_administrator"/>
+                <permit-group name="moderator"/>
+                <permit-group name="executor"/>
+            </read>
+
+            <write>
+                <permit-group name="super_administrator"/>
+                <permit-group name="moderator"/>
+                <permit-group name="executor"/>
+            </write>
+
+            <delete>
+                <permit-group name="super_administrator"/>
+                <permit-group name="moderator"/>
+                <permit-group name="executor"/>
+            </delete>
+        </status>
+    </access-matrix>
+
+    <!-- Сущность "Оснащения детских площадок"-->
+    <access-matrix type="maf_playground_equipment" >
+        <create>
+            <permit-group name="super_administrator"/>
+            <permit-group name="moderator"/>
+            <permit-group name="executor"/>
+        </create>
+        <status name="*">
+            <read>
+                <permit-group name="super_administrator"/>
+                <permit-group name="moderator"/>
+                <permit-group name="executor"/>
+            </read>
+
+            <write>
+                <permit-group name="super_administrator"/>
+                <permit-group name="moderator"/>
+                <permit-group name="executor"/>
+            </write>
+
+            <delete>
+                <permit-group name="super_administrator"/>
+                <permit-group name="moderator"/>
+                <permit-group name="executor"/>
+            </delete>
+        </status>
+    </access-matrix>
+
+
+    <!-- Сущность "Скамьи"-->
+    <access-matrix type="maf_benches" >
+        <create>
+            <permit-group name="super_administrator"/>
+            <permit-group name="moderator"/>
+            <permit-group name="executor"/>
+        </create>
+        <status name="*">
+            <read>
+                <permit-group name="super_administrator"/>
+                <permit-group name="moderator"/>
+                <permit-group name="executor"/>
+            </read>
+
+            <write>
+                <permit-group name="super_administrator"/>
+                <permit-group name="moderator"/>
+                <permit-group name="executor"/>
+            </write>
+
+            <delete>
+                <permit-group name="super_administrator"/>
+                <permit-group name="moderator"/>
+                <permit-group name="executor"/>
+            </delete>
+        </status>
+    </access-matrix>
+
+
+    <!-- Сущность "Столы"-->
+    <access-matrix type="maf_tables" >
+        <create>
+            <permit-group name="super_administrator"/>
+            <permit-group name="moderator"/>
+            <permit-group name="executor"/>
+        </create>
+        <status name="*">
+            <read>
+                <permit-group name="super_administrator"/>
+                <permit-group name="moderator"/>
+                <permit-group name="executor"/>
+            </read>
+
+            <write>
+                <permit-group name="super_administrator"/>
+                <permit-group name="moderator"/>
+                <permit-group name="executor"/>
+            </write>
+
+            <delete>
+                <permit-group name="super_administrator"/>
+                <permit-group name="moderator"/>
+                <permit-group name="executor"/>
+            </delete>
+        </status>
+    </access-matrix>
+
+
+    <!-- Сущность "Спортивный инвентарь"-->
+    <access-matrix type="maf_sport_equipments" >
+        <create>
+            <permit-group name="super_administrator"/>
+            <permit-group name="moderator"/>
+            <permit-group name="executor"/>
+        </create>
+        <status name="*">
+            <read>
+                <permit-group name="super_administrator"/>
+                <permit-group name="moderator"/>
+                <permit-group name="executor"/>
+            </read>
+
+            <write>
+                <permit-group name="super_administrator"/>
+                <permit-group name="moderator"/>
+                <permit-group name="executor"/>
+            </write>
+
+            <delete>
+                <permit-group name="super_administrator"/>
+                <permit-group name="moderator"/>
+                <permit-group name="executor"/>
+            </delete>
+        </status>
+    </access-matrix>
+
+
+    <!-- Сущность "Беседки" -->
+    <access-matrix type="maf_pavilions" >
+        <create>
+            <permit-group name="super_administrator"/>
+            <permit-group name="moderator"/>
+            <permit-group name="executor"/>
+        </create>
+        <status name="*">
+            <read>
+                <permit-group name="super_administrator"/>
+                <permit-group name="moderator"/>
+                <permit-group name="executor"/>
+            </read>
+
+            <write>
+                <permit-group name="super_administrator"/>
+                <permit-group name="moderator"/>
+                <permit-group name="executor"/>
+            </write>
+
+            <delete>
+                <permit-group name="super_administrator"/>
+                <permit-group name="moderator"/>
+                <permit-group name="executor"/>
+            </delete>
+        </status>
+    </access-matrix>
+
+
+    <!-- Сущность "Терассы"-->
+    <access-matrix type="maf_terraces" >
+        <create>
+            <permit-group name="super_administrator"/>
+            <permit-group name="moderator"/>
+            <permit-group name="executor"/>
+        </create>
+        <status name="*">
+            <read>
+                <permit-group name="super_administrator"/>
+                <permit-group name="moderator"/>
+                <permit-group name="executor"/>
+            </read>
+
+            <write>
+                <permit-group name="super_administrator"/>
+                <permit-group name="moderator"/>
+                <permit-group name="executor"/>
+            </write>
+
+            <delete>
+                <permit-group name="super_administrator"/>
+                <permit-group name="moderator"/>
+                <permit-group name="executor"/>
+            </delete>
+        </status>
+    </access-matrix>
+
+
+    <!-- Сущность "Навесы" -->
+    <access-matrix type="maf_canopies" >
+        <create>
+            <permit-group name="super_administrator"/>
+            <permit-group name="moderator"/>
+            <permit-group name="executor"/>
+        </create>
+        <status name="*">
+            <read>
+                <permit-group name="super_administrator"/>
+                <permit-group name="moderator"/>
+                <permit-group name="executor"/>
+            </read>
+
+            <write>
+                <permit-group name="super_administrator"/>
+                <permit-group name="moderator"/>
+                <permit-group name="executor"/>
+            </write>
+
+            <delete>
+                <permit-group name="super_administrator"/>
+                <permit-group name="moderator"/>
+                <permit-group name="executor"/>
+            </delete>
+        </status>
+    </access-matrix>
+
+
+    <!-- Сущность "Фонтаны"-->
+    <access-matrix type="maf_fountains" >
+        <create>
+            <permit-group name="super_administrator"/>
+            <permit-group name="moderator"/>
+            <permit-group name="executor"/>
+        </create>
+        <status name="*">
+            <read>
+                <permit-group name="super_administrator"/>
+                <permit-group name="moderator"/>
+                <permit-group name="executor"/>
+            </read>
+
+            <write>
+                <permit-group name="super_administrator"/>
+                <permit-group name="moderator"/>
+                <permit-group name="executor"/>
+            </write>
+
+            <delete>
+                <permit-group name="super_administrator"/>
+                <permit-group name="moderator"/>
+                <permit-group name="executor"/>
+            </delete>
+        </status>
+    </access-matrix>
+
+    <!-- Cущность "Иное"-->
+    <access-matrix type="other_others" >
+        <create>
+            <permit-group name="super_administrator"/>
+            <permit-group name="moderator"/>
+            <permit-group name="executor"/>
+        </create>
+        <status name="*">
+            <read>
+                <permit-group name="super_administrator"/>
+                <permit-group name="moderator"/>
+                <permit-group name="executor"/>
+            </read>
+
+            <write>
+                <permit-group name="super_administrator"/>
+                <permit-group name="moderator"/>
+                <permit-group name="executor"/>
+            </write>
+
+            <delete>
+                <permit-group name="super_administrator"/>
+                <permit-group name="moderator"/>
+                <permit-group name="executor"/>
+            </delete>
+        </status>
+    </access-matrix>
+
+    <!-- Cущность "Пандус" относится к классу Иное-->
+    <access-matrix type="other_rampant" >
+        <create>
+            <permit-group name="super_administrator"/>
+            <permit-group name="moderator"/>
+            <permit-group name="executor"/>
+        </create>
+        <status name="*">
+            <read>
+                <permit-group name="super_administrator"/>
+                <permit-group name="moderator"/>
+                <permit-group name="executor"/>
+            </read>
+
+            <write>
+                <permit-group name="super_administrator"/>
+                <permit-group name="moderator"/>
+                <permit-group name="executor"/>
+            </write>
+
+            <delete>
+                <permit-group name="super_administrator"/>
+                <permit-group name="moderator"/>
+                <permit-group name="executor"/>
+            </delete>
+        </status>
+    </access-matrix>
+
+    <!-- Cущность "Устройство преграждения пути" относится к классу Иное -->
+    <access-matrix type="others_barrier" >
+        <create>
+            <permit-group name="super_administrator"/>
+            <permit-group name="moderator"/>
+            <permit-group name="executor"/>
+        </create>
+        <status name="*">
+            <read>
+                <permit-group name="super_administrator"/>
+                <permit-group name="moderator"/>
+                <permit-group name="executor"/>
+            </read>
+
+            <write>
+                <permit-group name="super_administrator"/>
+                <permit-group name="moderator"/>
+                <permit-group name="executor"/>
+            </write>
+
+            <delete>
+                <permit-group name="super_administrator"/>
+                <permit-group name="moderator"/>
+                <permit-group name="executor"/>
+            </delete>
+        </status>
+    </access-matrix>
+
+    <!-- Cущность "Светильники" относится к классу "Иное"-->
+    <access-matrix type="other_lighting_device" >
+        <create>
+            <permit-group name="super_administrator"/>
+            <permit-group name="moderator"/>
+            <permit-group name="executor"/>
+        </create>
+        <status name="*">
+            <read>
+                <permit-group name="super_administrator"/>
+                <permit-group name="moderator"/>
+                <permit-group name="executor"/>
+            </read>
+
+            <write>
+                <permit-group name="super_administrator"/>
+                <permit-group name="moderator"/>
+                <permit-group name="executor"/>
+            </write>
+
+            <delete>
+                <permit-group name="super_administrator"/>
+                <permit-group name="moderator"/>
+                <permit-group name="executor"/>
+            </delete>
+        </status>
+    </access-matrix>
+
+    <!-- Cущность "Информационные стенды" относится к классу "Иное"-->
+    <access-matrix type="other_information_stand" >
+        <create>
+            <permit-group name="super_administrator"/>
+            <permit-group name="moderator"/>
+            <permit-group name="executor"/>
+        </create>
+        <status name="*">
+            <read>
+                <permit-group name="super_administrator"/>
+                <permit-group name="moderator"/>
+                <permit-group name="executor"/>
+            </read>
+
+            <write>
+                <permit-group name="super_administrator"/>
+                <permit-group name="moderator"/>
+                <permit-group name="executor"/>
+            </write>
+
+            <delete>
+                <permit-group name="super_administrator"/>
+                <permit-group name="moderator"/>
+                <permit-group name="executor"/>
+            </delete>
+        </status>
+    </access-matrix>
+
+    <!-- Cущность "Ограждения" относится к классу "Иное"-->
+    <access-matrix type="other_fences" >
+        <create>
+            <permit-group name="super_administrator"/>
+            <permit-group name="moderator"/>
+            <permit-group name="executor"/>
+        </create>
+        <status name="*">
+            <read>
+                <permit-group name="super_administrator"/>
+                <permit-group name="moderator"/>
+                <permit-group name="executor"/>
+            </read>
+
+            <write>
+                <permit-group name="super_administrator"/>
+                <permit-group name="moderator"/>
+                <permit-group name="executor"/>
+            </write>
+
+            <delete>
+                <permit-group name="super_administrator"/>
+                <permit-group name="moderator"/>
+                <permit-group name="executor"/>
+            </delete>
+        </status>
+    </access-matrix>
+
+    <!-- Cущность "Водоемы" относится к классу "Иное"-->
+    <access-matrix type="other_pond" >
+        <create>
+            <permit-group name="super_administrator"/>
+            <permit-group name="moderator"/>
+            <permit-group name="executor"/>
+        </create>
+        <status name="*">
+            <read>
+                <permit-group name="super_administrator"/>
+                <permit-group name="moderator"/>
+                <permit-group name="executor"/>
+            </read>
+
+            <write>
+                <permit-group name="super_administrator"/>
+                <permit-group name="moderator"/>
+                <permit-group name="executor"/>
+            </write>
+
+            <delete>
+                <permit-group name="super_administrator"/>
+                <permit-group name="moderator"/>
+                <permit-group name="executor"/>
+            </delete>
+        </status>
+    </access-matrix>
+
+    <!-- Cущность "Люки подземных коммуникаций" относится к классу "Иное"-->
+    <access-matrix type="other_underground_hatch" >
+        <create>
+            <permit-group name="super_administrator"/>
+            <permit-group name="moderator"/>
+            <permit-group name="executor"/>
+        </create>
+        <status name="*">
+            <read>
+                <permit-group name="super_administrator"/>
+                <permit-group name="moderator"/>
+                <permit-group name="executor"/>
+            </read>
+
+            <write>
+                <permit-group name="super_administrator"/>
+                <permit-group name="moderator"/>
+                <permit-group name="executor"/>
+            </write>
+
+            <delete>
+                <permit-group name="super_administrator"/>
+                <permit-group name="moderator"/>
+                <permit-group name="executor"/>
+            </delete>
+        </status>
+    </access-matrix>
+
+    <!-- Cущность "Опоры ЛЭП" относится к классу "Иное"-->
+    <access-matrix type="other_power_pylon" >
+        <create>
+            <permit-group name="super_administrator"/>
+            <permit-group name="moderator"/>
+            <permit-group name="executor"/>
+        </create>
+        <status name="*">
+            <read>
+                <permit-group name="super_administrator"/>
+                <permit-group name="moderator"/>
+                <permit-group name="executor"/>
+            </read>
+
+            <write>
+                <permit-group name="super_administrator"/>
+                <permit-group name="moderator"/>
+                <permit-group name="executor"/>
+            </write>
+
+            <delete>
+                <permit-group name="super_administrator"/>
+                <permit-group name="moderator"/>
+                <permit-group name="executor"/>
+            </delete>
+        </status>
+    </access-matrix>
+
+
+    <!-- Cущность "Плоскостные и линейные"-->
+    <access-matrix type="planar_linear" >
+        <create>
+            <permit-group name="super_administrator"/>
+            <permit-group name="moderator"/>
+            <permit-group name="executor"/>
+        </create>
+        <status name="*">
+            <read>
+                <permit-group name="super_administrator"/>
+                <permit-group name="moderator"/>
+                <permit-group name="executor"/>
+            </read>
+
+            <write>
+                <permit-group name="super_administrator"/>
+                <permit-group name="moderator"/>
+                <permit-group name="executor"/>
+            </write>
+
+            <delete>
+                <permit-group name="super_administrator"/>
+                <permit-group name="moderator"/>
+                <permit-group name="executor"/>
+            </delete>
+        </status>
+    </access-matrix>
+
+    <!--Сущность "Дворовой проезд" -->
+    <access-matrix type="pl_yard_passage" >
+        <create>
+            <permit-group name="super_administrator"/>
+            <permit-group name="moderator"/>
+            <permit-group name="executor"/>
+        </create>
+        <status name="*">
+            <read>
+                <permit-group name="super_administrator"/>
+                <permit-group name="moderator"/>
+                <permit-group name="executor"/>
+            </read>
+
+            <write>
+                <permit-group name="super_administrator"/>
+                <permit-group name="moderator"/>
+                <permit-group name="executor"/>
+            </write>
+
+            <delete>
+                <permit-group name="super_administrator"/>
+                <permit-group name="moderator"/>
+                <permit-group name="executor"/>
+            </delete>
+        </status>
+    </access-matrix>
+
+    <!-- Сущность "Тротуар" -->
+    <access-matrix type="pl_sidewalk" >
+        <create>
+            <permit-group name="super_administrator"/>
+            <permit-group name="moderator"/>
+            <permit-group name="executor"/>
+        </create>
+        <status name="*">
+            <read>
+                <permit-group name="super_administrator"/>
+                <permit-group name="moderator"/>
+                <permit-group name="executor"/>
+            </read>
+
+            <write>
+                <permit-group name="super_administrator"/>
+                <permit-group name="moderator"/>
+                <permit-group name="executor"/>
+            </write>
+
+            <delete>
+                <permit-group name="super_administrator"/>
+                <permit-group name="moderator"/>
+                <permit-group name="executor"/>
+            </delete>
+        </status>
+    </access-matrix>
+
+    <!-- Сущность "Велопарковка"-->
+    <access-matrix type="pl_bicycle_parking" >
+        <create>
+            <permit-group name="super_administrator"/>
+            <permit-group name="moderator"/>
+            <permit-group name="executor"/>
+        </create>
+        <status name="*">
+            <read>
+                <permit-group name="super_administrator"/>
+                <permit-group name="moderator"/>
+                <permit-group name="executor"/>
+            </read>
+
+            <write>
+                <permit-group name="super_administrator"/>
+                <permit-group name="moderator"/>
+                <permit-group name="executor"/>
+            </write>
+
+            <delete>
+                <permit-group name="super_administrator"/>
+                <permit-group name="moderator"/>
+                <permit-group name="executor"/>
+            </delete>
+        </status>
+    </access-matrix>
+
+    <!-- Сущность "Автопарковка"-->
+    <access-matrix type="pl_car_parking" >
+        <create>
+            <permit-group name="super_administrator"/>
+            <permit-group name="moderator"/>
+            <permit-group name="executor"/>
+        </create>
+        <status name="*">
+            <read>
+                <permit-group name="super_administrator"/>
+                <permit-group name="moderator"/>
+                <permit-group name="executor"/>
+            </read>
+
+            <write>
+                <permit-group name="super_administrator"/>
+                <permit-group name="moderator"/>
+                <permit-group name="executor"/>
+            </write>
+
+            <delete>
+                <permit-group name="super_administrator"/>
+                <permit-group name="moderator"/>
+                <permit-group name="executor"/>
+            </delete>
+        </status>
+    </access-matrix>
+
+    <!-- Сущность "Детская площадка" -->
+    <access-matrix type="pl_playground" >
+        <create>
+            <permit-group name="super_administrator"/>
+            <permit-group name="moderator"/>
+            <permit-group name="executor"/>
+        </create>
+        <status name="*">
+            <read>
+                <permit-group name="super_administrator"/>
+                <permit-group name="moderator"/>
+                <permit-group name="executor"/>
+            </read>
+
+            <write>
+                <permit-group name="super_administrator"/>
+                <permit-group name="moderator"/>
+                <permit-group name="executor"/>
+            </write>
+
+            <delete>
+                <permit-group name="super_administrator"/>
+                <permit-group name="moderator"/>
+                <permit-group name="executor"/>
+            </delete>
+        </status>
+    </access-matrix>
+
+    <!-- Сущность "Площадка для выгула собак" -->
+    <access-matrix type="pl_dog_walking_area" >
+        <create>
+            <permit-group name="super_administrator"/>
+            <permit-group name="moderator"/>
+            <permit-group name="executor"/>
+        </create>
+        <status name="*">
+            <read>
+                <permit-group name="super_administrator"/>
+                <permit-group name="moderator"/>
+                <permit-group name="executor"/>
+            </read>
+
+            <write>
+                <permit-group name="super_administrator"/>
+                <permit-group name="moderator"/>
+                <permit-group name="executor"/>
+            </write>
+
+            <delete>
+                <permit-group name="super_administrator"/>
+                <permit-group name="moderator"/>
+                <permit-group name="executor"/>
+            </delete>
+        </status>
+    </access-matrix>
+
+    <!-- Сущность "Спортивная площадка" -->
+    <access-matrix type="pl_sport_ground" >
+        <create>
+            <permit-group name="super_administrator"/>
+            <permit-group name="moderator"/>
+            <permit-group name="executor"/>
+        </create>
+        <status name="*">
+            <read>
+                <permit-group name="super_administrator"/>
+                <permit-group name="moderator"/>
+                <permit-group name="executor"/>
+            </read>
+
+            <write>
+                <permit-group name="super_administrator"/>
+                <permit-group name="moderator"/>
+                <permit-group name="executor"/>
+            </write>
+
+            <delete>
+                <permit-group name="super_administrator"/>
+                <permit-group name="moderator"/>
+                <permit-group name="executor"/>
+            </delete>
+        </status>
+    </access-matrix>
+
+    <!-- Сущность "Велодорожка" -->
+    <access-matrix type="pl_bicycle_road" >
+        <create>
+            <permit-group name="super_administrator"/>
+            <permit-group name="moderator"/>
+            <permit-group name="executor"/>
+        </create>
+        <status name="*">
+            <read>
+                <permit-group name="super_administrator"/>
+                <permit-group name="moderator"/>
+                <permit-group name="executor"/>
+            </read>
+
+            <write>
+                <permit-group name="super_administrator"/>
+                <permit-group name="moderator"/>
+                <permit-group name="executor"/>
+            </write>
+
+            <delete>
+                <permit-group name="super_administrator"/>
+                <permit-group name="moderator"/>
+                <permit-group name="executor"/>
+            </delete>
+        </status>
+    </access-matrix>
+
+    <!-- Сущность "Контейнерная площадка"-->
+    <access-matrix type="pl_container_square"  >
+        <create>
+            <permit-group name="super_administrator"/>
+            <permit-group name="moderator"/>
+            <permit-group name="executor"/>
+        </create>
+        <status name="*">
+            <read>
+                <permit-group name="super_administrator"/>
+                <permit-group name="moderator"/>
+                <permit-group name="executor"/>
+            </read>
+
+            <write>
+                <permit-group name="super_administrator"/>
+                <permit-group name="moderator"/>
+                <permit-group name="executor"/>
+            </write>
+
+            <delete>
+                <permit-group name="super_administrator"/>
+                <permit-group name="moderator"/>
+                <permit-group name="executor"/>
+            </delete>
+        </status>
+    </access-matrix>
+
+    <!-- Сущность "Правообладатели"-->
+    <access-matrix type="rightholder" >
+        <create>
+            <permit-group name="super_administrator"/>
+            <permit-group name="moderator"/>
+            <permit-group name="executor"/>
+        </create>
+        <status name="*">
+            <read>
+                <permit-group name="super_administrator"/>
+                <permit-group name="moderator"/>
+                <permit-group name="executor"/>
+            </read>
+
+            <write>
+                <permit-group name="super_administrator"/>
+                <permit-group name="moderator"/>
+                <permit-group name="executor"/>
+            </write>
+
+            <delete>
+                <permit-group name="super_administrator"/>
+                <permit-group name="moderator"/>
+                <permit-group name="executor"/>
+            </delete>
+        </status>
+    </access-matrix>
+
+    <!-- Сущность "Территории"-->
+    <access-matrix type="ter_territory" >
+        <create>
+            <permit-group name="super_administrator"/>
+            <permit-group name="moderator"/>
+        </create>
+        <status name="*">
+            <read>
+                <permit-group name="super_administrator"/>
+                <permit-group name="moderator"/>
+                <permit-group name="executor"/>
+            </read>
+
+            <write>
+                <permit-group name="super_administrator"/>
+                <permit-group name="moderator"/>
+            </write>
+
+            <delete>
+                <permit-group name="super_administrator"/>
+            </delete>
+
+            <create-child type="ter_public">
+                <permit-group name="super_administrator"/>
+                <permit-group name="moderator"/>
+            </create-child>
+
+            <create-child type="ter_yard">
+                <permit-group name="super_administrator"/>
+                <permit-group name="moderator"/>
+            </create-child>
+
+            <create-child type="ter_private_housing">
+                <permit-group name="super_administrator"/>
+                <permit-group name="moderator"/>
+            </create-child>
+
+            <create-child type="ter_ulip">
+                <permit-group name="super_administrator"/>
+                <permit-group name="moderator"/>
+            </create-child>
+        </status>
+    </access-matrix>
+
+    <!--Доменный объект "Общественная территория"-->
+    <access-matrix type="ter_public" >
+        <create>
+            <permit-group name="super_administrator"/>
+            <permit-group name="moderator"/>
+        </create>
+        <status name="*">
+            <read>
+                <permit-group name="super_administrator"/>
+                <permit-group name="moderator"/>
+                <permit-group name="executor"/>
+            </read>
+
+            <write>
+                <permit-group name="super_administrator"/>
+                <permit-group name="moderator"/>
+            </write>
+
+            <delete>
+                <permit-group name="super_administrator"/>
+            </delete>
+        </status>
+    </access-matrix>
+
+    <!--Доменный объект "Дворовая территория"-->
+    <access-matrix type="ter_yard" >
+        <create>
+            <permit-group name="super_administrator"/>
+            <permit-group name="moderator"/>
+        </create>
+        <status name="*">
+            <read>
+                <permit-group name="super_administrator"/>
+                <permit-group name="moderator"/>
+                <permit-group name="executor"/>
+            </read>
+
+            <write>
+                <permit-group name="super_administrator"/>
+                <permit-group name="moderator"/>
+            </write>
+
+            <delete>
+                <permit-group name="super_administrator"/>
+            </delete>
+        </status>
+    </access-matrix>
+
+    <!--Доменный объект "Объект индивидуального жилищного строительства"-->
+    <access-matrix type="ter_private_housing" >
+        <create>
+            <permit-group name="super_administrator"/>
+            <permit-group name="moderator"/>
+        </create>
+        <status name="*">
+            <read>
+                <permit-group name="super_administrator"/>
+                <permit-group name="moderator"/>
+                <permit-group name="executor"/>
+            </read>
+
+            <write>
+                <permit-group name="super_administrator"/>
+                <permit-group name="moderator"/>
+            </write>
+
+            <delete>
+                <permit-group name="super_administrator"/>
+            </delete>
+        </status>
+    </access-matrix>
+
+    <!--Доменный объект "Объект недвижимого имущества и зем.участков у ЮЛ и ИП"-->
+    <access-matrix type="ter_ulip" >
+        <create>
+            <permit-group name="super_administrator"/>
+            <permit-group name="moderator"/>
+        </create>
+        <status name="*">
+            <read>
+                <permit-group name="super_administrator"/>
+                <permit-group name="moderator"/>
+                <permit-group name="executor"/>
+            </read>
+
+            <write>
+                <permit-group name="super_administrator"/>
+                <permit-group name="moderator"/>
+            </write>
+
+            <delete>
+                <permit-group name="super_administrator"/>
+            </delete>
+        </status>
+    </access-matrix>
+
+    <access-matrix type="inventory" >
+        <create>
+            <permit-group name="super_administrator"/>
+            <permit-group name="moderator"/>
+            <permit-group name="executor"/>
+        </create>
+        <status name="*">
+            <read>
+                <permit-group name="super_administrator"/>
+                <permit-group name="moderator"/>
+                <permit-role name="appointed_territory_executors_role"/>
+            </read>
+            <write>
+                <permit-group name="super_administrator"/>
+                <permit-group name="moderator"/>
+                <permit-role name="appointed_territory_executors_role"/>
+            </write>
+            <execute-action name="finish">
+                <permit-group name="super_administrator"/>
+                <permit-group name="moderator"/>
+            </execute-action>
+            <execute-action name="restore">
+                <permit-group name="super_administrator"/>
+            </execute-action>
+        </status>
+    </access-matrix>
+
+</configuration>

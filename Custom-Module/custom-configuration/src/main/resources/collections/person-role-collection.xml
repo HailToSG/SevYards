@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<configuration xmlns="https://cm5.intertrust.ru/config" xmlns:act="https://cm5.intertrust.ru/config/action">
+
+    <collection name="person_role_collection" idField="id">
+        <prototype>
+            <![CDATA[
+            SELECT
+              per_rol.id  AS  id
+
+            FROM person per_rol
+            WHERE
+              1=1 ::where-clause
+            ]]>
+        </prototype>
+
+    </collection>
+</configuration>

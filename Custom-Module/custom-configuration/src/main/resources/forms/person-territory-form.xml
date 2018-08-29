@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<configuration xmlns="https://cm5.intertrust.ru/config" xmlns:act="https://cm5.intertrust.ru/config/action">
+
+    <!-- Форма для служебного доменного объекта "Инфо Аутентификации" -->
+    <form name="person_territory_form" domain-object-type="person_territory" is-default="true" min-width="900px">
+        <markup>
+            <header>
+                <table>
+                    <tr>
+                        <td h-align="left">
+                            <widget id="headerLabel"/>
+                        </td>
+                    </tr>
+                </table>
+            </header>
+
+            <body display-single-tab="false">
+
+                <tab name="Исполнитель">
+                    <single-entry-group>
+                        <tab-group>
+                            <table>
+                                <tr>
+                                    <td h-align="left" width="200px">
+                                        <widget id="occasionListLabel"/>
+                                    </td>
+
+                                    <td h-align="left">
+                                        <widget id="personTerritoryValue"/>
+                                    </td>
+                                </tr>
+
+
+                            </table>
+                        </tab-group>
+                    </single-entry-group>
+                </tab>
+
+            </body>
+
+        </markup>
+        <widget-config>
+
+            <label id="headerLabel">
+                <text>Назначение исполнителя</text>
+            </label>
+
+            <label id="occasionListLabel">
+                <text>Исполнители</text>
+            </label>
+
+            <suggest-box id="personTerritoryValue">
+                <field-path value="person"/>
+                <collection-ref name="person_collection"/>
+                <drop-down-pattern value="{name}{lastname}"/>
+                <selection-pattern value="{name}{lastname}"/>
+                <input-text-filter name="byPersonName"/>
+                <page-size>30</page-size>
+                <selection-style name="inline"/>
+                <single-choice value="true"/>
+            </suggest-box>
+        </widget-config>
+    </form>
+
+</configuration>

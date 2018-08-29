@@ -5,9 +5,9 @@
         <prototype>
             <![CDATA[
             SELECT
-              territory.id                 AS id,
-              territory.territory_type    AS type,
-              territory.name              AS name,
+              territory.id                  AS id,
+              territory.territory_type      AS type,
+              territory.name                AS name,
               territory.number              AS number,
              (SELECT COUNT(*) FROM inventory WHERE territory.id = territory_id) AS inventories
 

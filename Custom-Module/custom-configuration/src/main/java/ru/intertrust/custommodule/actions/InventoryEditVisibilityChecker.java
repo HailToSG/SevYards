@@ -13,7 +13,6 @@ import java.util.List;
 @ComponentName("inventory.edit.visible.checker")
 public class InventoryEditVisibilityChecker implements ActionVisibilityChecker {
 
-
     private static final String STATUS_FINISHED = "Finished inventory";
     private static final String FIELD_NAME = "name";
     private static final String QUERY_STATUS_BY_ID = "select * from status where id = {0}";
@@ -23,14 +22,13 @@ public class InventoryEditVisibilityChecker implements ActionVisibilityChecker {
 
     @Override
     public boolean isVisible(ActionVisibilityContext context) {
+        Id statusId = context.getDomainObject().getStatus();
 
-        if (context.getDomainObject() != null && context.getDomainObject().getStatus() != null) {
-            if (getQueryStatusById(context.getDomainObject().getStatus()).equals(STATUS_FINISHED)) {
-
-                return false;
-            }
+        if (context.getDomainObject() == null || statusId == null) {
+           return false;
+        }else if (getQueryStatusById(statusId).equals(STATUS_FINISHED)) {
+            return false;
         }
-
         return true;
     }
 

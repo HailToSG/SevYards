@@ -2,18 +2,18 @@
 <configuration xmlns="https://cm5.intertrust.ru/config" xmlns:act="https://cm5.intertrust.ru/config/action">
 
     <!-- Форма для доменного объекта "Инвентаризация" -->
-    <form name="inventory_form" domain-object-type="inventory" is-default="true">
+    <form name="inventory_form" domain-object-type="inventory" is-default="true" default-value-setter="inventory.form.default.value.setter">
         <act:tool-bar useDefault="false">
-            <act:action name="aRefresh" text="Обновить" componentName="action.refresh" tooltip="Обновить"
+            <act:action disabled="true" name="aRefresh" text="Обновить" componentName="action.refresh" tooltip="Обновить"
                         order="1" imageClass="actionBar-refresh"/>
 
-            <act:action-ref name-ref="aCreate" order="2" text="Создать" visibility-checker="inventory.create.visibility.checker">
-                <act:action-params>
-                    <act:action-param name="create.object.type" value="inventory"/>
-                    <act:action-param name="create.object.form"
-                                      value="inventory_form"/>
-                </act:action-params>
-            </act:action-ref>
+            <act:action name="aCreate" componentName="create.new.object.action"
+                        visibility-checker="inventory.create.visibility.checker"
+                        action="popup:inventory_form"
+                        rendered="(not toggle-edit and not preview) or (toggle-edit and preview)"
+                        text="Создать инвентаризацию"
+                        tooltip="Новая инвентаризация" imageClass="actionBar-create"
+                        order="2"/>
             <act:action componentName="save.action" rendered="toggle-edit and not preview" text="Сохранить"
                         tooltip="Сохранить изменения" order="10" imageClass="actionBar-save"/>
             <act:action componentName="toggle.edit.on.action" text="Редактировать" tooltip="Редактировать"
@@ -24,8 +24,9 @@
                         imageClass="actionBar-close"/>
 
             <act:simple-action name="finish" componentName="simple.action" action-handler="inventory.action"
-                               text="Завершить иневентаризацию" imageClass="actionBar-delete" dirtySensitivity="false"
-                               order="300" merged="true" visibility-checker="inventory.status.finish.visible.checker">
+                               text="Завершить иневентаризацию" imageClass="actionBar-close" dirtySensitivity="false"
+                               order="300" merged="true" visibility-checker="inventory.status.finish.visible.checker"
+                               rendered="(not toggle-edit and not preview) or (toggle-edit and preview)">
 
                 <act:before-execution>
                     <act:confirmation-message text="Инвентаризация будет завершена. Продолжить?"/>
@@ -36,10 +37,9 @@
                 </act:after-execution>
             </act:simple-action>
 
-            <act:simple-action name="finish" componentName="simple.action" action-handler="inventory.action"
-                               text="Возобновить иневентаризацию" imageClass="actionBar-edit" dirtySensitivity="false"
+            <act:simple-action name="restore" componentName="simple.action" action-handler="inventory.action"
+                               text="Возобновить иневентаризацию" imageClass="actionBar-sign" dirtySensitivity="false"
                                order="300" merged="true" visibility-checker="inventory.status.draft.visible.checker">
-
                 <act:before-execution>
                     <act:confirmation-message text="Инвентаризация будет возобновлена. Продолжить?"/>
                 </act:before-execution>
@@ -49,9 +49,9 @@
                 </act:after-execution>
             </act:simple-action>
 
-            <act:simple-action name="copy" componentName="simple.action" action-handler="last.inventory.copier.handler"
-                               text="Копия инвентаризации" imageClass="actionBar-create" dirtySensitivity="false"
-                               order="500" merged="true" visibility-checker="inventory.status.draft.visible.checker">
+            <act:simple-action name="copy" action-handler="inventory.copier" componentName="simple.action" text="Копия инвентаризации"
+                        imageClass="actionBar-create" dirtySensitivity="false"
+                        order="3" merged="true" visibility-checker="inventory.copy.visibility.checker">
 
                 <act:before-execution>
                     <act:confirmation-message text="Последняя инвентаризация будет скопированна. Продолжить?"/>
@@ -67,8 +67,11 @@
             <header>
                 <table>
                     <tr>
-                        <td h-align="left">
+                        <td h-align="right">
                             <widget id="headerLabel"/>
+                        </td>
+                        <td h-align="left" width="100%">
+                            <widget id="headerValue"/>
                         </td>
                     </tr>
                 </table>
@@ -84,7 +87,8 @@
                                     <td h-align="right">
                                         <widget id="territoryLabel"/>
                                     </td>
-                                    <td h-align="left">
+
+                                    <td h-align="left" width="100%">
                                         <widget id="territoryValue"/>
                                     </td>
                                 </tr>
@@ -540,7 +544,11 @@
 
             <!--Виджеты для вкладки Инфо-->
             <label id="headerLabel">
-                <text>Инвентаризация</text>
+                <text>Инвентаризация территории</text>
+            </label>
+
+            <label id="headerValue">
+                <field-path value="territory_id.name"/>
             </label>
 
             <label id="infoLabel">
@@ -548,9 +556,14 @@
             </label>
 
             <label id="territoryLabel">
-                <text>Территория</text>
+                <text>Общественная Территория</text>
             </label>
-            <suggest-box id="territoryValue">
+
+            <text-box id="territoryValue" read-only="true">
+                <field-path value="territory_name"/>
+            </text-box>
+
+            <suggest-box id="territoryLink">
                 <field-path value="territory_id" on-root-delete="unlink"/>
                 <collection-ref name="ter_collection"/>
                 <input-text-filter name="byTerritoryName"/>
@@ -559,6 +572,7 @@
                 <page-size>30</page-size>
                 <selection-style name="table"/>
             </suggest-box>
+
 
             <label id="dateStartLabel">
                 <text>Время начала</text>

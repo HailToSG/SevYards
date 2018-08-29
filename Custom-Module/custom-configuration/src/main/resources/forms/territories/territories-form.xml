@@ -4,6 +4,9 @@
     <!-- Форма для доменного объекта "Территория" -->
     <form name="territories_form" domain-object-type="ter_territory" is-default="false">
         <act:tool-bar useDefault="false">
+            <act:action componentName="toggle.edit.on.action" text="Назначить" tooltip="Назначить"
+                        rendered="toggle-edit and preview" imageClass="actionBar-edit" order="20"
+                        visibility-checker="territory.id.keeper"/>
             <act:action componentName="save.action" rendered="toggle-edit and not preview" text="Сохранить"
                         tooltip="Сохранить изменения" order="10" imageClass="actionBar-save"/>
             <act:action componentName="close.in.central.panel.action" text="Закрыть" tooltip="Закрыть"
@@ -47,6 +50,26 @@
                                     </td>
                                 </tr>
 
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="territoryTypeLabel"/>
+                                    </td>
+
+                                    <td h-align="left">
+                                        <widget id="territoryTypeValue"/>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="territoryPersonLabel"/>
+                                    </td>
+
+                                    <td h-align="left">
+                                        <widget id="territoryPersonValue"/>
+                                    </td>
+                                </tr>
+
                             </table>
                         </tab-group>
                     </single-entry-group>
@@ -64,16 +87,42 @@
             <label id="territoryNameLabel">
                 <text>Имя территории</text>
             </label>
-            <text-box id="territoryNameValue">
+            <text-box id="territoryNameValue" read-only="true">
                 <field-path value="name"/>
             </text-box>
 
             <label id="territoryNumberLabel">
                 <text>Номер территории</text>
             </label>
-            <text-box id="territoryNumberValue">
+            <text-box id="territoryNumberValue" read-only="true">
                 <field-path value="number"/>
             </text-box>
+
+            <label id="territoryTypeLabel">
+                <text>Тип территории</text>
+            </label>
+
+            <text-box id="territoryTypeValue" read-only="true">
+                <field-path value="territory_type"/>
+            </text-box>
+
+            <label id="territoryPersonLabel">
+                <text>Назначить исполнителя</text>
+            </label>
+            <linked-domain-objects-table id="territoryPersonValue" modal-width="500px" modal-height="400px" max-tooltip-width="300px">
+                <field-path value="person_territory^ter_territory"/>
+                <linked-form name="person_territory_form" inline="true"/>
+                <summary-table>
+                    <summary-table-column header="Назначенные исполнители" widget-id="personTerritoryValue">
+                        <pattern value="{Person.lastname} {Person.firstname}"/>
+                    </summary-table-column>
+                </summary-table>
+                <selection-sort-criteria>
+                    <sort-criterion field="Person.lastname" order="ASC"/>
+                </selection-sort-criteria>
+                <single-choice value="false"/>
+            </linked-domain-objects-table>
+
         </widget-config>
 
     </form>
@@ -83,13 +132,15 @@
             <act:action componentName="save.action" rendered="toggle-edit and not preview" text="Сохранить"
                         tooltip="Сохранить изменения" order="10" imageClass="actionBar-save"/>
             <act:action componentName="toggle.edit.on.action" text="Редактировать" tooltip="Редактировать"
-                        rendered="toggle-edit and preview" imageClass="actionBar-edit" order="20"/>
+                        rendered="toggle-edit and preview" imageClass="actionBar-edit" order="20"
+                        visibility-checker="territory.id.keeper"/>
             <act:action componentName="close.in.central.panel.action" text="Закрыть" tooltip="Закрыть"
                         rendered="toggle-edit and not preview" order="5"
                         imageClass="actionBar-close"/>
             <act:action componentName="delete.action" text="Удалить" tooltip="Удалить территорию"
                         rendered="not toggle-edit or (toggle-edit and preview)"
                         imageClass="actionBar-delete"/>
+
 
         </act:tool-bar>
         <markup>
@@ -127,7 +178,6 @@
                                         <widget id="territoryNumberValue"/>
                                     </td>
                                 </tr>
-
                                 <tr>
                                     <td h-align="right">
                                         <widget id="territoryTypeLabel"/>
@@ -137,7 +187,6 @@
                                         <widget id="territoryTypeValue"/>
                                     </td>
                                 </tr>
-
                                 <tr>
                                     <td h-align="right">
                                         <widget id="publicLinkedLabel"/>
@@ -222,7 +271,8 @@
             <act:action componentName="save.action" rendered="toggle-edit and not preview" text="Сохранить"
                         tooltip="Сохранить изменения" order="10" imageClass="actionBar-save"/>
             <act:action componentName="toggle.edit.on.action" text="Редактировать" tooltip="Редактировать"
-                        rendered="toggle-edit and preview" imageClass="actionBar-edit" order="20"/>
+                        rendered="toggle-edit and preview" imageClass="actionBar-edit" order="20"
+                        visible-when-new="false"/>
             <act:action componentName="close.in.central.panel.action" text="Закрыть" tooltip="Закрыть"
                         rendered="toggle-edit and not preview" order="5"
                         imageClass="actionBar-close"/>
@@ -357,7 +407,8 @@
             <act:action componentName="save.action" rendered="toggle-edit and not preview" text="Сохранить"
                         tooltip="Сохранить изменения" order="10" imageClass="actionBar-save"/>
             <act:action componentName="toggle.edit.on.action" text="Редактировать" tooltip="Редактировать"
-                        rendered="toggle-edit and preview" imageClass="actionBar-edit" order="20"/>
+                        rendered="toggle-edit and preview" imageClass="actionBar-edit" order="20"
+                        visible-when-new="false"/>
             <act:action componentName="close.in.central.panel.action" text="Закрыть" tooltip="Закрыть"
                         rendered="toggle-edit and not preview" order="5"
                         imageClass="actionBar-close"/>
@@ -498,7 +549,8 @@
             <act:action componentName="save.action" rendered="toggle-edit and not preview" text="Сохранить"
                         tooltip="Сохранить изменения" order="10" imageClass="actionBar-save"/>
             <act:action componentName="toggle.edit.on.action" text="Редактировать" tooltip="Редактировать"
-                        rendered="toggle-edit and preview" imageClass="actionBar-edit" order="20"/>
+                        rendered="toggle-edit and preview" imageClass="actionBar-edit" order="20"
+                        visible-when-new="false"/>
             <act:action componentName="close.in.central.panel.action" text="Закрыть" tooltip="Закрыть"
                         rendered="toggle-edit and not preview" order="5"
                         imageClass="actionBar-close"/>

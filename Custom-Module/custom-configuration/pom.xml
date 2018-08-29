@@ -27,6 +27,23 @@
         <artifactId>gui-server-api</artifactId>
         <version>${af.platform.version}</version>
     </dependency>
-</dependencies>
+        <dependency>
+            <groupId>ru.intertrust.cm-sochi</groupId>
+            <artifactId>gui-client-impl</artifactId>
+            <version>0.6.4-2</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>javax.inject</groupId>
+            <artifactId>javax.inject</artifactId>
+            <version>1</version>
+        </dependency>
+        <dependency>
+            <groupId>com.google.gwt</groupId>
+            <artifactId>gwt-user</artifactId>
+            <version>2.7.0</version>
+            <scope>compile</scope>
+        </dependency>
+    </dependencies>
 
 </project>

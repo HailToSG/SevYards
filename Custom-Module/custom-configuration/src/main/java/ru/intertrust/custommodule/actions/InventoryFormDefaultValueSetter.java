@@ -1,43 +1,36 @@
 package ru.intertrust.custommodule.actions;
 
+//TODO: Понять, откуда можно вытянуть ссылку на территорию, по которой мы перешли в child-collection
+
 import org.springframework.beans.factory.annotation.Autowired;
+import ru.intertrust.cm.core.gui.model.ComponentName;
 import ru.intertrust.cm.core.business.api.CollectionsService;
 import ru.intertrust.cm.core.business.api.dto.*;
-import ru.intertrust.cm.core.business.api.CrudService;
-import ru.intertrust.cm.core.dao.access.AccessControlService;
-import ru.intertrust.cm.core.dao.api.DomainObjectDao;
 import ru.intertrust.cm.core.gui.api.server.ComponentHandler;
 import ru.intertrust.cm.core.gui.api.server.widget.FormDefaultValueSetter;
-import ru.intertrust.cm.core.gui.model.ComponentName;
 import ru.intertrust.cm.core.gui.model.form.FieldPath;
 import ru.intertrust.cm.core.gui.model.form.FormObjects;
 import ru.intertrust.cm.core.gui.model.form.FormState;
 
 import java.util.*;
 
-
 @ComponentName("inventory.form.default.value.setter")
 public class InventoryFormDefaultValueSetter implements ComponentHandler, FormDefaultValueSetter {
 
     @Autowired
-    private DomainObjectDao domainObjectService;
+    CollectionsService collectionsService;
 
-    @Autowired
-    CrudService crudService;
-
-    @Autowired
-    private CollectionsService collectionsService;
-
-    @Autowired
-    private AccessControlService accessControlService;
-
-    private static final String QUERY_INVENTORY_BY_MAX_ID = "SELECT * FROM inventory WHERE id=(SELECT max(id) FROM inventory)";
     private static final String TERRITORY_LINKED_FIELD = "territory_id";
+    private static final String INVENTORY_STATUS_FIELD = "status";
+    private static final String TERRITORY_NAME_FIELD = "name";
+    private static final String QUERY_TERRITORY_BY_INVENTORY = "SELECT * FROM ter_territory WHERE id= {0}";
+    private static final String INVENTORY_TERRITORY_NAME_FIELD = "territory_name";
     private static final String IS_BUILDINGS_FILLED_FIELD_CHECKBOX = "is_buildings_filled";
     private static final String IS_RIGHTHOLDERS_FILLED_FIELD_CHECKBOX = "is_rightholders_filled";
     private static final String IS_ELEMENTS_FILLED_CHECKBOX = "is_elements_filled";
     private static final String DATE_START_FIELD = "start_time";
     private static final Boolean CHECKBOX_FALSE_VALUE = false;
+    private static Id terrReference = TerritoryIdKeeper.getTerrId();
 
     @Override
     public Value[] getDefaultValues(FormObjects formObjects, FieldPath fieldPath) {
@@ -56,30 +49,45 @@ public class InventoryFormDefaultValueSetter implements ComponentHandler, FormDe
 
     @Override
     public Value getDefaultValue(FormState formState, FieldPath fieldPath) {
+        DomainObject domainObj = formState.getObjects().getRootDomainObject();
         String fieldPathValue = fieldPath.getPath();
-
-        IdentifiableObjectCollection collection = collectionsService.findCollectionByQuery(QUERY_INVENTORY_BY_MAX_ID);
-        IdentifiableObject lastInventory = collection.get(0);
-        ArrayList list = lastInventory.getFields();
-        List<Id> temporaryBuildingsList = crudService.findLinkedDomainObjectsIds(lastInventory.getId(), "build_temporary", "inventory_id");
-        List<DomainObject> temporaryBuildingsObjects = crudService.find(temporaryBuildingsList);
-        crudService.save(temporaryBuildingsObjects);
-
-        switch (fieldPathValue) {
-            case TERRITORY_LINKED_FIELD:
-                return new ReferenceValue(lastInventory.getId());
-            case IS_BUILDINGS_FILLED_FIELD_CHECKBOX:
-                return new BooleanValue(CHECKBOX_FALSE_VALUE);
-            case IS_RIGHTHOLDERS_FILLED_FIELD_CHECKBOX:
-                return new BooleanValue(CHECKBOX_FALSE_VALUE);
-            case IS_ELEMENTS_FILLED_CHECKBOX:
-                return new BooleanValue(CHECKBOX_FALSE_VALUE);
-            case DATE_START_FIELD:
-                return new DateTimeValue(new Date());
-            default:
-                return null;
+        if (domainObj != null) {
+            switch (fieldPathValue) {
+                case INVENTORY_STATUS_FIELD:
+                    return new ReferenceValue(null);
+                case INVENTORY_TERRITORY_NAME_FIELD:
+                    return new StringValue(getTerritoryById(terrReference));
+                case TERRITORY_LINKED_FIELD:
+                    if (terrReference != null)
+                        domainObj.setReference(TERRITORY_LINKED_FIELD, terrReference);
+                    return null;
+                case IS_BUILDINGS_FILLED_FIELD_CHECKBOX:
+                    return new BooleanValue(CHECKBOX_FALSE_VALUE);
+                case IS_RIGHTHOLDERS_FILLED_FIELD_CHECKBOX:
+                    return new BooleanValue(CHECKBOX_FALSE_VALUE);
+                case IS_ELEMENTS_FILLED_CHECKBOX:
+                    return new BooleanValue(CHECKBOX_FALSE_VALUE);
+                case DATE_START_FIELD:
+                    return new DateTimeValue(new Date());
+                default:
+                    return null;
+            }
         }
-
-
+        return null;
+    }
+    public String getTerritoryById(Id status){
+        Value statusIdValue = new ReferenceValue(status);
+        List<Value> params = new ArrayList<>();
+        params.add(statusIdValue);
+        IdentifiableObjectCollection collection = collectionsService.findCollectionByQuery(QUERY_TERRITORY_BY_INVENTORY, params);
+        if (collection != null && collection.size() > 0) {
+            for (IdentifiableObject O : collection) {
+                return O.getString(TERRITORY_NAME_FIELD);
+            }
+        }
+        return null;
     }
 }
+
+
+

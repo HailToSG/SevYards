@@ -27,7 +27,7 @@ public class InventoryStatusDraftVisibilityChecker implements ActionVisibilityCh
             if (getQueryStatusById(context.getDomainObject().getStatus()).equals(STATUS_FINISHED)) {
 
                 return true;
-            } else return false;
+            }
         }
 
         return false;
