@@ -8,29 +8,17 @@
               terr.id               AS id,
               terr.name             AS name,
               terr.number           AS number,
+              stat.description      AS status_description,
 
-                    (SELECT public.kind_of_territory
-                    FROM ter_public public
-                    WHERE public.territory_id = terr.id)
-                    AS kind,
-
-                    (SELECT public.objects_area
-                    FROM ter_public public
-                    WHERE public.territory_id = terr.id)
-                    AS objects_area,
-
-                    (SELECT public.summary_area
-                    FROM ter_public public
-                    WHERE public.territory_id = terr.id)
-                    AS summary_area,
-
-                    (SELECT COUNT(*) FROM inventory
-                    WHERE terr.id = territory_id)
-                    AS inventories
+                   (SELECT COUNT(*)
+                   FROM inventory
+                   WHERE terr.id = territory_id)
+                   AS inventories
 
             FROM ter_territory terr
+            INNER JOIN status stat ON stat.id = terr.status
             WHERE
-              terr.territory_type='Общественная территория' ::where-clause
+              terr.territory_type= 0 ::where-clause
             ]]>
         </prototype>
 
@@ -57,11 +45,7 @@
                     sortable="true" min-width="50px" text-break-style="cut" search-filter="byName"/>
             <column field="number" name="Номер" type="string" editable="false"
                     sortable="true" min-width="50px" text-break-style="cut" search-filter="byNumber"/>
-            <column field="kind" name="Тип" type="string" editable="false"
-                    sortable="true" min-width="50px" text-break-style="cut"/>
-            <column field="objects_area" name="Площадь зданий, сооружений, строений" type="integer" editable="false"
-                    sortable="true" min-width="50px" text-break-style="cut"/>
-            <column field="summary_area" name="Общая площадь" type="integer" editable="false"
+            <column field="status_description" name="Статус объекта" type="string" editable="false"
                     sortable="true" min-width="50px" text-break-style="cut"/>
             <column field="inventories" name="Инвентаризации" type="integer" editable="false" sortable="true"
                     min-width="50px" text-break-style="cut">

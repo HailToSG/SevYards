@@ -4,7 +4,7 @@
     <!--Сущность МАФ и сущности, которые относятся к МАФ-->
 
     <!--Сущность "МАФ"(малая архитектурная форма)-->
-    <domain-object-type name="maf">
+    <domain-object-type name="maf" initial-status="Exists">
         <fields>
 
             <!--Ссылка на инвентаризацию -->
@@ -14,11 +14,11 @@
             <reference name="territory_id" type="ter_territory"/>
 
             <!--тип объекта МАФ -->
-            <string name="type" length="1024">
+            <long name="type">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </string>
+            </long>
 
             <!--состояние объекта МАФ-->
             <string name="state" length="1024">
@@ -35,43 +35,43 @@
     </domain-object-type>
 
     <!--Сущность "Накопители ТКО"-->
-    <domain-object-type name="maf_trash_can">
+    <domain-object-type name="maf_trash_can" initial-status="Exists">
         <fields>
 
             <!-- материал, из которого сделан накопитель ТКО -->
-            <decimal name="material">
-                <constraints>
-                    <simple-constraint value="not-empty"/>
-                </constraints>
-            </decimal>
-
-            <!-- Вместимость, куб.м -->
-            <long name="capacity">
+            <long name="material">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
             </long>
 
-            <!-- состояние покрытия -->
-            <decimal name="state_coating_trash">
+            <!-- Вместимость, куб.м -->
+            <decimal name="can_capacity">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
             </decimal>
+
+            <!-- состояние покрытия -->
+            <long name="state_coating_trash">
+                <constraints>
+                    <simple-constraint value="not-empty"/>
+                </constraints>
+            </long>
 
             <!--Тип ТКО-->
-            <decimal name="kind">
+            <long name="kind">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </decimal>
+            </long>
 
             <!--состояние объекта МАФ-->
-            <decimal name="state">
+            <long name="state">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </decimal>
+            </long>
 
             <!--Ссылка на инвентаризацию -->
             <reference name="inventory_id" type="inventory"/>
@@ -87,49 +87,49 @@
     </domain-object-type>
 
     <!-- Сущность "Оснащения детских площадок"-->
-    <domain-object-type name="maf_playground_equipment">
+    <domain-object-type name="maf_playground_equipment" initial-status="Exists">
         <fields>
             <!-- Тип оснащения -->
-            <decimal name="kind">
+            <long name="kind">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </decimal>
+            </long>
 
             <!-- материал опор площадки -->
-            <decimal name="support_material">
+            <long name="support_material">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </decimal>
+            </long>
 
             <!-- материал сидений -->
-            <decimal name="seat_material">
+            <long name="seat_material">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </decimal>
+            </long>
 
             <!-- тип подвеса -->
-            <decimal name="type_suspension">
+            <long name="type_suspension">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </decimal>
+            </long>
 
             <!-- состояние покрытия -->
-            <decimal name="state_coating">
+            <long name="state_coating">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </decimal>
+            </long>
 
             <!--состояние объекта МАФ-->
-            <decimal name="state">
+            <long name="state">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </decimal>
+            </long>
 
             <!--Ссылка на инвентаризацию -->
             <reference name="inventory_id" type="inventory"/>
@@ -144,7 +144,7 @@
     </domain-object-type>
 
     <!-- Сущность "Скамьи"-->
-    <domain-object-type name="maf_benches">
+    <domain-object-type name="maf_benches" initial-status="Exists">
         <fields>
 
             <!-- ширина -->
@@ -155,28 +155,29 @@
             </long>
 
             <!-- материал, из которого сделана скамья -->
-            <decimal name="material">
+            <long name="material">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </decimal>
+            </long>
 
             <!-- состояние покрытия -->
-            <decimal name="state_coating">
+            <long name="state_coating">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </decimal>
+            </long>
 
             <!-- имеет спинку -->
             <boolean name="has_a_back" not-null="true"/>
 
             <!--состояние объекта МАФ-->
-            <decimal name="state">
+            <long name="state">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </decimal>
+            </long>
+
 
             <!--Ссылка на инвентаризацию -->
             <reference name="inventory_id" type="inventory"/>
@@ -191,7 +192,7 @@
     </domain-object-type>
 
     <!-- Сущность "Столы"-->
-    <domain-object-type name="maf_tables">
+    <domain-object-type name="maf_tables" initial-status="Exists">
         <fields>
 
             <!-- Размер стола -->
@@ -202,32 +203,32 @@
             </long>
 
             <!-- форма стола -->
-            <decimal name="shape">
+            <long name="shape">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </decimal>
+            </long>
 
             <!-- назначение стола -->
-            <decimal name="appointment">
+            <long name="appointment">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </decimal>
+            </long>
 
             <!-- материал, из которого сделан стол  -->
-            <decimal name="material">
+            <long name="material">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </decimal>
+            </long>
 
             <!--состояние объекта МАФ-->
-            <decimal name="state">
+            <long name="state">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </decimal>
+            </long>
 
             <!--Ссылка на инвентаризацию -->
             <reference name="inventory_id" type="inventory"/>
@@ -242,22 +243,22 @@
     </domain-object-type>
 
     <!-- Сущность "Спортивный инвентарь"-->
-    <domain-object-type name="maf_sport_equipments">
+    <domain-object-type name="maf_sport_equipments" initial-status="Exists">
         <fields>
 
             <!-- Тип инвентаря -->
-            <decimal name="kind">
+            <long name="kind">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </decimal>
+            </long>
 
             <!--состояние объекта МАФ-->
-            <decimal name="state">
+            <long name="state">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </decimal>
+            </long>
 
             <!--Ссылка на инвентаризацию -->
             <reference name="inventory_id" type="inventory"/>
@@ -271,7 +272,7 @@
     </domain-object-type>
 
     <!-- Сущность "Беседки" -->
-    <domain-object-type name="maf_pavilions">
+    <domain-object-type name="maf_pavilions" initial-status="Exists">
         <fields>
 
             <!-- Площадь -->
@@ -282,18 +283,18 @@
             </long>
 
             <!-- материал, из которого сделана беседка -->
-            <decimal name="material">
+            <long name="material">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </decimal>
+            </long>
 
             <!--состояние объекта МАФ-->
-            <decimal name="state">
+            <long name="state">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </decimal>
+            </long>
 
             <!--Ссылка на инвентаризацию -->
             <reference name="inventory_id" type="inventory"/>
@@ -309,7 +310,7 @@
     </domain-object-type>
 
     <!-- Сущность "Терассы"-->
-    <domain-object-type name="maf_terraces">
+    <domain-object-type name="maf_terraces" initial-status="Exists">
         <fields>
 
             <!-- Площадь -->
@@ -320,18 +321,18 @@
             </long>
 
             <!-- материал, из которого сделана терасса -->
-            <decimal name="material">
+            <long name="material">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </decimal>
+            </long>
 
             <!--состояние объекта МАФ-->
-            <decimal name="state">
+            <long name="state">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </decimal>
+            </long>
 
             <!--Ссылка на инвентаризацию -->
             <reference name="inventory_id" type="inventory"/>
@@ -346,7 +347,7 @@
     </domain-object-type>
 
     <!-- Сущность "Навесы" -->
-    <domain-object-type name="maf_canopies">
+    <domain-object-type name="maf_canopies" initial-status="Exists">
         <fields>
 
             <!-- Площадь -->
@@ -357,18 +358,18 @@
             </long>
 
             <!-- материал, из которого сделан навес -->
-            <decimal name="material">
+            <long name="material">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </decimal>
+            </long>
 
             <!--состояние объекта МАФ-->
-            <decimal name="state">
+            <long name="state">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </decimal>
+            </long>
 
             <!--Ссылка на инвентаризацию -->
             <reference name="inventory_id" type="inventory"/>
@@ -382,28 +383,28 @@
     </domain-object-type>
 
     <!-- Сущность "Фонтаны"-->
-    <domain-object-type name="maf_fountains">
+    <domain-object-type name="maf_fountains" initial-status="Exists">
         <fields>
             <!-- Размер фонтана -->
-            <decimal name="size">
+            <long name="size">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </decimal>
+            </long>
 
             <!-- материал, из которого сделан фонтан -->
-            <decimal name="material">
+            <long name="material">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </decimal>
+            </long>
 
             <!--состояние объекта МАФ-->
-            <decimal name="state">
+            <long name="state">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </decimal>
+            </long>
 
             <!--Ссылка на инвентаризацию -->
             <reference name="inventory_id" type="inventory"/>

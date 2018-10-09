@@ -6,12 +6,19 @@
             <![CDATA[
             SELECT
               territory.id                  AS id,
-              territory.territory_type      AS type,
+                    case
+                      when territory.territory_type = 0 then 'Общественная территория'
+                      when territory.territory_type = 5 then 'Дворовая территория'
+                      when territory.territory_type = 10 then 'Объект ИЖС'
+                      when territory.territory_type = 15 then 'Объект ЮЛ и ИП'
+                    end                     AS type,
               territory.name                AS name,
               territory.number              AS number,
+              stat.description              AS status_description,
              (SELECT COUNT(*) FROM inventory WHERE territory.id = territory_id) AS inventories
 
             FROM ter_territory territory
+            INNER JOIN status stat ON stat.id = territory.status
             WHERE
               1=1 ::where-clause
             ]]>
@@ -25,14 +32,15 @@
         </filter>
 
     </collection>
-
-    <collection-view name="ter_collection_view" collection="ter_collection" is-default="true">
+    <collection-view name="ter_collection_view" collection="ter_collection" is-default="false">
         <display>
             <column field="type" name="Тип территории" type="string" editable="false" sortable="true"
                     min-width="50px" text-break-style="cut" />
             <column field="name" name="Имя" type="string" editable="false"
                     sortable="true" min-width="50px" text-break-style="cut"/>
             <column field="number" name="Номер" type="string" editable="false"
+                    sortable="true" min-width="50px" text-break-style="cut"/>
+            <column field="status_description" name="Статус объекта" type="string" editable="false"
                     sortable="true" min-width="50px" text-break-style="cut"/>
             <column field="inventories" name="Инвентаризации" type="integer" editable="false" sortable="true"
                     min-width="50px" text-break-style="cut">
@@ -44,6 +52,50 @@
                     </collection-viewer>
                 </child-collection-viewer>
             </column>
+        </display>
+    </collection-view>
+
+    <collection name="ter_appointment_collection" idField="id">
+        <prototype>
+            <![CDATA[
+            SELECT
+              territory.id                  AS id,
+                    case
+                      when territory.territory_type = 0 then 'Общественная территория'
+                      when territory.territory_type = 5 then 'Дворовая территория'
+                      when territory.territory_type = 10 then 'Объект ИЖС'
+                      when territory.territory_type = 15 then 'Объект ЮЛ и ИП'
+                    end                     AS type,
+              territory.name                AS name,
+              territory.number              AS number,
+              stat.description              AS status_description
+
+            FROM ter_territory territory
+            INNER JOIN status stat ON stat.id = territory.status
+            WHERE
+              stat.name NOT IN ('Deleted') ::where-clause
+            ]]>
+        </prototype>
+        <filter name="byTerritoryName">
+            <criteria placeholder="where-clause">
+                <![CDATA[
+                    LOWER(name) LIKE LOWER('%' || {0} || '%')
+                ]]>
+            </criteria>
+        </filter>
+
+    </collection>
+
+    <collection-view name="ter_appointment_collection_view" collection="ter_collection" is-default="false">
+        <display>
+            <column field="type" name="Тип территории" type="integer" editable="false" sortable="true"
+                    min-width="50px" text-break-style="cut"/>
+            <column field="name" name="Имя" type="string" editable="false"
+                    sortable="true" min-width="50px" text-break-style="cut"/>
+            <column field="number" name="Номер" type="string" editable="false"
+                    sortable="true" min-width="50px" text-break-style="cut"/>
+            <column field="status_description" name="Статус объекта" type="string" editable="false"
+                    sortable="true" min-width="50px" text-break-style="cut"/>
         </display>
     </collection-view>
 

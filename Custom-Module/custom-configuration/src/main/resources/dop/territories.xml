@@ -4,24 +4,24 @@
     <!--Доменный объект "Территория" и доменные объекты типов территории-->
 
     <!--Доменный объект "Территория"-->
-    <domain-object-type name="ter_territory">
+    <domain-object-type name="ter_territory" initial-status="Exists">
         <fields>
             <string name="name" length="100"/>
             <string name="number" length="100"/>
-            <string name="territory_type" length="100"/>
+            <long name="territory_type"/>
         </fields>
     </domain-object-type>
 
     <!--Доменный объект "Общественная территория"-->
-    <domain-object-type name="ter_public">
+    <domain-object-type name="ter_public" initial-status="Exists">
         <fields>
 
             <!--Вид общественной территории -->
-            <string name="kind_of_territory" length="1000">
+            <long name="kind_of_territory" >
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </string>
+            </long>
 
             <!--Общая площадь -->
             <long name="summary_area">
@@ -47,7 +47,7 @@
     </domain-object-type>
 
     <!--Доменный объект "Дворовая территория"-->
-    <domain-object-type name="ter_yard">
+    <domain-object-type name="ter_yard" initial-status="Exists">
         <fields>
 
             <!--Общая площадь -->
@@ -74,7 +74,7 @@
     </domain-object-type>
 
     <!--Доменный объект "Объект индивидуального жилищного строительства"-->
-    <domain-object-type name="ter_private_housing">
+    <domain-object-type name="ter_private_housing" initial-status="Exists">
         <fields>
 
             <!--Состояние фасада-->
@@ -105,7 +105,7 @@
     </domain-object-type>
 
     <!--Доменный объект "Объект недвижимого имущества и зем.участков у ЮЛ и ИП"-->
-    <domain-object-type name="ter_ulip">
+    <domain-object-type name="ter_ulip" initial-status="Exists">
         <fields>
 
             <!--Состояние фасада-->
@@ -135,13 +135,13 @@
     </domain-object-type>
 
     <!-- Cущность для связки "Пользователь - Территория" -->
-    <domain-object-type name="person_territory">
+    <domain-object-type name="actor_territory" initial-status="Active">
         <fields>
-            <reference name="person" type="person" not-null="true"/>
+            <reference name="actor" type="actor" not-null="true"/>
             <reference name="ter_territory" type="ter_territory" not-null="true"/>
         </fields>
         <uniqueKey>
-            <field name="person"/>
+            <field name="actor"/>
             <field name="ter_territory"/>
         </uniqueKey>
     </domain-object-type>

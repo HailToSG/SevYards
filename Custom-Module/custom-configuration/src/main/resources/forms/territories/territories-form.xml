@@ -4,6 +4,151 @@
     <!-- Форма для доменного объекта "Территория" -->
     <form name="territories_form" domain-object-type="ter_territory" is-default="false">
         <act:tool-bar useDefault="false">
+            <act:action-ref name-ref="aRefresh" order="1" visibility-checker="territory.id.keeper"/>
+            <act:action componentName="toggle.edit.on.action" text="Редактировать" tooltip="Редактировать"
+                        rendered="toggle-edit and preview" imageClass="actionBar-edit" order="20"
+                        visible-when-new="false"/>
+            <act:action componentName="save.action" rendered="toggle-edit and not preview" text="Сохранить"
+                        tooltip="Сохранить изменения" order="10" imageClass="actionBar-save"/>
+            <act:action componentName="close.in.central.panel.action" text="Закрыть" tooltip="Закрыть"
+                        rendered="toggle-edit and not preview"
+                        imageClass="actionBar-close"/>
+            <act:simple-action name="export" action-handler="territories.json.exporter" componentName="simple.action"
+                               text="Экспортировать все территории" dirtySensitivity="false" imageClass="actionBar-csvUpload"
+                               order="994"   visibility-checker="inventory.json.uploader.visibility.checker">
+
+                <act:before-execution>
+                    <act:confirmation-message text="Экспортировать все территории в JSON?"/>
+                </act:before-execution>
+
+                <act:after-execution>
+                    <act:on-success-message text="Территории экспортированы"/>
+                </act:after-execution>
+            </act:simple-action>
+            <act:simple-action name="safeDelete" action-handler="objects.safe.remove.handler" componentName="simple.action"
+                               text="Удалить объект" dirtySensitivity="false" imageClass="actionBar-close"
+                               rendered="(not toggle-edit and not preview)  or (toggle-edit and preview)"
+                               order="995"  visibility-checker="object.save.remove.visibility.checker">
+
+                <act:before-execution>
+                    <act:confirmation-message text="Будет удалён объект и все привязанные к нему объекты. Продолжить?"/>
+                </act:before-execution>
+
+                <act:after-execution>
+                    <act:on-success-message text="Объект удалён"/>
+                </act:after-execution>
+            </act:simple-action>
+            <act:simple-action name="safeRestore"
+                               rendered="(not toggle-edit and not preview)  or (toggle-edit and preview)"
+                               action-handler="objects.safe.restore.handler" componentName="simple.action"
+                               text="Восстановить объект" dirtySensitivity="false" imageClass="calendarMonth"
+                               order="996"  visibility-checker="object.save.restore.visibility.checker">
+
+                <act:before-execution>
+                    <act:confirmation-message text="Будет восстановлен объект и все привязанные к нему объекты. Продолжить?"/>
+                </act:before-execution>
+
+                <act:after-execution>
+                    <act:on-success-message text="Объект восстановлен"/>
+                </act:after-execution>
+            </act:simple-action>
+        </act:tool-bar>
+        <markup>
+            <header>
+                <table>
+                    <tr>
+                        <td h-align="left">
+                            <widget id="headerLabel"/>
+                        </td>
+                    </tr>
+                </table>
+            </header>
+
+            <body display-single-tab="true">
+
+                <tab>
+                    <single-entry-group>
+                        <tab-group>
+                            <table>
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="territoryTypeLabel"/>
+                                    </td>
+
+                                    <td h-align="left">
+                                        <widget id="territoryTypeValue"/>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="territoryNameLabel"/>
+                                    </td>
+
+                                    <td h-align="left">
+                                        <widget id="territoryNameValue"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="territoryNumberLabel"/>
+                                    </td>
+
+                                    <td h-align="left">
+                                        <widget id="territoryNumberValue"/>
+                                    </td>
+                                </tr>
+
+
+
+                            </table>
+                        </tab-group>
+                    </single-entry-group>
+                </tab>
+
+            </body>
+
+        </markup>
+        <widget-config>
+
+            <label id="headerLabel">
+                <text>Территория</text>
+            </label>
+
+            <label id="territoryNameLabel">
+                <text>Имя территории</text>
+            </label>
+            <text-box id="territoryNameValue">
+                <field-path value="name"/>
+            </text-box>
+
+            <label id="territoryNumberLabel">
+                <text>Номер территории</text>
+            </label>
+            <text-box id="territoryNumberValue">
+                <field-path value="number"/>
+            </text-box>
+
+            <label id="territoryTypeLabel">
+                <text>Тип территории</text>
+            </label>
+
+            <enumeration-box id="territoryTypeValue">
+                <field-path value="territory_type"/>
+                <mapping>
+                    <map value="0" display-text="Общественная территория"/>
+                    <map value="5" display-text="Дворовая территория"/>
+                    <map value="10" display-text="Объект ИЖС"/>
+                    <map value="15" display-text="Объект ЮЛ и ИП"/>
+                </mapping>
+            </enumeration-box>
+
+        </widget-config>
+
+    </form>
+
+    <form name="territories_appointment_form" domain-object-type="ter_territory" is-default="false">
+        <act:tool-bar useDefault="false">
             <act:action componentName="toggle.edit.on.action" text="Назначить" tooltip="Назначить"
                         rendered="toggle-edit and preview" imageClass="actionBar-edit" order="20"
                         visibility-checker="territory.id.keeper"/>
@@ -30,6 +175,15 @@
                     <single-entry-group>
                         <tab-group>
                             <table>
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="territoryTypeLabel"/>
+                                    </td>
+
+                                    <td h-align="left">
+                                        <widget id="territoryTypeValue"/>
+                                    </td>
+                                </tr>
 
                                 <tr>
                                     <td h-align="right">
@@ -50,15 +204,7 @@
                                     </td>
                                 </tr>
 
-                                <tr>
-                                    <td h-align="right">
-                                        <widget id="territoryTypeLabel"/>
-                                    </td>
 
-                                    <td h-align="left">
-                                        <widget id="territoryTypeValue"/>
-                                    </td>
-                                </tr>
 
                                 <tr>
                                     <td h-align="right">
@@ -102,23 +248,29 @@
                 <text>Тип территории</text>
             </label>
 
-            <text-box id="territoryTypeValue" read-only="true">
+            <enumeration-box id="territoryTypeValue" read-only="true">
                 <field-path value="territory_type"/>
-            </text-box>
+                <mapping>
+                    <map value="0" display-text="Общественная территория"/>
+                    <map value="5" display-text="Дворовая территория"/>
+                    <map value="10" display-text="Объект ИЖС"/>
+                    <map value="15" display-text="Объект ЮЛ и ИП"/>
+                </mapping>
+            </enumeration-box>
 
             <label id="territoryPersonLabel">
                 <text>Назначить исполнителя</text>
             </label>
             <linked-domain-objects-table id="territoryPersonValue" modal-width="500px" modal-height="400px" max-tooltip-width="300px">
-                <field-path value="person_territory^ter_territory"/>
-                <linked-form name="person_territory_form" inline="true"/>
+                <field-path value="actor_territory^ter_territory"/>
+                <linked-form name="actor_territory_form" inline="true"/>
                 <summary-table>
-                    <summary-table-column header="Назначенные исполнители" widget-id="personTerritoryValue">
-                        <pattern value="{Person.lastname} {Person.firstname}"/>
+                    <summary-table-column header="Назначенные исполнители" widget-id="userTerritoryValue">
+                        <pattern value="{actor.lastname} {actor.firstname}"/>
                     </summary-table-column>
                 </summary-table>
                 <selection-sort-criteria>
-                    <sort-criterion field="Person.lastname" order="ASC"/>
+                    <sort-criterion field="actor.lastname" order="ASC"/>
                 </selection-sort-criteria>
                 <single-choice value="false"/>
             </linked-domain-objects-table>
@@ -127,20 +279,41 @@
 
     </form>
 
-    <form name="territories_public_form" domain-object-type="ter_territory" is-default="false">
+    <form name="territories_public_form" domain-object-type="ter_territory" is-default="false"
+    default-value-setter="territory.public.form.default.value.setter">
         <act:tool-bar useDefault="false">
             <act:action componentName="save.action" rendered="toggle-edit and not preview" text="Сохранить"
-                        tooltip="Сохранить изменения" order="10" imageClass="actionBar-save"/>
+                        tooltip="Сохранить изменения" dirtySensitivity="false" order="10" imageClass="actionBar-save"/>
             <act:action componentName="toggle.edit.on.action" text="Редактировать" tooltip="Редактировать"
                         rendered="toggle-edit and preview" imageClass="actionBar-edit" order="20"
-                        visibility-checker="territory.id.keeper"/>
+                        visibility-checker="territory.id.keeper" visible-when-new="false"/>
             <act:action componentName="close.in.central.panel.action" text="Закрыть" tooltip="Закрыть"
                         rendered="toggle-edit and not preview" order="5"
                         imageClass="actionBar-close"/>
-            <act:action componentName="delete.action" text="Удалить" tooltip="Удалить территорию"
-                        rendered="not toggle-edit or (toggle-edit and preview)"
-                        imageClass="actionBar-delete"/>
+            <act:simple-action name="safeDelete" action-handler="objects.safe.remove.handler" componentName="simple.action"
+                               text="Удалить объект" dirtySensitivity="false" imageClass="actionBar-close"
+                               order="995" visibility-checker="object.save.remove.visibility.checker">
 
+                <act:before-execution>
+                    <act:confirmation-message text="Будет удалён объект и все привязанные к нему объекты. Продолжить?"/>
+                </act:before-execution>
+
+                <act:after-execution>
+                    <act:on-success-message text="Объект удалён"/>
+                </act:after-execution>
+            </act:simple-action>
+            <act:simple-action name="safeRestore" action-handler="objects.safe.restore.handler" componentName="simple.action"
+                               text="Восстановить объект" dirtySensitivity="false" imageClass="calendarMonth"
+                               order="996"  visibility-checker="object.save.restore.visibility.checker">
+
+                <act:before-execution>
+                    <act:confirmation-message text="Будет восстановлен объект и все привязанные к нему объекты. Продолжить?"/>
+                </act:before-execution>
+
+                <act:after-execution>
+                    <act:on-success-message text="Объект восстановлен"/>
+                </act:after-execution>
+            </act:simple-action>
 
         </act:tool-bar>
         <markup>
@@ -159,6 +332,15 @@
                     <single-entry-group>
                         <tab-group>
                             <table>
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="territoryTypeLabel"/>
+                                    </td>
+
+                                    <td h-align="left">
+                                        <widget id="territoryTypeValue"/>
+                                    </td>
+                                </tr>
 
                                 <tr>
                                     <td h-align="right">
@@ -178,38 +360,29 @@
                                         <widget id="territoryNumberValue"/>
                                     </td>
                                 </tr>
-                                <tr>
-                                    <td h-align="right">
-                                        <widget id="territoryTypeLabel"/>
-                                    </td>
-
-                                    <td h-align="left">
-                                        <widget id="territoryTypeValue"/>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td h-align="right">
-                                        <widget id="publicLinkedLabel"/>
-                                    </td>
-
-                                    <td h-align="left">
-                                        <widget id="publicLinkedValue"/>
-                                    </td>
-                                </tr>
 
                             </table>
                         </tab-group>
 
                     </single-entry-group>
                 </tab>
-
             </body>
 
         </markup>
         <widget-config>
             <label id="headerLabel">
-                <text>Территория</text>
+                <text>Информация о территории</text>
             </label>
+
+            <enumeration-box id="territoryTypeValue" read-only="true">
+                <field-path value="territory_type"/>
+                <mapping>
+                    <map value="0" display-text="Общественная территория"/>
+                    <map value="5" display-text="Дворовая территория"/>
+                    <map value="10" display-text="Объект ИЖС"/>
+                    <map value="15" display-text="Объект ЮЛ и ИП"/>
+                </mapping>
+            </enumeration-box>
 
             <label id="territoryNameLabel">
                 <text>Имя территории</text>
@@ -229,56 +402,177 @@
                 <text>Тип территории</text>
             </label>
 
-            <text-box id="territoryTypeValue" read-only="true">
-                <field-path value="territory_type">
-                    <default-value>
-                        <field value="Общественная территория"/>
-                    </default-value>
-                </field-path>
-            </text-box>
-
-            <label id="publicLinkedLabel">
-                <text>Общественная территория</text>
-            </label>
-
-            <linked-domain-objects-table id="publicLinkedValue" delete-linked-objects="true" modal-width="600px"
-                                         modal-height="400px">
-                <field-path value="ter_public^territory_id" on-root-delete="unlink"/>
-
-                <linked-form name="ter_public_form" inline="true"
-                             domain-object-type="ter_public"/>
-                <summary-table>
-                    <summary-table-column header="Вид" widget-id="kindOfTerritoryValue">
-                        <pattern value="{kind_of_territory}"/>
-                    </summary-table-column>
-                    <summary-table-column header="Общая площадь" widget-id="summaryAreaValue">
-                        <pattern value="{summary_area}"/>
-                    </summary-table-column>
-                    <summary-table-column header="Площадь объектов" widget-id="objectsAreaLabel">
-                        <pattern value="{objects_area}"/>
-                    </summary-table-column>
-                </summary-table>
-                <single-choice value="true"/>
-            </linked-domain-objects-table>
-
-
         </widget-config>
 
     </form>
 
-    <form name="territories_yard_form" domain-object-type="ter_territory" is-default="false">
+    <form name="territories_yard_form" domain-object-type="ter_territory" is-default="false"
+    default-value-setter="territory.yard.form.default.value.setter">
         <act:tool-bar useDefault="false">
             <act:action componentName="save.action" rendered="toggle-edit and not preview" text="Сохранить"
-                        tooltip="Сохранить изменения" order="10" imageClass="actionBar-save"/>
+                        tooltip="Сохранить изменения" order="10" imageClass="actionBar-save" dirtySensitivity="false"/>
             <act:action componentName="toggle.edit.on.action" text="Редактировать" tooltip="Редактировать"
                         rendered="toggle-edit and preview" imageClass="actionBar-edit" order="20"
-                        visible-when-new="false"/>
+                        visibility-checker="territory.id.keeper" visible-when-new="false"/>
             <act:action componentName="close.in.central.panel.action" text="Закрыть" tooltip="Закрыть"
                         rendered="toggle-edit and not preview" order="5"
                         imageClass="actionBar-close"/>
-            <act:action componentName="delete.action" text="Удалить" tooltip="Удалить территорию"
-                        rendered="not toggle-edit or (toggle-edit and preview)"
-                        imageClass="actionBar-delete"/>
+            <act:simple-action name="safeDelete" action-handler="objects.safe.remove.handler" componentName="simple.action"
+                               text="Удалить объект" dirtySensitivity="false" imageClass="actionBar-close"
+                               order="995"  visibility-checker="object.save.remove.visibility.checker">
+
+                <act:before-execution>
+                    <act:confirmation-message text="Будет удалён объект и все привязанные к нему объекты. Продолжить?"/>
+                </act:before-execution>
+
+                <act:after-execution>
+                    <act:on-success-message text="Объект удалён"/>
+                </act:after-execution>
+            </act:simple-action>
+            <act:simple-action name="safeRestore" action-handler="objects.safe.restore.handler" componentName="simple.action"
+                               text="Восстановить объект" dirtySensitivity="false" imageClass="calendarMonth"
+                               order="996"  visibility-checker="object.save.restore.visibility.checker">
+
+                <act:before-execution>
+                    <act:confirmation-message text="Будет восстановлен объект и все привязанные к нему объекты. Продолжить?"/>
+                </act:before-execution>
+
+                <act:after-execution>
+                    <act:on-success-message text="Объект восстановлен"/>
+                </act:after-execution>
+            </act:simple-action>
+
+        </act:tool-bar>
+        <markup>
+            <header>
+                <table>
+                    <tr>
+                        <td h-align="left">
+                            <widget id="headerLabel"/>
+                        </td>
+                    </tr>
+                </table>
+            </header>
+
+            <body display-single-tab="true">
+
+                <tab name="Территория">
+                    <single-entry-group>
+                        <tab-group>
+                            <table>
+
+
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="territoryTypeLabel"/>
+                                    </td>
+
+                                    <td h-align="left">
+                                        <widget id="territoryTypeValue"/>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="territoryNameLabel"/>
+                                    </td>
+
+                                    <td h-align="left">
+                                        <widget id="territoryNameValue"/>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td h-align="right">
+                                        <widget id="territoryNumberLabel"/>
+                                    </td>
+
+                                    <td h-align="left">
+                                        <widget id="territoryNumberValue"/>
+                                    </td>
+                                </tr>
+                            </table>
+                        </tab-group>
+
+                    </single-entry-group>
+                </tab>
+
+            </body>
+
+        </markup>
+        <widget-config>
+
+            <label id="headerLabel">
+                <text>Информация о территории</text>
+            </label>
+
+            <label id="territoryTypeLabel">
+                <text>Тип территории</text>
+            </label>
+
+            <enumeration-box id="territoryTypeValue" read-only="true">
+                <field-path value="territory_type"/>
+                <mapping>
+                    <map value="0" display-text="Общественная территория"/>
+                    <map value="5" display-text="Дворовая территория"/>
+                    <map value="10" display-text="Объект ИЖС"/>
+                    <map value="15" display-text="Объект ЮЛ и ИП"/>
+                </mapping>
+            </enumeration-box>
+
+            <label id="territoryNameLabel">
+                <text>Имя территории</text>
+            </label>
+            <text-box id="territoryNameValue">
+                <field-path value="name"/>
+            </text-box>
+
+            <label id="territoryNumberLabel">
+                <text>Номер территории</text>
+            </label>
+            <text-box id="territoryNumberValue">
+                <field-path value="number"/>
+            </text-box>
+
+        </widget-config>
+    </form>
+
+    <form name="territories_private_form" domain-object-type="ter_territory" is-default="false"
+    default-value-setter="territory.private.form.default.value.setter">
+        <act:tool-bar useDefault="false">
+            <act:action componentName="save.action" rendered="toggle-edit and not preview" text="Сохранить"
+                        tooltip="Сохранить изменения" order="10" imageClass="actionBar-save" dirtySensitivity="false"/>
+            <act:action componentName="toggle.edit.on.action" text="Редактировать" tooltip="Редактировать"
+                        rendered="toggle-edit and preview" imageClass="actionBar-edit" order="20"
+                        visibility-checker="territory.id.keeper" visible-when-new="false"/>
+            <act:action componentName="close.in.central.panel.action" text="Закрыть" tooltip="Закрыть"
+                        rendered="toggle-edit and not preview" order="5"
+                        imageClass="actionBar-close"/>
+
+            <act:simple-action name="safeDelete" action-handler="objects.safe.remove.handler" componentName="simple.action"
+                               text="Удалить объект" dirtySensitivity="false" imageClass="actionBar-close"
+                               order="995"  visibility-checker="object.save.remove.visibility.checker">
+
+                <act:before-execution>
+                    <act:confirmation-message text="Будет удалён объект и все привязанные к нему объекты. Продолжить?"/>
+                </act:before-execution>
+
+                <act:after-execution>
+                    <act:on-success-message text="Объект удалён"/>
+                </act:after-execution>
+            </act:simple-action>
+            <act:simple-action name="safeRestore" action-handler="objects.safe.restore.handler" componentName="simple.action"
+                               text="Восстановить объект" dirtySensitivity="false" imageClass="calendarMonth"
+                               order="996"  visibility-checker="object.save.restore.visibility.checker">
+
+                <act:before-execution>
+                    <act:confirmation-message text="Будет восстановлен объект и все привязанные к нему объекты. Продолжить?"/>
+                </act:before-execution>
+
+                <act:after-execution>
+                    <act:on-success-message text="Объект восстановлен"/>
+                </act:after-execution>
+            </act:simple-action>
 
         </act:tool-bar>
         <markup>
@@ -300,26 +594,6 @@
                             <table>
                                 <tr>
                                     <td h-align="right">
-                                        <widget id="territoryNameLabel"/>
-                                    </td>
-
-                                    <td h-align="left">
-                                        <widget id="territoryNameValue"/>
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <td h-align="right">
-                                        <widget id="territoryNumberLabel"/>
-                                    </td>
-
-                                    <td h-align="left">
-                                        <widget id="territoryNumberValue"/>
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <td h-align="right">
                                         <widget id="territoryTypeLabel"/>
                                     </td>
 
@@ -327,113 +601,6 @@
                                         <widget id="territoryTypeValue"/>
                                     </td>
                                 </tr>
-
-                                <tr>
-                                    <td h-align="right">
-                                        <widget id="yardLinkedLabel"/>
-                                    </td>
-
-                                    <td h-align="left">
-                                        <widget id="yardLinkedValue"/>
-                                    </td>
-                                </tr>
-
-                            </table>
-                        </tab-group>
-
-                    </single-entry-group>
-                </tab>
-
-            </body>
-
-        </markup>
-        <widget-config>
-
-            <label id="headerLabel">
-                <text>Территория</text>
-            </label>
-
-            <label id="territoryNameLabel">
-                <text>Имя территории</text>
-            </label>
-            <text-box id="territoryNameValue">
-                <field-path value="name"/>
-            </text-box>
-
-            <label id="territoryNumberLabel">
-                <text>Номер территории</text>
-            </label>
-            <text-box id="territoryNumberValue">
-                <field-path value="number"/>
-            </text-box>
-
-            <label id="territoryTypeLabel">
-                <text>Тип территории</text>
-            </label>
-
-            <text-box id="territoryTypeValue" read-only="true">
-                <field-path value="territory_type">
-                    <default-value>
-                        <field value="Дворовая территория"/>
-                    </default-value>
-                </field-path>
-            </text-box>
-
-            <label id="yardLinkedLabel">
-                <text>Дворовая территория</text>
-            </label>
-
-            <linked-domain-objects-table id="yardLinkedValue" delete-linked-objects="true" modal-width="600px"
-                                         modal-height="400px">
-                <field-path value="ter_yard^territory_id" on-root-delete="unlink"/>
-
-                <linked-form name="ter_yard_form" inline="true"
-                             domain-object-type="ter_yard"/>
-                <summary-table>
-                    <summary-table-column header="Общая площадь" widget-id="sumAreaValue">
-                        <pattern value="{summary_area}"/>
-                    </summary-table-column>
-                    <summary-table-column header="Площадь объектов" widget-id="objAreaValue">
-                        <pattern value="{objects_area}"/>
-                    </summary-table-column>
-                </summary-table>
-                <single-choice value="true"/>
-            </linked-domain-objects-table>
-        </widget-config>
-    </form>
-
-    <form name="territories_private_form" domain-object-type="ter_territory" is-default="false">
-        <act:tool-bar useDefault="false">
-            <act:action componentName="save.action" rendered="toggle-edit and not preview" text="Сохранить"
-                        tooltip="Сохранить изменения" order="10" imageClass="actionBar-save"/>
-            <act:action componentName="toggle.edit.on.action" text="Редактировать" tooltip="Редактировать"
-                        rendered="toggle-edit and preview" imageClass="actionBar-edit" order="20"
-                        visible-when-new="false"/>
-            <act:action componentName="close.in.central.panel.action" text="Закрыть" tooltip="Закрыть"
-                        rendered="toggle-edit and not preview" order="5"
-                        imageClass="actionBar-close"/>
-            <act:action componentName="delete.action" text="Удалить" tooltip="Удалить территорию"
-                        rendered="not toggle-edit or (toggle-edit and preview)"
-                        imageClass="actionBar-delete"/>
-
-        </act:tool-bar>
-        <markup>
-            <header>
-                <table>
-                    <tr>
-                        <td h-align="left">
-                            <widget id="headerLabel"/>
-                        </td>
-                    </tr>
-                </table>
-            </header>
-
-            <body display-single-tab="true">
-
-                <tab name="Территория">
-                    <single-entry-group>
-                        <tab-group>
-                            <table>
 
                                 <tr>
                                     <td h-align="right">
@@ -454,27 +621,6 @@
                                         <widget id="territoryNumberValue"/>
                                     </td>
                                 </tr>
-
-                                <tr>
-                                    <td h-align="right">
-                                        <widget id="territoryTypeLabel"/>
-                                    </td>
-
-                                    <td h-align="left">
-                                        <widget id="territoryTypeValue"/>
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <td h-align="right">
-                                        <widget id="privateLinkedLabel"/>
-                                    </td>
-
-                                    <td h-align="left">
-                                        <widget id="privateLinkedValue"/>
-                                    </td>
-                                </tr>
-
                             </table>
                         </tab-group>
 
@@ -487,8 +633,22 @@
         <widget-config>
 
             <label id="headerLabel">
-                <text>Территория</text>
+                <text>Информация о территории</text>
             </label>
+
+            <label id="territoryTypeLabel">
+                <text>Тип территории</text>
+            </label>
+
+            <enumeration-box id="territoryTypeValue" read-only="true">
+                <field-path value="territory_type"/>
+                <mapping>
+                    <map value="0" display-text="Общественная территория"/>
+                    <map value="5" display-text="Дворовая территория"/>
+                    <map value="10" display-text="Объект ИЖС"/>
+                    <map value="15" display-text="Объект ЮЛ и ИП"/>
+                </mapping>
+            </enumeration-box>
 
             <label id="territoryNameLabel">
                 <text>Имя территории</text>
@@ -504,59 +664,46 @@
                 <field-path value="number"/>
             </text-box>
 
-            <label id="territoryTypeLabel">
-                <text>Тип территории</text>
-            </label>
-
-            <text-box id="territoryTypeValue" read-only="true">
-                <field-path value="territory_type">
-                    <default-value>
-                        <field value="Объект ИЖС"/>
-                    </default-value>
-                </field-path>
-            </text-box>
-
-            <label id="privateLinkedLabel">
-                <text>ИЖС - объект</text>
-            </label>
-
-            <linked-domain-objects-table id="privateLinkedValue" delete-linked-objects="true" modal-width="600px"
-                                         modal-height="400px">
-                <field-path value="ter_private_housing^territory_id" on-root-delete="unlink"/>
-
-                <linked-form name="ter_private_form" inline="true"
-                             domain-object-type="ter_private_housing"/>
-                <summary-table>
-                    <summary-table-column header="Состояние фасада" widget-id="stateFacadeValue">
-                        <pattern value="{facade_state}"/>
-                    </summary-table-column>
-                    <summary-table-column header="Состояние придомовой территории" widget-id="territoryStateValue">
-                        <pattern value="{territory_state}"/>
-                    </summary-table-column>
-                    <summary-table-column header="Информация по подписании соглашения о благоустройстве"
-                                          widget-id="contractInfoValue">
-                        <pattern value="{contract_of_improvement}"/>
-                    </summary-table-column>
-                </summary-table>
-                <single-choice value="true"/>
-            </linked-domain-objects-table>
         </widget-config>
 
     </form>
 
-    <form name="territories_ulip_form" domain-object-type="ter_territory" is-default="false">
+    <form name="territories_ulip_form" domain-object-type="ter_territory" is-default="false"
+    default-value-setter="territory.ulip.form.default.value.setter">
         <act:tool-bar useDefault="false">
-            <act:action componentName="save.action" rendered="toggle-edit and not preview" text="Сохранить"
+            <act:action componentName="save.action" dirtySensitivity="false" rendered="toggle-edit and not preview" text="Сохранить"
                         tooltip="Сохранить изменения" order="10" imageClass="actionBar-save"/>
             <act:action componentName="toggle.edit.on.action" text="Редактировать" tooltip="Редактировать"
                         rendered="toggle-edit and preview" imageClass="actionBar-edit" order="20"
-                        visible-when-new="false"/>
+                        visibility-checker="territory.id.keeper" visible-when-new="false"/>
             <act:action componentName="close.in.central.panel.action" text="Закрыть" tooltip="Закрыть"
                         rendered="toggle-edit and not preview" order="5"
                         imageClass="actionBar-close"/>
-            <act:action componentName="delete.action" text="Удалить" tooltip="Удалить территорию"
-                        rendered="not toggle-edit or (toggle-edit and preview)"
-                        imageClass="actionBar-delete"/>
+
+            <act:simple-action name="safeDelete" action-handler="objects.safe.remove.handler" componentName="simple.action"
+                               text="Удалить объект" dirtySensitivity="false" imageClass="actionBar-close"
+                               order="995"  visibility-checker="object.save.remove.visibility.checker">
+
+                <act:before-execution>
+                    <act:confirmation-message text="Будет удалён объект и все привязанные к нему объекты. Продолжить?"/>
+                </act:before-execution>
+
+                <act:after-execution>
+                    <act:on-success-message text="Объект удалён"/>
+                </act:after-execution>
+            </act:simple-action>
+            <act:simple-action name="safeRestore" action-handler="objects.safe.restore.handler" componentName="simple.action"
+                               text="Восстановить объект" dirtySensitivity="false" imageClass="calendarMonth"
+                               order="996"  visibility-checker="object.save.restore.visibility.checker">
+
+                <act:before-execution>
+                    <act:confirmation-message text="Будет восстановлен объект и все привязанные к нему объекты. Продолжить?"/>
+                </act:before-execution>
+
+                <act:after-execution>
+                    <act:on-success-message text="Объект восстановлен"/>
+                </act:after-execution>
+            </act:simple-action>
 
         </act:tool-bar>
         <markup>
@@ -579,6 +726,16 @@
 
                                 <tr>
                                     <td h-align="right">
+                                        <widget id="territoryTypeLabel"/>
+                                    </td>
+
+                                    <td h-align="left">
+                                        <widget id="territoryTypeValue"/>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td h-align="right">
                                         <widget id="territoryNameLabel"/>
                                     </td>
 
@@ -597,26 +754,6 @@
                                     </td>
                                 </tr>
 
-                                <tr>
-                                    <td h-align="right">
-                                        <widget id="territoryTypeLabel"/>
-                                    </td>
-
-                                    <td h-align="left">
-                                        <widget id="territoryTypeValue"/>
-                                    </td>
-                                </tr>
-
-                                <tr>
-                                    <td h-align="right">
-                                        <widget id="ulipLinkedLabel"/>
-                                    </td>
-
-                                    <td h-align="left">
-                                        <widget id="ulipLinkedValue"/>
-                                    </td>
-                                </tr>
-
                             </table>
                         </tab-group>
 
@@ -629,8 +766,22 @@
         <widget-config>
 
             <label id="headerLabel">
-                <text>Территория</text>
+                <text>Информация о территории</text>
             </label>
+
+            <label id="territoryTypeLabel">
+                <text>Тип территории</text>
+            </label>
+
+            <enumeration-box id="territoryTypeValue" read-only="true">
+                <field-path value="territory_type"/>
+                <mapping>
+                    <map value="0" display-text="Общественная территория"/>
+                    <map value="5" display-text="Дворовая территория"/>
+                    <map value="10" display-text="Объект ИЖС"/>
+                    <map value="15" display-text="Объект ЮЛ и ИП"/>
+                </mapping>
+            </enumeration-box>
 
             <label id="territoryNameLabel">
                 <text>Имя территории</text>
@@ -645,43 +796,6 @@
             <text-box id="territoryNumberValue">
                 <field-path value="number"/>
             </text-box>
-
-            <label id="territoryTypeLabel">
-                <text>Тип территории</text>
-            </label>
-
-            <text-box id="territoryTypeValue" read-only="true">
-                <field-path value="territory_type">
-                    <default-value>
-                        <field value="Объект ЮЛ и ИП"/>
-                    </default-value>
-                </field-path>
-            </text-box>
-
-            <label id="ulipLinkedLabel">
-                <text>Объект ЮЛ и ИП</text>
-            </label>
-
-            <linked-domain-objects-table id="ulipLinkedValue" delete-linked-objects="true" modal-width="600px"
-                                         modal-height="400px">
-                <field-path value="ter_ulip^territory_id" on-root-delete="unlink"/>
-
-                <linked-form name="ter_ulip_form" inline="true"
-                             domain-object-type="ter_ulip"/>
-                <summary-table>
-                    <summary-table-column header="Состояние фасада" widget-id="stateFacadeValue">
-                        <pattern value="{facade_state}"/>
-                    </summary-table-column>
-                    <summary-table-column header="Состояние прилегающей территории" widget-id="territoryStateValue">
-                        <pattern value="{territory_state}"/>
-                    </summary-table-column>
-                    <summary-table-column header="Информация по подписании соглашения о благоустройстве"
-                                          widget-id="contractInfoValue">
-                        <pattern value="{contract_of_improvement}"/>
-                    </summary-table-column>
-                </summary-table>
-                <single-choice value="true"/>
-            </linked-domain-objects-table>
 
         </widget-config>
 

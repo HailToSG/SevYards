@@ -8,30 +8,17 @@
               terr.id               AS id,
               terr.name             AS name,
               terr.number           AS number,
+              stat.description      AS status_description,
 
-                    (SELECT ulip.territory_state
-                    FROM ter_ulip ulip
-                    WHERE ulip.territory_id = terr.id)
-                    AS territory_state,
-
-                    (SELECT ulip.facade_state
-                    FROM ter_ulip ulip
-                    WHERE ulip.territory_id = terr.id)
-                    AS facade_state,
-
-                    (SELECT ulip.contract_of_improvement
-                    FROM ter_ulip ulip
-                    WHERE ulip.territory_id = terr.id)
-                    AS contract_of_improvement,
-
-                    (SELECT COUNT(*)
-                    FROM inventory
-                    WHERE terr.id = territory_id)
-                    AS inventories
+                   (SELECT COUNT(*)
+                   FROM inventory
+                   WHERE terr.id = territory_id)
+                   AS inventories
 
             FROM ter_territory terr
+            INNER JOIN status stat ON stat.id = terr.status
             WHERE
-              terr.territory_type='Объект ЮЛ и ИП' ::where-clause
+              terr.territory_type=15 ::where-clause
             ]]>
         </prototype>
         <filter name="byName">
@@ -57,21 +44,18 @@
                     sortable="true" min-width="50px" text-break-style="cut" search-filter="byName"/>
             <column field="number" name="Номер" type="string" editable="false"
                     sortable="true" min-width="50px" text-break-style="cut" search-filter="byNumber"/>
-            <column field="facade_state" name="Состояние фасада" type="string" editable="false" sortable="true"
-                    min-width="50px" text-break-style="cut"/>
-            <column field="territory_state" name="Состояние придомовой территории" type="string" editable="false"
-                    sortable="true"
-                    min-width="50px" text-break-style="cut"/>
-            <column field="contract_of_improvement" name="Информация по подписании соглашения о благоустройстве"
-                    type="text" editable="false" sortable="true"
-                    min-width="50px" text-break-style="cut"/>
+            <column field="status_description" name="Статус объекта" type="string" editable="false"
+                    sortable="true" min-width="50px" text-break-style="cut"/>
             <column field="inventories" name="Инвентаризации" type="integer" editable="false" sortable="true"
                     min-width="50px" text-break-style="cut">
+
                 <child-collection-viewer filter="byTerritory" domain-object-type-to-create="inventory"
                                          bread-crumb="Инвентаризации">
                     <collection-viewer>
-                        <collection-ref name="inventory_collection"/>
+
+                        <collection-ref name="inventory_ulip_collection" use-default="true"/>
                         <act:tool-bar useDefault="false"/>
+
                     </collection-viewer>
                 </child-collection-viewer>
             </column>

@@ -33,7 +33,7 @@
     </domain-object-type>
 
     <!-- Cущность "Жилое строение" -->
-    <domain-object-type name="build_residential">
+    <domain-object-type name="build_residential" initial-status="Exists">
         <fields>
 
             <!--площадь строения -->
@@ -58,18 +58,18 @@
             </string>
 
             <!-- Вид жилого строения -->
-            <decimal name="kind">
+            <long name="kind">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </decimal>
+            </long>
 
             <!--состояние строения-->
-            <decimal name="state">
+            <long name="state">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </decimal>
+            </long>
 
             <!--Ссылка на id территории -->
             <reference name="territory_id" type="ter_territory">
@@ -92,7 +92,7 @@
     </domain-object-type>
 
     <!-- Cущность "Нежилое капитальное строение" -->
-    <domain-object-type name="build_permanent">
+    <domain-object-type name="build_permanent" initial-status="Exists">
         <fields>
 
             <!--площадь строения -->
@@ -115,18 +115,18 @@
             </string>
 
             <!-- Вид капитального нежилого строения -->
-            <decimal name="kind">
+            <long name="kind">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </decimal>
+            </long>
 
             <!--состояние строения-->
-            <decimal name="state">
+            <long name="state">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </decimal>
+            </long>
 
             <!--Ссылка на id территории -->
             <reference name="territory_id" type="ter_territory">
@@ -148,7 +148,7 @@
     </domain-object-type>
 
     <!-- Cущность "Нежилое некапитальное строение" -->
-    <domain-object-type name="build_temporary">
+    <domain-object-type name="build_temporary" initial-status="Exists">
         <fields>
 
             <!--площадь строения -->
@@ -159,18 +159,18 @@
             </long>
 
             <!-- Вид неапитального нежилого строения -->
-            <decimal name="kind">
+            <long name="kind">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </decimal>
+            </long>
 
             <!--состояние строения-->
-            <decimal name="state">
+            <long name="state">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </decimal>
+            </long>
 
             <!--Ссылка на id территории -->
             <reference name="territory_id" type="ter_territory">

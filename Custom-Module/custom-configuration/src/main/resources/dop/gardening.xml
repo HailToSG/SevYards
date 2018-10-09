@@ -4,7 +4,7 @@
     <!-- Cущность "Элементы озеленения" (ЭО) и сущности, которые относятся к ЭО -->
 
     <!-- Cущность "Элементы озеленения" (ЭО) -->
-    <domain-object-type name="gard_gardening">
+    <domain-object-type name="gard_gardening" initial-status="Exists">
         <fields>
             <!--Ссылка на инвентаризацию -->
             <reference name="inventory_id" type="inventory"/>
@@ -13,11 +13,11 @@
             <reference name="territory_id" type="ter_territory"/>
 
             <!--Состояние элемента озеленения-->
-            <string name="state" length="1024">
+            <long name="state">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </string>
+            </long>
         </fields>
 
         <attachment-types>
@@ -26,29 +26,29 @@
     </domain-object-type>
 
     <!-- Cущность "Дерево" относится к ЭО -->
-    <domain-object-type name="gard_tree">
+    <domain-object-type name="gard_tree" initial-status="Exists">
         <fields>
 
             <!--Вид дерева -->
-            <decimal name="kind">
+            <long name="kind">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </decimal>
+            </long>
 
             <!-- Высота дерева -->
-            <decimal name="height">
+            <long name="height">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </decimal>
+            </long>
 
             <!--Состояние элемента озеленения-->
-            <decimal name="state">
+            <long name="state">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </decimal>
+            </long>
 
             <!--Ссылка на инвентаризацию -->
             <reference name="inventory_id" type="inventory"/>
@@ -62,7 +62,7 @@
     </domain-object-type>
 
     <!-- Cущность "Вертикальное озеленение" относится к ЭО -->
-    <domain-object-type name="gard_vertical">
+    <domain-object-type name="gard_vertical" initial-status="Exists">
         <fields>
 
             <!--площадь вертикального озеленения -->
@@ -73,11 +73,11 @@
             </long>
 
             <!--Состояние элемента озеленения-->
-            <decimal name="state">
+            <long name="state">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </decimal>
+            </long>
 
             <!--Ссылка на инвентаризацию -->
             <reference name="inventory_id" type="inventory"/>
@@ -91,28 +91,28 @@
     </domain-object-type>
 
     <!-- Cущность "Цветник" относится к ЭО -->
-    <domain-object-type name="gard_parterre">
+    <domain-object-type name="gard_parterre" initial-status="Exists">
         <fields>
             <!--Тип цветника-->
-            <decimal name="kind">
+            <long name="kind">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </decimal>
+            </long>
 
             <!--Размер цветника-->
-            <decimal name="size">
+            <long name="size">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </decimal>
+            </long>
 
             <!--Состояние элемента озеленения-->
-            <decimal name="state">
+            <long name="state">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </decimal>
+            </long>
 
             <!--Ссылка на инвентаризацию -->
             <reference name="inventory_id" type="inventory"/>
@@ -126,7 +126,7 @@
     </domain-object-type>
 
     <!-- Cущность "Живая изгородь" относится к ЭО -->
-    <domain-object-type name="gard_green_hedge">
+    <domain-object-type name="gard_green_hedge" initial-status="Exists">
         <fields>
             <!-- Протяженность изгороди -->
             <long name="length">
@@ -136,32 +136,32 @@
             </long>
 
             <!--Состав-->
-            <decimal name="composition">
+            <long name="composition">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </decimal>
+            </long>
 
             <!-- Высота изгороди -->
-            <decimal name="height">
+            <long name="height">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </decimal>
+            </long>
 
             <!--техника -->
-            <decimal name="trim_technique">
+            <long name="trim_technique">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </decimal>
+            </long>
 
             <!--Состояние элемента озеленения-->
-            <decimal name="state">
+            <long name="state">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </decimal>
+            </long>
 
             <!--Ссылка на инвентаризацию -->
             <reference name="inventory_id" type="inventory"/>
@@ -175,29 +175,29 @@
     </domain-object-type>
 
     <!-- Cущность "Кустарник" относится к ЭО -->
-    <domain-object-type name="gard_bush">
+    <domain-object-type name="gard_bush" initial-status="Exists">
         <fields>
 
             <!--Вид -->
-            <decimal name="kind">
+            <long name="kind">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </decimal>
+            </long>
 
             <!-- Высота -->
-            <decimal name="height">
+            <long name="height">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </decimal>
+            </long>
 
             <!--Состояние элемента озеленения-->
-            <decimal name="state">
+            <long name="state">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </decimal>
+            </long>
 
             <!--Ссылка на инвентаризацию -->
             <reference name="inventory_id" type="inventory"/>
@@ -211,7 +211,7 @@
     </domain-object-type>
 
     <!-- Cущность "Газон" относится к ЭО -->
-    <domain-object-type name="gard_lawn">
+    <domain-object-type name="gard_lawn" initial-status="Exists">
         <fields>
 
             <!--площадь -->
@@ -222,18 +222,18 @@
             </long>
 
             <!--тип газона-->
-            <decimal name="type">
+            <long name="type">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </decimal>
+            </long>
 
             <!--Состояние элемента озеленения-->
-            <decimal name="state">
+            <long name="state">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </decimal>
+            </long>
 
             <!--Ссылка на инвентаризацию -->
             <reference name="inventory_id" type="inventory"/>

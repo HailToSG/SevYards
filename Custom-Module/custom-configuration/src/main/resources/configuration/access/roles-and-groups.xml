@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<configuration xmlns="https://cm5.intertrust.ru/config">
+
+    <!-- Cущность "пользователь" -->
+    <domain-object-type name="actor" extends="Person" initial-status="Active">
+        <fields>
+            <string name="phone" length="128"/>
+        </fields>
+    </domain-object-type>
+
+
+    <!-- Cущность "данные аутентификации" -->
+    <domain-object-type name="authentication" extends="Authentication_Info"
+                        initial-status="Active"/>
+
+    <!-- Cущность "пользователь-роль" -->
+    <domain-object-type name="actor_role" initial-status="Active">
+        <fields>
+            <reference name="actor" type="actor"/>
+            <reference name="role" type="role"/>
+        </fields>
+        <uniqueKey>
+            <field name="actor"/>
+            <field name="role"/>
+        </uniqueKey>
+    </domain-object-type>
+
+    <!-- Cущность "Роль" -->
+    <domain-object-type name="role" initial-status="Active">
+        <fields>
+            <string name="name" length="128"/>
+        </fields>
+        <uniqueKey>
+            <field name="name"/>
+        </uniqueKey>
+    </domain-object-type>
+
+    <dynamic-group name="super_administrator">
+        <members>
+            <track-domain-objects type="actor_role" status="Active">
+                <get-person>
+                    <query>select ar.actor from actor_role ar
+                        join role r on r.id=ar.role and r.name ='Администратор'
+                    </query>
+                </get-person>
+            </track-domain-objects>
+        </members>
+    </dynamic-group>
+
+    <dynamic-group name="moderator">
+        <members>
+            <track-domain-objects type="actor_role" status="Active">
+                <get-person>
+                    <query>select ar.actor from actor_role ar
+                        join role r on r.id=ar.role and r.name ='Модератор'
+                    </query>
+                </get-person>
+            </track-domain-objects>
+        </members>
+    </dynamic-group>
+
+    <dynamic-group name="executor">
+        <members>
+            <track-domain-objects type="actor_role" status="Active">
+                <get-person>
+                    <query>select ar.actor from actor_role ar
+                        join role r on r.id=ar.role and r.name ='Исполнитель'
+                    </query>
+                </get-person>
+            </track-domain-objects>
+        </members>
+    </dynamic-group>
+
+    <context-role name="appointed_territory_executors_role">
+        <context>
+            <domain-object type="ter_territory"/>
+        </context>
+        <groups>
+            <track-domain-objects type="ter_territory">
+                <get-group name="actor">
+                    <doel>actor</doel>
+                </get-group>
+            </track-domain-objects>
+        </groups>
+    </context-role>
+</configuration>

@@ -26,7 +26,6 @@
         </filter>
 
     </collection>
-
     <collection-view name="inventory_collection_view" collection="inventory_collection" is-default="true">
         <display>
             <column field="start_time" name="Начало инвентаризации" type="string" editable="false" sortable="true"
@@ -37,7 +36,6 @@
                     sortable="true" min-width="50px" text-break-style="cut"/>
         </display>
     </collection-view>
-
     <collection name="inventory_status_collection" idField="id">
         <prototype>
             <![CDATA[
@@ -59,5 +57,149 @@
             </criteria>
         </filter>
     </collection>
+
+    <collection name="inventory_public_collection" idField="id">
+        <prototype>
+            <![CDATA[
+            SELECT
+              inventory.id                      AS  id,
+              inventory.start_time              AS  start_time,
+              inventory.end_time                AS  end_time,
+              stat.description                  AS  status
+
+            FROM inventory
+            INNER JOIN ter_territory ter ON ter.id = inventory.territory_id
+            INNER JOIN status stat ON stat.id = inventory.status
+            WHERE
+              1=1 ::where-clause
+            ]]>
+        </prototype>
+        <filter name="byTerritory">
+            <criteria placeholder="where-clause">
+                <![CDATA[
+                    inventory.territory_id = {0}
+                ]]>
+            </criteria>
+        </filter>
+
+    </collection>
+    <collection-view name="inventory_public_collection_view" collection="inventory_public_collection" is-default="true">
+        <display>
+            <column field="start_time" name="Начало инвентаризации" type="string" editable="false" sortable="true"
+                    min-width="50px" text-break-style="cut"/>
+            <column field="end_time" name="Конец инвентаризации" type="string" editable="false"
+                    sortable="true" min-width="50px" text-break-style="cut"/>
+            <column field="status" name="Статус инвентаризации" type="string" editable="false"
+                    sortable="true" min-width="50px" text-break-style="cut"/>
+        </display>
+    </collection-view>
+
+    <collection name="inventory_yard_collection" idField="id">
+        <prototype>
+            <![CDATA[
+            SELECT
+              inventory.id                      AS  id,
+              inventory.start_time              AS  start_time,
+              inventory.end_time                AS  end_time,
+              stat.description                  AS  status
+
+            FROM inventory
+            INNER JOIN ter_territory ter ON ter.id = inventory.territory_id
+            INNER JOIN status stat ON stat.id = inventory.status
+            WHERE
+              1=1 ::where-clause
+            ]]>
+        </prototype>
+        <filter name="byTerritory">
+            <criteria placeholder="where-clause">
+                <![CDATA[
+                    inventory.territory_id = {0}
+                ]]>
+            </criteria>
+        </filter>
+
+    </collection>
+    <collection-view name="inventory_yard_collection_view" collection="inventory_yard_collection" is-default="true">
+        <display>
+            <column field="start_time" name="Начало инвентаризации" type="string" editable="false" sortable="true"
+                    min-width="50px" text-break-style="cut"/>
+            <column field="end_time" name="Конец инвентаризации" type="string" editable="false"
+                    sortable="true" min-width="50px" text-break-style="cut"/>
+            <column field="status" name="Статус инвентаризации" type="string" editable="false"
+                    sortable="true" min-width="50px" text-break-style="cut"/>
+        </display>
+    </collection-view>
+
+    <collection name="inventory_private_collection" idField="id">
+        <prototype>
+            <![CDATA[
+            SELECT
+              inventory.id                      AS  id,
+              inventory.start_time              AS  start_time,
+              inventory.end_time                AS  end_time,
+              stat.description                  AS  status
+
+            FROM inventory
+            INNER JOIN ter_territory ter ON ter.id = inventory.territory_id
+            INNER JOIN status stat ON stat.id = inventory.status
+            WHERE
+              1=1 ::where-clause
+            ]]>
+        </prototype>
+        <filter name="byTerritory">
+            <criteria placeholder="where-clause">
+                <![CDATA[
+                    inventory.territory_id = {0}
+                ]]>
+            </criteria>
+        </filter>
+
+    </collection>
+    <collection-view name="inventory_private_collection_view" collection="inventory_private_collection" is-default="true">
+        <display>
+            <column field="start_time" name="Начало инвентаризации" type="string" editable="false" sortable="true"
+                    min-width="50px" text-break-style="cut"/>
+            <column field="end_time" name="Конец инвентаризации" type="string" editable="false"
+                    sortable="true" min-width="50px" text-break-style="cut"/>
+            <column field="status" name="Статус инвентаризации" type="string" editable="false"
+                    sortable="true" min-width="50px" text-break-style="cut"/>
+        </display>
+    </collection-view>
+
+    <collection name="inventory_ulip_collection" idField="id">
+        <prototype>
+            <![CDATA[
+            SELECT
+              inventory.id                      AS  id,
+              inventory.start_time              AS  start_time,
+              inventory.end_time                AS  end_time,
+              stat.description                  AS  status
+
+            FROM inventory
+            INNER JOIN ter_territory ter ON ter.id = inventory.territory_id
+            INNER JOIN status stat ON stat.id = inventory.status
+            WHERE
+              1=1 ::where-clause
+            ]]>
+        </prototype>
+        <filter name="byTerritory">
+            <criteria placeholder="where-clause">
+                <![CDATA[
+                    inventory.territory_id = {0}
+                ]]>
+            </criteria>
+        </filter>
+
+    </collection>
+    <collection-view name="inventory_ulip_collection_view" collection="inventory_ulip_collection" is-default="true">
+        <display>
+            <column field="start_time" name="Начало инвентаризации" type="string" editable="false" sortable="true"
+                    min-width="50px" text-break-style="cut"/>
+            <column field="end_time" name="Конец инвентаризации" type="string" editable="false"
+                    sortable="true" min-width="50px" text-break-style="cut"/>
+            <column field="status" name="Статус инвентаризации" type="string" editable="false"
+                    sortable="true" min-width="50px" text-break-style="cut"/>
+        </display>
+    </collection-view>
 
 </configuration>

@@ -18,9 +18,22 @@
             <version>${af.platform.version}</version>
         </dependency>
         <dependency>
-            <groupId>ru.intertrust.application-template</groupId>
-            <artifactId>custom-model</artifactId>
-            <version>${project.version}</version>
+            <groupId>ru.intertrust.cm-sochi</groupId>
+            <artifactId>gui-client-api</artifactId>
+            <version>0.6.4-2</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>ru.intertrust.cm-sochi</groupId>
+            <artifactId>gui-client-impl</artifactId>
+            <version>0.6.4-2</version>
+            <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.restlet.jee</groupId>
+            <artifactId>org.restlet</artifactId>
+            <version>2.1.1</version>
+            <scope>compile</scope>
         </dependency>
     </dependencies>
 

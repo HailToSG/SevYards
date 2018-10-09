@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<configuration xmlns="https://cm5.intertrust.ru/config" xmlns:act="https://cm5.intertrust.ru/config/action">
+
+    <!-- Форма для служебного доменного объекта "Инфо Аутентификации" -->
+    <form name="authentication_form" domain-object-type="authentication" is-default="true" min-width="900px">
+        <markup>
+            <header>
+                <table>
+                    <tr>
+                        <td h-align="left">
+                            <widget id="headerLabel"/>
+                        </td>
+                    </tr>
+                </table>
+            </header>
+
+            <body display-single-tab="false">
+                <tab name="Данные аутентификации">
+                    <single-entry-group>
+                        <tab-group>
+                            <table>
+                                <tr>
+                                    <td h-align="left">
+                                        <widget id="loginLabel"/>
+                                    </td>
+                                    <td width="300px">
+                                        <widget id="loginValue"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td h-align="left">
+                                        <widget id="passwordLabel"/>
+                                    </td>
+                                    <td width="100%">
+                                        <widget id="passwordValue"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td h-align="left">
+                                        <widget id="passwordConfirmationLabel"/>
+                                    </td>
+                                    <td width="100%">
+                                        <widget id="passwordConfirmationValue"/>
+                                    </td>
+                                </tr>
+                            </table>
+                        </tab-group>
+                    </single-entry-group>
+                </tab>
+            </body>
+        </markup>
+        <widget-config>
+
+            <label id="headerLabel">
+                <text>Информация об авторизации</text>
+            </label>
+
+            <label id="loginLabel">
+                <text>Логин</text>
+            </label>
+            <text-box id="loginValue">
+                <field-path value="User_UID"/>
+            </text-box>
+
+            <label id="passwordLabel">
+                <text>Пароль</text>
+            </label>
+            <text-box id="passwordValue">
+                <field-path value="Password"/>
+                <confirmation widget-id="passwordConfirmationValue"/>
+            </text-box>
+
+            <label id="passwordConfirmationLabel">
+                <text>Подтверждение пароля</text>
+            </label>
+            <text-box id="passwordConfirmationValue">
+                <field-path value="Password"/>
+            </text-box>
+
+        </widget-config>
+    </form>
+
+</configuration>

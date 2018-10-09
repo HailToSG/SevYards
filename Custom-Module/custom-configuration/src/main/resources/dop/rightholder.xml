@@ -3,7 +3,7 @@
 
     <!-- Cущность "Правообладатель" -->
 
-    <domain-object-type name="rightholder">
+    <domain-object-type name="rightholder" initial-status="Exists">
         <fields>
 
             <!--Ссылка на инвентаризацию -->
@@ -17,11 +17,11 @@
             </string>
 
             <!-- Категория -->
-            <decimal name="category">
+            <long name="category">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </decimal>
+            </long>
 
             <!-- Общая информация -->
             <text name="information"/>

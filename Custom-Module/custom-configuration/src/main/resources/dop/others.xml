@@ -4,7 +4,7 @@
     <!-- Cущность "Иное" и сущности, относящиеся к классу Иное -->
 
     <!-- Cущность "Иное" -->
-    <domain-object-type name="other_others">
+    <domain-object-type name="other_others" initial-status="Exists">
         <fields>
             <!--Ссылка на инвентаризацию -->
             <reference name="inventory_id" type="inventory"/>
@@ -13,11 +13,11 @@
             <reference name="territory_id" type="ter_territory"/>
 
             <!--тип объекта класса Иное -->
-            <string name="type" length="1024">
+            <long name="type">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </string>
+            </long>
 
             <!--состояние объекта класса Иное-->
             <string name="state" length="1024">
@@ -33,42 +33,42 @@
     </domain-object-type>
 
     <!-- Cущность "Пандус" относится к классу Иное-->
-    <domain-object-type name="other_rampant">
+    <domain-object-type name="other_rampant" initial-status="Exists">
         <fields>
 
             <!-- Ссылка на инвентаризацию -->
             <reference name="inventory_id" type="inventory"/>
 
             <!--Ширина -->
-            <decimal name="width">
+            <long name="width">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </decimal>
+            </long>
 
             <!-- Перепад высот -->
-            <decimal name="height_difference">
+            <long name="height_difference">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </decimal>
+            </long>
 
             <!-- Покрытие -->
-            <decimal name="coating">
+            <long name="coating">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </decimal>
+            </long>
             
             <!-- Является ли откидным -->
             <boolean name="is_flap"/>
 
             <!-- Состояние объекта класса "Пандус" -->
-            <decimal name="state">
+            <long name="state">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </decimal>
+            </long>
         </fields>
         <attachment-types>
             <attachment-type name="other_rampant_photo"/>
@@ -76,7 +76,7 @@
     </domain-object-type>
 
     <!-- Cущность "Устройство преграждения пути" относится к классу Иное -->
-    <domain-object-type name="others_barrier">
+    <domain-object-type name="other_barrier" initial-status="Exists">
         <fields>
 
             <!--Ширина проезда -->
@@ -87,82 +87,82 @@
             </long>
 
             <!-- Тип устройства -->
-            <decimal name="kind_of_barrier">
+            <long name="kind_of_barrier">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </decimal>
+            </long>
 
             <!-- Материал-->
-            <decimal name="material">
+            <long name="material">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </decimal>
+            </long>
 
             <!-- Механизация-->
-            <decimal name="mechanization">
+            <long name="mechanization">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </decimal>
+            </long>
 
             <!--Ссылка на инвентаризацию -->
             <reference name="inventory_id" type="inventory"/>
 
             <!--состояние объекта класса "Устройство для преграждения пути"-->
-            <decimal name="state">
+            <long name="state">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </decimal>
+            </long>
         </fields>
         <attachment-types>
-            <attachment-type name="others_barrier_photo"/>
+            <attachment-type name="other_barrier_photo"/>
         </attachment-types>
     </domain-object-type>
 
     <!-- Cущность "Светильники" относится к классу "Иное"-->
-    <domain-object-type name="other_lighting_device">
+    <domain-object-type name="other_lighting_device" initial-status="Exists">
         <fields>
 
             <!--Ссылка на инвентаризацию -->
             <reference name="inventory_id" type="inventory"/>
 
             <!-- Тип-->
-            <decimal name="kind_of_device">
+            <long name="kind_of_device">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </decimal>
+            </long>
 
             <!--Высота опоры -->
-            <decimal name="height">
+            <long name="height">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </decimal>
+            </long>
 
             <!-- Тип опоры-->
-            <decimal name="type">
+            <long name="type">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </decimal>
+            </long>
 
             <!-- Состояние покрытия-->
-            <decimal name="coating_state">
+            <long name="coating_state">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </decimal>
+            </long>
 
             <!--состояние объекта класса "Светильники"-->
-            <decimal name="state">
+            <long name="state">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </decimal>
+            </long>
         </fields>
         <attachment-types>
             <attachment-type name="lighting_device_photo"/>
@@ -170,7 +170,7 @@
     </domain-object-type>
 
     <!-- Cущность "Информационные стенды" относится к классу "Иное"-->
-    <domain-object-type name="other_information_stand">
+    <domain-object-type name="other_information_stand" initial-status="Exists">
 
         <fields>
             <!-- Назначение-->
@@ -184,11 +184,11 @@
             <reference name="inventory_id" type="inventory"/>
 
             <!--состояние объекта класса "Информационные стенды"-->
-            <decimal name="state">
+            <long name="state">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </decimal>
+            </long>
         </fields>
         <attachment-types>
             <attachment-type name="information_stand_photo"/>
@@ -196,7 +196,7 @@
     </domain-object-type>
 
     <!-- Cущность "Ограждения" относится к классу "Иное"-->
-    <domain-object-type name="other_fences">
+    <domain-object-type name="other_fences" initial-status="Exists">
         <fields>
             <!--Протяженность -->
             <long name="length">
@@ -206,35 +206,35 @@
             </long>
 
             <!-- Материал-->
-            <decimal name="material">
+            <long name="material">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </decimal>
+            </long>
 
             <!-- Состояние покрытия-->
-            <decimal name="coating_state">
+            <long name="coating_state">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </decimal>
+            </long>
 
             <!-- Тип ограждения -->
-            <decimal name="fences_type">
+            <long name="fences_type">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </decimal>
+            </long>
 
             <!--Ссылка на инвентаризацию -->
             <reference name="inventory_id" type="inventory"/>
 
             <!--состояние объекта класса "Ограждения"-->
-            <decimal name="state">
+            <long name="state">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </decimal>
+            </long>
         </fields>
         <attachment-types>
             <attachment-type name="fences_photo"/>
@@ -242,24 +242,24 @@
     </domain-object-type>
 
     <!-- Cущность "Водоемы" относится к классу "Иное"-->
-    <domain-object-type name="other_pond">
+    <domain-object-type name="other_pond" initial-status="Exists">
         <fields>
             <!--Ссылка на инвентаризацию -->
             <reference name="inventory_id" type="inventory"/>
 
             <!-- Тип водоёма-->
-            <decimal name="pond_type">
+            <long name="pond_type">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </decimal>
+            </long>
 
             <!--состояние объекта класса "Водоёмы"-->
-            <decimal name="state">
+            <long name="state">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </decimal>
+            </long>
         </fields>
         <attachment-types>
             <attachment-type name="pond_photo"/>
@@ -267,15 +267,15 @@
     </domain-object-type>
 
     <!-- Cущность "Люки подземных коммуникаций" относится к классу "Иное"-->
-    <domain-object-type name="other_underground_hatch">
+    <domain-object-type name="other_underground_hatch" initial-status="Exists">
 
         <fields>
             <!-- Тип люка -->
-            <decimal name="kind_of_hatch">
+            <long name="kind_of_hatch">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </decimal>
+            </long>
 
             <!--Ссылка на инвентаризацию -->
             <reference name="inventory_id" type="inventory"/>
@@ -287,32 +287,32 @@
     </domain-object-type>
 
     <!-- Cущность "Опоры ЛЭП" относится к классу "Иное"-->
-    <domain-object-type name="other_power_pylon">
+    <domain-object-type name="other_power_pylon" initial-status="Exists">
         <fields>
 
             <!--Высота опоры -->
-            <decimal name="height_pylon">
+            <long name="height_pylon">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </decimal>
+            </long>
 
             <!-- Тип опоры-->
-            <decimal name="type_pylon">
+            <long name="type_pylon">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </decimal>
+            </long>
 
             <!--Ссылка на инвентаризацию -->
             <reference name="inventory_id" type="inventory"/>
 
             <!--состояние объекта класса "Опоры ЛЭП"-->
-            <decimal name="state_pylon">
+            <long name="state_pylon">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>
-            </decimal>
+            </long>
         </fields>
         <attachment-types>
             <attachment-type name="power_pylon_photo"/>

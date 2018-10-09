@@ -116,9 +116,9 @@
                 <text>Вместимость(куб.м)</text>
             </label>
 
-            <integer-box id="trashCanCapacityValue">
-                <field-path value="capacity"/>
-            </integer-box>
+            <decimal-box id="trashCanCapacityValue">
+                <field-path value="can_capacity"/>
+            </decimal-box>
 
             <label id="trashCanCoatingStateLabel">
                 <text>Состояние покрытия</text>

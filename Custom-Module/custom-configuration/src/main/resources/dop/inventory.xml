@@ -7,6 +7,25 @@
         <fields>
             <!--Ссылка на ID территории-->
             <reference name="territory_id" type="ter_territory" not-null="true"/>
+
+            <!--Вид территории -->
+            <long name="kind_of_territory" />
+
+            <!--Общая площадь -->
+            <long name="summary_area"/>
+
+            <!--Площадь зданий, сооружений, строений -->
+            <long name="objects_area"/>
+
+            <!--Состояние фасада территории-->
+            <long name="facade_state"/>
+
+            <!--Состояние придомовой территории-->
+            <long name="territory_state"/>
+
+            <!--Информация по подписании соглашения о благоустройстве-->
+            <text name="contract_of_improvement"/>
+
             <!--Время начала инвентаризации-->
             <date-time name="start_time">
                 <constraints>
@@ -17,7 +36,6 @@
             <!--Время окончания инвентаризации-->
             <date-time name="end_time">
                 <constraints>
-                    <simple-constraint value="not-empty"/>
                 </constraints>
             </date-time>
             <string name="territory_name" length="150"/>
@@ -27,6 +45,7 @@
         </fields>
         <attachment-types>
             <attachment-type name="territory_photo"/>
+            <attachment-type name="territory_import"/>
         </attachment-types>
     </domain-object-type>
 

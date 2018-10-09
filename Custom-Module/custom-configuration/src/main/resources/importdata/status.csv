@@ -2,3 +2,5 @@ TYPE_NAME=Status;KEYS=name;;
 name;description
 "Draft inventory";"Черновик";
 "Finished inventory";"Завершена";
+"Deleted";"Объект удалён";
+"Exists";"Активен";

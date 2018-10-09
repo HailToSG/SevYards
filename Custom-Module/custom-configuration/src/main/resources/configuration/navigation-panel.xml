@@ -4,8 +4,60 @@
 
     <!--Панель навигации Суперадмина-->
     <navigation name="default-panel" is-default="true">
-        <link name="Territories" display-text="Территории" image="images/docs" child-to-open="ter_public_territories">
+        <link name="Territories" display-text="Территории" image="images/helpers.png" child-to-open="all_territories">
             <child-links>
+                <link name="all_territories" display-text="Все территории">
+                    <plugin>
+                        <domain-object-surfer domain-object-type-to-create="ter_territory">
+                            <collection-viewer>
+                                <act:tool-bar useDefault="false">
+                                    <act:action-group name="create.visual.parameters.objects1" text="Создать территорию"
+                                                      merged="true" imageClass="actionBar-create" order="2">
+                                        <act:action-ref name-ref="aCreate" text="Новая общественная территория"
+                                                        order="1" >
+                                            <act:action-params>
+                                                <act:action-param name="create.object.type" value="ter_territory"/>
+                                                <act:action-param name="create.object.form"
+                                                                  value="territories_public_form"/>
+                                            </act:action-params>
+                                        </act:action-ref>
+                                        <act:action-ref name-ref="aCreate" text="Новая дворовая территория"
+                                                        order="2" >
+                                            <act:action-params>
+                                                <act:action-param name="create.object.type" value="ter_territory"/>
+                                                <act:action-param name="create.object.form"
+                                                                  value="territories_yard_form"/>
+                                            </act:action-params>
+                                        </act:action-ref>
+                                        <act:action-ref name-ref="aCreate" text="Новый объект ИЖС"
+                                                        order="3" >
+                                            <act:action-params>
+                                                <act:action-param name="create.object.type" value="ter_territory"/>
+                                                <act:action-param name="create.object.form"
+                                                                  value="territories_private_form"/>
+                                            </act:action-params>
+                                        </act:action-ref>
+                                        <act:action-ref name-ref="aCreate" text="Новый объект ЮЛ и ИП"
+                                                        order="4" >
+                                            <act:action-params>
+                                                <act:action-param name="create.object.type" value="ter_territory"/>
+                                                <act:action-param name="create.object.form"
+                                                                  value="territories_ulip_form"/>
+                                            </act:action-params>
+                                        </act:action-ref>
+
+                                    </act:action-group>
+                                </act:tool-bar>
+                                <collection-ref name="ter_collection"/>
+                                <collection-view-ref name="ter_collection_view"/>
+                            </collection-viewer>
+                            <form-viewer>
+                                <form-mapping domain-object-type="ter_territory" form="territories_form"/>
+                            </form-viewer>
+                        </domain-object-surfer>
+                    </plugin>
+                </link>
+
                 <link name="ter_public_territories" display-text="Общественные территории">
                     <plugin>
                         <domain-object-surfer domain-object-type-to-create="ter_territory">
@@ -53,7 +105,7 @@
                 </link>
 
                 <link name="ter_private_territories" display-text="ИЖС - объекты">
-                    <plugin>
+                    <plugin>                        
                         <domain-object-surfer domain-object-type-to-create="ter_territory">
                             <collection-viewer>
                                 <act:tool-bar rendered="false" useDefault="false" replace="none">
@@ -75,7 +127,7 @@
                     </plugin>
                 </link>
 
-                <link name="ter_ulip_territories" display-text="Объекты недвиж. имущ. и з.у. у ЮЛ и ИП">
+                <link name="ter_ulip_territories" display-text="Объекты ЮЛ и ИП">
                     <plugin>
                         <domain-object-surfer domain-object-type-to-create="ter_territory">
                             <collection-viewer>
@@ -98,64 +150,63 @@
                     </plugin>
                 </link>
 
-            </child-links>
-        </link>
 
-        <link name="Appointment" display-text="Исполнители" image="images/docs" child-to-open="terr_person_appointment">
-            <child-links>
-                <link name="terr_person_appointment" display-text="Назначение исполнителя">
-                    <plugin>
-                        <domain-object-surfer domain-object-type-to-create="ter_territory">
-                            <collection-viewer>
-                                <act:tool-bar useDefault="false"/>
-                                <collection-ref name="ter_collection"/>
-                                <collection-view-ref name="ter_collection_view"/>
-                            </collection-viewer>
-                            <form-viewer>
-                                <form-mapping domain-object-type="ter_territory" form="territories_form"/>
-                            </form-viewer>
-                        </domain-object-surfer>
-                    </plugin>
-                </link>
-            </child-links>
-        </link>
-
-        <link name="Security" display-text="Безопасность" image="images/docs" child-to-open="persons">
-            <child-links>
-                <link name="persons" display-text="Пользователи">
-                    <plugin>
-                        <domain-object-surfer domain-object-type-to-create="Person">
-                            <collection-viewer>
-                                <act:tool-bar useDefault="true"/>
-                                <collection-ref name="person_collection"/>
-                                <collection-view-ref name="person_collection_view"/>
-                            </collection-viewer>
-                            <form-viewer>
-                                <form-mapping domain-object-type="Person" form="person_form"/>
-                            </form-viewer>
-                            <toggle-edit>true</toggle-edit>
-                        </domain-object-surfer>
-                    </plugin>
-                </link>
-
-                <link name="Authentication" display-text="Данные аутентификации">
-                    <plugin>
-                        <domain-object-surfer domain-object-type-to-create="Authentication_Info">
-                            <collection-viewer>
-                                <act:tool-bar useDefault="true"/>
-                                <collection-ref name="authentication_collection"/>
-                                <collection-view-ref name="authentication_collection_view"/>
-                            </collection-viewer>
-                            <form-viewer>
-                                <form-mapping domain-object-type="Authentication_Info" form="authentication_info_form"/>
-                            </form-viewer>
-                        </domain-object-surfer>
-                    </plugin>
-                </link>
 
             </child-links>
         </link>
+        <!--<link name="Appointment" display-text="Исполнители" image="images/tasks.png" child-to-open="terr_actor_appointment">-->
+            <!--<child-links>-->
+                <!--<link name="terr_actor_appointment" display-text="Назначение исполнителя">-->
+                    <!--<plugin>-->
+                        <!--<domain-object-surfer domain-object-type-to-create="ter_territory">-->
+                            <!--<collection-viewer>-->
+                                <!--<act:tool-bar useDefault="false"/>-->
+                                <!--<collection-ref name="ter_appointment_collection"/>-->
+                                <!--<collection-view-ref name="ter_appointment_collection_view"/>-->
+                            <!--</collection-viewer>-->
+                            <!--<form-viewer>-->
+                                <!--<form-mapping domain-object-type="ter_territory" form="territories_appointment_form"/>-->
+                            <!--</form-viewer>-->
+                        <!--</domain-object-surfer>-->
+                    <!--</plugin>-->
+                <!--</link>-->
+            <!--</child-links>-->
+        <!--</link>-->
+        <!--<link name="Security" display-text="Безопасность" image="images/cases.png" child-to-open="users">-->
+            <!--<child-links>-->
+                <!--<link name="users" display-text="Пользователи">-->
+                    <!--<plugin>-->
+                        <!--<domain-object-surfer domain-object-type-to-create="actor">-->
+                            <!--<collection-viewer>-->
+                                <!--<act:tool-bar useDefault="true"/>-->
+                                <!--<collection-ref name="actor_collection"/>-->
+                                <!--<collection-view-ref name="actor_collection_view"/>-->
+                            <!--</collection-viewer>-->
+                            <!--<form-viewer>-->
+                                <!--<form-mapping domain-object-type="actor" form="actor_form"/>-->
+                            <!--</form-viewer>-->
+                            <!--<toggle-edit>true</toggle-edit>-->
+                        <!--</domain-object-surfer>-->
+                    <!--</plugin>-->
+                <!--</link>-->
 
+                <!--<link name="Authentication" display-text="Данные аутентификации">-->
+                    <!--<plugin>-->
+                        <!--<domain-object-surfer domain-object-type-to-create="authentication">-->
+                            <!--<collection-viewer>-->
+                                <!--<act:tool-bar useDefault="true"/>-->
+                                <!--<collection-ref name="authentication_collection"/>-->
+                                <!--<collection-view-ref name="authentication_collection_view"/>-->
+                            <!--</collection-viewer>-->
+                            <!--<form-viewer>-->
+                                <!--<form-mapping domain-object-type="authentication" form="authentication_form"/>-->
+                            <!--</form-viewer>-->
+                        <!--</domain-object-surfer>-->
+                    <!--</plugin>-->
+                <!--</link>-->
+
+            <!--</child-links>-->
+        <!--</link>-->
     </navigation>
     <navigation-panel-mappings name="nav-panel-map1">
         <navigation-panel-mapping name="default-panel">
@@ -283,20 +334,17 @@
             </child-links>
         </link>
 
-        <link name="Security" display-text="Безопасность" image="images/docs" child-to-open="persons">
+        <link name="Security" display-text="Безопасность" image="images/docs" child-to-open="users">
             <child-links>
-                <link name="persons" display-text="Пользователи">
+                <link name="users" display-text="Пользователи">
                     <plugin>
-                        <domain-object-surfer domain-object-type-to-create="Person">
+                        <domain-object-surfer domain-object-type-to-create="actor">
                             <collection-viewer>
-                                <act:tool-bar useDefault="true">
-                                    <act:action-ref name-ref="aToggleEditOn" merged="true" permissions="Write"/>
-                                </act:tool-bar>
-                                <collection-ref name="person_collection"/>
-                                <collection-view-ref name="person_collection_view"/>
+                                <collection-ref name="actor_collection"/>
+                                <collection-view-ref name="actor_collection_view"/>
                             </collection-viewer>
                             <form-viewer>
-                                <form-mapping domain-object-type="Person" form="person_moderator_form"/>
+                                <form-mapping domain-object-type="actor" form="user_moderator_form"/>
                             </form-viewer>
                             <toggle-edit>false</toggle-edit>
                         </domain-object-surfer>
@@ -305,14 +353,14 @@
 
                 <link name="Authentication" display-text="Данные аутентификации">
                     <plugin>
-                        <domain-object-surfer domain-object-type-to-create="Authentication_Info">
+                        <domain-object-surfer domain-object-type-to-create="authentication">
                             <collection-viewer>
                                 <act:tool-bar useDefault="true"/>
                                 <collection-ref name="authentication_collection"/>
                                 <collection-view-ref name="authentication_collection_view"/>
                             </collection-viewer>
                             <form-viewer>
-                                <form-mapping domain-object-type="Authentication_Info" form="authentication_info_form"/>
+                                <form-mapping domain-object-type="authentication" form="authentication_form"/>
                             </form-viewer>
                         </domain-object-surfer>
                     </plugin>
@@ -429,28 +477,6 @@
             </child-links>
         </link>
 
-        <!--<link name="Inventory" display-text="Инвентаризация" image="images/docs" child-to-open="Invent">-->
-        <!--<child-links>-->
-
-        <!--<link name="Invent" display-text="Инвентаризации">-->
-        <!--<plugin>-->
-        <!--<domain-object-surfer domain-object-type-to-create="inventory">-->
-        <!--<collection-viewer>-->
-        <!--<act:tool-bar useDefault="false"/>-->
-        <!--<collection-ref name="inventory_collection"/>-->
-        <!--<collection-view-ref name="inventory_collection_view"/>-->
-        <!--</collection-viewer>-->
-        <!--<form-viewer>-->
-        <!--<form-mapping domain-object-type="inventory" form="inventory_form"/>-->
-        <!--</form-viewer>-->
-        <!--</domain-object-surfer>-->
-        <!--</plugin>-->
-        <!--</link>-->
-
-
-        <!--</child-links>-->
-        <!--</link>-->
-
     </navigation>
     <navigation-panel-mappings name="nav-panel-executors">
         <navigation-panel-mapping name="executor-panel">
@@ -459,6 +485,5 @@
             </groups>
         </navigation-panel-mapping>
     </navigation-panel-mappings>
-
 
 </configuration>

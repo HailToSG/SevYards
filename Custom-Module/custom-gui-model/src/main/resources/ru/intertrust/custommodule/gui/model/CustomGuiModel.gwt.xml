@@ -2,6 +2,6 @@
         "http://google-web-toolkit.googlecode.com/svn/releases/2.0/distro-source/core/src/gwt-module.dtd">
 <module>
     <inherits name='ru.intertrust.cm.core.gui.GuiModel'/>
-    <inherits name='ru.intertrust.custommodule.model.CustomModel'/>
+    <inherits name='ru.intertrust.custommodule.gui.model.CustomGuiModel'/>
     <source path="client"/>
 </module>

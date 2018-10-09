@@ -85,16 +85,16 @@
             <label id="otherRampantWidthLabel">
                 <text>Ширина</text>
             </label>
-            <decimal-box id="otherRampantWidthValue">
+            <integer-box id="otherRampantWidthValue">
                 <field-path value="width"/>
-            </decimal-box>
+            </integer-box>
 
             <label id="otherRampantHeightDifferenceLabel">
                 <text>Перепад высот</text>
             </label>
-            <decimal-box id="otherRampantHeightDifferenceValue">
+            <integer-box id="otherRampantHeightDifferenceValue">
                 <field-path value="height_difference"/>
-            </decimal-box>
+            </integer-box>
 
             <label id="otherRampantCoatingLabel">
                 <text>Покрытие</text>

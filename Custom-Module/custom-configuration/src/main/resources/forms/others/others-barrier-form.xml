@@ -2,7 +2,7 @@
 <configuration xmlns="https://cm5.intertrust.ru/config" xmlns:act="https://cm5.intertrust.ru/config/action">
 
     <!-- Форма для доменного объекта "Устройство преграждения пути" -->
-    <form name="others_barrier_form" domain-object-type="others_barrier" is-default="true">
+    <form name="other_barrier_form" domain-object-type="other_barrier" is-default="true">
         <markup>
             <header>
                 <table>
@@ -85,9 +85,9 @@
             <label id="barrierPassageWidthLabel">
                 <text>Ширина проезда</text>
             </label>
-            <decimal-box id="barrierPassageWidthValue">
+            <integer-box id="barrierPassageWidthValue">
                 <field-path value="passage_width"/>
-            </decimal-box>
+            </integer-box>
 
             <label id="kindOfBarrierLabel">
                 <text>Тип устройства</text>
@@ -145,8 +145,8 @@
                 <text>Фото</text>
             </label>
             <attachment-box id="othersBarrierPhotoValue">
-                <field-path value="others_barrier_photo^others_barrier"/>
-                <attachment-type-ref name="others_barrier_photo"/>
+                <field-path value="other_barrier_photo^other_barrier"/>
+                <attachment-type-ref name="other_barrier_photo"/>
                 <scanner enabled="true"/>
                 <selection-style name="table"/>
                 <images-only>

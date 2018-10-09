@@ -20,7 +20,6 @@
     <configuration-paths>
         <configuration-path>configuration/navigation-panel.xml</configuration-path>
         <configuration-path>configuration/global.xml</configuration-path>
-        <configuration-path>configuration/form-mechanism-1.xml</configuration-path>
 
         <!-- Доменные объекты -->
         <configuration-path>dop/buildings.xml</configuration-path>
@@ -31,7 +30,6 @@
         <configuration-path>dop/planar-linear.xml</configuration-path>
         <configuration-path>dop/territories.xml</configuration-path>
         <configuration-path>dop/rightholder.xml</configuration-path>
-        <configuration-path>dop/roles-and-groups.xml</configuration-path>
 
         <!-- Коллекции -->
         <configuration-path>collections/buildings-collection.xml</configuration-path>
@@ -46,10 +44,10 @@
         <configuration-path>collections/others-collection.xml</configuration-path>
         <configuration-path>collections/planar-linear-collection.xml</configuration-path>
         <configuration-path>collections/rightholder-collection.xml</configuration-path>
-        <configuration-path>collections/person-collection.xml</configuration-path>
+        <configuration-path>collections/user-collection.xml</configuration-path>
         <configuration-path>collections/role-collection.xml</configuration-path>
-        <configuration-path>collections/person-role-collection.xml</configuration-path>
-        <configuration-path>collections/authentication-info-collection.xml</configuration-path>
+        <configuration-path>collections/user-role-collection.xml</configuration-path>
+        <configuration-path>collections/authentication-collection.xml</configuration-path>
 
         <!-- Формы -->
         <!-- Формы территорий-->
@@ -58,12 +56,11 @@
         <configuration-path>forms/territories/ter-public-form.xml</configuration-path>
         <configuration-path>forms/territories/ter-ulip-form.xml</configuration-path>
         <configuration-path>forms/territories/ter-yard-form.xml</configuration-path>
-        <configuration-path>forms/person-territory-form.xml</configuration-path>
+        <configuration-path>forms/user-territory-form.xml</configuration-path>
         <!-- Формы строений-->
         <configuration-path>forms/buildings/bld-residential-form.xml</configuration-path>
         <configuration-path>forms/buildings/bld-permanent-form.xml</configuration-path>
         <configuration-path>forms/buildings/bld-temporary-form.xml</configuration-path>
-
         <!-- Формы МАФ-->
         <configuration-path>forms/maf/maf-benches-form.xml</configuration-path>
         <configuration-path>forms/maf/maf-canopies-form.xml</configuration-path>
@@ -104,12 +101,19 @@
         <!-- Формы для правообладателей-->
         <configuration-path>forms/rightholder-form.xml</configuration-path>
         <!-- Форма инвентаризации-->
-        <configuration-path>forms/inventory-form.xml</configuration-path>
+        <configuration-path>forms/inventory/inventory-form.xml</configuration-path>
+        <configuration-path>forms/inventory/inventory-public-form.xml</configuration-path>
+        <configuration-path>forms/inventory/inventory-yard-form.xml</configuration-path>
+        <configuration-path>forms/inventory/inventory-private-form.xml</configuration-path>
+        <configuration-path>forms/inventory/inventory-ulip-form.xml</configuration-path>
 
         <!-- Формы пользователей и ролей-->
-        <configuration-path>forms/authentication-info-form.xml</configuration-path>
-        <configuration-path>forms/person-form.xml</configuration-path>
-        <configuration-path>forms/person-role-form.xml</configuration-path>
+        <configuration-path>forms/authentication-form.xml</configuration-path>
+        <configuration-path>forms/user-form.xml</configuration-path>
+        <configuration-path>forms/user-role-form.xml</configuration-path>
+
+        <!--<configuration-path>configuration/access/access.xml</configuration-path>-->
+        <configuration-path>configuration/access/roles-and-groups.xml</configuration-path>
 
 
     </configuration-paths>
