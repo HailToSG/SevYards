@@ -2,7 +2,7 @@
 <configuration xmlns="https://cm5.intertrust.ru/config" xmlns:act="https://cm5.intertrust.ru/config/action">
 
     <!-- Форма для доменного объекта "Территория" -->
-    <form name="territories_form" domain-object-type="ter_territory" is-default="false">
+    <form name="territories_form" domain-object-type="ter_territory" is-default="true">
         <act:tool-bar useDefault="false">
             <act:action-ref name-ref="aRefresh" order="1" visibility-checker="territory.id.keeper"/>
             <act:action componentName="toggle.edit.on.action" text="Редактировать" tooltip="Редактировать"
@@ -149,9 +149,9 @@
 
     <form name="territories_appointment_form" domain-object-type="ter_territory" is-default="false">
         <act:tool-bar useDefault="false">
+            <act:action-ref name-ref="aRefresh" order="1" visibility-checker="territory.id.keeper"/>
             <act:action componentName="toggle.edit.on.action" text="Назначить" tooltip="Назначить"
-                        rendered="toggle-edit and preview" imageClass="actionBar-edit" order="20"
-                        visibility-checker="territory.id.keeper"/>
+                        rendered="toggle-edit and preview" imageClass="actionBar-edit" order="20" visible-when-new="false"/>
             <act:action componentName="save.action" rendered="toggle-edit and not preview" text="Сохранить"
                         tooltip="Сохранить изменения" order="10" imageClass="actionBar-save"/>
             <act:action componentName="close.in.central.panel.action" text="Закрыть" tooltip="Закрыть"
@@ -282,11 +282,11 @@
     <form name="territories_public_form" domain-object-type="ter_territory" is-default="false"
     default-value-setter="territory.public.form.default.value.setter">
         <act:tool-bar useDefault="false">
+            <act:action-ref name-ref="aRefresh" order="1" visibility-checker="territory.id.keeper"/>
             <act:action componentName="save.action" rendered="toggle-edit and not preview" text="Сохранить"
                         tooltip="Сохранить изменения" dirtySensitivity="false" order="10" imageClass="actionBar-save"/>
             <act:action componentName="toggle.edit.on.action" text="Редактировать" tooltip="Редактировать"
-                        rendered="toggle-edit and preview" imageClass="actionBar-edit" order="20"
-                        visibility-checker="territory.id.keeper" visible-when-new="false"/>
+                        rendered="toggle-edit and preview" visible-when-new="false" imageClass="actionBar-edit" order="20"/>
             <act:action componentName="close.in.central.panel.action" text="Закрыть" tooltip="Закрыть"
                         rendered="toggle-edit and not preview" order="5"
                         imageClass="actionBar-close"/>
@@ -409,11 +409,11 @@
     <form name="territories_yard_form" domain-object-type="ter_territory" is-default="false"
     default-value-setter="territory.yard.form.default.value.setter">
         <act:tool-bar useDefault="false">
+            <act:action-ref name-ref="aRefresh" order="1" visibility-checker="territory.id.keeper"/>
             <act:action componentName="save.action" rendered="toggle-edit and not preview" text="Сохранить"
                         tooltip="Сохранить изменения" order="10" imageClass="actionBar-save" dirtySensitivity="false"/>
             <act:action componentName="toggle.edit.on.action" text="Редактировать" tooltip="Редактировать"
-                        rendered="toggle-edit and preview" imageClass="actionBar-edit" order="20"
-                        visibility-checker="territory.id.keeper" visible-when-new="false"/>
+                        rendered="toggle-edit and preview" visible-when-new="false" imageClass="actionBar-edit" order="20"/>
             <act:action componentName="close.in.central.panel.action" text="Закрыть" tooltip="Закрыть"
                         rendered="toggle-edit and not preview" order="5"
                         imageClass="actionBar-close"/>
@@ -540,11 +540,12 @@
     <form name="territories_private_form" domain-object-type="ter_territory" is-default="false"
     default-value-setter="territory.private.form.default.value.setter">
         <act:tool-bar useDefault="false">
+            <act:action-ref name-ref="aRefresh" order="1" visibility-checker="territory.id.keeper"/>
             <act:action componentName="save.action" rendered="toggle-edit and not preview" text="Сохранить"
                         tooltip="Сохранить изменения" order="10" imageClass="actionBar-save" dirtySensitivity="false"/>
-            <act:action componentName="toggle.edit.on.action" text="Редактировать" tooltip="Редактировать"
+            <act:action componentName="toggle.edit.on.action"  text="Редактировать" tooltip="Редактировать"
                         rendered="toggle-edit and preview" imageClass="actionBar-edit" order="20"
-                        visibility-checker="territory.id.keeper" visible-when-new="false"/>
+                        visible-when-new="false"/>
             <act:action componentName="close.in.central.panel.action" text="Закрыть" tooltip="Закрыть"
                         rendered="toggle-edit and not preview" order="5"
                         imageClass="actionBar-close"/>
@@ -671,11 +672,12 @@
     <form name="territories_ulip_form" domain-object-type="ter_territory" is-default="false"
     default-value-setter="territory.ulip.form.default.value.setter">
         <act:tool-bar useDefault="false">
+            <act:action-ref name-ref="aRefresh" order="1" visibility-checker="territory.id.keeper"/>
             <act:action componentName="save.action" dirtySensitivity="false" rendered="toggle-edit and not preview" text="Сохранить"
                         tooltip="Сохранить изменения" order="10" imageClass="actionBar-save"/>
             <act:action componentName="toggle.edit.on.action" text="Редактировать" tooltip="Редактировать"
                         rendered="toggle-edit and preview" imageClass="actionBar-edit" order="20"
-                        visibility-checker="territory.id.keeper" visible-when-new="false"/>
+                        visible-when-new="false"/>
             <act:action componentName="close.in.central.panel.action" text="Закрыть" tooltip="Закрыть"
                         rendered="toggle-edit and not preview" order="5"
                         imageClass="actionBar-close"/>

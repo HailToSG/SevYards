@@ -14,7 +14,7 @@
             <act:action-ref name-ref="aToggleEditOff" text="Закрыть"
                             rendered="toggle-edit and not preview" order="5"/>
             <act:simple-action name="finish" componentName="simple.action" action-handler="inventory.action"
-                               text="Завершить иневентаризацию" imageClass="actionBar-close" dirtySensitivity="false"
+                               text="Завершить инвентаризацию" imageClass="actionBar-close" dirtySensitivity="false"
                                order="300"
                                rendered="(not toggle-edit and not preview) or (toggle-edit and preview)"
                                visibility-checker="inventory.finish.visibility.checker">
