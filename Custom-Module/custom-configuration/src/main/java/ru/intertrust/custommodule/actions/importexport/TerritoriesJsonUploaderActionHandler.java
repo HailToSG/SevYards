@@ -1,5 +1,5 @@
 package ru.intertrust.custommodule.actions.importexport;
-
+//TODO узнать где берётся имя и номер территории
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -38,6 +38,7 @@ public class TerritoriesJsonUploaderActionHandler extends ActionHandler<SimpleAc
 
     @Override
     public SimpleActionData executeAction(SimpleActionContext context) {
+        Id currentTerrId = context.getRootObjectId();
         Gson gson = new GsonBuilder().setDateFormat("yyyy-MM-dd hh:mm:ss.S").create();
         JsonObject jsonObject = new JsonObject();
         List<Territory> territories = new ArrayList<>();
@@ -46,40 +47,43 @@ public class TerritoriesJsonUploaderActionHandler extends ActionHandler<SimpleAc
         List objectsList;
         StatusSetter statusSetter = new StatusSetter();
         List<Value> params = new ArrayList<>();
-        Id statusDraftId = statusSetter.getStatusIdByName(CustomModuleConstants.STATUS_DRAFT, collectionsService);
-        Value statusDraftValue = new ReferenceValue(statusDraftId);
-        params.add(statusDraftValue);
-        List<DomainObject> draftInventoriesObjects = new ArrayList<>();
-        IdentifiableObjectCollection draftInventoriesCollection = collectionsService
-                .findCollectionByQuery(CustomModuleConstants.QUERY_INVENTORIES_BY_STATUS, params);
+        Value currentTerrReference = new ReferenceValue(currentTerrId);
+        params.add(currentTerrReference);
+        DomainObject draftInventoryObject = null;
+        IdentifiableObjectCollection draftInventoryCollection = collectionsService
+                .findCollectionByQuery(CustomModuleConstants.QUERY_INVENTORIES_BY_TERRITORY_ID, params);
 
-        if (draftInventoriesCollection != null)
-            for (IdentifiableObject inventoryObject : draftInventoriesCollection) {
-                draftInventoriesObjects.add(crudService.find(inventoryObject.getId()));
+        if (draftInventoryCollection != null && draftInventoryCollection.size() > 0) {
+            for (IdentifiableObject identifiableObject : draftInventoryCollection) {
+                DomainObject dobj = crudService.find(identifiableObject.getId());
+                if (dobj.getStatus() != statusSetter.getStatusIdByName(
+                        CustomModuleConstants.STATUS_DRAFT, collectionsService)) {
+                    draftInventoryObject = dobj;
+                }
             }
+        }
 
-        if (!draftInventoriesObjects.isEmpty())
-            for (DomainObject inventObj : draftInventoriesObjects) {
-                Id terrId = inventObj.getReference("territory_id");
-                objectsList = getInventoryObjects(inventObj.getId(), crudService);
-                territory = getTerritoryProperties(terrId, crudService);
-                inventory = getInventoryProperties(inventObj.getId(), crudService);
-                inventory.setAllLinkedObjects(objectsList);
-                territory.setInventory(inventory);
-                territories.add(territory);
-            }
-            jsonObject.setTerritories(territories);
+        if (draftInventoryObject != null) {
+            Id terrId = draftInventoryObject.getReference("territory_id");
+            objectsList = getInventoryObjects(draftInventoryObject.getId(), crudService);
+            territory = getTerritoryProperties(terrId, crudService);
+            inventory = getInventoryProperties(draftInventoryObject.getId(), crudService);
+            inventory.setAllLinkedObjects(objectsList);
+            territory.setInventory(inventory);
+            territories.add(territory);
+        }
+        jsonObject.setTerritories(territories);
 
-        String filePath = "C:\\Users\\Егор\\Desktop\\";
+        String filePath = "C:\\Users\\EgorMobile\\Desktop\\";
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd-HH-mm-ss");
-        String fileName = simpleDateFormat.format(new Date())+".json";
+        String fileName = simpleDateFormat.format(new Date()) + ".json";
         filePath += fileName;
 
         try {
             FileWriter fw = new FileWriter(filePath);
             String jsonString = gson.toJson(jsonObject);
+            fw.write(new String(jsonString.getBytes(), "Windows-1251"));
             fw.flush();
-            fw.write(new String(jsonString.getBytes(), "utf-8" ));
             fw.close();
 
         } catch (IOException e) {
@@ -150,8 +154,8 @@ public class TerritoriesJsonUploaderActionHandler extends ActionHandler<SimpleAc
                     objMap.put("updated_date", new Timestamp(dObj.getModifiedDate().getTime()).toString());
                     for (String field : fields) {
 
-                         if (!Arrays.asList(CustomModuleConstants.COMMON_FIELD_LIST).contains(field)){
-                             objMap.put(field, dObj.getValue(field).toString());
+                        if (!Arrays.asList(CustomModuleConstants.COMMON_FIELD_LIST).contains(field)) {
+                            objMap.put(field, dObj.getValue(field).toString());
                         }
                     }
                     linkedObjectsList.add(objMap);

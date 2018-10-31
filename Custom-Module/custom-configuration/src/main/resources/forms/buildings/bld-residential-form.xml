@@ -68,6 +68,15 @@
 
                                 <tr>
                                     <td h-align="right">
+                                        <widget id="residentialInfoLabel"/>
+                                    </td>
+                                    <td h-align="left">
+                                        <widget id="residentialInfoValue" width="300px"/>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td h-align="right">
                                         <widget id="residentialPhotoLabel"/>
                                     </td>
                                     <td h-align="left">
@@ -109,6 +118,14 @@
             <integer-box id="residentialAreaValue">
                 <field-path value="area"/>
             </integer-box>
+
+            <!-- Занимаемая площадь -->
+            <label id="residentialInfoLabel">
+                <text>Инфо об объекте</text>
+            </label>
+            <text-area id="residentialInfoValue">
+                <field-path value="info"/>
+            </text-area>
 
             <!-- Вид жилого здания-->
             <label id="residentialKindLabel">

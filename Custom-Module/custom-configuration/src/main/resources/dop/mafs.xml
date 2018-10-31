@@ -53,7 +53,7 @@
             </decimal>
 
             <!-- состояние покрытия -->
-            <long name="state_coating_trash">
+            <long name="state_coating">
                 <constraints>
                     <simple-constraint value="not-empty"/>
                 </constraints>

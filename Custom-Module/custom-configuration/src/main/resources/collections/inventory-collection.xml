@@ -21,7 +21,7 @@
         <filter name="byStatusDescription">
             <criteria placeholder="where-clause">
                 <![CDATA[
-                   lower (status_desc) like lower ('%' || {0} || '%')
+                   lower (stat.description) like lower ('%' || {0} || '%')
                 ]]>
             </criteria>
         </filter>

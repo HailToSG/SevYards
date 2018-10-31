@@ -101,104 +101,89 @@ public class InventoryJsonLoaderActionHandler extends ActionHandler<SimpleAction
     }
 
     private void parseInventoryWithLinkedObjects(DomainObject inventoryDo, Territory territory) {
-        boolean isUpdated;
         boolean isDoSaved;
-        String doType = null;
+        boolean isNew;
+        String doType;
         String doIdString;
         String defaultIdString = "5089000000000000";
         Id doId = new RdbmsId();
         List<LinkedTreeMap<String, ?>> linkedObjectList = territory.getInventory().getAllLinkedObjects();
 
         if (!linkedObjectList.isEmpty())
-            for (LinkedTreeMap<String, ?> treeMap : linkedObjectList) {
+            for (LinkedTreeMap<String, ?> linkedObject : linkedObjectList) {
+                List<String> commonFields = Arrays.asList(CustomModuleConstants.IMPORT_COMMON_FIELD_LIST);
                 StatusSetter statusSetter = new StatusSetter();
-                int iterator = 0;
-                isUpdated = true;
+                int iterator = 4;
                 isDoSaved = false;
-                if (!treeMap.isEmpty())
-                    for (Map.Entry<String, ?> entry : treeMap.entrySet()) {
-                        if (entry.getKey().equals("do_type")) {
-                            doType = (String) entry.getValue();
-                            iterator++;
-                            continue;
-                        }
-                        if (entry.getKey().equals("id")) {
-                            doIdString = (String) entry.getValue();
-                            if (!doIdString.equals("0") && doIdString.length() > 15) {
-                                doId.setFromStringRepresentation((String) entry.getValue());
-                            } else
-                                doId.setFromStringRepresentation(defaultIdString);
+                isNew = true;
+                doType = (String) linkedObject.get("do_type");
+                doIdString = (String) linkedObject.get("id");
+                if (!doIdString.equals("0") && doIdString.length() > 15) {
+                    doId.setFromStringRepresentation(doIdString);
+                } else
+                    doId.setFromStringRepresentation(defaultIdString);
 
-                            if (!crudService.exists(doId)) {
-                                doObject = crudService.createDomainObject(doType);
-                                doObject.setReference("inventory_id", inventoryDo.getId());
-                                iterator++;
-                                isUpdated = false;
-                                continue;
-                            } else {
-                                doObject = crudService.find(doId);
-                                iterator++;
-                                isDoSaved = true;
-                                continue;
-                            }
-                        }
+                if (!crudService.exists(doId)) {
+                    doObject = crudService.createDomainObject(doType);
+                    doObject.setReference("inventory_id", inventoryDo.getId());
+                } else {
+                    doObject = crudService.find(doId);
+                    isDoSaved = true;
+                    isNew = false;
+                }
+                if (!isNew) {
+                    Timestamp jsonTimeStamp = Timestamp.valueOf((String) linkedObject.get("updated_date"));
+                    Timestamp modifiedDate = new Timestamp(doObject.getModifiedDate().getTime());
+                    if (modifiedDate.after(jsonTimeStamp)) {
+                        continue;
+                    }
+                }
+                if (linkedObject.get("status") != null && linkedObject.get("status").equals("Deleted")) {
+                    doObject.setReference("status", statusSetter.getStatusIdByName(
+                            CustomModuleConstants.STATUS_DELETED, collectionService));
+                    continue;
+                }
 
-                        if (entry.getKey().equals("updated_date")) {
-                            if (doObject.isNew()) {
-                                iterator++;
-                                continue;
-                            }
-                            Timestamp modifiedDate = new Timestamp(doObject.getModifiedDate().getTime());
-                            Timestamp jsonTimestamp = Timestamp.valueOf((String) entry.getValue());
-                            if (jsonTimestamp.after(modifiedDate))
-                                isUpdated = false;
-                            iterator++;
-                            continue;
-                        }
-
-                        if (entry.getKey().equals("status")) {
-                            if ((entry.getValue()).equals("Deleted"))
-                                doObject.setReference("status", statusSetter.getStatusIdByName(
-                                        CustomModuleConstants.STATUS_DELETED, collectionService));
-                            break;
-                        }
-
-                        if (entry.getKey().contains("_photo") && !isDoSaved)
-                            doObject = crudService.save(doObject);
-
-                        if (!isUpdated && !(entry.getKey().contains("_photo"))) {
-
-                            if (entry.getKey().equals("can_capacity")) {
-                                doObject.setDecimal(entry.getKey(), new BigDecimal((Double) entry.getValue())
-                                        .setScale(1, BigDecimal.ROUND_HALF_UP));
-                                iterator++;
-                                continue;
-                            }
-
-                            switch ((entry.getValue()).getClass().getName()) {
-                                case "java.lang.Double":
-                                    doObject.setLong(entry.getKey(), ((Double) entry.getValue()).longValue());
-                                    iterator++;
-                                    break;
-                                case "java.lang.Boolean":
-                                    doObject.setBoolean(entry.getKey(), (Boolean) entry.getValue());
-                                    iterator++;
-                                    break;
-                                default:
-                                    doObject.setString(entry.getKey(), (String) entry.getValue());
-                                    iterator++;
-                                    break;
-                            }
-                            if (!isDoSaved && iterator == treeMap.entrySet().size()) {
+                if (!linkedObject.isEmpty())
+                    for (Map.Entry<String, ?> entry : linkedObject.entrySet()) {
+                        if (!commonFields.contains(entry.getKey())) {
+                            if (entry.getKey().contains("_photo") && !isDoSaved)
                                 doObject = crudService.save(doObject);
-                                isDoSaved = true;
-                            }
-                            continue;
-                        }
 
-                        if (entry.getKey().contains("_photo"))
-                            parseAttachments((List<LinkedTreeMap<String, String>>) entry.getValue(),
-                                    entry.getKey(), doObject.getId(), doType);
+                            if (!(entry.getKey().contains("_photo"))) {
+
+                                if (entry.getKey().equals("can_capacity")) {
+                                    doObject.setDecimal(entry.getKey(), new BigDecimal((Double) entry.getValue())
+                                            .setScale(1, BigDecimal.ROUND_HALF_UP));
+                                    iterator++;
+                                    continue;
+                                }
+
+                                switch ((entry.getValue()).getClass().getName()) {
+                                    case "java.lang.Double":
+                                        doObject.setLong(entry.getKey(), ((Double) entry.getValue()).longValue());
+                                        iterator++;
+                                        break;
+                                    case "java.lang.Boolean":
+                                        doObject.setBoolean(entry.getKey(), (Boolean) entry.getValue());
+                                        iterator++;
+                                        break;
+                                    default:
+                                        doObject.setString(entry.getKey(), (String) entry.getValue());
+                                        iterator++;
+                                        break;
+                                }
+                                if (!isDoSaved && iterator == linkedObject.entrySet().size()) {
+                                    doObject = crudService.save(doObject);
+                                    isDoSaved = true;
+                                }
+                                continue;
+                            }
+
+                            if (entry.getKey().contains("_photo"))
+                                parseAttachments((List<LinkedTreeMap<String, String>>) entry.getValue(),
+                                        entry.getKey(), doObject.getId(), doType);
+                        }
                     }
             }
     }

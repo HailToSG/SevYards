@@ -26,7 +26,7 @@
         <gwt.version>2.7.0</gwt.version>
 
         <cmj.server.version>4.2.0.RC14</cmj.server.version>
-        <af.platform.version>0.6.4-5</af.platform.version>
+        <af.platform.version>0.6.4-8</af.platform.version>
 
         <sonar.jdbc.url>jdbc:postgresql://169.254.0.55:5432/sonar</sonar.jdbc.url>
         <sonar.host.url>http://sonar.inttrust.ru</sonar.host.url>

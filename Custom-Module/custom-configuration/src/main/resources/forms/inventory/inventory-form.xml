@@ -5,6 +5,7 @@
     <form name="inventory_form" domain-object-type="inventory" is-default="true"
           default-value-setter="inventory.form.default.value.setter">
         <act:tool-bar useDefault="false">
+            <act:action-ref name-ref="aRefresh" order="1"/>
             <act:action-ref name-ref="aCreate" text="Новая инвентаризация"
                             order="2" visibility-checker="inventory.create.visibility.checker"/>
             <act:action-ref name-ref="aRefresh" text="Обновить" order="1"/>
@@ -63,6 +64,7 @@
                     <act:on-success-message text="Данные обновлены"/>
                 </act:after-execution>
             </act:simple-action>
+
             <act:simple-action name="safeDelete" action-handler="objects.safe.remove.handler" visible-when-new="false" componentName="simple.action"
                                text="Удалить объект" dirtySensitivity="false" imageClass="actionBar-close"
                                order="995"  visibility-checker="object.save.remove.visibility.checker">
@@ -692,7 +694,7 @@
             <suggest-box id="territoryLink">
                 <field-path value="territory_id" on-root-delete="unlink"/>
                 <collection-ref name="ter_collection"/>
-                <input-text-filter name="byTerritoryName"/>
+                <input-text-filter name="byName"/>
                 <drop-down-pattern value="{name}"/>
                 <selection-pattern value="{name}"/>
                 <page-size>30</page-size>
@@ -798,7 +800,7 @@
                 <text>Наименование правообладателя</text>
             </label>
 
-            <linked-domain-objects-table id="holdersNameValue" modal-width="600px" modal-height="400px">
+            <linked-domain-objects-table id="holdersNameValue" modal-width="1000px" modal-height="750px">
                 <field-path value="rightholder^inventory_id" on-root-delete="unlink"/>
 
                 <linked-form name="rightholder_form" inline="true"
@@ -822,7 +824,7 @@
             </linked-domain-objects-table>
 
             <!--Domain linked object table для Buildings-->
-            <linked-domain-objects-table id="residentialValue" modal-width="600px" modal-height="400px">
+            <linked-domain-objects-table id="residentialValue" modal-width="1000px" modal-height="750px">
                 <field-path value="build_residential^inventory_id" on-root-delete="unlink"/>
 
                 <linked-form name="bld_residential_form" inline="true"
@@ -856,7 +858,7 @@
             <label id="permanentLabel">
                 <text>Нежилые кап. строения</text>
             </label>
-            <linked-domain-objects-table id="permanentValue" modal-width="600px" modal-height="400px">
+            <linked-domain-objects-table id="permanentValue" modal-width="1000px" modal-height="750px">
                 <field-path value="build_permanent^inventory_id" on-root-delete="unlink"/>
 
                 <linked-form name="bld_permanent_form" inline="true"
@@ -890,7 +892,7 @@
             <label id="temporaryLabel">
                 <text>Нежилые некап. строения</text>
             </label>
-            <linked-domain-objects-table id="temporaryValue" modal-width="600px" modal-height="400px">
+            <linked-domain-objects-table id="temporaryValue" modal-width="1000px" modal-height="750px">
                 <field-path value="build_temporary^inventory_id" on-root-delete="unlink"/>
 
                 <linked-form name="bld_temporary_form" inline="true"
@@ -919,7 +921,7 @@
             <label id="greenHedgeLabel">
                 <text>Живая изгородь</text>
             </label>
-            <linked-domain-objects-table id="greenHedgeValue" modal-width="600px" modal-height="400px">
+            <linked-domain-objects-table id="greenHedgeValue" modal-width="1000px" modal-height="750px">
                 <field-path value="gard_green_hedge^inventory_id" on-root-delete="unlink"/>
 
                 <linked-form name="gard_green_hedge_form" inline="true"
@@ -952,7 +954,7 @@
             <label id="bushLabel">
                 <text>Куст</text>
             </label>
-            <linked-domain-objects-table id="bushValue" modal-width="600px" modal-height="400px">
+            <linked-domain-objects-table id="bushValue" modal-width="1000px" modal-height="750px">
                 <field-path value="gard_bush^inventory_id" on-root-delete="cascade"/>
 
                 <linked-form name="gard_bush_form" inline="true"
@@ -977,7 +979,7 @@
             <label id="lawnLabel">
                 <text>Газон</text>
             </label>
-            <linked-domain-objects-table id="lawnValue" modal-width="600px" modal-height="400px">
+            <linked-domain-objects-table id="lawnValue" modal-width="1000px" modal-height="750px">
                 <field-path value="gard_lawn^inventory_id" on-root-delete="unlink"/>
 
                 <linked-form name="gard_lawn_form" inline="true"
@@ -1002,7 +1004,7 @@
             <label id="parterreLabel">
                 <text>Цветник</text>
             </label>
-            <linked-domain-objects-table id="parterreValue" modal-width="600px" modal-height="400px">
+            <linked-domain-objects-table id="parterreValue" modal-width="1000px" modal-height="750px">
                 <field-path value="gard_parterre^inventory_id" on-root-delete="unlink"/>
 
                 <linked-form name="gard_parterre_form" inline="true"
@@ -1027,7 +1029,7 @@
             <label id="treeLabel">
                 <text>Дерево</text>
             </label>
-            <linked-domain-objects-table id="treeValue" modal-width="600px" modal-height="400px">
+            <linked-domain-objects-table id="treeValue" modal-width="1000px" modal-height="750px">
                 <field-path value="gard_tree^inventory_id" on-root-delete="unlink"/>
 
                 <linked-form name="gard_tree_form" inline="true"
@@ -1052,7 +1054,7 @@
             <label id="verticalLabel">
                 <text>Вертикальное озеленение</text>
             </label>
-            <linked-domain-objects-table id="verticalValue" modal-width="600px" modal-height="400px">
+            <linked-domain-objects-table id="verticalValue" modal-width="1000px" modal-height="750px">
                 <field-path value="gard_vertical^inventory_id" on-root-delete="unlink"/>
 
                 <linked-form name="gard_vertical_form" inline="true"
@@ -1075,7 +1077,7 @@
             <label id="playgroundEquipmentLabel">
                 <text>Оснащения детских площадок</text>
             </label>
-            <linked-domain-objects-table id="playgroundEquipmentValue" modal-width="600px" modal-height="400px">
+            <linked-domain-objects-table id="playgroundEquipmentValue" modal-width="1000px" modal-height="750px">
                 <field-path value="maf_playground_equipment^inventory_id" on-root-delete="unlink"/>
 
                 <linked-form name="maf_playground_equipment_form" inline="true"
@@ -1112,7 +1114,7 @@
             <label id="trashCanLabel">
                 <text>Накопитель ТКО</text>
             </label>
-            <linked-domain-objects-table id="trashCanValue" modal-width="600px" modal-height="400px">
+            <linked-domain-objects-table id="trashCanValue" modal-width="1000px" modal-height="750px">
                 <field-path value="maf_trash_can^inventory_id" on-root-delete="unlink"/>
 
                 <linked-form name="maf_trash_can_form" inline="true"
@@ -1131,7 +1133,7 @@
                     </summary-table-column>
 
                     <summary-table-column header="Состояние покрытия" widget-id="trashCanCoatingStateValue">
-                        <pattern value="{state_coating_trash}"/>
+                        <pattern value="{state_coating}"/>
                     </summary-table-column>
 
                     <summary-table-column header="Состояние объекта" widget-id="trashCanStateValue">
@@ -1146,7 +1148,7 @@
             <label id="benchesLabel">
                 <text>Скамья</text>
             </label>
-            <linked-domain-objects-table id="benchesValue" modal-width="600px" modal-height="400px">
+            <linked-domain-objects-table id="benchesValue" modal-width="1000px" modal-height="750px">
                 <field-path value="maf_benches^inventory_id" on-root-delete="unlink"/>
 
                 <linked-form name="maf_benches_form" inline="true"
@@ -1183,7 +1185,7 @@
             <label id="tablesLabel">
                 <text>Стол</text>
             </label>
-            <linked-domain-objects-table id="tablesValue" modal-width="600px" modal-height="400px">
+            <linked-domain-objects-table id="tablesValue" modal-width="1000px" modal-height="750px">
                 <field-path value="maf_tables^inventory_id" on-root-delete="unlink"/>
 
                 <linked-form name="maf_tables_form" inline="true"
@@ -1217,7 +1219,7 @@
             <label id="canopiesLabel">
                 <text>Навес</text>
             </label>
-            <linked-domain-objects-table id="canopiesValue" modal-width="600px" modal-height="400px">
+            <linked-domain-objects-table id="canopiesValue" modal-width="1000px" modal-height="750px">
                 <field-path value="maf_canopies^inventory_id" on-root-delete="unlink"/>
 
                 <linked-form name="maf_canopies_form" inline="true"
@@ -1243,7 +1245,7 @@
             <label id="fountainsLabel">
                 <text>Фонтан</text>
             </label>
-            <linked-domain-objects-table id="fountainsValue" modal-width="600px" modal-height="400px">
+            <linked-domain-objects-table id="fountainsValue" modal-width="1000px" modal-height="750px">
                 <field-path value="maf_fountains^inventory_id" on-root-delete="unlink"/>
 
                 <linked-form name="maf_fountains_form" inline="true"
@@ -1269,7 +1271,7 @@
             <label id="pavilionsLabel">
                 <text>Беседка</text>
             </label>
-            <linked-domain-objects-table id="pavilionsValue" modal-width="600px" modal-height="400px">
+            <linked-domain-objects-table id="pavilionsValue" modal-width="1000px" modal-height="750px">
                 <field-path value="maf_pavilions^inventory_id" on-root-delete="unlink"/>
 
                 <linked-form name="maf_pavilions_form" inline="true"
@@ -1295,7 +1297,7 @@
             <label id="sportEquipmentLabel">
                 <text>Спортивный инвентарь</text>
             </label>
-            <linked-domain-objects-table id="sportEquipmentValue" modal-width="600px" modal-height="400px">
+            <linked-domain-objects-table id="sportEquipmentValue" modal-width="1000px" modal-height="750px">
                 <field-path value="maf_sport_equipments^inventory_id" on-root-delete="unlink"/>
 
                 <linked-form name="maf_sport_equipments_form" inline="true"
@@ -1317,7 +1319,7 @@
             <label id="terracesLabel">
                 <text>Терасса</text>
             </label>
-            <linked-domain-objects-table id="terracesValue" modal-width="600px" modal-height="400px">
+            <linked-domain-objects-table id="terracesValue" modal-width="1000px" modal-height="750px">
                 <field-path value="maf_terraces^inventory_id" on-root-delete="unlink"/>
 
                 <linked-form name="maf_terraces_form" inline="true"
@@ -1342,7 +1344,7 @@
             <label id="bicycleParkingLabel">
                 <text>Велопарковки</text>
             </label>
-            <linked-domain-objects-table id="bicycleParkingValue" modal-width="600px" modal-height="400px">
+            <linked-domain-objects-table id="bicycleParkingValue" modal-width="1000px" modal-height="750px">
                 <field-path value="pl_bicycle_parking^inventory_id" on-root-delete="unlink"/>
 
                 <linked-form name="pl_bicycle_parking_form" inline="true"
@@ -1368,7 +1370,7 @@
             <label id="bicycleRoadLabel">
                 <text>Велодорожка</text>
             </label>
-            <linked-domain-objects-table id="bicycleRoadValue" modal-width="600px" modal-height="400px">
+            <linked-domain-objects-table id="bicycleRoadValue" modal-width="1000px" modal-height="750px">
                 <field-path value="pl_bicycle_road^inventory_id" on-root-delete="unlink"/>
 
                 <linked-form name="pl_bicycle_road_form" inline="true"
@@ -1393,7 +1395,7 @@
             <label id="carParkingLabel">
                 <text>Автопарковка</text>
             </label>
-            <linked-domain-objects-table id="carParkingValue" modal-width="600px" modal-height="400px">
+            <linked-domain-objects-table id="carParkingValue" modal-width="1000px" modal-height="750px">
                 <field-path value="pl_car_parking^inventory_id" on-root-delete="unlink"/>
 
                 <linked-form name="pl_car_parking_form" inline="true"
@@ -1431,7 +1433,7 @@
             <label id="containerSquareLabel">
                 <text>Контейнерная площадка</text>
             </label>
-            <linked-domain-objects-table id="containerSquareValue" modal-width="600px" modal-height="400px">
+            <linked-domain-objects-table id="containerSquareValue" modal-width="1000px" modal-height="750px">
                 <field-path value="pl_container_square^inventory_id" on-root-delete="unlink"/>
 
                 <linked-form name="pl_container_square_form" inline="true"
@@ -1465,7 +1467,7 @@
             <label id="dogWalkingAreaLabel">
                 <text>Площадка для выгула собак</text>
             </label>
-            <linked-domain-objects-table id="dogWalkingAreaValue" modal-width="600px" modal-height="400px">
+            <linked-domain-objects-table id="dogWalkingAreaValue" modal-width="1000px" modal-height="750px">
                 <field-path value="pl_dog_walking_area^inventory_id" on-root-delete="unlink"/>
 
                 <linked-form name="pl_dog_walking_area_form" inline="true"
@@ -1488,7 +1490,7 @@
             <label id="playgroundLabel">
                 <text>Детская площадка</text>
             </label>
-            <linked-domain-objects-table id="playgroundValue" modal-width="600px" modal-height="400px">
+            <linked-domain-objects-table id="playgroundValue" modal-width="1000px" modal-height="750px">
                 <field-path value="pl_playground^inventory_id" on-root-delete="unlink"/>
 
                 <linked-form name="pl_playground_form" inline="true"
@@ -1514,7 +1516,7 @@
             <label id="sidewalkLabel">
                 <text>Тротуар</text>
             </label>
-            <linked-domain-objects-table id="sidewalkValue" modal-width="600px" modal-height="400px">
+            <linked-domain-objects-table id="sidewalkValue" modal-width="1000px" modal-height="750px">
                 <field-path value="pl_sidewalk^inventory_id" on-root-delete="unlink"/>
 
                 <linked-form name="pl_sidewalk_form" inline="true"
@@ -1540,7 +1542,7 @@
             <label id="sportGroundLabel">
                 <text>Спортивная площадка</text>
             </label>
-            <linked-domain-objects-table id="sportGroundValue" modal-width="600px" modal-height="400px">
+            <linked-domain-objects-table id="sportGroundValue" modal-width="1000px" modal-height="750px">
                 <field-path value="pl_sport_ground^inventory_id" on-root-delete="unlink"/>
 
                 <linked-form name="pl_sport_ground_form" inline="true"
@@ -1566,7 +1568,7 @@
             <label id="yardPassageLabel">
                 <text>Дворовой проезд</text>
             </label>
-            <linked-domain-objects-table id="yardPassageValue" modal-width="600px" modal-height="400px">
+            <linked-domain-objects-table id="yardPassageValue" modal-width="1000px" modal-height="750px">
                 <field-path value="pl_yard_passage^inventory_id" on-root-delete="unlink"/>
 
                 <linked-form name="pl_yard_passage_form" inline="true"
@@ -1594,7 +1596,7 @@
             <label id="barrierLabel">
                 <text>Устройство преграждения пути</text>
             </label>
-            <linked-domain-objects-table id="barrierValue" modal-width="600px" modal-height="400px">
+            <linked-domain-objects-table id="barrierValue" modal-width="1000px" modal-height="750px">
                 <field-path value="other_barrier^inventory_id" on-root-delete="unlink"/>
 
                 <linked-form name="other_barrier_form" inline="true"
@@ -1627,7 +1629,7 @@
             <label id="fencesLabel">
                 <text>Ограждение</text>
             </label>
-            <linked-domain-objects-table id="fencesValue" modal-width="600px" modal-height="400px">
+            <linked-domain-objects-table id="fencesValue" modal-width="1000px" modal-height="750px">
                 <field-path value="other_fences^inventory_id" on-root-delete="unlink"/>
 
                 <linked-form name="others_fences_form" inline="true"
@@ -1660,7 +1662,7 @@
             <label id="informationStandLabel">
                 <text>Информационный стенд</text>
             </label>
-            <linked-domain-objects-table id="informationStandValue" modal-width="600px" modal-height="400px">
+            <linked-domain-objects-table id="informationStandValue" modal-width="1000px" modal-height="750px">
                 <field-path value="other_information_stand^inventory_id" on-root-delete="unlink"/>
 
                 <linked-form name="others_information_stand_form" inline="true"
@@ -1681,7 +1683,7 @@
             <label id="lightingDeviceLabel">
                 <text>Светильник</text>
             </label>
-            <linked-domain-objects-table id="lightingDeviceValue" modal-width="600px" modal-height="400px">
+            <linked-domain-objects-table id="lightingDeviceValue" modal-width="1000px" modal-height="750px">
                 <field-path value="other_lighting_device^inventory_id" on-root-delete="unlink"/>
 
                 <linked-form name="others_lighting_device_form" inline="true"
@@ -1714,7 +1716,7 @@
             <label id="pondLabel">
                 <text>Водоем</text>
             </label>
-            <linked-domain-objects-table id="pondValue" modal-width="600px" modal-height="400px">
+            <linked-domain-objects-table id="pondValue" modal-width="1000px" modal-height="750px">
                 <field-path value="other_pond^inventory_id" on-root-delete="unlink"/>
 
                 <linked-form name="others_pond_form" inline="true"
@@ -1735,7 +1737,7 @@
             <label id="powerPylonLabel">
                 <text>Опора ЛЭП</text>
             </label>
-            <linked-domain-objects-table id="powerPylonValue" modal-width="600px" modal-height="400px">
+            <linked-domain-objects-table id="powerPylonValue" modal-width="1000px" modal-height="750px">
                 <field-path value="other_power_pylon^inventory_id" on-root-delete="unlink"/>
 
                 <linked-form name="others_power_pylon_form" inline="true"
@@ -1761,7 +1763,7 @@
             <label id="rampantLabel">
                 <text>Пандус</text>
             </label>
-            <linked-domain-objects-table id="rampantValue" modal-width="600px" modal-height="400px">
+            <linked-domain-objects-table id="rampantValue" modal-width="1000px" modal-height="750px">
                 <field-path value="other_rampant^inventory_id" on-root-delete="unlink"/>
 
                 <linked-form name="others_rampant_form" inline="true"
@@ -1795,7 +1797,7 @@
             <label id="undergroundHatchLabel">
                 <text>Люки подземных коммуникаций</text>
             </label>
-            <linked-domain-objects-table id="undergroundHatchValue" modal-width="600px" modal-height="400px">
+            <linked-domain-objects-table id="undergroundHatchValue" modal-width="1000px" modal-height="750px">
                 <field-path value="other_underground_hatch^inventory_id" on-root-delete="unlink"/>
 
                 <linked-form name="others_underground_hatch_form" inline="true"
@@ -1995,7 +1997,7 @@
             <!--<suggest-box id="territoryLink">-->
                 <!--<field-path value="territory_id" on-root-delete="unlink"/>-->
                 <!--<collection-ref name="ter_collection"/>-->
-                <!--<input-text-filter name="byTerritoryName"/>-->
+                <!--<input-text-filter name="byName"/>-->
                 <!--<drop-down-pattern value="{name}"/>-->
                 <!--<selection-pattern value="{name}"/>-->
                 <!--<page-size>30</page-size>-->

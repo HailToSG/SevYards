@@ -45,7 +45,6 @@ public class InventoryCreateVisibilityChecker implements ActionVisibilityChecker
                     }
                 }
             }
-            return true;
         }
         return true;
     }

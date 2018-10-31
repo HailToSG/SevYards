@@ -42,7 +42,7 @@
         <dependency>
             <groupId>ru.intertrust.cm-sochi</groupId>
             <artifactId>gui-client-impl</artifactId>
-            <version>0.6.4-5</version>
+            <version>0.6.4-8</version>
             <scope>compile</scope>
         </dependency>
         <dependency>

@@ -56,6 +56,13 @@ public class CustomModuleConstants {
          "territory_id"
     };
 
+    public static final String[] IMPORT_COMMON_FIELD_LIST = {
+            "do_type",
+            "id",
+            "updated_date",
+            "status"
+    };
+
     public static final String[] LINKED_DO_TYPES = {
             "rightholder",
             "build_residential",

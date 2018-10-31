@@ -13,18 +13,6 @@
             <act:action componentName="close.in.central.panel.action" text="Закрыть" tooltip="Закрыть"
                         rendered="toggle-edit and not preview"
                         imageClass="actionBar-close"/>
-            <act:simple-action name="export" action-handler="territories.json.exporter" componentName="simple.action"
-                               text="Экспортировать все территории" dirtySensitivity="false" imageClass="actionBar-csvUpload"
-                               order="994"   visibility-checker="inventory.json.uploader.visibility.checker">
-
-                <act:before-execution>
-                    <act:confirmation-message text="Экспортировать все территории в JSON?"/>
-                </act:before-execution>
-
-                <act:after-execution>
-                    <act:on-success-message text="Территории экспортированы"/>
-                </act:after-execution>
-            </act:simple-action>
             <act:simple-action name="safeDelete" action-handler="objects.safe.remove.handler" componentName="simple.action"
                                text="Удалить объект" dirtySensitivity="false" imageClass="actionBar-close"
                                rendered="(not toggle-edit and not preview)  or (toggle-edit and preview)"
@@ -50,6 +38,18 @@
 
                 <act:after-execution>
                     <act:on-success-message text="Объект восстановлен"/>
+                </act:after-execution>
+            </act:simple-action>
+            <act:simple-action name="export" action-handler="territories.json.exporter" componentName="simple.action"
+                               text="Экспортировать данные" dirtySensitivity="false" imageClass="actionBar-csvUpload"
+                               order="994" visibility-checker="inventory.json.uploader.visibility.checker">
+
+                <act:before-execution>
+                    <act:confirmation-message text="Экспортировать данные в JSON?"/>
+                </act:before-execution>
+
+                <act:after-execution>
+                    <act:on-success-message text="Данные экспортированы"/>
                 </act:after-execution>
             </act:simple-action>
         </act:tool-bar>

@@ -6,9 +6,21 @@
     <!--Доменный объект "Территория"-->
     <domain-object-type name="ter_territory" initial-status="Exists">
         <fields>
-            <string name="name" length="100"/>
-            <string name="number" length="100"/>
-            <long name="territory_type"/>
+            <string name="name" length="100">
+                <constraints>
+                    <simple-constraint value="not-empty"/>
+                </constraints>
+            </string>
+            <string name="number" length="100">
+                <constraints>
+                    <simple-constraint value="not-empty"/>
+                </constraints>
+            </string>
+            <long name="territory_type">
+                <constraints>
+                    <simple-constraint value="not-empty"/>
+                </constraints>
+            </long>
         </fields>
     </domain-object-type>
 

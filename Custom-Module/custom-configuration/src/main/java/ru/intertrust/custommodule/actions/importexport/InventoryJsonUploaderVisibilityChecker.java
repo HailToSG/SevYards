@@ -24,14 +24,26 @@ public class InventoryJsonUploaderVisibilityChecker implements ActionVisibilityC
 
     @Override
     public boolean isVisible(ActionVisibilityContext context) {
+        Id contextTerritoryId = context.getDomainObject().getId();
+        DomainObject dObj = context.getDomainObject();
         StatusSetter statusSetter = new StatusSetter();
-        List<Value> params = new ArrayList<>();
-        params.add(new ReferenceValue
-                (statusSetter.getStatusIdByName(CustomModuleConstants.STATUS_DRAFT, collectionsService)));
-        IdentifiableObjectCollection draftInventoriesCollection = collectionsService
-                .findCollectionByQuery(CustomModuleConstants.QUERY_INVENTORIES_BY_STATUS, params);
+        List<DomainObject> allInventoriesList = crudService.findAll("inventory");
+        List<DomainObject> inventoriesByTerritory = new ArrayList<>();
+        if(dObj!=null && !dObj.isNew()) {
+            for (DomainObject object : allInventoriesList) {
+                if (object.getReference(CustomModuleConstants.TERRITORY_LINKED_FIELD).equals(contextTerritoryId)) {
+                    inventoriesByTerritory.add(object);
+                }
+            }
 
-        return (draftInventoriesCollection != null & draftInventoriesCollection.size()>0);
+            for (DomainObject object : inventoriesByTerritory) {
+                if (object.getReference("status").equals(statusSetter.getStatusIdByName(
+                        CustomModuleConstants.STATUS_DRAFT, collectionsService))) {
+                    return true;
+                }
+            }
+        }
+        return false;
 
     }
 }

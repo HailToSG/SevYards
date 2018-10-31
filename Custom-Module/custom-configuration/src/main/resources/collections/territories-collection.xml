@@ -4,7 +4,9 @@
     <collection name="ter_collection" idField="id">
         <prototype>
             <![CDATA[
-            SELECT
+            select id, type, name, number, status_description, inventories
+            from
+            (SELECT
               territory.id                  AS id,
                     case
                       when territory.territory_type = 0 then 'Общественная территория'
@@ -18,15 +20,30 @@
              (SELECT COUNT(*) FROM inventory WHERE territory.id = territory_id) AS inventories
 
             FROM ter_territory territory
-            INNER JOIN status stat ON stat.id = territory.status
+            INNER JOIN status stat ON stat.id = territory.status) as tercol
             WHERE
               1=1 ::where-clause
             ]]>
         </prototype>
-        <filter name="byTerritoryName">
+        <filter name="byType">
+            <criteria placeholder="where-clause">
+                <![CDATA[
+                    LOWER(type) LIKE LOWER('%' || {0} || '%')
+                ]]>
+            </criteria>
+        </filter>
+
+        <filter name="byName">
             <criteria placeholder="where-clause">
                 <![CDATA[
                     LOWER(name) LIKE LOWER('%' || {0} || '%')
+                ]]>
+            </criteria>
+        </filter>
+        <filter name="byNumber">
+            <criteria placeholder="where-clause">
+                <![CDATA[
+                    LOWER(number) LIKE LOWER('%' || {0} || '%')
                 ]]>
             </criteria>
         </filter>
@@ -35,11 +52,11 @@
     <collection-view name="ter_collection_view" collection="ter_collection" is-default="false">
         <display>
             <column field="type" name="Тип территории" type="string" editable="false" sortable="true"
-                    min-width="50px" text-break-style="cut" />
+                    min-width="50px" text-break-style="cut" search-filter="byType"/>
             <column field="name" name="Имя" type="string" editable="false"
-                    sortable="true" min-width="50px" text-break-style="cut"/>
+                    sortable="true" min-width="50px" text-break-style="cut" search-filter="byName"/>
             <column field="number" name="Номер" type="string" editable="false"
-                    sortable="true" min-width="50px" text-break-style="cut"/>
+                    sortable="true" min-width="50px" text-break-style="cut" search-filter="byNumber"/>
             <column field="status_description" name="Статус объекта" type="string" editable="false"
                     sortable="true" min-width="50px" text-break-style="cut"/>
             <column field="inventories" name="Инвентаризации" type="integer" editable="false" sortable="true"

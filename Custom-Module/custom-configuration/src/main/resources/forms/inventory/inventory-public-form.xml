@@ -651,7 +651,7 @@
             <suggest-box id="territoryLink">
                 <field-path value="territory_id" on-root-delete="unlink"/>
                 <collection-ref name="ter_collection"/>
-                <input-text-filter name="byTerritoryName"/>
+                <input-text-filter name="byName"/>
                 <drop-down-pattern value="{name}"/>
                 <selection-pattern value="{name}"/>
                 <page-size>30</page-size>
@@ -1061,7 +1061,7 @@
                     </summary-table-column>
 
                     <summary-table-column header="Состояние покрытия" widget-id="trashCanCoatingStateValue">
-                        <pattern value="{state_coating_trash}"/>
+                        <pattern value="{state_coating}"/>
                     </summary-table-column>
 
                     <summary-table-column header="Состояние объекта" widget-id="trashCanStateValue">
