@@ -124,7 +124,7 @@
                 <text>Инфо об объекте</text>
             </label>
             <text-area id="residentialInfoValue">
-                <field-path value="info"/>
+                <field-path value="object_info"/>
             </text-area>
 
             <!-- Вид жилого здания-->

@@ -19,6 +19,7 @@ import org.springframework.beans.factory.annotation.*;
 import ru.intertrust.custommodule.actions.actionhandlers.StatusSetter;
 import ru.intertrust.custommodule.actions.constants.CustomModuleConstants;
 
+import javax.inject.Inject;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -33,13 +34,13 @@ public class InventoryJsonLoaderActionHandler extends ActionHandler<SimpleAction
     private static String outPath;
     private static DomainObject doObject;
 
-    @Autowired
+    @Inject
     private AttachmentService attachmentService;
 
-    @Autowired
+    @Inject
     private CrudService crudService;
 
-    @Autowired
+    @Inject
     private CollectionsService collectionService;
 
     @Value("${attachment.storage}")
@@ -111,12 +112,13 @@ public class InventoryJsonLoaderActionHandler extends ActionHandler<SimpleAction
 
         if (!linkedObjectList.isEmpty())
             for (LinkedTreeMap<String, ?> linkedObject : linkedObjectList) {
-                List<String> commonFields = Arrays.asList(CustomModuleConstants.IMPORT_COMMON_FIELD_LIST);
                 StatusSetter statusSetter = new StatusSetter();
-                int iterator = 4;
+                int iterator = 0;
                 isDoSaved = false;
                 isNew = true;
                 doType = (String) linkedObject.get("do_type");
+                linkedObject.remove("do_type");
+
                 doIdString = (String) linkedObject.get("id");
                 if (!doIdString.equals("0") && doIdString.length() > 15) {
                     doId.setFromStringRepresentation(doIdString);
@@ -131,6 +133,8 @@ public class InventoryJsonLoaderActionHandler extends ActionHandler<SimpleAction
                     isDoSaved = true;
                     isNew = false;
                 }
+                linkedObject.remove("id");
+
                 if (!isNew) {
                     Timestamp jsonTimeStamp = Timestamp.valueOf((String) linkedObject.get("updated_date"));
                     Timestamp modifiedDate = new Timestamp(doObject.getModifiedDate().getTime());
@@ -138,52 +142,55 @@ public class InventoryJsonLoaderActionHandler extends ActionHandler<SimpleAction
                         continue;
                     }
                 }
-                if (linkedObject.get("status") != null && linkedObject.get("status").equals("Deleted")) {
-                    doObject.setReference("status", statusSetter.getStatusIdByName(
-                            CustomModuleConstants.STATUS_DELETED, collectionService));
-                    continue;
+                linkedObject.remove("updated_date");
+
+                if (linkedObject.get("status") != null) {
+                    if (linkedObject.get("status").equals("Deleted")) {
+                        doObject.setReference("status", statusSetter.getStatusIdByName(
+                                CustomModuleConstants.STATUS_DELETED, collectionService));
+                        continue;
+                    }
+                    linkedObject.remove("deleted");
                 }
 
                 if (!linkedObject.isEmpty())
                     for (Map.Entry<String, ?> entry : linkedObject.entrySet()) {
-                        if (!commonFields.contains(entry.getKey())) {
-                            if (entry.getKey().contains("_photo") && !isDoSaved)
-                                doObject = crudService.save(doObject);
+                        if (entry.getKey().contains("_photo") && !isDoSaved)
+                            doObject = crudService.save(doObject);
 
-                            if (!(entry.getKey().contains("_photo"))) {
+                        if (!(entry.getKey().contains("_photo"))) {
 
-                                if (entry.getKey().equals("can_capacity")) {
-                                    doObject.setDecimal(entry.getKey(), new BigDecimal((Double) entry.getValue())
-                                            .setScale(1, BigDecimal.ROUND_HALF_UP));
-                                    iterator++;
-                                    continue;
-                                }
-
-                                switch ((entry.getValue()).getClass().getName()) {
-                                    case "java.lang.Double":
-                                        doObject.setLong(entry.getKey(), ((Double) entry.getValue()).longValue());
-                                        iterator++;
-                                        break;
-                                    case "java.lang.Boolean":
-                                        doObject.setBoolean(entry.getKey(), (Boolean) entry.getValue());
-                                        iterator++;
-                                        break;
-                                    default:
-                                        doObject.setString(entry.getKey(), (String) entry.getValue());
-                                        iterator++;
-                                        break;
-                                }
-                                if (!isDoSaved && iterator == linkedObject.entrySet().size()) {
-                                    doObject = crudService.save(doObject);
-                                    isDoSaved = true;
-                                }
+                            if (entry.getKey().equals("can_capacity")) {
+                                doObject.setDecimal(entry.getKey(), new BigDecimal((Double) entry.getValue())
+                                        .setScale(1, BigDecimal.ROUND_HALF_UP));
+                                iterator++;
                                 continue;
                             }
 
-                            if (entry.getKey().contains("_photo"))
-                                parseAttachments((List<LinkedTreeMap<String, String>>) entry.getValue(),
-                                        entry.getKey(), doObject.getId(), doType);
+                            switch ((entry.getValue()).getClass().getName()) {
+                                case "java.lang.Double":
+                                    doObject.setLong(entry.getKey(), ((Double) entry.getValue()).longValue());
+                                    iterator++;
+                                    break;
+                                case "java.lang.Boolean":
+                                    doObject.setBoolean(entry.getKey(), (Boolean) entry.getValue());
+                                    iterator++;
+                                    break;
+                                default:
+                                    doObject.setString(entry.getKey(), (String) entry.getValue());
+                                    iterator++;
+                                    break;
+                            }
+                            if (!isDoSaved && iterator == linkedObject.entrySet().size()) {
+                                doObject = crudService.save(doObject);
+                                isDoSaved = true;
+                            }
+                            continue;
                         }
+
+                        if (entry.getKey().contains("_photo"))
+                            parseAttachments((List<LinkedTreeMap<String, String>>) entry.getValue(),
+                                    entry.getKey(), doObject.getId(), doType);
                     }
             }
     }
