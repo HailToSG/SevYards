@@ -71,8 +71,8 @@
                 </constraints>
             </long>
 
-            <!--поле информации-->
-            <text name="object_info" />
+            <!--&lt;!&ndash;поле информации&ndash;&gt;-->
+            <!--<text name="object_info"/>-->
 
             <!--Ссылка на id территории -->
             <reference name="territory_id" type="ter_territory">

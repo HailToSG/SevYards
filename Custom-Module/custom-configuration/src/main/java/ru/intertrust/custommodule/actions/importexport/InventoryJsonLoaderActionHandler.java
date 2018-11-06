@@ -13,6 +13,7 @@ import ru.intertrust.cm.core.business.api.dto.Id;
 import ru.intertrust.cm.core.business.api.dto.impl.RdbmsId;
 import ru.intertrust.cm.core.gui.api.server.action.ActionHandler;
 import ru.intertrust.cm.core.gui.model.ComponentName;
+import ru.intertrust.cm.core.gui.model.GuiException;
 import ru.intertrust.cm.core.gui.model.action.SimpleActionContext;
 import ru.intertrust.cm.core.gui.model.action.SimpleActionData;
 import org.springframework.beans.factory.annotation.*;
@@ -55,7 +56,7 @@ public class InventoryJsonLoaderActionHandler extends ActionHandler<SimpleAction
                 .findAttachmentDomainObjectsFor(inventoryDoId, CustomModuleConstants.INVENTORY_JSON_ATTACHMENTS_FIELD);
 
         if (attachmentsList.isEmpty())
-            return new SimpleActionData();
+            throw new GuiException("Вложение не должно быть пустым!");
         else {
             DomainObject attachmentDO = attachmentsList.get(0);
             String filePath = attachmentSaveLocation + "\\" + attachmentDO.getString(
@@ -104,6 +105,7 @@ public class InventoryJsonLoaderActionHandler extends ActionHandler<SimpleAction
     private void parseInventoryWithLinkedObjects(DomainObject inventoryDo, Territory territory) {
         boolean isDoSaved;
         boolean isNew;
+        boolean hasPhotos;
         String doType;
         String doIdString;
         String defaultIdString = "5089000000000000";
@@ -113,13 +115,12 @@ public class InventoryJsonLoaderActionHandler extends ActionHandler<SimpleAction
         if (!linkedObjectList.isEmpty())
             for (LinkedTreeMap<String, ?> linkedObject : linkedObjectList) {
                 StatusSetter statusSetter = new StatusSetter();
-                int iterator = 0;
                 isDoSaved = false;
                 isNew = true;
-                doType = (String) linkedObject.get("do_type");
-                linkedObject.remove("do_type");
+                String photoField = null;
+                doType = (String) linkedObject.remove("do_type");
 
-                doIdString = (String) linkedObject.get("id");
+                doIdString = (String) linkedObject.remove("id");
                 if (!doIdString.equals("0") && doIdString.length() > 15) {
                     doId.setFromStringRepresentation(doIdString);
                 } else
@@ -133,115 +134,94 @@ public class InventoryJsonLoaderActionHandler extends ActionHandler<SimpleAction
                     isDoSaved = true;
                     isNew = false;
                 }
-                linkedObject.remove("id");
-
+                Timestamp jsonTimeStamp = Timestamp.valueOf((String) linkedObject.remove("updated_date"));
                 if (!isNew) {
-                    Timestamp jsonTimeStamp = Timestamp.valueOf((String) linkedObject.get("updated_date"));
                     Timestamp modifiedDate = new Timestamp(doObject.getModifiedDate().getTime());
                     if (modifiedDate.after(jsonTimeStamp)) {
                         continue;
                     }
                 }
-                linkedObject.remove("updated_date");
 
                 if (linkedObject.get("status") != null) {
-                    if (linkedObject.get("status").equals("Deleted")) {
+                    if (linkedObject.remove("status").equals("Deleted")) {
                         doObject.setReference("status", statusSetter.getStatusIdByName(
                                 CustomModuleConstants.STATUS_DELETED, collectionService));
                         continue;
                     }
-                    linkedObject.remove("deleted");
+                }
+                for (String s : linkedObject.keySet()) {
+                    if (s.contains("_photo")) {
+                        photoField = s;
+                    }
                 }
 
                 if (!linkedObject.isEmpty())
                     for (Map.Entry<String, ?> entry : linkedObject.entrySet()) {
-                        if (entry.getKey().contains("_photo") && !isDoSaved)
-                            doObject = crudService.save(doObject);
-
                         if (!(entry.getKey().contains("_photo"))) {
-
                             if (entry.getKey().equals("can_capacity")) {
                                 doObject.setDecimal(entry.getKey(), new BigDecimal((Double) entry.getValue())
                                         .setScale(1, BigDecimal.ROUND_HALF_UP));
-                                iterator++;
                                 continue;
                             }
 
                             switch ((entry.getValue()).getClass().getName()) {
                                 case "java.lang.Double":
                                     doObject.setLong(entry.getKey(), ((Double) entry.getValue()).longValue());
-                                    iterator++;
                                     break;
                                 case "java.lang.Boolean":
                                     doObject.setBoolean(entry.getKey(), (Boolean) entry.getValue());
-                                    iterator++;
                                     break;
                                 default:
                                     doObject.setString(entry.getKey(), (String) entry.getValue());
-                                    iterator++;
                                     break;
-                            }
-                            if (!isDoSaved && iterator == linkedObject.entrySet().size()) {
-                                doObject = crudService.save(doObject);
-                                isDoSaved = true;
                             }
                             continue;
                         }
-
-                        if (entry.getKey().contains("_photo"))
-                            parseAttachments((List<LinkedTreeMap<String, String>>) entry.getValue(),
-                                    entry.getKey(), doObject.getId(), doType);
+                        if (!isDoSaved) {
+                            doObject = crudService.save(doObject);
+                                parseAttachments((List<LinkedTreeMap<String, String>>) linkedObject.get(photoField),
+                                        photoField, doObject.getId(), doType);
+                        }
+                        else {
+                                parseAttachments((List<LinkedTreeMap<String, String>>) linkedObject.get(photoField),
+                                        photoField, doObject.getId(), doType);
+                        }
                     }
             }
     }
 
     private void parseAttachments(List<LinkedTreeMap<String, String>> attachmentList,
                                   String attachType, Id doReference, String doType) {
-        DomainObject attachDo = new GenericDomainObject(doType);
+        DomainObject attachDo;
         Id attachId = new RdbmsId();
-        String attachName = "";
+        String attachName;
         String doIdString;
-        boolean isModified = false;
         String defaultIdString = "5089000000000000";
         if (!attachmentList.isEmpty())
             for (LinkedTreeMap<String, String> attachmentTreeMap : attachmentList) {
-                for (Map.Entry<String, String> attachEntry : attachmentTreeMap.entrySet()) {
-                    if (attachEntry.getKey() == null || attachEntry.getValue() == null)
-                        break;
-                    if (attachEntry.getKey().equals("id")) {
-                        doIdString = attachEntry.getValue();
-                        if (doIdString.equals("0") || doIdString.length() <= 15)
-                            attachId.setFromStringRepresentation(defaultIdString);
-                        else
-                            attachId.setFromStringRepresentation(attachEntry.getValue());
+                doIdString = attachmentTreeMap.remove("id");
+                if (doIdString.equals("0") || doIdString.length() <= 15)
+                    attachId.setFromStringRepresentation(defaultIdString);
+                else
+                    attachId.setFromStringRepresentation(doIdString);
 
-                        if (!(crudService.exists(attachId)))
-                            attachDo = attachmentService.createAttachmentDomainObjectFor(doReference, attachType);
-                        else
-                            attachDo = crudService.find(attachId);
-                        continue;
-                    }
+                if (!(crudService.exists(attachId)))
+                    attachDo = attachmentService.createAttachmentDomainObjectFor(doReference, attachType);
+                else
+                    attachDo = crudService.find(attachId);
 
-                    if (attachEntry.getKey().equals("updated_date")) {
-                        if (!attachDo.isNew()) {
-                            Timestamp modifiedDate = new Timestamp(attachDo.getModifiedDate().getTime());
-                            Timestamp jsonTimestamp = Timestamp.valueOf(attachEntry.getValue());
-                            if (jsonTimestamp.after(modifiedDate))
-                                isModified = true;
-                            break;
-                        }
-                    }
+                Timestamp jsonTimestamp = Timestamp.valueOf(attachmentTreeMap.remove("updated_date"));
+                Timestamp modifiedDate = new Timestamp(attachDo.getModifiedDate().getTime());
 
-                    if (attachEntry.getKey().equals("name")) {
-                        attachName = attachEntry.getValue();
-                    }
+                if (!attachDo.isNew() && jsonTimestamp.after(modifiedDate)) {
+                    continue;
                 }
-                if (!isModified) {
-                    attachDo.setString(CustomModuleConstants.ATTACHMENT_NAME_FIELD, attachName);
-                    attachDo.setString(CustomModuleConstants.ATTACHMENT_MIME_TYPE_FIELD, "image/jpeg");
-                    attachDo.setReference(doType, doReference);
-                    saveAttachDo(attachDo, attachName);
-                }
+
+                attachName = attachmentTreeMap.get("name");
+                attachDo.setString(CustomModuleConstants.ATTACHMENT_NAME_FIELD, attachName);
+                attachDo.setString(CustomModuleConstants.ATTACHMENT_MIME_TYPE_FIELD, "image/jpeg");
+                attachDo.setReference(doType, doReference);
+                saveAttachDo(attachDo, attachName);
             }
     }
 

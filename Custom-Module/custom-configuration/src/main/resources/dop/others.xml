@@ -118,7 +118,7 @@
             </long>
         </fields>
         <attachment-types>
-            <attachment-type name="other_barrier_photo"/>
+            <attachment-type name="barrier_photo"/>
         </attachment-types>
     </domain-object-type>
 

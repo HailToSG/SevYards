@@ -145,7 +145,7 @@
                 <text>Фото</text>
             </label>
             <attachment-box id="othersBarrierPhotoValue">
-                <field-path value="other_barrier_photo^other_barrier"/>
+                <field-path value="barrier_photo^other_barrier"/>
                 <attachment-type-ref name="other_barrier_photo"/>
                 <scanner enabled="true"/>
                 <selection-style name="table"/>

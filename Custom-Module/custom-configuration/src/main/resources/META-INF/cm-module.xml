@@ -112,7 +112,7 @@
         <configuration-path>forms/user-form.xml</configuration-path>
         <configuration-path>forms/user-role-form.xml</configuration-path>
 
-        <!--<configuration-path>configuration/access/access.xml</configuration-path>-->
+        <configuration-path>configuration/access/access.xml</configuration-path>
         <configuration-path>configuration/access/roles-and-groups.xml</configuration-path>
 
 

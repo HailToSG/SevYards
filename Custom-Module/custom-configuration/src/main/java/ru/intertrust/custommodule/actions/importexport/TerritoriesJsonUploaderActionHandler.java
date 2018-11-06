@@ -1,5 +1,4 @@
 package ru.intertrust.custommodule.actions.importexport;
-//TODO узнать где берётся имя и номер территории
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -153,7 +152,6 @@ public class TerritoriesJsonUploaderActionHandler extends ActionHandler<SimpleAc
                     objMap.put("id", dObj.getId().toStringRepresentation());
                     objMap.put("updated_date", new Timestamp(dObj.getModifiedDate().getTime()).toString());
                     for (String field : fields) {
-
                         if (!Arrays.asList(CustomModuleConstants.COMMON_FIELD_LIST).contains(field)) {
                             objMap.put(field, dObj.getValue(field).toString());
                         }
